@@ -1,0 +1,301 @@
+/* GUI strategies at ESS — NOBUGS 2026 GUI Workshop
+   Deck styles. Loaded after vendor/reveal.min.css, so these rules win.
+   Note: several selectors are scoped under .reveal deliberately — reveal ships
+   `.reveal p { margin: 0 }` at (0,1,1), which beats a bare class at (0,1,0). */
+
+:root {
+  /* dark deck: ESS accents lifted so they carry on a near-black ground */
+  --ess-blue:   #4FB8E8;
+  --ess-navy:   #8FB4D4;
+  --ess-green:  #4FC08D;
+  --ess-purple: #C77DD4;
+  --ess-orange: #F0904B;
+  --ess-lime:   #AECB57;
+  --ess-slate:  #9BAEBE;
+
+  --ground:     #0F1A24;
+  --surface:    #17242F;
+  --ink:        #E6EDF3;
+  --ink-soft:   #93A9B8;
+  --hair:       #2B3B49;
+  --tint:       #16293A;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+}
+
+html, body { background: var(--ground); }
+.reveal-viewport { background: var(--ground); }
+
+.reveal {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+.reveal .slides { text-align: left; }
+.reveal .slides section { height: 100%; padding: 0; }
+
+/* ---------- type ---------- */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--font-sans);
+  text-transform: none;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin: 0;
+  color: var(--ink);
+}
+.reveal h1 { font-size: 2.05em; font-weight: 600; line-height: 1.1; }
+.reveal h2 { font-size: 1.36em; font-weight: 600; line-height: 1.15; }
+.reveal p  { margin: 0; line-height: 1.45; }
+.reveal code, .mono { font-family: var(--font-mono); font-size: 0.93em; }
+
+.reveal .subhead {
+  font-size: 0.70em;
+  color: var(--ink-soft);
+  margin-top: 0.5rem;
+  max-width: 100%;      /* one line at slide width; wraps only on a phone */
+}
+
+/* ---------- slide frame ---------- */
+.slide {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 46px 60px 40px;
+  box-sizing: border-box;
+}
+.slide > .head { flex: 0 0 auto; margin-bottom: 26px; }
+.slide > .body { flex: 1 1 auto; min-height: 0; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.50em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ess-blue);
+  margin-bottom: 10px;
+}
+
+/* ---------- cover ---------- */
+.cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 76px;
+  box-sizing: border-box;
+  color: #fff;
+}
+.cover h1 { color: #fff; max-width: 24ch; }
+.cover .rule {
+  width: 84px; height: 4px; background: var(--ess-blue);
+  margin: 30px 0 26px; border-radius: 2px;
+}
+.cover .deck-sub { font-size: 0.78em; font-weight: 600; color: #FFFFFF; max-width: 100%; }
+/* affiliation and conference line share a size; the affiliation sits closer
+   to the name in colour, the conference line stays the quietest thing here */
+.cover .affil,
+.cover .byline { font-size: 0.56em; line-height: 1.7; }
+.cover .affil  { color: var(--ink); }
+.cover .byline { color: #8FB6CF; }
+.cover .affil  { margin-top: 10px; }
+.cover .byline { margin-top: 32px; }
+
+/* ---------- columns ---------- */
+.cols { display: grid; gap: 30px; align-content: start; }
+.cols.two   { grid-template-columns: 1fr 1fr; }
+.cols.three { grid-template-columns: repeat(3, 1fr); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  font-size: 0.60em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ground);
+  margin-bottom: 16px;
+}
+.chip.blue   { background: var(--ess-blue); }
+.chip.navy   { background: var(--ess-navy); }
+.chip.green  { background: var(--ess-green); }
+.chip.purple { background: var(--ess-purple); }
+.chip.orange { background: var(--ess-orange); }
+
+.credit {
+  margin-top: 13px;
+  font-size: 0.47em;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* ---------- grouped technology blocks (slide 3) ---------- */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* Desktop is a row of 3, Web a row of 4 — two stacked bands */
+.group + .group { margin-top: 14px; }
+/* both bands share one 4-column grid so the columns line up across rows */
+.band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start; }
+.band .block + .block { margin-top: 0; }
+.band .block.wide { grid-column: span 2; }
+.group-label {
+  font-family: var(--font-mono);
+  font-size: 0.52em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: 10px;
+}
+.block { --accent: var(--ess-blue); }
+.block + .block { margin-top: 30px; }
+.block.blue   { --accent: var(--ess-blue); }
+.block.navy   { --accent: var(--ess-navy); }
+.block.green  { --accent: var(--ess-green); }
+.block.purple { --accent: var(--ess-purple); }
+.block.orange { --accent: var(--ess-orange); }
+.block.lime   { --accent: var(--ess-lime); }
+.block.slate  { --accent: var(--ess-slate); }
+
+.block-head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+.logo { width: 23px; height: 23px; flex: 0 0 auto; fill: currentColor; }
+.block-name { font-size: 0.68em; font-weight: 600; white-space: nowrap; }
+
+/* what the technology is used for: the software's own logo, then its name */
+.reveal .product {
+  font-size: 0.72em;
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+/* scoped under .reveal so it beats `.reveal p { margin: 0 }` at (0,1,1) */
+.chip-i { width: 0.92em; height: 0.92em; fill: currentColor; flex: 0 0 auto; }
+/* collaborators as a tag row rather than a bullet: one line instead of two, scans faster */
+.reveal .tags {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  font-size: 0.50em; font-family: var(--font-mono); letter-spacing: 0.03em;
+  color: var(--ink-soft); margin-bottom: 11px;
+}
+.tags .tag-i { width: 1.15em; height: 1.15em; fill: var(--ink-soft); flex: 0 0 auto; }
+.tags span { border: 1px solid var(--hair); border-radius: 4px; padding: 2px 7px; }
+.reveal .product .plogo { vertical-align: -4px; margin-left: 8px; }
+
+/* two applications side by side — the illustration for "one shared library" */
+/* fixed image height keeps the pair matched and the captions on the slide */
+/* aligned to the two text columns above; width-constrained so the pair has no stray gutters */
+.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 18px; align-items: start; }
+.shots figure { margin: 0; min-width: 0; }
+.shots img {
+  /* Constrain WIDTH only. On a replaced element `width:auto` means the intrinsic width
+     (1160px here), so it gets clamped by max-width while a fixed height stays put — that
+     is what stretched these ~43%. One dimension set, the other genuinely auto. */
+  display: block; width: 380px; max-width: 100%; height: auto;
+  border-radius: 7px; border: 1px solid var(--hair);
+}
+.reveal .shots figcaption {
+  margin-top: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.45em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.reveal .purl {
+  font-family: var(--font-mono);
+  font-size: 0.545em;
+  line-height: 1.3;
+  color: var(--ink-soft);
+  margin-bottom: 9px;
+  overflow-wrap: anywhere;
+}
+.plogo {
+  height: 20px; width: auto; flex: 0 0 auto; margin-left: 6px;
+}
+
+.block ul { list-style: none; margin: 0; padding: 0; }
+.block li {
+  position: relative;
+  padding-left: 19px;
+  margin-bottom: 8px;
+  font-size: 0.80em;
+  line-height: 1.36;
+  color: var(--ink);
+}
+.block li::before {
+  content: "";
+  position: absolute;
+  left: 1px; top: 0.55em;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.block li em { font-style: normal; font-weight: 600; }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.50em;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 16px 0 8px;
+}
+.col ul { list-style: none; margin: 0; padding: 0; }
+.col li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 15px;
+  font-size: 0.80em;
+  line-height: 1.42;
+  color: var(--ink);
+}
+.col li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 0.56em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ess-blue);
+}
+.col li em { font-style: normal; font-weight: 600; }
+
+/* ---------- callout ---------- */
+.callout {
+  margin-top: 26px;
+  background: var(--tint);
+  border-radius: 12px;
+  padding: 18px 24px;
+  font-size: 0.58em;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.callout strong { color: var(--ess-navy); font-weight: 600; }
+
+/* ---------- figure ---------- */
+figure { margin: 0; height: 100%; display: flex; flex-direction: column; }
+figure svg { width: 100%; height: auto; max-height: 100%; max-width: 100%; flex: 1 1 auto; min-height: 0; }
+
+/* ---------- reveal chrome ---------- */
+.reveal .progress { color: var(--ess-blue); height: 4px; }
+.reveal .controls { color: var(--ess-blue); }
+
+@media (max-width: 500px) {
+  .slide { padding: 26px 20px 24px; }
+  .cover { padding: 0 20px; }
+  .cols.two, .cols.three, .band { grid-template-columns: 1fr; gap: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section { transition: none !important; }
+}
