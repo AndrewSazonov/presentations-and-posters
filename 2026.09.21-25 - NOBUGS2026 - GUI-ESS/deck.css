@@ -1,301 +1,471 @@
 /* GUI strategies at ESS — NOBUGS 2026 GUI Workshop
-   Deck styles. Loaded after vendor/reveal.min.css, so these rules win.
-   Note: several selectors are scoped under .reveal deliberately — reveal ships
-   `.reveal p { margin: 0 }` at (0,1,1), which beats a bare class at (0,1,0). */
+   ==================================================================================================
+   The visual language is the one used by the "Same workflow, different techniques" deck: ESS's
+   identity typeface, one type scale, one blue, one left edge with a blue rule beside the title.
+   The LAYOUT is this deck's own: six dense slides, each a title block ranged from the top with the
+   body filling what is left — no section dividers, no chapter lines, no animation.
+   Loaded after vendor/reveal.min.css, so these rules win. Several selectors are scoped under
+   `.reveal` deliberately — reveal ships `.reveal p { margin: 0 }` at (0,1,1), which beats a bare
+   class at (0,1,0).
+   ================================================================================================== */
 
-:root {
-  /* dark deck: ESS accents lifted so they carry on a near-black ground */
-  --ess-blue:   #4FB8E8;
-  --ess-navy:   #8FB4D4;
-  --ess-green:  #4FC08D;
-  --ess-purple: #C77DD4;
-  --ess-orange: #F0904B;
-  --ess-lime:   #AECB57;
-  --ess-slate:  #9BAEBE;
+/* ESS's identity typeface, per the Visual Identity Manual: Titillium for display and for running
+   text. Embedded (SIL OFL) rather than relied on from the system, so the deck looks the same on a
+   borrowed conference laptop and needs no network. */
+@font-face { font-family: "Titillium Web"; font-weight: 200; font-style: normal;
+             src: url("assets/fonts/TitilliumWeb-ExtraLight.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 300; font-style: normal;
+             src: url("assets/fonts/TitilliumWeb-Light.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 400; font-style: normal;
+             src: url("assets/fonts/TitilliumWeb-Regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 600; font-style: normal;
+             src: url("assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 400; font-style: italic;
+             src: url("assets/fonts/TitilliumWeb-Italic.ttf") format("truetype"); font-display: swap; }
 
-  --ground:     #0F1A24;
-  --surface:    #17242F;
-  --ink:        #E6EDF3;
-  --ink-soft:   #93A9B8;
-  --hair:       #2B3B49;
-  --tint:       #16293A;
-
-  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
-}
-
-html, body { background: var(--ground); }
-.reveal-viewport { background: var(--ground); }
+/* --- the ground reveal's black theme would have given us ---------------------------------------- */
+/* vendor/reveal.min.css is the core only, so the theme's three facts are stated here instead of
+   shipping a whole theme file to override most of it. */
+html, body, .reveal-viewport { background: #191919; }
+/* Regular, not Light. The manual allows either for body text; Light is specified for PRINT body
+   text, and a projector is not print — at 18px on a card it went thin enough to lose its edges on
+   a washed-out beamer. The headings keep Light, which is what still makes the deck read as
+   Titillium rather than as a generic sans. */
+.reveal { font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 400;
+          font-size: 42px; color: #fff; -webkit-font-smoothing: antialiased; }
+.reveal .slides { text-align: left; }
+.reveal a { color: var(--c-blue); text-decoration: none; }
 
 .reveal {
-  font-family: var(--font-sans);
-  font-size: 26px;
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-}
-.reveal .slides { text-align: left; }
-.reveal .slides section { height: 100%; padding: 0; }
+  /* ONE TYPE SCALE. Every size on a slide is one of four steps, declared in px: reveal scales the
+     whole 1360x765 stage, so px inside it are stable, and px do not compound the way nested `em`
+     do. If a component needs a size, it takes one of these. */
+  --fs-title: 55px;   /* the slide's h3 */
+  --fs-md:    25px;   /* the second line under something: the subhead, a card's name */
+  --fs-sm:    20px;   /* a column's label, a chip, a list line on a dense slide */
+  --fs-xs:    18px;   /* one step below, and only INSIDE a box, which already sets its line apart */
 
-/* ---------- type ---------- */
-.reveal h1, .reveal h2, .reveal h3 {
-  font-family: var(--font-sans);
-  text-transform: none;
-  letter-spacing: -0.015em;
-  text-wrap: balance;
-  margin: 0;
-  color: var(--ink);
-}
-.reveal h1 { font-size: 2.05em; font-weight: 600; line-height: 1.1; }
-.reveal h2 { font-size: 1.36em; font-weight: 600; line-height: 1.15; }
-.reveal p  { margin: 0; line-height: 1.45; }
-.reveal code, .mono { font-family: var(--font-mono); font-size: 0.93em; }
+  /* ONE blue, for every key phrase, chip and rule in the deck. Written once: it was a literal in a
+     dozen places, which is how a second blue gets in. */
+  --c-blue: rgb(109, 209, 255);
 
-.reveal .subhead {
-  font-size: 0.70em;
-  color: var(--ink-soft);
-  margin-top: 0.5rem;
-  max-width: 100%;      /* one line at slide width; wraps only on a phone */
-}
+  /* Four values, by job, and the distinction that matters is CONTENT against everything else. A
+     card's own lines are what the room is there to read, so they sit near-white; the draft had them
+     at #E6EDF3 and read better for it. Grey is for text that talks ABOUT something rather than
+     being it — and grey applied to the content itself is what made the boxed version look flat. */
+  --c-text: #e6e8ee;   /* the content: a card's own lines */
+  --c-dim:  #aaa;      /* a line explaining something else: the subhead under a title */
+  --c-mute: #8f8f8f;   /* labels about something: a URL, a caption, a pill */
 
-/* ---------- slide frame ---------- */
-.slide {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 46px 60px 40px;
-  box-sizing: border-box;
-}
-.slide > .head { flex: 0 0 auto; margin-bottom: 26px; }
-.slide > .body { flex: 1 1 auto; min-height: 0; }
+  /* Every box in the deck — a technology card, the shared-library card — is this grey with this
+     edge at this corner, so two bands on one slide show the same object twice. */
+  --c-box:   #252525;
+  --c-edge:  #3d3d3d;
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.50em;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ess-blue);
-  margin-bottom: 10px;
-}
+  /* Four muted hues, one family, used for the pipeline's stages and for the column pills. All sit
+     around the same brightness, so a row of three pills reads as one row. */
+  --h-blue:   #55708c;
+  --h-purple: #75608c;
+  --h-teal:   #558c85;
+  --h-amber:  #8c7355;
+  /* ...and two more for the diagram's supporting boxes, clear of the four above so a
+     stage and a support are never the same colour. */
+  --h-store:  #4FC08D;   /* where the data lands   */
+  --h-reach:  #C77DD4;   /* how it is reached       */
 
-/* ---------- cover ---------- */
-.cover {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  padding: 0 76px;
-  box-sizing: border-box;
-  color: #fff;
-}
-.cover h1 { color: #fff; max-width: 24ch; }
-.cover .rule {
-  width: 84px; height: 4px; background: var(--ess-blue);
-  margin: 30px 0 26px; border-radius: 2px;
-}
-.cover .deck-sub { font-size: 0.78em; font-weight: 600; color: #FFFFFF; max-width: 100%; }
-/* affiliation and conference line share a size; the affiliation sits closer
-   to the name in colour, the conference line stays the quietest thing here */
-.cover .affil,
-.cover .byline { font-size: 0.56em; line-height: 1.7; }
-.cover .affil  { color: var(--ink); }
-.cover .byline { color: #8FB6CF; }
-.cover .affil  { margin-top: 10px; }
-.cover .byline { margin-top: 32px; }
+  /* Inside a list, two gaps and only two. A line and the dimmer line explaining it are ONE item, so
+     they sit close; the next item sits clearly further away. The bigger gap does the grouping. */
+  --gap-pair: 6px;
+  --gap-item: 16px;
 
-/* ---------- columns ---------- */
-.cols { display: grid; gap: 30px; align-content: start; }
-.cols.two   { grid-template-columns: 1fr 1fr; }
-.cols.three { grid-template-columns: repeat(3, 1fr); }
+  /* The rule beside the title block. Its weight is the title's own: Titillium Light at 55px sets a
+     stem 3px solid, so a hairline reads level with the letters at 4px. */
+  --rule: 4px;
+  --rule-gap: 24px;    /* two spaces of the title font */
 
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 15px;
-  border-radius: 999px;
-  font-size: 0.60em;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--ground);
-  margin-bottom: 16px;
-}
-.chip.blue   { background: var(--ess-blue); }
-.chip.navy   { background: var(--ess-navy); }
-.chip.green  { background: var(--ess-green); }
-.chip.purple { background: var(--ess-purple); }
-.chip.orange { background: var(--ess-orange); }
-
-.credit {
-  margin-top: 13px;
-  font-size: 0.47em;
-  line-height: 1.4;
-  color: var(--ink-soft);
+  /* The slide is ranged from ONE left edge and ONE top edge, the way the ESS manual's own
+     presentation template is. The rule sits at x=0 of the block and the text starts one rule plus
+     one gap in, so every line on every slide begins at the same place. */
+  --pad-top: 40px;
+  --pad-bot: 40px;
+  --pad-x:   28px;     /* the right margin; the left is --rule + --rule-gap, which equals it */
+  --head-gap: 30px;    /* the space under the title block, before the body */
 }
 
-/* ---------- grouped technology blocks (slide 3) ---------- */
-.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* --- the slide frame ----------------------------------------------------------------------------- */
+/* The title block sits at the TOP and the body fills what is left, so a dense slide has the whole
+   frame to spend. reveal.css forces `min-height: 0 !important` on every section in centred mode, so
+   the floor height has to answer in kind; the flex column then does the rest. */
+.reveal.center .slides > section { min-height: 765px !important; }
+.reveal .slides > section > .sbody {
+    display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;
+    box-sizing: border-box; width: 100%; height: 765px; text-align: left; overflow: hidden;
+    /* The left padding is where the title's blue rule is drawn, which is why it is not --pad-x. */
+    padding: var(--pad-top) var(--pad-x) var(--pad-bot) calc(var(--rule) + var(--rule-gap)); }
+.reveal .sbody > .body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 
-/* Desktop is a row of 3, Web a row of 4 — two stacked bands */
-.group + .group { margin-top: 14px; }
-/* both bands share one 4-column grid so the columns line up across rows */
-.band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; align-items: start; }
-.band .block + .block { margin-top: 0; }
-.band .block.wide { grid-column: span 2; }
-.group-label {
-  font-family: var(--font-mono);
-  font-size: 0.52em;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--hair);
-  margin-bottom: 10px;
-}
-.block { --accent: var(--ess-blue); }
-.block + .block { margin-top: 30px; }
-.block.blue   { --accent: var(--ess-blue); }
-.block.navy   { --accent: var(--ess-navy); }
-.block.green  { --accent: var(--ess-green); }
-.block.purple { --accent: var(--ess-purple); }
-.block.orange { --accent: var(--ess-orange); }
-.block.lime   { --accent: var(--ess-lime); }
-.block.slate  { --accent: var(--ess-slate); }
+/* --- the title block ------------------------------------------------------------------------------ */
+/* Titillium SemiBold, sentence case, left aligned. NOT uppercase — all-caps is read letter by
+   letter rather than by word shape, and it hides the one distinction that matters here
+   (EasyDiffraction and easydiffraction are identical in caps).
+   SemiBold, not the Light the manual specifies for print headings: a projector is not print, and at
+   55px on a near-black ground Light loses its stems — the title went pale and the cover read as
+   weaker than the draft it replaced. The slight negative tracking is what Titillium wants at
+   display size once it carries this much weight. */
+.reveal h3 { font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 600;
+             font-size: var(--fs-title); text-transform: none; letter-spacing: -0.01em;
+             line-height: 1.15; text-align: left; width: auto; margin: 0; color: #fff; }
+/* The title and the line under it, in one invisible box with one rule beside it — the manual's page
+   bar, at the weight of the title's own strokes. The rule spans BOTH, because the pair is one unit:
+   the subhead says what the title means, it is not the next thing on the slide. */
+.reveal .titlebox { position: relative; flex: 0 0 auto; align-self: flex-start;
+                    width: auto; max-width: 100%; margin: 0 0 var(--head-gap); }
+/* `right: 100%` puts the rule immediately left of the box, and the margin walks it two spaces
+   further out, so it keeps its distance from the title rather than sitting on the slide's edge. */
+.reveal .titlebox::before { content: ""; position: absolute; right: 100%; top: 0; bottom: 0;
+                            width: var(--rule); margin-right: var(--rule-gap);
+                            background: var(--c-blue); }
+/* The subhead, one step below the title's own voice: what the slide is about, in the grey the deck
+   uses for the explanatory line under anything else. */
+.reveal .subhead { font-size: var(--fs-md); line-height: 1.35; color: var(--c-dim);
+                   margin: 0.35em 0 0; max-width: 1105px; }
 
-.block-head {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  min-width: 0;
-  margin-bottom: 10px;
-  color: var(--accent);
-}
-.logo { width: 23px; height: 23px; flex: 0 0 auto; fill: currentColor; }
-.block-name { font-size: 0.68em; font-weight: 600; white-space: nowrap; }
+/* EMPHASIS IS WEIGHT, NOT COLOUR. `em` is the markup — the phrase IS emphasis — set upright rather
+   than italic, and semibold, which is what it meant in the draft this deck grew out of. It was blue
+   here for a while, and that was a mistake twice over: it spent the deck's one accent on every
+   emphasised phrase, so blue stopped meaning "take this away"; and where a line had been split down
+   to just its emphasised part, the whole line turned blue and shouted. Blue is still available for
+   a phrase that genuinely is the takeaway — it is `.blue`, asked for by name. */
+.reveal em { font-style: normal; font-weight: 600; color: inherit; }
+.reveal .blue { color: var(--c-blue); }
+.reveal .dim  { color: var(--c-mute); }
+.reveal .mono { font-family: "SF Mono", Consolas, ui-monospace, monospace; font-size: 0.9em; }
 
-/* what the technology is used for: the software's own logo, then its name */
-.reveal .product {
-  font-size: 0.72em;
-  font-weight: 600;
-  line-height: 1.28;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
-/* scoped under .reveal so it beats `.reveal p { margin: 0 }` at (0,1,1) */
-.chip-i { width: 0.92em; height: 0.92em; fill: currentColor; flex: 0 0 auto; }
-/* collaborators as a tag row rather than a bullet: one line instead of two, scans faster */
-.reveal .tags {
-  display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
-  font-size: 0.50em; font-family: var(--font-mono); letter-spacing: 0.03em;
-  color: var(--ink-soft); margin-bottom: 11px;
-}
-.tags .tag-i { width: 1.15em; height: 1.15em; fill: var(--ink-soft); flex: 0 0 auto; }
-.tags span { border: 1px solid var(--hair); border-radius: 4px; padding: 2px 7px; }
-.reveal .product .plogo { vertical-align: -4px; margin-left: 8px; }
+/* --- lists ------------------------------------------------------------------------------------- */
+/* EMPHASIS IS WEIGHT, NOT COLOUR. `em` is the markup — the phrase IS emphasis — set upright rather
+   than italic, and semibold, which is what it meant in the draft this deck grew out of. It was blue
+   here for a while, and that was a mistake twice over: it spent the deck's one accent on every
+   emphasised phrase, so blue stopped meaning "take this away"; and where a line had been split down
+   to just its emphasised part, the whole line turned blue and shouted. Blue is still available for
+   a phrase that genuinely is the takeaway — it is `.blue`, asked for by name. */
+.reveal em { font-style: normal; font-weight: 600; color: inherit; }
+.reveal .blue { color: var(--c-blue); }
+.reveal .dim  { color: var(--c-mute); }
+.reveal .mono { font-family: "SF Mono", Consolas, ui-monospace, monospace; font-size: 0.9em; }
 
-/* two applications side by side — the illustration for "one shared library" */
-/* fixed image height keeps the pair matched and the captions on the slide */
-/* aligned to the two text columns above; width-constrained so the pair has no stray gutters */
-.shots { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 18px; align-items: start; }
-.shots figure { margin: 0; min-width: 0; }
-.shots img {
-  /* Constrain WIDTH only. On a replaced element `width:auto` means the intrinsic width
-     (1160px here), so it gets clamped by max-width while a fixed height stays put — that
-     is what stretched these ~43%. One dimension set, the other genuinely auto. */
-  display: block; width: 380px; max-width: 100%; height: auto;
-  border-radius: 7px; border: 1px solid var(--hair);
-}
-.reveal .shots figcaption {
-  margin-top: 7px;
-  font-family: var(--font-mono);
-  font-size: 0.45em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-}
+/* --- icons ----------------------------------------------------------------------------------------- */
+/* Referenced from the sprite inlined at the top of index.html, so the colour comes from the
+   stylesheet rather than a fill attribute on every use. */
+.reveal svg.ico { fill: currentColor; height: 0.8em; width: auto; vertical-align: -0.04em; }
 
-.reveal .purl {
-  font-family: var(--font-mono);
-  font-size: 0.545em;
-  line-height: 1.3;
-  color: var(--ink-soft);
-  margin-bottom: 9px;
-  overflow-wrap: anywhere;
-}
-.plogo {
-  height: 20px; width: auto; flex: 0 0 auto; margin-left: 6px;
-}
 
-.block ul { list-style: none; margin: 0; padding: 0; }
-.block li {
-  position: relative;
-  padding-left: 19px;
-  margin-bottom: 8px;
-  font-size: 0.80em;
-  line-height: 1.36;
-  color: var(--ink);
-}
-.block li::before {
-  content: "";
-  position: absolute;
-  left: 1px; top: 0.55em;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.block li em { font-style: normal; font-weight: 600; }
+/* --- columns -------------------------------------------------------------------------------------- */
+.reveal .columns { display: flex; align-items: stretch; justify-content: flex-start; gap: 36px;
+                   width: 100%; }
+.reveal .columns.three { gap: 30px; }
+/* A column IS a card now, so it is the flex item. `align-items: stretch` on the row is what makes
+   two cards of different lengths finish level, the way a band's grid items already did. */
+.reveal .columns > .card { flex: 1 1 0; min-width: 0; }
 
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.50em;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  margin: 16px 0 8px;
-}
-.col ul { list-style: none; margin: 0; padding: 0; }
-.col li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 15px;
-  font-size: 0.80em;
-  line-height: 1.42;
-  color: var(--ink);
-}
-.col li::before {
-  content: "";
-  position: absolute;
-  left: 2px; top: 0.56em;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--ess-blue);
-}
-.col li em { font-style: normal; font-weight: 600; }
+/* --- the two technology bands ---------------------------------------------------------------------- */
+/* Desktop is a row of three, web a row of four, and BOTH are four-column grids of the same width, so
+   the columns line up down the slide rather than forming two unrelated rows. EasyScience spans two:
+   it is the one card that names three applications. */
+.reveal .group + .group { margin-top: 18px; }
+/* No rule under the label. Every card below it now carries an edge of its own, so a line across
+   the slide as well was a second divider doing the first one's job. */
+/* The only uppercase left in the deck. Caps are cut for the rhythm of mixed-case setting, so a
+   small all-caps label does want a little tracking — but only a little. This was 0.12em, carried
+   over from a deck that used it on a chapter line like "3.2 UX PRINCIPLES", where a long string of
+   caps reads as a label band. On "WEB" the same value just pulls three letters apart. */
+.reveal .group-label { font-size: var(--fs-sm); letter-spacing: 0.07em;
+                       text-transform: uppercase; color: var(--c-mute);
+                       margin: 0 0 10px; }
+.reveal .band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
+                align-items: stretch; }
+.reveal .band .card.wide { grid-column: span 2; }
 
-/* ---------- callout ---------- */
-.callout {
-  margin-top: 26px;
-  background: var(--tint);
-  border-radius: 12px;
-  padding: 18px 24px;
-  font-size: 0.58em;
-  line-height: 1.5;
-  color: var(--ink);
-}
-.callout strong { color: var(--ess-navy); font-weight: 600; }
+/* --- a card: one technology, or the shared library --------------------------------------------------- */
+/* EVERY CARD HAS ONE ACCENT AND EVERYTHING IN IT FOLLOWS: the technology line is set in it, the
+   icon beside that line inherits it through `currentColor`, and the box's own fill and border are
+   washes of it. One declaration per card therefore colours the whole card, and a slide of seven
+   reads as seven objects rather than seven copies of one grey box. The hues are the ones the old
+   slide gave these same seven projects. */
+.reveal .card { --accent: var(--c-blue); box-sizing: border-box; border-radius: 6px;
+                /* Tight. A box costs its padding twice over on a four-up band — 16px a side across
+                   four cards took 128px off the text and forced the lines to wrap earlier, which is
+                   what made the body type smaller than the draft's. Every pixel taken back here
+                   goes into the line length. */
+                padding: 10px 12px 12px; line-height: 1.3;
+                display: flex; flex-direction: column;
+                /* the plain grey box first, for a browser without color-mix */
+                background: var(--c-box); border: 1px solid var(--c-edge);
+                /* 10% is as far as the wash can go before the card competes with its own contents;
+                   the border takes four times that, because a hairline needs the help to read. */
+                background: color-mix(in srgb, var(--accent) 10%, var(--c-box));
+                border-color: color-mix(in srgb, var(--accent) 40%, var(--c-edge)); }
+.reveal .card.a-slate  { --accent: #9BAEBE; }
+.reveal .card.a-navy   { --accent: #8FB4D4; }
+.reveal .card.a-blue   { --accent: #4FB8E8; }
+.reveal .card.a-green  { --accent: #4FC08D; }
+.reveal .card.a-purple { --accent: #C77DD4; }
+.reveal .card.a-orange { --accent: #F0904B; }
+.reveal .card.a-lime   { --accent: #AECB57; }
+/* The top row names the TECHNOLOGY — what the slide is sorted by — and puts the project's own mark,
+   or its status, at the far end of it. */
+/* The technology is what this slide sorts by, so it is the card's headline and takes the size that
+   says so. --fs-md, a step above the name under it; the letter-spacing goes to 0, because the row
+   needed every pixel it could find to hold "Qt Widgets · PySide6" on one line in a 280px card. */
+.reveal .card .ct { display: flex; align-items: center; gap: 0.3em; min-width: 0;
+                    font-size: var(--fs-md); font-weight: 600; letter-spacing: 0;
+                    color: var(--accent); margin: 0 0 0.35em; }
+.reveal .card .ct .ico { height: 1.05em; flex: 0 0 auto; }
+/* A second mark, for the language or runtime named after the middot. Inline rather than a flex item:
+   it belongs inside the name's own text run, so it clips with the name if the row ever has to
+   truncate instead of surviving on its own after the words have gone. */
+.reveal .card .ct .ico.in { height: 0.92em; margin-right: 0.18em; vertical-align: -0.09em; }
+/* `min-width: 0` on the name itself, not only on the row: a flex item will not shrink below its
+   content without it, so the ellipsis would never appear and a longer framework name would simply
+   push the logo out of the card. */
+.reveal .card .ct .cn { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* The project's own mark reads as part of its NAME, so it sits immediately in front of it rather
+   than at the far end of the technology row, where it was a third thing on a line that already
+   held two. `center`, not `baseline`: an image has no baseline worth aligning to. */
+.reveal .card .cp .clogo { height: 18px; width: auto; flex: 0 0 auto; margin: 0; }
+/* ...and a name with NO CAPITAL in it needs the mark 0.11em lower. Centring puts the mark on the
+   middle of the line box, which is where a capitalised name's cap band already is — so NICOS,
+   SasView and the rest line up as they stand. A lowercase name has only its x-height to align to,
+   and that band's centre measures 2.25px further down at 20px type. Marked on the name rather than
+   applied to every mark, because moving all of them down would break the six that are right. */
+.reveal .card .cp.lc .clogo { position: relative; top: 0.11em; }
+/* A row, because the project's own mark sits in front of the name. */
+.reveal .card .cp { display: flex; align-items: center; flex-wrap: wrap; gap: 3px 0.45em; }
+/* Then the PRODUCT, a step DOWN the scale from the technology above it: this slide is a survey of
+   toolkits, so the toolkit leads and the software that uses it follows. White and semibold is what
+   keeps the name legible at the smaller size — the accent is already spoken for by the technology
+   line and by the box itself. */
+.reveal .card .cp { font-size: var(--fs-sm); font-weight: 600; line-height: 1.2; color: #fff;
+                    margin: 0; }
+.reveal .card .cu { font-size: var(--fs-xs); color: var(--c-mute); margin: 3px 0 0;
+                    overflow-wrap: anywhere; }
+/* Each line gets a dot in the card's own accent, and a hanging indent so a wrapped second line
+   starts under the text rather than under the dot. Three or four short statements in a 280px box
+   read as three or four separate claims only when each is marked; unmarked they ran together as one
+   grey paragraph. `top` is set from the line box, not the glyphs: at 0.52em the dot sits on the
+   x-height of the first line whatever that line says. */
+/* THE SIZE STAYS ON THE SCALE; THE LEADING IS WHAT OPENS UP. The draft set these lines at 20.8px
+   with 28.3px of spacing and read the better for it, and the instinct is to chase the size — but a
+   box costs its padding twice over on a four-up band, so a bigger font WRAPS MORE, and the extra
+   lines cost more height than the glyphs gain. Measured on the technology slide: 19px/1.3 gives
+   24.7px of spacing and leaves 6px of the frame; 18px/1.45 gives 26.1px and leaves 18px. More
+   spacing AND three times the headroom, for a smaller number. Leading is the cheap half of
+   readability because, unlike size, it adds no wraps — it only opens the lines already there. */
+.reveal .card .cd { position: relative; font-size: var(--fs-xs); line-height: 1.45;
+                    color: var(--c-text); margin: 9px 0 0; padding-left: 14px; }
+.reveal .card .cd::before { content: ""; position: absolute; left: 0; top: 0.55em;
+                            width: 5px; height: 5px; border-radius: 50%;
+                            background: var(--accent); }
+.reveal .card .cd + .cd { margin-top: 5px; }
+/* A card standing two or three across a slide has room the four-up technology band has not, so its
+   lines take the step up the scale. Same component, one modifier — rather than a second list idiom
+   for the slides that are not the band. */
+.reveal .card.roomy .cd { font-size: var(--fs-sm); margin-top: 13px; }
+.reveal .card.roomy .cd + .cd { margin-top: 8px; }
+.reveal .card.roomy .cd::before { top: 0.55em; width: 6px; height: 6px; }
+.reveal .card.roomy { padding: 14px 20px 18px; }
+/* WHO the work belongs to — the facilities that run it, or the project it sits under. A row of small
+   pills rather than a sentence: three names read as three facts only when each has an edge of its
+   own. The leading ICON says which kind of attribution it is, so the two can share one row treatment
+   without being confused: people for a facility, a node graph for a project. It sits directly under
+   the address, where it belongs — both lines are about the project rather than about what it does,
+   and putting them together leaves the dotted items below as one unbroken list. */
+.reveal .card .cw { display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
+                    font-size: var(--fs-xs); color: var(--c-mute); margin: 7px 0 0; }
+/* The first item then opens the list, whether or not a collaborator row precedes it. */
+.reveal .card .cw + .cd { margin-top: 10px; }
+.reveal .card .cw .ico { height: 1em; opacity: 0.8; }
+.reveal .card .cw span { border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--c-edge));
+                         border-radius: 4px; padding: 1px 7px 2px; }
 
-/* ---------- figure ---------- */
-figure { margin: 0; height: 100%; display: flex; flex-direction: column; }
-figure svg { width: 100%; height: auto; max-height: 100%; max-width: 100%; flex: 1 1 auto; min-height: 0; }
+/* --- the thing both boxes are about -------------------------------------------------------------- */
+/* One library, described from two sides. Naming it inside the left box made it look like a property
+   of "what we share"; standing above the pair it is plainly the subject of both. Same parts as a
+   card's name and address, laid along one line because it has the slide's full width to use. */
+/* Centred, not ranged left like everything else: it is a caption for the PAIR of boxes under it
+   rather than another line in the column, and centring it over them says so. */
+.reveal .subject { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+                   gap: 0 0.6em; margin: 0 0 14px; }
+.reveal .subject .clogo { height: 21px; width: auto; flex: 0 0 auto; position: relative; top: 0.11em; }
+.reveal .subject .sn { font-size: var(--fs-md); font-weight: 600; color: #fff; }
+.reveal .subject .su { font-size: var(--fs-sm); color: var(--c-mute); }
 
-/* ---------- reveal chrome ---------- */
-.reveal .progress { color: var(--ess-blue); height: 4px; }
-.reveal .controls { color: var(--ess-blue); }
+/* --- two applications, side by side ------------------------------------------------------------------ */
+/* Shown at the same size, so the shared skeleton is the thing the eye picks up first. The caption
+   sits ABOVE the picture, like every other picture description in the deck, so the pair reads
+   top-down like the rest of the slide. */
+.reveal .twoshots { display: flex; justify-content: flex-start; align-items: flex-start; gap: 36px;
+                    width: 100%; margin-top: 14px; flex: 0 0 auto; }
+.reveal .twoshots figure { flex: 1 1 0; margin: 0; min-width: 0; }
+/* A DEFINITE height, not a percentage. A percentage inside a flex column has nothing definite to
+   resolve against, so each picture fell back to its own intrinsic size and the pair ran past the
+   bottom edge. 268px is what is left under the two columns above them; both shots share an aspect,
+   so one number sizes them alike and `contain` leaves no letterboxing. */
+/* `contain` fits each picture by whichever side runs out first, so a picture narrower than its
+   column leaves slack. Ranged left by default, like everything else on a slide; the FIRST of the
+   pair is ranged right instead, which puts the two pictures next to each other with the slack on
+   the outside rather than opening a gap down the middle. */
+.reveal .twoshots img { display: block; width: 100%; height: 268px;
+                        object-fit: contain; object-position: left top; margin: 0;
+                        border: none; box-shadow: none; border-radius: 5px; }
+.reveal .twoshots figure.to-right img { object-position: right top; }
+.reveal .twoshots figure.to-right figcaption { text-align: right; }
+.reveal .twoshots figcaption { font-size: var(--fs-sm); color: var(--c-mute);
+                               line-height: 1.3; margin: 0 0 var(--gap-pair); white-space: nowrap; }
 
-@media (max-width: 500px) {
-  .slide { padding: 26px 20px 24px; }
-  .cover { padding: 0 20px; }
-  .cols.two, .cols.three, .band { grid-template-columns: 1fr; gap: 18px; }
-}
+/* --- one screenshot carrying a slide ---------------------------------------------------------- */
+/* Sized by HEIGHT, not width: the picture is 2.66:1 after cropping, so at the slide's full width it
+   would be far taller than the room under the cards. Given the height that is actually free, it
+   comes out about 1000px wide and sits centred under the pair of boxes it illustrates — the same
+   place, and the same reasoning, as the library name centred above them on the reuse slide.
+   Nobody reads UI labels from the back of a room; what this picture has to show is the SHAPE of the
+   thing — controls on the left, the fit in the middle, an assistant beside it — and that reads. */
+.reveal figure.oneshot { margin: 16px 0 0; display: flex; flex-direction: column;
+                         align-items: center; flex: 0 0 auto; }
+.reveal figure.oneshot img { display: block; height: 300px; width: auto; max-width: 100%;
+                             object-fit: contain; margin: 0;
+                             border: none; box-shadow: none; border-radius: 5px; }
+.reveal figure.oneshot figcaption { font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.3;
+                                    margin: 0 0 var(--gap-pair); white-space: nowrap; }
+
+/* --- the pipeline diagram --------------------------------------------------------------------------- */
+/* Drawn at 1040 user units and shown at the width the slide leaves it, so the text inherits
+   Titillium from `.reveal` and only the sizes and fills are stated here — the diagram is on the
+   deck's type scale like everything else rather than carrying its own numbers as attributes. */
+.reveal figure.diagram { margin: 0; flex: 1 1 auto; min-height: 0; display: flex; }
+.reveal figure.diagram svg { display: block; width: 100%; height: 100%; max-height: 100%;
+                             margin: 0 auto; }
+.reveal svg.pipe text { font-size: 18px; font-weight: 400; fill: #fff; }
+.reveal svg.pipe text.note { font-size: 12px; font-weight: 300; fill: var(--c-mute); }
+/* The four STAGES are SOLID, in the deck's four muted hues — the same family the column pills sit
+   in, so a filled box here and a pill there read as one palette. Left to right, they are the
+   pipeline itself. */
+.reveal svg.pipe .s-prop { fill: var(--h-purple); }
+.reveal svg.pipe .s-exp  { fill: var(--h-amber); }
+.reveal svg.pipe .s-red  { fill: var(--h-teal); }
+.reveal svg.pipe .s-ana  { fill: var(--h-blue); }
+/* What the pipeline stands on (Data) and how it is reached (Remote access) are NOT stages — they sit
+   outside the left-to-right flow — so they are drawn the way every card in the deck is: a wash of
+   their own accent inside a stronger border of it, rather than solid. That keeps them a step below
+   the four stages while still telling them apart, which one shared grey did not: a store and an
+   access route are different things. The wash is heavier than a card's 10% because these boxes hold
+   one word on open background instead of a column of text, and at 10% they were the flattest thing
+   on any slide — barely above the #191919 ground. */
+.reveal svg.pipe .s-data   { fill: #252525; stroke: #3d3d3d; stroke-width: 1.5; }
+.reveal svg.pipe .s-remote { fill: #252525; stroke: #3d3d3d; stroke-width: 1.5; }
+.reveal svg.pipe .s-data   { fill: color-mix(in srgb, var(--h-store) 16%, #191919);
+                             stroke: color-mix(in srgb, var(--h-store) 60%, transparent); }
+.reveal svg.pipe .s-remote { fill: color-mix(in srgb, var(--h-reach) 16%, #191919);
+                             stroke: color-mix(in srgb, var(--h-reach) 60%, transparent); }
+
+/* --- the cover ---------------------------------------------------------------------------------- */
+/* The one slide whose block is centred rather than ranged from the top: it has no body under it to
+   range against. Everything else about it is the deck's own language — the same left edge, the same
+   blue rule, the same type scale. */
+.reveal section.cover > .sbody { justify-content: center; }
+/* THE COVER TURNS THE RULE ON ITS SIDE. On a content slide the bar stands beside a title and a
+   subhead and marks the pair as one unit; the cover has only a title, and a 4px bar next to one
+   line is too small a mark to open a deck with. Laid flat under the title it carries the same
+   weight the deck gives it everywhere else.
+   Its LENGTH is the height that bar has on every other slide, so the two readings of the same mark
+   measure the same: one h3 line, plus the subhead's own margin and line. Derived rather than typed
+   as 105.75px, so it follows the type scale if the scale ever moves. */
+.reveal .cover .titlebox { margin-bottom: 0;
+                           padding-bottom: calc(26px + var(--rule));
+                           --rule-len: calc(var(--fs-title) * 1.15
+                                          + var(--fs-md) * 0.35 + var(--fs-md) * 1.35); }
+.reveal .cover .titlebox::before { display: none; }
+.reveal .cover .titlebox::after { content: ""; position: absolute; left: 0; bottom: 0;
+                                  width: var(--rule-len); height: var(--rule);
+                                  background: var(--c-blue); }
+/* The three lines under the rule are a LADDER, and the draft's was steeper than this one's: the
+   name carries weight, the affiliation carries value, and the event line is the quietest thing on
+   the slide. Set at one weight and one grey they flattened into a single block. */
+.reveal .cover .author { font-size: var(--fs-md); font-weight: 600; margin: 26px 0 0.35em; }
+.reveal .cover .affil  { font-size: var(--fs-sm); line-height: 1.5; color: var(--c-text); margin: 0; }
+/* Sentence case, not tracked caps. Uppercase is a LABEL treatment — right for the four-letter band
+   headings, wrong for a line someone actually reads, and the tracking spread it across half the
+   slide. Tinted towards the deck's blue so it ties to the rule above it rather than being a third
+   flat grey. */
+.reveal .cover .event  { font-size: var(--fs-sm); margin: 1.4em 0 0;
+                         color: color-mix(in srgb, var(--c-blue) 35%, var(--c-mute)); }
+
+/* --- the navigation diamond ------------------------------------------------------------------------- */
+/* ANCHORED TO THE TITLE, not to the corner, and with the slide number in the middle of it — the
+   arrangement the reference deck uses. Two things make that work.
+   FIRST, the diamond is laid out as a GRID. reveal sizes `.controls` to 0x0 in this build, so its
+   four `right`/`bottom` offsets resolve against nothing: moving one arrow moves the frame the other
+   three are measured from, and the four ink centres never meet. A 3x3 of fixed tracks puts each
+   arrow in the middle of its own cell and the number in the centre cell, which is true by
+   construction at any size. The middle track is 60px because "3 | 6" needs about 55 and reveal's
+   own spacing leaves ten.
+   SECOND, index.html measures the current slide's title on every render and publishes its centre as
+   --ctrl-cy, along with reveal's scale as --ctrl-scale. A number in this file cannot do that: the
+   title's height on screen depends on the window, the display and the browser's chrome. */
+.reveal { --ctrl-arrow: 36px;   /* reveal's own arrow box in this build */
+          --ctrl-mid:   60px;   /* the clear middle the number sits in */
+          --ctrl-edge:  28px;   /* the cluster's distance from the right edge */
+          --ctrl-span:  calc(2 * var(--ctrl-arrow) + var(--ctrl-mid));
+          /* how tall the cluster is DRAWN, in stage units: the deck scales with the window and the
+             controls do not, so without this they shrink away from the slide on a large display */
+          --ctrl-height: 97px;
+          --ctrl-k: calc(var(--ctrl-scale, 1) * var(--ctrl-height) / var(--ctrl-span)); }
+
+.reveal .controls {
+    /* `!important` because reveal's own JS writes `display: block` as an INLINE style when controls
+       are enabled, and an inline style beats any stylesheet rule without it. */
+    display: grid !important; box-sizing: border-box;
+    grid-template-columns: var(--ctrl-arrow) var(--ctrl-mid) var(--ctrl-arrow);
+    grid-template-rows:    var(--ctrl-arrow) var(--ctrl-mid) var(--ctrl-arrow);
+    place-items: center;
+    width: var(--ctrl-span); height: var(--ctrl-span);
+    /* positioned by its CENTRE: `top` puts the box's edge on the title's middle and the translate
+       walks it back half its own height, so the diamond's middle lands on --ctrl-cy whatever the
+       title does. The scale then runs about that same centre and does not move it. */
+    right: var(--ctrl-edge); top: var(--ctrl-cy, 96px); bottom: auto;
+    transform: translateY(-50%) scale(var(--ctrl-k)); transform-origin: 50% 50%;
+    /* Grey, not the theme's link blue: blue is this deck's "look here" colour and the arrows are the
+       one thing on screen nobody needs to look at. The same grey as the number they sit around, so
+       the cluster reads as one quiet object. */
+    color: var(--c-mute); }
+.reveal .controls .navigate-up    { position: static; grid-area: 1 / 2; }
+.reveal .controls .navigate-left  { position: static; grid-area: 2 / 1; }
+.reveal .controls .navigate-right { position: static; grid-area: 2 / 3; }
+/* reveal draws the down triangle at the TOP of a box it makes taller than the other three, so the
+   cell is aligned to the top rather than centred; otherwise the diamond sits low on the bottom. */
+.reveal .controls .navigate-down  { position: static; grid-area: 3 / 2; align-self: start; }
+
+/* The number's centre lands on the cluster's: half a span in from the right edge, and the same
+   --ctrl-cy. Translating +50%/-50% puts an element's centre on its own anchor point. */
+.reveal .slide-number { right: calc(var(--ctrl-edge) + var(--ctrl-span) / 2);
+                        top: var(--ctrl-cy, 96px); bottom: auto;
+                        background: none; padding: 0;
+                        transform: translate(50%, -50%) scale(var(--ctrl-k));
+                        font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 300;
+                        font-size: 15px; letter-spacing: 0.03em; color: var(--c-mute); }
+/* reveal writes a newline and five tabs between the number's spans; zeroing the anchor's font size
+   and restoring it on each span is what stops that rendering as space. The separator is DRAWN, not
+   typed: the `|` glyph hangs below the baseline but stops at the digits' cap height, so it reads as
+   lopsided. A 1px box in the numbers' own grey overhangs them equally top and bottom. */
+.reveal .slide-number a { color: inherit; font-size: 0; display: inline-flex; align-items: center;
+                          text-decoration: none; }
+.reveal .slide-number .slide-number-a,
+.reveal .slide-number .slide-number-b { font-size: 15px; line-height: 1; }
+.reveal .slide-number .slide-number-delimiter { width: 1px; height: 17px; margin: 0 8px;
+                                               background: currentColor; font-size: 0; }
+
+/* The overflow check (index.html?check) outlines any slide whose content runs past the frame. */
+.reveal .slides > section.overflows > .sbody { outline: 2px solid #d19966; }
+
 @media (prefers-reduced-motion: reduce) {
   .reveal .slides section { transition: none !important; }
 }
