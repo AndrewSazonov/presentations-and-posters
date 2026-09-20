@@ -235,6 +235,16 @@ html, body, .reveal-viewport { background: #191919; }
    content without it, so the ellipsis would never appear and a longer framework name would simply
    push the logo out of the card. */
 .reveal .card .ct .cn { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* THE ONE CARD IN THE DECK DESCRIBING SOMETHING THAT DOES NOT EXIST. Its neighbour on the same
+   slide describes software that ships, so the difference has to be visible at a glance rather than
+   inferred from a line of body text. In the title row it governs everything under it — which is
+   what "not used today" could not do from a bullet slot, where it read as a third claim alongside
+   the two ideas rather than as their status. Muted amber, the colour this deck uses for not-yet:
+   loud enough to read as a caveat, quiet enough not to become the card's subject. */
+.reveal .card .ct .tag-idea { margin-left: auto; flex: 0 0 auto;
+                              font-size: var(--fs-xs); line-height: 1.15; white-space: nowrap;
+                              padding: 0.12em 0.45em; border-radius: 0.3em;
+                              color: #fff; background: #a37c59; }
 /* The project's own mark reads as part of its NAME, so it sits immediately in front of it rather
    than at the far end of the technology row, where it was a third thing on a line that already
    held two. `center`, not `baseline`: an image has no baseline worth aligning to. */
@@ -315,10 +325,12 @@ html, body, .reveal-viewport { background: #191919; }
    card's name and address, laid along one line because it has the slide's full width to use. */
 /* Centred, not ranged left like everything else: it is a caption for the PAIR of boxes under it
    rather than another line in the column, and centring it over them says so. */
+/* `font-size` is set here so the mark's nudge below has something sensible to resolve against: an
+   `em` on .clogo was measuring the deck's 42px root, which made a small optical shift several times
+   too large. It tracks the line the mark now stands beside — the address. */
 .reveal .subject { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
-                   gap: 0 0.6em; margin: 0 0 14px; }
-.reveal .subject .clogo { height: 21px; width: auto; flex: 0 0 auto; position: relative; top: 0.11em; }
-.reveal .subject .sn { font-size: var(--fs-md); font-weight: 600; color: #fff; }
+                   gap: 0 0.6em; margin: 0 0 14px; font-size: var(--fs-sm); }
+.reveal .subject .clogo { height: 30px; width: auto; flex: 0 0 auto; position: relative; top: 0.11em; }
 .reveal .subject .su { font-size: var(--fs-sm); color: var(--c-mute); }
 
 /* --- two applications, side by side ------------------------------------------------------------------ */

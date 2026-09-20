@@ -295,7 +295,7 @@
     <div class="body">
       <!-- Both boxes are about the SAME library, so it is named once above them rather than inside
            the left one, where it read as belonging only to what we share. -->
-      <p class="subject"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience"><span class="sn">gui-components</span><span class="su">github.com/easyscience/gui-components</span></p>
+      <p class="subject"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience"><span class="su">github.com/easyscience</span></p>
       <div class="columns">
         <div class="card roomy a-blue">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"></use></svg><span class="cn">What we share</span></p>
@@ -341,10 +341,10 @@
     <div class="body">
       <div class="columns">
         <div class="card roomy a-orange">
-          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span></p>
-          <p class="cd"><em>Not used today</em></p>
-          <p class="cd"><span class="mono">essreduce</span> already declares its parameters with types</p>
-          <p class="cd">A notebook per experiment, then a Voil&agrave; GUI from it</p>
+          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea">not built</span></p>
+          <p class="cd">We <em>could</em> generate a Voil&agrave; GUI from a reduction notebook</p>
+          <p class="cd">We <em>could</em> assemble a new EasyScience GUI with AI</p>
+          <p class="cs">From our shared widgets and the applications built on them</p>
         </div>
         <div class="card roomy a-purple">
           <p class="ct"><svg class="ico" viewBox="0 0 640 512"><use href="#i-robot"></use></svg><span class="cn">AI assistants</span></p>
@@ -359,11 +359,13 @@
       </figure>
     </div>
     <aside class="notes">
-      Cut from the slide, still worth saying. UI GENERATION: the types essreduce declares are exactly
-      what a generator would read; the notebooks we already have are the pattern; the same approach
-      would work for the EasyScience libraries from their analysis notebooks, and a new project could
-      be built this way from the start. Nothing here is running — the point is that the declarative
-      half is already solved for other reasons, so the generator is a smaller job than it sounds.
+      Cut from the slide, still worth saying. UI GENERATION: essreduce already declares its
+      reduction parameters with types, which is exactly what a generator would read — that is why
+      this is a smaller job than it sounds, the declarative half being already solved for other
+      reasons. The notebooks we have are the pattern, one per experiment. For a NEW project the
+      starting material is different and better: a library of shared QML widgets plus four or five
+      applications already assembled from them, which is the kind of worked corpus an assistant can
+      actually build against. Nothing here is running yet.
       AI: built-in heuristics take over when there is no API key; it reaches the fitting engine over
       MCP, read-only, which is the design decision worth defending — a scientist has to be able to
       say where every number in a published refinement came from. Next is the same idea inside the
