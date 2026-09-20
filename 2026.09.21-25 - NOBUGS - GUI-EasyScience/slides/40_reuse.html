@@ -1,0 +1,486 @@
+<div class="external-slide">
+
+<!-- 4.1 Same screen, different technique -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Same screen, different technique</h3>
+  <div class="twoshots" data-id="two">
+    <figure data-id="fa">
+      <figcaption><span class="blue">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
+      <img data-id="ia" src="images/ed-analysis-2026.png" alt="EasyDiffraction, analysis screen">
+    </figure>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Same screen, different technique</h3>
+  <div class="twoshots" data-id="two">
+    <figure data-id="fa">
+      <figcaption><span class="blue">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
+      <img data-id="ia" src="images/ed-analysis-2026.png" alt="EasyDiffraction, analysis screen">
+    </figure>
+    <figure data-id="fb">
+      <figcaption><span class="blue">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
+      <img data-id="ib" src="images/er-analysis-2026.png" alt="EasyReflectometry, analysis screen">
+    </figure>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Same screen, different technique</h3>
+  <div class="twoshots" data-id="two">
+    <figure data-id="fa">
+      <figcaption><span class="blue">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
+      <img data-id="ia" src="images/ed-analysis-2026.png" alt="EasyDiffraction, analysis screen">
+    </figure>
+    <figure data-id="fb">
+      <figcaption><span class="blue">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
+      <img data-id="ib" src="images/er-analysis-2026.png" alt="EasyReflectometry, analysis screen">
+    </figure>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Exactly what a scientist would <span class="blue">expect to differ</span>.</p>
+  <aside class="notes">
+    Say the comparison out loud rather than listing it on the slide: SHARED — the workflow bar, the
+    zones, the parameter table, the fit button. TECHNIQUE-SPECIFIC — the plot, the model, the
+    parameter names. Two screenshots side by side make the point faster than two lines of text do.
+    Both captures are of the current applications, at the same size, so the pair is a fair
+    comparison and not an artefact of when each was taken.
+    If anyone asks about "Model" versus "Sample": that is the point, not a slip. The tab bar has the
+    same six positions in both, and the third one carries the word that technique uses for the thing
+    being fitted. The skeleton is shared; the vocabulary is not.
+  </aside>
+</section>
+
+</section>
+
+<!-- 4.2 What became reusable -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>What became reusable</h3>
+  <svg class="modular" data-id="mod" viewBox="0 0 1005 505">
+    <g data-id="generic">
+      <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
+      <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg" x="115" y="51" width="102" height="40"/>
+      <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
+      <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg" x="560" y="51" width="139" height="40"/>
+    </g>
+    <g data-id="diff" class="hid">
+      <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
+      <path data-id="diff-spineL" d="M95 91 H58 V199" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-spineR" d="M910 91 H947 V199" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg" x="115" y="179" width="126" height="40"/>
+      <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
+      <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg" x="560" y="179" width="126" height="40"/>
+      <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
+    </g>
+    <g data-id="refl" class="hid">
+      <text data-id="refl-band" class="band" x="95" y="276">Reflectometry</text>
+      <path data-id="refl-spineL" d="M95 71 H40 V327" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-spineR" d="M910 71 H965 V327" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg" x="115" y="307" width="150" height="40"/>
+      <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
+      <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg" x="560" y="307" width="150" height="40"/>
+      <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
+    </g>
+    <g data-id="rest" class="hid">
+      <text data-id="rest-band" class="band" x="95" y="404">and more</text>
+      <path data-id="rest-spineL" d="M95 51 H22 V455" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-spineR" d="M910 51 H983 V455" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-headL" d="M22 454 H83 V448 L95 455 L83 462 V456 H22 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
+            fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg" x="680" y="435" width="100" height="40"/>
+    </g>
+  </svg>
+</section>
+
+<section data-auto-animate>
+  <h3>What became reusable</h3>
+  <svg class="modular" data-id="mod" viewBox="0 0 1005 505">
+    <g data-id="generic">
+      <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
+      <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg" x="115" y="51" width="102" height="40"/>
+      <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
+      <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg" x="560" y="51" width="139" height="40"/>
+    </g>
+    <g data-id="diff">
+      <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
+      <path data-id="diff-spineL" d="M95 91 H58 V199" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-spineR" d="M910 91 H947 V199" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg" x="115" y="179" width="126" height="40"/>
+      <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
+      <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg" x="560" y="179" width="126" height="40"/>
+      <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
+    </g>
+    <g data-id="refl" class="hid">
+      <text data-id="refl-band" class="band" x="95" y="276">Reflectometry</text>
+      <path data-id="refl-spineL" d="M95 71 H40 V327" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-spineR" d="M910 71 H965 V327" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg" x="115" y="307" width="150" height="40"/>
+      <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
+      <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg" x="560" y="307" width="150" height="40"/>
+      <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
+    </g>
+    <g data-id="rest" class="hid">
+      <text data-id="rest-band" class="band" x="95" y="404">and more</text>
+      <path data-id="rest-spineL" d="M95 51 H22 V455" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-spineR" d="M910 51 H983 V455" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-headL" d="M22 454 H83 V448 L95 455 L83 462 V456 H22 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
+            fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg" x="680" y="435" width="100" height="40"/>
+    </g>
+  </svg>
+</section>
+
+<section data-auto-animate>
+  <h3>What became reusable</h3>
+  <svg class="modular" data-id="mod" viewBox="0 0 1005 505">
+    <g data-id="generic">
+      <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
+      <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg" x="115" y="51" width="102" height="40"/>
+      <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
+      <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg" x="560" y="51" width="139" height="40"/>
+    </g>
+    <g data-id="diff">
+      <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
+      <path data-id="diff-spineL" d="M95 91 H58 V199" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-spineR" d="M910 91 H947 V199" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg" x="115" y="179" width="126" height="40"/>
+      <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
+      <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg" x="560" y="179" width="126" height="40"/>
+      <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
+    </g>
+    <g data-id="refl">
+      <text data-id="refl-band" class="band" x="95" y="276">Reflectometry</text>
+      <path data-id="refl-spineL" d="M95 71 H40 V327" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-spineR" d="M910 71 H965 V327" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg" x="115" y="307" width="150" height="40"/>
+      <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
+      <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg" x="560" y="307" width="150" height="40"/>
+      <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
+    </g>
+    <g data-id="rest" class="hid">
+      <text data-id="rest-band" class="band" x="95" y="404">and more</text>
+      <path data-id="rest-spineL" d="M95 51 H22 V455" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-spineR" d="M910 51 H983 V455" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-headL" d="M22 454 H83 V448 L95 455 L83 462 V456 H22 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
+            fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg" x="680" y="435" width="100" height="40"/>
+    </g>
+  </svg>
+</section>
+
+<section data-auto-animate>
+  <h3>What became reusable</h3>
+  <svg class="modular" data-id="mod" viewBox="0 0 1005 505">
+    <g data-id="generic">
+      <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
+      <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg" x="115" y="51" width="102" height="40"/>
+      <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
+      <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg" x="560" y="51" width="139" height="40"/>
+    </g>
+    <g data-id="diff">
+      <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
+      <path data-id="diff-spineL" d="M95 91 H58 V199" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-spineR" d="M910 91 H947 V199" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg" x="115" y="179" width="126" height="40"/>
+      <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
+      <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg" x="560" y="179" width="126" height="40"/>
+      <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
+    </g>
+    <g data-id="refl">
+      <text data-id="refl-band" class="band" x="95" y="276">Reflectometry</text>
+      <path data-id="refl-spineL" d="M95 71 H40 V327" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-spineR" d="M910 71 H965 V327" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg" x="115" y="307" width="150" height="40"/>
+      <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
+      <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg" x="560" y="307" width="150" height="40"/>
+      <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
+    </g>
+    <g data-id="rest">
+      <text data-id="rest-band" class="band" x="95" y="404">and more</text>
+      <path data-id="rest-spineL" d="M95 51 H22 V455" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-spineR" d="M910 51 H983 V455" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-headL" d="M22 454 H83 V448 L95 455 L83 462 V456 H22 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
+            fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg" x="680" y="435" width="100" height="40"/>
+    </g>
+  </svg>
+</section>
+
+<section data-auto-animate>
+  <h3>What became reusable</h3>
+  <svg class="modular" data-id="mod" viewBox="0 0 1005 505">
+    <g data-id="generic">
+      <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
+      <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg" x="115" y="51" width="102" height="40"/>
+      <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
+      <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg" x="560" y="51" width="139" height="40"/>
+    </g>
+    <g data-id="diff">
+      <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
+      <path data-id="diff-spineL" d="M95 91 H58 V199" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-spineR" d="M910 91 H947 V199" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg" x="115" y="179" width="126" height="40"/>
+      <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
+      <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg" x="560" y="179" width="126" height="40"/>
+      <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
+    </g>
+    <g data-id="refl">
+      <text data-id="refl-band" class="band" x="95" y="276">Reflectometry</text>
+      <path data-id="refl-spineL" d="M95 71 H40 V327" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-spineR" d="M910 71 H965 V327" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg" x="115" y="307" width="150" height="40"/>
+      <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
+      <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
+      <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg" x="560" y="307" width="150" height="40"/>
+      <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
+      <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
+    </g>
+    <g data-id="rest">
+      <text data-id="rest-band" class="band" x="95" y="404">and more</text>
+      <path data-id="rest-spineL" d="M95 51 H22 V455" fill="none" stroke="rgb(95, 119, 78)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-spineR" d="M910 51 H983 V455" fill="none" stroke="rgb(71, 126, 152)" stroke-width="2" stroke-linecap="square"/>
+      <path data-id="rest-headL" d="M22 454 H83 V448 L95 455 L83 462 V456 H22 Z" fill="rgb(95, 119, 78)"/>
+      <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
+      <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
+            fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg" x="680" y="435" width="100" height="40"/>
+    </g>
+  </svg>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p>
+  <aside class="notes">
+    The frontend module started life inside EasyDiffraction, was pulled out as EasyApp and is now
+    EasyApplication, in the gui-components repository.
+    The two coloured boxes at the top are the shared core; everything grey below is what each
+    technique adds for itself. Point at the two spines: every technique takes BOTH modules from the
+    top row directly. Nothing is inherited through the technique above it -- there is no chain, and
+    no privileged first technique.
+    TODO confirm the current module name, the repository and when the split happened.
+  </aside>
+</section>
+
+</section>
+
+<!-- 4.3 Where it runs today -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Where it runs today</h3>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><i class="fa-calculator" data-id="r1ki"></i>analysis</span><span class="tag-green" data-id="r1s"><i class="fa-circle-check" data-id="r1si"></i>running</span></span>
+      <span class="rd" data-id="r1d">diffraction data analysis</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><i class="fa-calculator" data-id="r2ki"></i>analysis</span><span class="tag-green" data-id="r2s"><i class="fa-circle-check" data-id="r2si"></i>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry data analysis</span></div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where it runs today</h3>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><i class="fa-calculator" data-id="r1ki"></i>analysis</span><span class="tag-green" data-id="r1s"><i class="fa-circle-check" data-id="r1si"></i>running</span></span>
+      <span class="rd" data-id="r1d">diffraction data analysis</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><i class="fa-calculator" data-id="r2ki"></i>analysis</span><span class="tag-green" data-id="r2s"><i class="fa-circle-check" data-id="r2si"></i>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry data analysis</span></div>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><i class="fa-calculator" data-id="r3ki"></i>analysis</span><span class="tag-orange" data-id="r3s"><i class="fa-hourglass-half" data-id="r3si"></i>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><i class="fa-calculator" data-id="r4ki"></i>analysis</span><span class="tag-orange" data-id="r4s"><i class="fa-hourglass-half" data-id="r4si"></i>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where it runs today</h3>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><i class="fa-calculator" data-id="r1ki"></i>analysis</span><span class="tag-green" data-id="r1s"><i class="fa-circle-check" data-id="r1si"></i>running</span></span>
+      <span class="rd" data-id="r1d">diffraction data analysis</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><i class="fa-calculator" data-id="r2ki"></i>analysis</span><span class="tag-green" data-id="r2s"><i class="fa-circle-check" data-id="r2si"></i>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry data analysis</span></div>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><i class="fa-calculator" data-id="r3ki"></i>analysis</span><span class="tag-orange" data-id="r3s"><i class="fa-hourglass-half" data-id="r3si"></i>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><i class="fa-calculator" data-id="r4ki"></i>analysis</span><span class="tag-orange" data-id="r4s"><i class="fa-hourglass-half" data-id="r4si"></i>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
+    <div class="reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easyshapes.svg" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r5k"><i class="fa-layer-group" data-id="r5ki"></i>modelling</span><span class="tag-orange" data-id="r5s"><i class="fa-hourglass-half" data-id="r5si"></i>new</span></span>
+      <span class="rd" data-id="r5d">molecular structure generation &middot; simulation workflows</span></div>
+    <div class="reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easytexture.svg" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r6k"><i class="fa-wave-square" data-id="r6ki"></i>reduction</span><span class="tag-grey" data-id="r6s"><i class="fa-globe" data-id="r6si"></i>external</span></span>
+      <span class="rd" data-id="r6d">texture data reduction &middot; built outside ESS</span></div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where it runs today</h3>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><i class="fa-calculator" data-id="r1ki"></i>analysis</span><span class="tag-green" data-id="r1s"><i class="fa-circle-check" data-id="r1si"></i>running</span></span>
+      <span class="rd" data-id="r1d">diffraction data analysis</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><i class="fa-calculator" data-id="r2ki"></i>analysis</span><span class="tag-green" data-id="r2s"><i class="fa-circle-check" data-id="r2si"></i>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry data analysis</span></div>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><i class="fa-calculator" data-id="r3ki"></i>analysis</span><span class="tag-orange" data-id="r3s"><i class="fa-hourglass-half" data-id="r3si"></i>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><i class="fa-calculator" data-id="r4ki"></i>analysis</span><span class="tag-orange" data-id="r4s"><i class="fa-hourglass-half" data-id="r4si"></i>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
+    <div class="reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easyshapes.svg" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r5k"><i class="fa-layer-group" data-id="r5ki"></i>modelling</span><span class="tag-orange" data-id="r5s"><i class="fa-hourglass-half" data-id="r5si"></i>new</span></span>
+      <span class="rd" data-id="r5d">molecular structure generation &middot; simulation workflows</span></div>
+    <div class="reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easytexture.svg" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r6k"><i class="fa-wave-square" data-id="r6ki"></i>reduction</span><span class="tag-grey" data-id="r6s"><i class="fa-globe" data-id="r6si"></i>external</span></span>
+      <span class="rd" data-id="r6d">texture data reduction &middot; built outside ESS</span></div>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p>
+  <aside class="notes">
+    Be honest about the three "new" ones — they are at very different stages, and the brief warns
+    against claiming otherwise. TODO confirm which of them already run on the shared components.
+    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+  </aside>
+</section>
+
+</section>
+
+<!-- 4.4 What reuse buys -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>What reuse buys</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="b1"><i class="fa-user-check lead"></i> Learn one application, and you know how <span class="blue">the others work</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>What reuse buys</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="b1"><i class="fa-user-check lead"></i> Learn one application, and you know how <span class="blue">the others work</span></p>
+    <p class="step" data-id="b2"><i class="fa-circle-check lead"></i> A usability fix lands in <span class="blue">every</span> application</p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>What reuse buys</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="b1"><i class="fa-user-check lead"></i> Learn one application, and you know how <span class="blue">the others work</span></p>
+    <p class="step" data-id="b2"><i class="fa-circle-check lead"></i> A usability fix lands in <span class="blue">every</span> application</p>
+    <p class="step" data-id="b3"><i class="fa-flag-checkered lead"></i> A new technique starts from a <span class="blue">working</span> interface</p>
+  </div>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>What reuse buys</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="b1"><i class="fa-user-check lead"></i> Learn one application, and you know how <span class="blue">the others work</span></p>
+    <p class="step" data-id="b2"><i class="fa-circle-check lead"></i> A usability fix lands in <span class="blue">every</span> application</p>
+    <p class="step" data-id="b3"><i class="fa-flag-checkered lead"></i> A new technique starts from a <span class="blue">working</span> interface</p>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Years of design decisions, <span class="blue">inherited for free</span>.</p>
+  <aside class="notes">
+    This is the answer to "why not just let each team build its own GUI": the cost is not the code,
+    it is the years of iteration and the expert review that produced these defaults.
+  </aside>
+</section>
+
+</section>
+
+</div>

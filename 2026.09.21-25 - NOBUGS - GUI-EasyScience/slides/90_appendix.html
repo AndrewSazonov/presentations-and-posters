@@ -1,0 +1,305 @@
+<div class="external-slide">
+<!-- Every backup slide is its own stack: these are reference slides, opened one at a time when a
+     question needs them, never stepped through. Keeping each in its own stack also stops the build
+     from reserving the space of a neighbour it has nothing to do with. -->
+
+<!-- B.0 Backup opener -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Backup</h3>
+  <p class="step sub">Answers to the questions this talk usually gets.</p>
+</section>
+</section>
+
+<!-- B.1 Why Qt and QML -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Why Qt and QML</h3>
+  <div class="dolist dense">
+    <p class="step"><i class="fa-display lead"></i> A <span class="blue">declarative</span> UI language
+      <span class="sub">a screen is described as layout and state &mdash; little imperative code for a
+        prototype, which is not the same as "no code"</span></p>
+    <p class="step"><i class="fa-arrows-rotate lead"></i> <span class="blue">Live Preview</span>
+      <span class="sub">an edit reaches the running application without a rebuild</span></p>
+    <p class="step"><i class="fa-globe lead"></i> One source, <span class="blue">three platforms</span>
+      <span class="sub">macOS, Windows and Linux, with nothing for the user to install first</span></p>
+    <p class="step"><i class="fa-plug lead"></i> A clean line between screens and science
+      <span class="sub">the frontend talks to a Python backend; either side can be replaced</span></p>
+  </div>
+  <aside class="notes">
+    The honest caveat for "why not the web?": a desktop application was the right answer for a tool
+    that reads local files and runs a fit on the user's own machine. A browser front end is a
+    separate discussion, not a correction of this one.
+  </aside>
+</section>
+</section>
+
+<!-- B.2 The UX Expert Review -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>The UX Expert Review</h3>
+  <div class="dolist dense">
+    <p class="step"><i class="fa-magnifying-glass lead"></i> Phase 1 &middot; <span class="blue">use and document</span>
+      <span class="sub">meet the design the way a new user meets it, write down what goes wrong</span></p>
+    <p class="step"><i class="fa-brain lead"></i> Phase 2 &middot; <span class="blue">review and root causes</span>
+      <span class="sub">every component, seen through each design driver in turn &mdash; seven lenses on one screen</span></p>
+    <p class="step"><i class="fa-tasks lead"></i> Phase 3 &middot; <span class="blue">report and co-create</span>
+      <span class="sub">findings grouped by screen: a problem, a root cause, a proposed fix</span></p>
+  </div>
+  <p class="credit">Design Psychology, <em>UX Expert Review</em>, v3, January 2023.</p>
+</section>
+</section>
+
+<!-- B.3 Three toolboxes -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Three toolboxes</h3>
+  <div class="dolist dense">
+    <p class="step"><i class="fa-cube lead"></i> &#9312; Move it to the <span class="blue">basic</span> level
+      <span class="sub">what do users see before they read? space, orientation, movement, amount and size &mdash;
+        inspected with the blur filter</span></p>
+    <p class="step"><i class="fa-user-check lead"></i> &#9313; Move it to the <span class="blue">skills</span> level
+      <span class="sub">what does this user already know? does the design match their mental model and the
+        conventions of their field?</span></p>
+    <p class="step"><i class="fa-circle-check lead"></i> &#9314; <span class="blue">Remove</span> it
+      <span class="sub">optimise and simplify, stay consistent and congruent, and put the information on the
+        screen instead of in the user's head</span></p>
+  </div>
+  <p class="credit">Same source. "Recognition rather than recall" is the short version of &#9314;.</p>
+</section>
+</section>
+
+<!-- B.4 The review reply, in full -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>The review reply, in full</h3>
+  <img class="bigphoto tall" src="images/ux-review-thread.png"
+       alt="the full e-mail from Rune N&oslash;rager, Design Psychology">
+</section>
+</section>
+
+<!-- B.5 Every tab is a file you can read -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Every tab is a file you can read</h3>
+  <div class="dolist dense">
+    <p class="step"><i class="fa-database lead"></i> The project is a <span class="blue">folder</span>, not a blob
+      <span class="sub">Project, Model, Experiment and Analysis each have their own file</span></p>
+    <p class="step"><i class="fa-code lead"></i> The format is <span class="blue">CIF</span>, the one the field already uses
+      <span class="sub">named tags rather than positional numbers &mdash; the file says what it means</span></p>
+    <p class="step"><i class="fa-terminal lead"></i> Text mode shows that file <span class="blue">inside</span> the application
+      <span class="sub">nothing about the project is hidden behind the interface</span></p>
+  </div>
+  <p class="step sub">A UX decision, not a storage decision: the user can check the program's work
+    without learning a private format.</p>
+</section>
+</section>
+
+<!-- B.6 Diffraction analysis software -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Diffraction analysis software</h3>
+  <p class="step">Programs
+    <span class="sub">FullProf Suite &middot; Jana2020 &middot; GSAS-II &middot; SHELX &middot; MAUD &middot; FOX &middot;
+      Mag2Pol &middot; CrysPy Editor &middot; TOPAS &middot; TOPAS-Academic &middot;
+      Materials Studio Reflex &middot; HighScore</span></p>
+  <p class="step">Libraries
+    <span class="sub">CrysFML &middot; CCSL &middot; pyobjcryst (ObjCryst++) &middot; CCTBX &middot; CrysPy &middot; GSAS-II</span></p>
+  <p class="step sub">EasyDiffraction does not replace these. It puts one interface,
+    and one project format, in front of them.</p>
+</section>
+</section>
+
+<!-- B.7 Not cross-platform -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Not cross-platform</h3>
+  <p class="step sub blue">Jana2006 / 2020 &middot; Windows only</p>
+  <img class="bigphoto" src="images/jana-windows.png" alt="the Jana interface on Windows">
+</section>
+</section>
+
+<!-- B.8 Input files written for the program -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Input files written for the program</h3>
+  <p class="step sub blue">FullProf PCR &middot; short names, positional columns</p>
+  <img class="bigphoto" src="images/fullprof-pcr.png" alt="a FullProf PCR input file">
+</section>
+</section>
+
+<!-- B.9 What else is shared -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>What else is shared</h3>
+  <div class="dolist dense">
+    <p class="step"><i class="fa-project-diagram lead"></i> Organisation-level
+      <span class="blue">architecture decision records</span></p>
+    <p class="step"><i class="fa-code-compare lead"></i> One project template
+      <span class="blue">(Copier)</span> across every repository</p>
+    <p class="step"><i class="fa-code lead"></i> One set of code-quality rules
+      <span class="blue">(Ruff)</span> for linting and formatting</p>
+    <p class="step"><i class="fa-circle-check lead"></i> CI/CD for code and packages
+      <span class="blue">(GitHub Actions)</span></p>
+    <p class="step"><i class="fa-book-open lead"></i> Automated releases and documentation
+      <span class="blue">(PyPI, MkDocs)</span></p>
+  </div>
+  <p class="step sub">The interface is the visible part of the reuse. This is the rest of it.</p>
+</section>
+</section>
+
+<!-- B.10 Built outside ESS -->
+<section>
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Built outside ESS</h3>
+  <p class="step sub blue">EasyTexture &middot; texture data reduction</p>
+  <img class="bigphoto" src="images/easytexture.png" alt="the EasyTexture application">
+  <p class="step sub">The same shell, a different institute, and a step of the pipeline
+    the components were not designed for.</p>
+  <aside class="notes">
+    TODO confirm the current status and authorship of EasyTexture before showing this.
+  </aside>
+</section>
+</section>
+
+<!-- B.11 The workflow, stated abstractly. Cut from the main deck: slides 14, 16
+     and 18 carry all of it, and the brief puts the linear workflow in the UX
+     principles slot rather than the evolution one. -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Start from the workflow</h3>
+  <div class="flow stages" data-id="stages">
+    <span class="chip off" data-id="s1">Acquisition</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip off" data-id="s2">Reduction</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip on" data-id="s3">Analysis</span>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Start from the workflow</h3>
+  <div class="flow stages" data-id="stages">
+    <span class="chip off" data-id="s1">Acquisition</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip off" data-id="s2">Reduction</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip on" data-id="s3">Analysis</span>
+  </div>
+  <div class="flow" data-id="tabs">
+    <span class="chip" data-id="t1"><i class="fa-archive"></i>Project</span>
+    <span class="chip" data-id="t2"><i class="fa-layer-group"></i>Model</span>
+    <span class="chip" data-id="t3"><i class="fa-microscope"></i>Experiment</span>
+    <span class="chip" data-id="t4"><i class="fa-calculator"></i>Analysis</span>
+    <span class="chip" data-id="t5"><i class="fa-clipboard-list"></i>Summary</span>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Start from the workflow</h3>
+  <div class="flow stages" data-id="stages">
+    <span class="chip off" data-id="s1">Acquisition</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip off" data-id="s2">Reduction</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip on" data-id="s3">Analysis</span>
+  </div>
+  <div class="flow" data-id="tabs">
+    <span class="chip" data-id="t1"><i class="fa-archive"></i>Project</span>
+    <span class="chip" data-id="t2"><i class="fa-layer-group"></i>Model</span>
+    <span class="chip" data-id="t3"><i class="fa-microscope"></i>Experiment</span>
+    <span class="chip" data-id="t4"><i class="fa-calculator"></i>Analysis</span>
+    <span class="chip" data-id="t5"><i class="fa-clipboard-list"></i>Summary</span>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Start from the workflow</h3>
+  <div class="flow stages" data-id="stages">
+    <span class="chip off" data-id="s1">Acquisition</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip off" data-id="s2">Reduction</span>
+    <span class="sep">&rsaquo;</span>
+    <span class="chip on" data-id="s3">Analysis</span>
+  </div>
+  <div class="flow" data-id="tabs">
+    <span class="chip" data-id="t1"><i class="fa-archive"></i>Project</span>
+    <span class="chip" data-id="t2"><i class="fa-layer-group"></i>Model</span>
+    <span class="chip" data-id="t3"><i class="fa-microscope"></i>Experiment</span>
+    <span class="chip off" data-id="t4"><i class="fa-calculator"></i>Analysis</span>
+    <span class="chip off" data-id="t5"><i class="fa-clipboard-list"></i>Summary</span>
+  </div>
+    <p class="step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
+    so the interface never changes shape under you.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p>
+  <aside class="notes">
+    Left to right, one path. No modal dialogs, no "open the setup window first".
+    Greying out rather than hiding is deliberate: the user sees the whole road from the first
+    screen, which is what makes the application predictable.
+    TODO confirm tab naming — the current application says Model, the brief says Sample Model.
+  </aside>
+</section>
+
+</section>
+
+<!-- B.12 In one sentence (moved out of the main deck) -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>In one sentence</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="s1"><i class="fa-drafting-compass lead"></i> We designed the
+      <span class="blue">workflow</span> first, and let the screens follow it</p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>In one sentence</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="s1"><i class="fa-drafting-compass lead"></i> We designed the
+      <span class="blue">workflow</span> first, and let the screens follow it</p>
+    <p class="step" data-id="s2"><i class="fa-brain lead"></i> We spent years moving work from
+      <span class="blue">reading</span> to <span class="blue">seeing</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>In one sentence</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="s1"><i class="fa-drafting-compass lead"></i> We designed the
+      <span class="blue">workflow</span> first, and let the screens follow it</p>
+    <p class="step" data-id="s2"><i class="fa-brain lead"></i> We spent years moving work from
+      <span class="blue">reading</span> to <span class="blue">seeing</span></p>
+    <p class="step" data-id="s3"><i class="fa-cubes lead"></i> Then we made the result a
+      <span class="blue">module</span>, so the next technique inherits it</p>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The interface is the reusable part.</p>
+  <aside class="notes">
+    If there is time for one question before the session Q&amp;A, the likeliest is "why Qt/QML and
+    not web?" — the backup deck has the answer.
+  </aside>
+</section>
+
+</section>
+
+<!-- B.13 Thank you (moved out of the main deck) -->
+<section>
+
+<section class="freeform" data-auto-animate data-auto-animate-restart>
+  <img class="titlelogo" data-id="titlelogo" src="images/easyscience-logo.svg" alt="EasyScience">
+  <h3 class="deck-title" data-id="title"><span>Thank you</span></h3>
+  <p class="blue subtitle">easyscience.org &middot; github.com/easyscience</p>
+  <p class="byline">Andrew Sazonov &middot; ESS DMSC<br/>
+    <span class="dim">with Piotr Rozyczko, Christian Vedel, Henrik Jacobsen, Ales Kutsepau</span></p>
+  <aside class="notes">
+    Credits to name if asked: Design Psychology (designpsykologi.dk) for the UX Expert Review;
+    Matt Clarke (DMSC) for bringing the method into the group; contributors at U G&ouml;ttingen,
+    JCNS at MLZ and Chalmers.
+  </aside>
+</section>
+
+</section>
+
+</div>

@@ -1,0 +1,919 @@
+/* ESS's identity typeface, per the Visual Identity Manual: Titillium for display, Segoe UI for
+   running text. Embedded (SIL OFL) rather than relied on from the system, so the deck looks the
+   same on a borrowed conference laptop. */
+@font-face { font-family: "Titillium Web"; font-weight: 200; font-style: normal;
+             src: url("fonts/TitilliumWeb-ExtraLight.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 300; font-style: normal;
+             src: url("fonts/TitilliumWeb-Light.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 400; font-style: normal;
+             src: url("fonts/TitilliumWeb-Regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 600; font-style: normal;
+             src: url("fonts/TitilliumWeb-SemiBold.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Titillium Web"; font-weight: 400; font-style: italic;
+             src: url("fonts/TitilliumWeb-Italic.ttf") format("truetype"); font-display: swap; }
+
+/* Titillium for the running text too, not just the headings. The manual (p19, "Marketing
+   typography") makes it the main typeface and says body text is Titillium Light or Regular; Segoe
+   is named as the OFFICE typeface, for the internal templates. A deck built for an international
+   workshop is the former. Regular rather than Light: Light is specified for print body text, and a
+   projector is not print. */
+/* Light, not Regular. The manual allows either for body text; Light matches the headings and is
+   what makes the deck read as Titillium rather than as a generic sans. The grey secondary text is
+   lifted a step to compensate — a lighter stroke at the same colour loses contrast. */
+.reveal { font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 300; }
+svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", sans-serif; }
+
+/* Additions for the 2026 NOBUGS deck, on top of extra/style.css.
+   ================================================================================================
+   ONE TYPE SCALE. Every size on a slide is one of six steps, declared here in px: reveal scales the
+   whole 1200x750 stage, so px inside it are stable, and px do not compound the way nested `em` do
+   (a 0.62em caption inside a 0.82em list item used to render at 0.51em, which is how this deck
+   ended up with forty-odd distinct sizes). If a component needs a size, it takes one of these.
+   ================================================================================================ */
+.reveal {
+  --r-heading-text-transform: none;   /* the theme's uppercase, turned off — see .reveal h3 */
+  --fs-title: 49px;   /* the slide's h3 — theme value, pinned here so the scale is visible in one place */
+  --fs-xl:    38px;   /* the one big line: .statement, the cover's subtitle */
+  --fs-lg:    32px;   /* things you read as a list: .step, a picture column's caption */
+  --fs-md:    25px;   /* the second line under something: .sub, figure captions, chips in a strip */
+  /* Three greys, by job. Light 300 puts less ink on the screen than Regular did, so secondary text
+     is a step brighter than it would need to be at 400. */
+  /* Uppercase tracking, by size: the need falls as the letters grow while an `em` value rises with
+     them, so a big uppercase line takes a fraction of what a small label needs. */
+  --track-label: 0.12em;   /* the 20px uppercase labels: chapter line, READ IT / SEE IT */
+
+  /* ONE blue, for every key phrase, chip, marker and rule in the deck. Written once here: it was
+     a literal in a dozen places, which is how a second blue gets in. */
+  --c-blue: rgb(109, 209, 255);
+  /* The annotation colour: zone boxes, reading-order arrows, marker strokes — anything the deck
+     draws on top of a screenshot. It is NOT a second accent, it has the opposite job to --c-blue.
+     The application's own UI blue is hue 197.5deg and --c-blue is 198.9deg, 1.4deg apart, so an
+     annotation in the deck's blue reads as more application rather than as a mark made on it.
+     This is 28.6deg: 169deg away from the app's blue, at a near-identical lightness so it marks
+     without shouting. */
+  --c-mark: rgb(209, 153, 102);
+
+  --c-dim:  #aaa;      /* the explanatory line under something: .sub, captions, table rows */
+  --c-mute: #8f8f8f;   /* labels ABOUT something rather than content: the chapter line, a picture's
+                          description, credits */
+  --c-off:  #4a4a4a;   /* switched off: a step out of reach, a section not yet reached */
+
+  /* ONE gap sets a slide's rhythm: the space under the title and the space above the conclusion are
+     the same, so the content block sits evenly between them. One variable rather than two, because
+     two would eventually drift apart. `h3 + *` zeroes the top margin of whatever follows the title,
+     so this is the only thing controlling that space. */
+  --gap: 48px;         /* the space you SEE, not the margin: each rule below subtracts its own
+                          half-leading, since a line box is taller than the glyphs inside it and a
+                          raw 40px margin therefore looks bigger under larger text */
+
+  /* Inside a list, two gaps and only two. A line and the dimmer line explaining it are ONE item, so
+     they sit close; the next item sits clearly further away. The two used to be 2.5px and 7px, near
+     enough that six lines read as one block instead of three pairs. Both are px, because every
+     variant of the pattern (.step, .why-col, .pstep, .twoshots, .reflib) sets them in `em` of a
+     different font size and so drifted to five different gaps. */
+  --gap-close: 28px;   /* the air above and below the conclusion. Tighter than --gap on purpose: it
+                          sits between the title and the content rather than closing the slide, and
+                          at --gap it floated between the two instead of belonging to the title. */
+  --gap-pair: 6px;     /* a line to its own explanation: one item */
+  --gap-item: 22px;    /* that item to the next: the bigger gap is what does the grouping */
+
+  /* The rule beside the title block. Its weight is the title's own: Titillium Light at 55px sets a
+     stem 3px solid, 5px counting the antialiased edges, so a hairline with no antialiasing of its
+     own reads level with the letters at 4px. */
+  --rule: 4px;
+  --rule-gap: 24px;    /* two spaces of the title font: Titillium Light sets one at 12.1px at 55px */
+
+  /* The slide is ranged from ONE left edge and ONE top edge, the way the ESS manual's own
+     presentation template is (3.8). The rule sits at x=0 of the slide and the text starts one
+     rule plus one gap in, so every line on every slide begins at the same place. */
+  --pad-top: 44px;
+  --titlebox-h: 94px;  /* the chapter line plus a one-line title: every title in the deck is one
+                          line, checked by index.html?check */
+  --pad-bot: 76px;     /* deliberately more than --pad-top: with the block centred between them it
+                          settles a little ABOVE true centre, which is where the eye reads centre */
+  --pad-x:   28px;     /* the right margin; the left is --rule + --rule-gap, which equals it */
+  --edge:     0px;    /* how far a block must stop short of the stage edge. 0, because the deck no
+                          longer needs one: fullscreen is pinned to the windowed scale (see
+                          build.py), so it keeps the windowed letterbox and the title rule never
+                          reaches the screen edge. Raising this narrows content -- .samefact's
+                          panels, .ways' picture, and the .why-col images, which are `object-fit:
+                          cover` and so CROP rather than scale. Left as a knob, not a fix. */
+  --bleed: 5px;        /* how far a lone screenshot runs past the bottom edge before it is cut —
+                          a trimmed hairline, enough to say the picture goes on */
+
+  --fs-sm:    20px;   /* the smallest thing on a slide: labels, table rows, credits, notes under
+                         a panel. An uppercase micro-label reads as a label because it is uppercase
+                         and grey, not because it is smaller than everything else. */
+  --fs-xs:    18px;   /* one step below, and only INSIDE a box: a .reflib is already set apart by
+                         its own edge, so its line does not have to hold the page on its own and
+                         would otherwise be the same size as the running text outside it. */
+}
+
+/* Only in fullscreen, where there is no letterbox standing in for a margin. Set on the CUSTOM
+   PROPERTY rather than on .sbody: --edge inherits, so one declaration reaches every rule that uses
+   it without having to restate .sbody's long selector at a higher specificity. Two rules, not one
+   grouped selector: an unknown pseudo-class invalidates a whole group, and the -webkit- form only
+   parses in Safari. Both are declared after :root, so at equal specificity they win. */
+
+/* The black theme caps every image at `max-width: 95%` "so nothing is larger than the slide".
+   Every picture in this deck is sized by its own component instead, so the cap only ever shaved 5%
+   off the right-hand side and left the picture pinned left — which reads as a picture that is not
+   quite centred under a title that is. It also pushed the zone overlays out of register with the
+   screenshot they annotate, since those are positioned in per cent of the box, not of the image. */
+.reveal .sbody img { max-width: none; max-height: none; }
+
+/* --- text ------------------------------------------------------------------------------------ */
+/* The title is uppercase and 600; the big line is sentence case and lighter, and now a step below
+   it, so a slide has one obvious first thing to read instead of two competing at the same size. */
+/* The slide title, following the manual: Titillium Light, sentence case, left aligned, with a
+   numbered section line above it. The theme's uppercase 600 was doing two things wrong — all-caps
+   is read letter by letter rather than by word shape, and it hid the one distinction that matters
+   here (EasyDiffraction and easydiffraction render identically in caps). */
+.reveal h3 { font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 600;
+             font-size: var(--fs-title); text-transform: none; letter-spacing: 0;
+             text-align: left; width: auto; margin: 0; }
+/* The chapter line and the title, in one invisible box with one rule beside it — the manual's page
+   bar, at the weight of the title's own strokes. The box carries the gap below the title, because a
+   flex item does not let its child's margin collapse out and the rule would otherwise run --gap too
+   far down. */
+.reveal .titlebox { position: relative; align-self: flex-start; width: auto; max-width: 100%;
+                    margin: 0 0 calc(var(--gap) - 0.1em); }   /* (1.2 - 1) / 2 */
+/* `right: 100%` puts the rule immediately left of the box, and the margin walks it two spaces
+   further out, so it keeps its distance from the title rather than sitting on the slide's edge. */
+.reveal .titlebox::before { content: ""; position: absolute; right: 100%; top: 0; bottom: 0;
+                            width: var(--rule); margin-right: var(--rule-gap);
+                            background: var(--c-blue); }
+/* ONLY A SLIDE'S TOP-LEVEL BLOCKS MOVE; everything inside them is carried along.
+   reveal pairs elements for auto-animate by data-id, by a heading's text and by an image's src, and
+   it pairs them independently at every depth — so a matched element inside a matched element gets
+   the same translate twice and the transforms compound. The title was given one translate by its
+   box and another by itself and started 284px too low; the screenshot inside .shotbox was moved
+   105px by its box and 105px again by itself, so it jumped to the top of the slide before sliding
+   down; inside .squint there are four such levels. One rule for all of them.
+   It is keyed on data-auto-animate-target — the attribute reveal puts on the elements it is
+   animating — so it touches nothing else. A blanket `.sbody > * *` also killed the transform inside
+   the ESS logo's <svg>, which is artwork, not animation, and the mark came apart. */
+.reveal .sbody > * *[data-auto-animate-target]:not(.aa-move) { transform: none !important; }
+/* `.aa-move` is the opt-out, for the one case where the element inside the box is the thing
+   that moves: the zoom on the UX-review e-mail grows the picture inside a box that stays put.
+   It is only safe when no ANCESTOR of it is matched too — that slot's .shotbox carries no
+   data-id for exactly this reason — otherwise the two translates compound again. */
+/* And .sbody itself, for the same reason one level up: it carries a data-id, so reveal pairs
+   it, and a step whose body box is a different height makes reveal SCALE the whole body —
+   the outline's 750px box against a divider's 296px one scaled the running order by 2.5 and
+   dropped it to the top of the screen before it settled. The body is the layout box; it is
+   always where the CSS puts it, so it has nothing to animate. */
+.reveal .sbody[data-auto-animate-target] { transform: none !important; }
+/* Whatever follows the title brings its own top margin; --gap is the one that counts. */
+.reveal .titlebox + * { margin-top: 0 !important; }
+/* A freeform cover has no .titlebox to carry the gap, so its title keeps it. */
+.reveal .freeform h3.deck-title { margin: 0 0 calc(var(--gap) - 0.1em); }
+.reveal .freeform h3.deck-title + * { margin-top: 0 !important; }
+/* "3.2 UX principles" — the manual's chapter line. Regular weight, not semibold: uppercase plus
+   wide tracking already marks it as a label, and any more weight makes it compete with the title
+   it is supposed to introduce. The number is set in the same grey as the name; the gap alone
+   separates them. */
+.reveal .eyebrow { font-family: "Titillium Web", "Segoe UI", sans-serif; font-size: var(--fs-sm);
+                   font-weight: 300; letter-spacing: var(--track-label); text-transform: uppercase;
+                   color: var(--c-mute); text-align: left; width: auto; margin: 0 0 0.1em; }
+.reveal .eyebrow .no { margin-right: 0.7em; }
+.reveal .eyebrow .ico { height: 0.8em; width: auto; margin-right: 0.45em;
+                        vertical-align: -0.06em; opacity: 0.9; }
+
+/* The conclusion is the slide's assertion, so it sits directly under the title and is marked by
+   size alone — no box. It used to be a tinted, rounded panel at the foot of the slide, which was
+   the only piece of UI chrome in a deck arguing that interfaces should have less of it, and a
+   second accent language competing with the title rule. `order` puts it second on screen while it
+   stays last in the markup, so it is still the last thing revealed. */
+/* The negative top pulls against the gap the title block already carries, so the space above the
+   conclusion is --gap-close rather than --gap + nothing. */
+.reveal .statement { font-size: var(--fs-lg); font-weight: 400; line-height: 1.3;
+                     margin: calc(var(--gap-close) - (var(--gap) - 0.1em)) 0 var(--gap-close); }
+/* The one element whose VERTICAL space is not reserved: until it is revealed it has no height, so
+   the picture sits higher and the last click pushes it down towards the bottom edge rather than
+   fading into a gap that has been sitting empty. Its WIDTH still counts, though — `display: none`
+   took that away too, and since the block shrink-wraps the slide, a conclusion wider than the list
+   above it made the block grow on the last click and the whole slide shifted left. */
+.reveal .statement.hid { height: 0; margin: 0; overflow: hidden; }
+/* The modular diagram needed one guard to survive that. It is a flex item in a fixed 750px column,
+   so the ~70px the conclusion claims on the last click was taken out of the DRAWING: it was laid
+   out 70px shorter, reveal animated the difference as a scaleY(1.16), and `xMidYMid meet` then
+   centred the shrunken picture inside its own box, indenting it away from the title's left edge.
+   Pinned, it keeps one size on every step and the last click only moves it down, as everywhere
+   else. Its width is chosen so the natural height already fits with the conclusion present --
+   otherwise pinning would just trade the squeeze for an overflow. */
+.reveal .sbody > svg.modular { flex: 0 0 auto; }
+/* The conclusion FADES; it does not fly. Being out of flow makes its box 0x0 at the origin, and
+   reveal pairs it with the visible copy by its text — so auto-animate was carrying it in from 876px
+   above the slide and 28px to the left. Pinning the transform leaves only the opacity transition,
+   which is the whole effect wanted: the picture moves, the sentence appears where it belongs.
+   For a different rhythm rather than a different animation, reveal reads data-auto-animate-delay,
+   -duration and -easing off the element itself. */
+.reveal .statement { transform: none !important; }
+.reveal .sbody > *          { order: 2; }
+.reveal .sbody > .titlebox  { order: 0; }
+.reveal .sbody > .statement { order: 1; }
+/* The line that OPENS a slide, as against the one that closes it. Both used to be `.statement`,
+   so two 44px white lines could share a screen and neither read as the conclusion. */
+.reveal .leadin { font-size: var(--fs-lg); line-height: 1.3; margin: 0.4em 0.4em 0; }
+
+/* A list item, and the dimmer explanation under it — one item, two lines. */
+.reveal .step { font-size: var(--fs-lg); line-height: 1.3; margin: var(--gap-item) 0 0; }
+.reveal .step .sub { display: block; font-size: var(--fs-md); color: var(--c-dim); line-height: 1.35;
+                     margin-top: var(--gap-pair); }
+/* A PICTURE'S DESCRIPTION, wherever it stands: one small light grey line with its key words in
+   blue, always ABOVE the picture. It is a label about the picture, not content, so it never
+   competes with what it labels. One rule, because a column used to set 32px white and a figure
+   32px blue — the same kind of line reading as three different things. */
+.reveal p.step.sub,
+.reveal .squint figcaption,
+.reveal .why-col .colcap,
+.reveal .twoshots figcaption,
+.reveal .pstep .ps { font-size: var(--fs-sm); color: var(--c-mute); font-weight: 300;
+                     line-height: 1.35; }
+.reveal p.step.sub { margin-top: 0.6em; }
+/* ...unless the line IS the content rather than a label about it. The two addresses under "Where
+   it runs today" are the one thing in the talk an audience might write down, and blue is what this
+   deck uses for the thing to take away. Specific enough to beat the grouped rule above, which a
+   bare `.blue` from style.css is not. */
+.reveal p.step.sub.blue { color: var(--c-blue); }
+/* A description that names its picture puts the name on its own line: in a column the two parts
+   otherwise wrap wherever the width happens to fall, and the name stops reading as the name. The
+   break replaces the dash, so the markup carries no separator. */
+.reveal .why-col .colcap .blue,
+.reveal .twoshots figcaption .blue { display: block; }
+/* A picture's label always sits ABOVE the picture, so the pair reads top-down like everything else
+   on the slide. A caption that leads into one another element therefore carries its space below. */
+.reveal p.step.sub + .shotbox,
+.reveal p.step.sub + .reflibs,
+.reveal p.step.sub + .zonebox { margin-top: var(--gap-pair); }
+
+/* The slide number sits in the middle of the arrow diamond, in the chapter line's grey. reveal's
+   own diamond leaves 28px between the left and right arrows and "10/26" needs 55, so the diamond is
+   widened to 60px and re-centred on the new middle. Everything here is screen px: the controls live
+   outside .slides and are not scaled with the stage. */
+/* The four arrows on one centre, each 48px out from it, so the diamond stays a diamond while its
+   middle opens up to 60px. Widening only the horizontal pair stretched it into a lozenge. The whole
+   block moves in from the corner to keep the outer arrows off the edge. */
+/* Anchored to the TITLE, not the corner -- build.py measures where the title block is and
+   publishes --ctrl-shift, the distance the whole cluster moves up from where it used to sit. Every
+   offset below is untouched, so the diamond keeps its shape; only the pair of `bottom` values that
+   position it as a whole take the shift. The transition is what makes it glide with the title on a
+   title card's first click instead of jumping -- build.py drives that per frame, so there is
+   deliberately NO transition here: one would lag behind a target that is itself moving. */
+/* Grey, not the theme's link blue: blue is this deck's "look here" colour and the arrows are the
+   one thing on screen nobody needs to look at. The same grey as the number they sit around, so the
+   cluster reads as one quiet object. */
+.reveal .controls { color: var(--c-mute);
+                    right: var(--ctrl-right, 28px); bottom: calc(32px + var(--ctrl-shift, 0px));
+                    /* scaled about the diamond's own centre -- 30px in from the box's right and
+                       bottom, which is where talk.css puts the four arrows' shared middle */
+                    transform: scale(var(--ctrl-scale, 1));
+                    transform-origin: var(--ctrl-origin, 50% 50%); }
+/* Glides to the new height on a slide change; build.py switches this off while it is tracking a
+   title that is itself in motion. */
+/* The diamond's unscaled height, from the two offsets below: the up arrow's box starts 78px up,
+   the down arrow's ends 25px below the origin, and the arrow itself is 56px. Declared rather than
+   measured -- build.py needs it to size the cluster to the title, and reading it back off the DOM
+   meant un-scaling the arrows on every frame, which made them pulse. Change an offset, change this. */
+/* How tall the whole cluster is drawn, in STAGE units, and so how big the number inside it reads:
+   build.py scales the diamond to this. 94 would match the title block exactly, which came out a
+   little small against it -- 115 is about a fifth larger. --ctrl-span below is what it is scaled
+   FROM, and is fixed by the offsets; this is the only number to change to resize the cluster. */
+.reveal { --ctrl-height: 115px; --ctrl-span: 159px; }
+.reveal .controls .navigate-right { right: -18px; bottom: 30px; }
+.reveal .controls .navigate-left  { right:  78px; bottom: 30px; }
+.reveal .controls .navigate-up    { right:  30px; bottom: 78px; }
+/* -32, not -25: at -25 the four BOXES are symmetric about the centre, but reveal draws the down
+   triangle 7px high inside its own box while the other three are centred in theirs, so the diamond
+   came out squashed along the bottom -- the ink sat 36.6px above the middle and only 32.2 below.
+   The offset is set from where the triangle lands, not from where its button does. */
+.reveal .controls .navigate-down  { right:  30px; bottom: -32px; }
+.reveal .slide-number { right: calc(48px + var(--ctrl-right, 28px));
+                        bottom: calc(80px + var(--ctrl-shift, 0px));
+                        transform: translate(50%, 50%) scale(var(--ctrl-scale, 1));
+                        background: none; padding: 0;
+                        font-family: "Titillium Web", "Segoe UI", sans-serif; font-weight: 300;
+                        font-size: 15px; letter-spacing: 0.03em; color: var(--c-mute); }
+/* reveal writes a newline and five tabs between the number's spans; zeroing the anchor's font size
+   and restoring it on each span is what stops that rendering as space.
+   The separator is DRAWN, not typed: the `|` glyph hangs below the baseline but stops at the digits'
+   cap height, so it reads as lopsided. A 1px box in the numbers' own grey, 18px tall and dropped
+   4px below the baseline, overhangs them by the same 4px top and bottom. */
+.reveal .slide-number a { color: inherit; font-size: 0;
+                          display: inline-flex; align-items: center; }
+.reveal .slide-number .slide-number-a,
+.reveal .slide-number .slide-number-b { font-size: 15px; line-height: 1; }
+.reveal .slide-number .slide-number-delimiter {
+    width: 1px; height: 17px; margin: 0 8px; background: currentColor; font-size: 0; }
+
+/* Whose work this is, when it is not ours. */
+.reveal .credit { font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.4; margin: 0.9em 0 0; }
+.reveal .credit a { color: var(--c-mute); }
+
+/* Two states an element can be in: not yet revealed (keeps its box so nothing moves as steps run),
+   and deliberately half-strength. */
+.reveal .hid:not(img) { opacity: 0 !important; }
+/* An image keeps the same rule WITHOUT !important, and that is the whole cross-fade. A stacked slot
+   holds every picture the stack will show and hides all but one; on a click the outgoing picture is
+   the one carrying `hid` in the NEW step, so `!important` pinned it at zero from the first frame —
+   it vanished, leaving a gap, and only the incoming picture animated. Without it, auto-animate can
+   put its own inline opacity on the outgoing image and transition it down while the incoming one
+   comes up, so the two overlap and only the part of the screen that actually changed appears to
+   move. `!important` has to stay for everything else: `.faint` is declared after `.hid` at the same
+   specificity, and reserve_space can put both on one element. */
+.reveal img.hid { opacity: 0; }
+.reveal .faint { opacity: 0.45; }
+.reveal .dim { color: var(--c-mute); }
+
+/* --- an epigraph: one sentence on an empty screen --------------------------------------------- */
+/* Set at the size of a conclusion rather than a title: it is a sentence to read, not a heading, and
+   it has to sit clearly below the deck's own voice because the words are someone else's. */
+.reveal .quote { font-size: var(--fs-xl); line-height: 1.35; margin: 0 auto 1.1em;
+                 max-width: 1000px; text-wrap: balance; }
+/* --fs-md, not --fs-sm: 20px and --c-mute is the deck's micro-note treatment, for a line sitting
+   under a heading on a full slide. Here the name is one of two things on an empty screen, and at
+   that size it read as a caption that had lost its picture. One step up, and --c-dim like every
+   other byline, still leaves it well below the 44px quote. */
+.reveal .quoteslide .byline { font-size: var(--fs-md); color: var(--c-dim); letter-spacing: 0.02em;
+                              margin: 0; }
+.reveal .quoteslide .byline em { font-style: italic; }
+
+/* --- the cover ------------------------------------------------------------------------------- */
+/* The cover speaks the deck's own language: the same left edge, the same blue rule beside the title,
+   the same type scale. It is not `freeform` — it is a normal slide, so it gets the block treatment
+   for free — and build.py skips its title card, because a cover is already a title on an empty
+   screen. It builds in three: the mark and the claim, then what the claim is about, then who is
+   saying it and where. */
+/* A cover has no conclusion to lift above the content, so it keeps its markup order — otherwise
+   the rule that puts `.statement` under the title also sends the logo below it. */
+.reveal section.cover > .sbody > * { order: 0; }
+/* The cover builds upwards, so what has not arrived yet takes no HEIGHT — the lines already on
+   screen move down as each block lands above them. It keeps its WIDTH, though, or the block would
+   shrink-wrap the event line and the whole cover would jump sideways on the next click. */
+.reveal .cover .hid { height: 0; margin: 0; overflow: hidden; }
+.reveal .cover img.titlelogo { height: 84px; margin: 0 0 1.3em; align-self: flex-start; }
+/* The subtitle lives INSIDE the title box, so the rule spans both: on every other slide the rule
+   marks the chapter line and the title together, and on a cover the equivalent unit is the claim
+   and the line that says what it is about. They sit close for the same reason. */
+.reveal .cover .titlebox .subtitle { font-size: var(--fs-lg); line-height: 1.3; color: #e6e8ee;
+                                     margin: 0.3em 0 0; max-width: 900px; }
+.reveal .cover .author { font-size: var(--fs-md); font-weight: 400; margin: 0 0 0.3em; }
+.reveal .cover .affil { font-size: var(--fs-sm); line-height: 1.45; color: var(--c-mute);
+                        margin: 0; }
+.reveal .cover .event { font-size: var(--fs-sm); color: var(--c-mute); margin: 1.5em 0 0;
+                        letter-spacing: var(--track-label); text-transform: uppercase; }
+
+.reveal img.titlelogo { display: block; height: 120px; width: auto; margin: 0 auto 0.45em;
+                        border: none; box-shadow: none; }
+.reveal .deck-title { font-size: var(--fs-title); margin: 0.1em 0 0.3em; }
+.reveal .subtitle { font-size: var(--fs-xl); line-height: 1.3; margin-bottom: 0.7em; }
+.reveal .byline { font-size: var(--fs-lg); color: var(--c-dim); }
+
+/* --- section dividers (emitted by build.py) --------------------------------------------------- */
+.reveal .section-map { list-style: none; margin: 0; padding: 0; text-align: left; }
+/* Uppercase wants tracking at small sizes and almost none at large ones — the need falls as the
+   letters grow, while an `em` value rises with them. The chapter line is 20px and takes 0.15em;
+   these rows are 32px and take a fifth of that. */
+.reveal .section-map li { display: block; font-size: var(--fs-lg); line-height: 1.85;
+                          text-align: left; text-transform: uppercase; letter-spacing: 0.03em; }
+.reveal .section-map li .no { margin-right: 0.7em; }
+.reveal .section-map li.here { color: #fff; }
+.reveal .section-map li.later { color: var(--c-off); }
+.reveal .section-map li .ico { height: 0.62em; width: auto; margin-right: 0.5em; opacity: 0.8;
+                               vertical-align: baseline; }
+
+/* --- icons ------------------------------------------------------------------------------------ */
+/* Referenced from the inlined sprite, so the colour comes from here rather than a fill attribute. */
+.reveal svg.ico { fill: currentColor; }
+.reveal svg.ico.lead { height: 0.72em; width: auto; opacity: 0.75; margin-right: 0.3em;
+                       vertical-align: -0.04em; }
+
+/* --- a left-aligned list ---------------------------------------------------------------------- */
+.reveal .dolist { width: fit-content; max-width: 100%; margin: 0.5em 0 0; text-align: left; }
+/* Hanging indent: a wrapped second line starts under the text, never under its own icon. */
+.reveal .dolist .step { padding-left: 1.5em; text-indent: -1.5em; }
+/* Backup slides are read, not presented: same shape, one step down the scale, so a reference slide
+   carries five rows without spilling. */
+.reveal .dolist.dense .step { font-size: var(--fs-md); margin: var(--gap-item) 0 0; }
+.reveal .dolist.dense .step .sub { font-size: var(--fs-sm); }
+
+/* --- picture columns -------------------------------------------------------------------------- */
+.reveal .columns { display: flex; align-items: flex-start; justify-content: flex-start; gap: 40px;
+                   width: 100%; }
+.reveal .why-col { flex: 1 1 0; text-align: left; }
+/* Block, not inline-block: shrink-to-fit gave each screenshot the width its own aspect ratio
+   implied at 262px tall, so three columns of the same width held three pictures of different
+   widths, none of them aligned. */
+.reveal .why-col .imgwrap { position: relative; display: block; }
+/* 303px, not a round number: the column is 355px wide and the XQuartz dialog is 520x444, so at
+   this height `cover` crops it by nothing at all. A cropped application window or input file still
+   reads correctly — the eye supplies the rest — but a dialog box is a whole object, and cutting
+   its right edge took half the OK button with it and looked like a mistake rather than a crop.
+   The row height therefore follows the one picture that must not be cropped; the other two lose
+   130px and 129px instead of 189px and 92px, which changes nothing about what they show. */
+.reveal .why-col .imgwrap img { width: 100%; height: 303px; object-fit: cover;
+                                object-position: top left; border-radius: 10px; margin: 0;
+                                border: none; box-shadow: none; }
+/* A column caption, NOT the slide's conclusion — .statement means one thing only. */
+.reveal .why-col .colcap { margin: 0 0 var(--gap-pair); }
+
+/* --- the acquisition / reduction / analysis chain --------------------------------------------- */
+.reveal .pipeline { display: flex; align-items: flex-start; justify-content: flex-start; gap: 30px;
+                    width: 100%; margin: 0.6em 0 0; }
+.reveal .pstep { flex: 1 1 0; text-align: left; }
+.reveal .pstep img { display: block; width: 100%; height: 186px; object-fit: contain;
+                     object-position: left; margin: 0;
+                     border: none; box-shadow: none; background: none; }
+/* Each stage's name is a PILL, not a line of text: three words in a row read as three labels only
+   when each has an edge of its own. inline-flex so the background hugs the word instead of running
+   the width of the column, and fully rounded because that is what a label of this kind looks like.
+   White on a muted ground, which is how every other pill in this deck is set -- the reference uses
+   dark-on-saturated, which would be the one loud thing on a slide whose job is to be context. */
+.reveal .pstep .ph { display: inline-flex; align-items: center; gap: 0.4em;
+                     font-size: var(--fs-lg); line-height: 1.2; color: #fff;
+                     padding: 0.22em 0.62em 0.26em; border-radius: 999px;
+                     margin: 0 0 var(--gap-pair); }
+.reveal .pstep .ph .ico { height: 0.72em; width: auto; opacity: 0.9; }
+/* Reduction and Analysis carry the colours "Where it runs today" gives the same two words;
+   Acquisition takes a fourth muted hue, clear of the three already spoken for there. */
+.reveal .pstep .ph-acq { background: rgb(140, 115, 85); }   /* muted amber  */
+.reveal .pstep .ph-red { background: rgb(85, 140, 133); }   /* muted teal   */
+.reveal .pstep .ph-ana { background: rgb(85, 112, 140); }   /* muted blue   */
+.reveal .pstep .ps { margin: 0 0 0.45em; }
+/* Each step names the software that does it. The three marks carry very different amounts of
+   whitespace, so each gets the height at which its wordmark reads at the same size as the others. */
+.reveal .pstep img.plogo { display: block; width: auto; margin: 0.5em auto 0 0; object-fit: contain;
+                           opacity: 0.85; border: none; box-shadow: none; }
+.reveal .pstep img.plogo-nicos { height: 22px; }
+.reveal .pstep img.plogo-scipp { height: 26px; }
+.reveal .pstep img.plogo-ed    { height: 34px; }
+/* A square icon, not a wordmark like the other three, so it is set shorter: a solid mark carries
+   more ink than a word of the same height and would otherwise tower over EasyDiffraction. */
+.reveal .pstep img.plogo-sasview { height: 28px; }
+/* Analysis is the one step that names MORE than one program -- that is the slide's whole argument,
+   so the marks sit in a row and the row admits it does not end there. */
+.reveal .pstep .plogos { display: flex; align-items: center; gap: 14px; margin: 0.5em 0 0; }
+.reveal .pstep .plogos img.plogo { margin: 0; }
+.reveal .pstep .pand { font-size: var(--fs-xs); font-weight: 200; color: var(--c-mute);
+                       white-space: nowrap; }
+
+/* --- a list accumulating on the left, one picture on the right -------------------------------- */
+/* A definite width, like .samefact and .squint: `width: 100%` contributes nothing to the block's
+   shrink-to-fit, so the row was only as wide as the conclusion happened to be (1055px) and the
+   picture was stuck at 519px — too small to see that Text mode is greyed rather than missing,
+   which is the whole of the third claim. At the deck's full 1144px the picture is 678px. */
+.reveal .ways { display: flex; align-items: center; gap: 26px; width: 1069px; max-width: 100%;
+                margin-top: 0.5em; }
+/* 372px, not a percentage: the widest line in the column ("Basic · Extra · Text mode") measures
+   363px, so this is the narrowest the text can be without wrapping, and every pixel not spent here
+   goes to the picture. Re-measure before adding a longer line to this list. */
+.reveal .ways-text { flex: 0 0 372px; text-align: left; }
+/* As tall as the picture actually renders at this width (519 / 1.609), not taller: at 396 the
+   screenshot floated in 73px of its own box. */
+.reveal .ways-image { flex: 1 1 auto; position: relative; height: 417px; }
+/* The highlight over the picture is a PATH, not a box: what a click describes is a tab and the
+   panel it reveals, which is one shape with a step in it, not a rectangle. Coordinates are in
+   percent of the picture (viewBox 0 0 100 100 with preserveAspectRatio none), read straight off the
+   screenshot, so they hold at any size. The stroke is non-scaling, or the non-uniform viewBox would
+   stretch it thick on one axis and thin on the other. */
+/* A cross-fade that does not dip dark. Fading the outgoing picture out while the incoming one
+   fades in leaves both near half opacity in the middle, and half plus half over a dark stage sums
+   to less than one — the frame went grey and came back. So the outgoing picture does not fade at
+   all: the step before it is marked `prev`, it is pinned opaque, and the incoming picture fades in
+   ON TOP of it. Only the part of the screen that actually changed appears to move.
+   Pinning, not a delayed transition: reveal applies its "from" state AFTER the section is displayed,
+   so a transition override delays that too and the picture blinks out before it comes back. And it
+   needs !important with more specificity than reveal's own, because auto-animate drives opacity
+   through a generated `[data-auto-animate-target="N"] { ... !important }` rule, not inline styles.
+   Safe here only because every picture in this slot renders at the same size, so the one on top
+   covers the one beneath it completely. */
+.reveal .ways-image img,
+.reveal .shotbox.xfade img { z-index: 1; }
+.reveal .ways-image img.hid.prev,
+.reveal .shotbox.xfade img.hid.prev { opacity: 1 !important; z-index: 2; }
+.reveal .ways-image img:not(.hid),
+.reveal .shotbox.xfade img:not(.hid) { z-index: 3; }
+.reveal .markbox { position: absolute; inset: 0; width: 100%; height: 100%;
+                   pointer-events: none; overflow: visible; z-index: 4; }
+.reveal .markbox path { fill: var(--c-mark); fill-opacity: 0.16;
+                                    stroke: var(--c-mark); stroke-width: 3;
+                                    vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.reveal .ways-image img { position: absolute; inset: 0; width: 100%; height: 100%;
+                          object-fit: contain; border-radius: 8px; margin: 0; border: none;
+                          box-shadow: none; }
+
+/* --- one slot holding several screenshots ----------------------------------------------------- */
+/* So a stack stepping through six versions of the same window cross-fades in place instead of
+   resizing the slide under them. */
+/* ONE height per slide, written on the slide itself as `style="--shot-h: 540px"`, because how much
+   room is left over depends on what else is up there — a picture description, a tab strip — and how
+   wide the picture comes out depends on its own proportions at that height. Raise the number on a
+   slide to make its picture wider; the extra height is simply cut by the bottom edge.
+   The height is FIXED rather than flexed on purpose. When the box grew and shrank with the free
+   space, auto-animate matched it and wrote a vertical-only scale, and a scaleY stretches the
+   picture inside it — the screenshot appeared 24% too tall for a moment and then settled. Fixed,
+   the last click is a pure translate: the picture keeps its size and slides down onto the edge. */
+.reveal .sbody > .shotbox { position: relative; flex: 0 0 auto;
+                            width: var(--shot-w, 100%); height: var(--shot-h, 540px);
+                            margin: 0.4em 0 0; }
+/* The picture takes the height it is given plus --bleed, so only that hairline is cut by the slide
+   edge. It is therefore as WIDE as its own proportions make it at that height, which on a 1.6:1
+   screenshot is well short of the column: under a 290px title block a picture can be wide or whole,
+   not both, and this setting chooses whole.
+   It starts at the column's left edge like everything else; whatever width its proportions leave
+   over sits on the right. Raise that slide's --shot-h to take more of it. */
+/* Anchored to the TOP of its box. A slot holds several screenshots at one width, and they do not
+   all share an aspect — 1.73 to 1.609 on the design-evolution slot — so `contain` letterboxes the
+   shorter ones and that slack has to go somewhere. Above the picture it opened a gap between the
+   picture and the line describing it, which breaks the pair; below, it is a band at the very bottom
+   edge where the picture is being cut anyway. The slack disappears entirely only when every
+   screenshot in a slot shares one aspect. */
+/* `--shot-fit: cover` is the opt-out, per slot: a picture WIDER than its box is fitted by width
+   under `contain`, so it stops short of the bottom and leaves a band of background between the
+   picture and the slide edge — the one thing a bled picture is supposed to avoid. `cover` fills
+   the box instead and takes the difference off the right edge, which is where a screenshot can
+   afford it. It is not the default because what sits on that right edge differs per picture: on
+   designpsykologi.png it is browser buttons over flat grey, on ed-design-2019.png it is a column
+   of real controls that would be cut mid-label. Check the band before opting a picture in. */
+.reveal .shotbox img { position: absolute; left: 0; top: 0; margin: 0;
+                       /* --zoom scales the picture without touching the box: the box is what the
+                          block measures itself against, so growing it would re-centre the slide
+                          and drag the title sideways mid-click. */
+                       height: calc(var(--zoom, 1) * 100%); width: auto;
+                       max-width: 100%; object-fit: var(--shot-fit, contain);
+                       object-position: left top;
+                       border: none; box-shadow: none; border-radius: 6px; }
+/* The demo joke is a picture, not a screenshot of the application, and it is WIDER than the slot it
+   lands in. At `height: 100%` the element stayed 573 tall while the image only drew 519, so the
+   radius rounded the element -- top two corners on the picture, bottom two in empty space below it.
+   Sized to its own aspect the box hugs the picture, so all four corners round, and at 10px rather
+   than the screenshots' 6: a joke may look like a picture, a screenshot should look like the app. */
+.reveal .shotbox img.joke { width: 100%; height: auto; border-radius: 10px; }
+/* The last click stops stepping through the years and puts all four on screen together: the claim
+   is that each iteration REMOVED something, and that can be CHECKED rather than remembered only
+   when the four can be compared. The same .shotbox carries them -- a fifth element type here would
+   have left reserve_space reconciling two different sets of blocks, which it resolves by appending
+   the leftovers after the <aside>, i.e. outside the .sbody that wrap_bodies builds.
+   `position: static` puts the pictures back in flow so the grid can place them; they are sized by
+   HEIGHT so all four line up along their tops and bottoms whatever their aspect ratios. */
+.reveal .sbody > .shotbox.four { display: grid; grid-template-columns: repeat(2, 1fr);
+                                 grid-template-rows: auto auto auto auto;
+                                 column-gap: 16px; row-gap: 0; height: auto; align-items: start; }
+.reveal .shotbox.four img { position: static; height: 202px; width: auto; max-width: 100%;
+                            border-radius: 6px; }
+/* Each picture is named above itself rather than in one list under the caption, so no one has to
+   map four years onto four panels in reading order. The labels sit in EVERY step's shotbox and are
+   simply not drawn until the four-up: identical markup across the steps is what stops
+   reserve_space() having to reconcile two different sets of children inside the box. */
+.reveal .shotbox .yr { font-size: var(--fs-xs); font-weight: 200; color: var(--c-mute);
+                       line-height: 1.35; }
+.reveal .shotbox:not(.four) .yr { display: none; }
+/* ...and on the four-up the caption goes the other way. Every picture names its own year now, and
+   the conclusion sits directly above, so a line saying the same thing a third time only costs the
+   pictures 33px of height. It stays in the DOM -- every step must carry the same elements or
+   reserve_space() starts reconciling different sets -- it is simply not drawn. */
+.reveal .sbody:has(> .shotbox.four) > p.step.sub { display: none; }
+.reveal .shotbox.four .yr { margin: 0 0 4px; }
+.reveal .shotbox.four .yr:nth-of-type(n+3) { margin-top: 14px; }   /* the gap between the two rows */
+/* Placed explicitly, so a label always sits directly over its own picture whatever the source
+   order: labels on rows 1 and 3, pictures on rows 2 and 4. */
+.reveal .shotbox.four .yr:nth-of-type(1)  { grid-area: 1 / 1; }
+.reveal .shotbox.four img:nth-of-type(1)  { grid-area: 2 / 1; }
+.reveal .shotbox.four .yr:nth-of-type(2)  { grid-area: 1 / 2; }
+.reveal .shotbox.four img:nth-of-type(2)  { grid-area: 2 / 2; }
+.reveal .shotbox.four .yr:nth-of-type(3)  { grid-area: 3 / 1; }
+.reveal .shotbox.four img:nth-of-type(3)  { grid-area: 4 / 1; }
+.reveal .shotbox.four .yr:nth-of-type(4)  { grid-area: 3 / 2; }
+.reveal .shotbox.four img:nth-of-type(4)  { grid-area: 4 / 2; }
+
+/* A marker drawn over a screenshot, not type — so it is --c-mark, the same colour as the zone boxes
+   and the reading-order arrows two slides later. It does not collide with anything on this white
+   e-mail, but annotation that changes colour between slides stops reading as annotation.
+   Positioned in the coordinates of the ZOOMED picture, the only step it is visible on. */
+.reveal .shotbox .hl { position: absolute; z-index: 3; background: var(--c-mark); opacity: 0.42;
+                       border-radius: 3px; pointer-events: none;
+                       /* drawn closed: a marker that has not been drawn yet is not a faint marker,
+                          it is no marker. It is present on every step so the step merge never gives
+                          it `hid`, whose opacity fade is exactly the arrival this should not have. */
+                       clip-path: inset(0 100% 0 0); }
+.reveal .shotbox .hl.on { clip-path: inset(0 0 0 0); }
+/* The stroke itself, once the step carrying it is on screen. A transition cannot do this: each step
+   is a different element, so there is no state to transition FROM — it has to be an animation that
+   runs when the section becomes present. `.done` is the later step, which inherits a mark already
+   made rather than drawing it again on every click that follows. */
+@keyframes marker-pen { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+/* `> .sbody` is load-bearing: `section.present` on its own ALSO matches the stack, whose class is
+   "stack present" the whole time you are anywhere in it — so every step's marks started drawing the
+   moment the slide was entered, and by the time the zoom step arrived the stroke was already part
+   way across. A stack's own children are sections, never a .sbody, so this matches the current STEP
+   and nothing else. */
+.reveal .slides section.present > .sbody .shotbox .hl.on:not(.done) {
+    animation: marker-pen 0.42s cubic-bezier(0.25, 0.1, 0.35, 1) var(--pen, 0.35s) both; }
+
+/* --- the linear workflow as a strip of chips -------------------------------------------------- */
+/* The current step lit, the steps still out of reach greyed rather than removed — which is exactly
+   what the application does. */
+.reveal .flow { display: flex; justify-content: flex-start; align-items: center; gap: 9px;
+                margin: 0.6em 0 0; flex-wrap: nowrap; }
+.reveal .flow .chip { font-size: var(--fs-sm); line-height: 1.2; padding: 0.5em 0.85em;
+                      border-radius: 6px; white-space: nowrap; background: #252525;
+                      border: 1px solid #3d3d3d; color: var(--c-dim); }
+.reveal .flow .chip.on  { background: var(--c-blue); border-color: var(--c-blue); color: #111; }
+.reveal .flow .chip.off { color: var(--c-off); border-color: #2c2c2c; }
+.reveal .flow .sep { font-size: var(--fs-sm); color: var(--c-off); }
+/* 0.9em, not 0.72: these are the application's own tab icons, and two of them (the calculator's
+   3x3 keypad, the microscope's stand) carry more internal detail than 14px can resolve — the right
+   key column and the right edge of the calculator landed on the same pixel and it read as a cut-off
+   icon. The strip has 134px of slack on its widest slide, so the extra width is free. */
+.reveal .flow .ico { height: 0.9em; width: auto; margin-right: 0.4em; vertical-align: -0.11em;
+                     opacity: 0.85; }
+.reveal .flow.stages .chip { font-size: var(--fs-md); padding: 0.55em 1.5em; }
+
+/* --- the same fact in two encodings ----------------------------------------------------------- */
+/* A slide arguing that seeing beats reading has to demonstrate it; a diagram of the claim would be
+   more reading. */
+/* A definite width, so the panels do not resize to whatever their longest line happens to be. The
+   block shrink-wraps the slide, so with `width: 100%` every edit to one line changed the panel
+   width and pushed some OTHER line onto two — shortening the explanation made the sentence above it
+   wrap. Fixed at the column, the panels are 559 wide whatever is written in them. */
+.reveal .samefact { display: flex; justify-content: flex-start; align-items: stretch; gap: 26px;
+                    width: 1144px; max-width: 100%; margin: 0.7em 0 0; }
+/* Two panels of a comparison have to line up row for row: the label at the top of both, the
+   explanation at the bottom of both, and the middle — a sentence in one panel, a row of chips in
+   the other — grown to the same height in each. Centring the whole column instead let the shorter
+   middle float, so SEE IT sat 18px below READ IT and the two explanation lines never met. */
+.reveal .samefact > div { flex: 1 1 0; box-sizing: border-box; background: #252525;
+                          border: 1px solid #3d3d3d; border-radius: 12px; padding: 20px 24px;
+                          display: flex; flex-direction: column; min-height: 200px; }
+.reveal .samefact .lbl { font-size: var(--fs-sm); letter-spacing: var(--track-label); text-transform: uppercase;
+                         color: var(--c-dim); margin: 0 0 0.9em; flex: 0 0 auto; }
+/* The icon carries the argument on this slide rather than decorating it: you know the eye before
+   you have read the word, which is the claim. */
+.reveal .samefact .lbl .ico { height: 0.95em; width: auto; margin-right: 0.5em;
+                              vertical-align: -0.11em; opacity: 0.8; }
+/* The middle row: grows to fill whatever the label and the explanation leave, content centred in
+   it, so a one-row chip strip and a two-line sentence occupy the same band. */
+.reveal .samefact .sentence,
+.reveal .samefact .flow { flex: 1 1 auto; display: flex; align-items: center;
+                          justify-content: flex-start; }
+/* Ranged left, like its label and the line under it: one alignment inside a panel. */
+.reveal .samefact .sentence { font-size: var(--fs-md); line-height: 1.45; margin: 0;
+                              color: #e6e8ee; }
+/* The order itself, as two terms and an arrow rather than a sentence: the claim of this slide is
+   which way round the arrow points, and a reader compares two arrows faster than two sentences.
+   The icons moved here FROM the panel labels — repeating the same icon on the label and on the
+   first term put two identical marks one under the other. */
+.reveal .samefact .order { flex: 1 1 auto; display: flex; align-items: center; gap: 0.55em;
+                           font-size: var(--fs-md); line-height: 1.45; margin: 0; color: #e6e8ee; }
+.reveal .samefact .order .tok { display: inline-flex; align-items: center; white-space: nowrap; }
+.reveal .samefact .order .tok .ico { height: 0.9em; width: auto; margin-right: 0.42em;
+                                     vertical-align: -0.1em; opacity: 0.85; }
+.reveal .samefact .order .to { color: var(--c-mute); font-size: 1.15em; line-height: 1; }
+
+.reveal .samefact .cost { font-size: var(--fs-sm); color: var(--c-dim); margin: 0.9em 0 0;
+                          flex: 0 0 auto; }
+/* A screenshot in the middle band of a panel, occupying the same row a sentence or a chip strip
+   would. It keeps its own background (#303030 against the panel's #252525) rather than being
+   knocked out: the claim is that this is the REAL screen, and a picture that pretends to be part of
+   the slide would be making the weaker claim. */
+.reveal .samefact .shot { flex: 1 1 auto; display: flex; align-items: center; }
+.reveal .samefact .shot img { width: 100%; height: auto; margin: 0; display: block;
+                              border: none; box-shadow: none; border-radius: 6px; }
+
+/* The strip is the workflow, so it has to read as one row — it wrapped by two pixels and Summary
+   dropped to a second line, which is the opposite of what the slide is claiming. `nowrap` plus a
+   tighter gap and padding leaves 16px of headroom. */
+.reveal .samefact .flow { margin: 0; gap: 4px; flex-wrap: nowrap; justify-content: flex-start; }
+.reveal .samefact .flow .chip { font-size: var(--fs-sm); padding: 0.45em 0.55em; flex: 0 0 auto;
+                                white-space: nowrap; }
+
+/* --- the squint test --------------------------------------------------------------------------- */
+/* The blur is a CSS filter, so there is no second copy of each screenshot to keep in step with the
+   first. The value is the point where no label resolves but the block structure is untouched —
+   which is the whole test; more than that and both sides are mush and the slide proves nothing.
+   It is tied to how large the pictures render: the slot shrank to 296px, so the blur came down
+   with it. Re-check this if the slot height changes again. */
+/* A definite width, not 100%: the block shrink-wraps the slide, and this block's own width came
+   from its captions' max-content — which CHANGES between steps, since the captions are rewritten
+   when both screens go blurred. The block grew 51px on that click and the slide shifted left. */
+/* Full column width, and the slot is exactly as tall as the picture it holds: (1144 - 34) / 2 =
+   555 wide, at the 1.6 these screenshots share, is 347 tall. The slot used to be 380 tall around a
+   243-tall picture, so each one floated in 137px of its own box. */
+.reveal .squint { display: flex; justify-content: flex-start; align-items: flex-start; gap: 34px;
+                  width: 1144px; max-width: 100%; margin: 0.6em 0 0; }
+.reveal .squint figure { flex: 1 1 0; margin: 0; }
+.reveal .squint .slot { position: relative; height: 347px; }
+.reveal .squint img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+                      border-radius: 6px; margin: 0; border: none; box-shadow: none; }
+.reveal .squint img.blur { filter: blur(3px); }
+.reveal .squint figcaption { font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.35;
+                             margin: 0 0 0.5em; }
+
+/* --- a screenshot with labelled regions drawn over it ----------------------------------------- */
+/* The boxes are positioned in per cent of the picture, so they follow it when the slide scales. */
+/* A definite width, not a percentage. The block shrink-wraps the slide, and a percentage width
+   contributes nothing to that measurement while the screenshot inside still contributes its own
+   natural width — so the block blew out to the full slide and there was nothing left to centre. */
+/* As large as the slide allows: this one is height-limited, and the picture cannot bleed because
+   the fourth zone it labels IS the status bar along its bottom edge. The top margin is trimmed to
+   buy the last of the room. */
+/* 798px: +10%. It is the only picture in the deck that is height-limited rather than width-limited,
+   because the fourth zone it labels IS the status bar along the bottom edge, so it grows DOWNWARD
+   into the bleed like every other picture rather than pushing the title up. On the five steps before
+   the conclusion it is whole, with 35px to spare; on the conclusion step the picture is pushed down
+   65px as usual and the last 30px — the status-bar zone — goes below the edge, by which point that
+   zone has had its own click and the arrows are the subject. */
+.reveal .zonebox { position: relative; width: 798px; max-width: 100%; margin: 0.15em 0 0; }
+.reveal .zonebox img { display: block; width: 100%; margin: 0; border: none; box-shadow: none;
+                       border-radius: 6px; }
+/* The wash is 16%, not 10%: measured against the screenshot underneath, 10% moved the picture by
+   13 of 255 and `.faint` on the last two steps multiplied that down to 6, which a projector will
+   not show at all. At 16% it is 21 lit and 9 dimmed — the zone reads as an area rather than as an
+   outline, which is the claim, and the interface underneath is still perfectly readable. */
+.reveal .zone { position: absolute; box-sizing: border-box; border: 3px solid var(--c-mark);
+                border-radius: 4px; background: rgba(209, 153, 102, 0.16); /* --c-mark at 16% */ }
+/* Each reading-order arrow is its own <svg>, boxed to exactly the arrow it holds, so a clip-path
+   wipe draws THAT arrow rather than sweeping across the whole screenshot. The box is given in
+   percentages of the picture and the viewBox in the picture's own pixels, so the path coordinates
+   are read straight off the screenshot. They sit on every step, drawn closed, because `hid` would
+   fade them in and a fade is not what an arrow being drawn looks like. */
+.reveal .zonebox .zarrow { position: absolute; pointer-events: none; overflow: visible;
+                           clip-path: inset(0 100% 0 0); }
+.reveal .zonebox .zarrow path { fill: var(--c-mark); opacity: 0.8; }
+.reveal .zonebox .zarrow.down { clip-path: inset(0 0 100% 0); }
+/* The zones dim on the steps that carry the arrows so the arrows are the figure — but 0.45 (the
+   deck's general `.faint`) took the boxes below reading strength just as all four are on screen
+   together for the first time, which is the moment the slide is actually about. 0.65 keeps them
+   legible; the arrows still dominate, being full-strength fill at 0.8 against a 16% wash. */
+.reveal .zone.faint { opacity: 0.65; }
+.reveal .zonebox .zarrow.on { clip-path: inset(0); }
+@keyframes arrow-right { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes arrow-down  { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+/* `> .sbody` again: section.present also matches the stack, which would start both arrows on the
+   first click of the slide instead of the last. */
+.reveal .slides section.present > .sbody .zonebox .zarrow.on:not(.done) {
+    animation: arrow-right 0.5s cubic-bezier(0.25, 0.1, 0.35, 1) var(--pen, 0.35s) both; }
+.reveal .slides section.present > .sbody .zonebox .zarrow.down.on:not(.done) {
+    animation: arrow-down 0.6s cubic-bezier(0.25, 0.1, 0.35, 1) var(--pen, 0.95s) both; }
+
+/* --- two techniques, side by side -------------------------------------------------------------- */
+/* Shown at the same size, so the shared skeleton is the thing the eye picks up first. */
+.reveal .twoshots { display: flex; justify-content: flex-start; align-items: flex-start; gap: 30px;
+                    width: 100%; margin: 0.6em 0 0; }
+.reveal .twoshots figure { flex: 1 1 0; margin: 0; }
+/* 346px is what a 1.6:1 screenshot renders at in a 557px column — the two are width-limited, so
+   this is as large as they go, and anything taller is empty box. */
+.reveal .twoshots img { display: block; width: 100%; height: 346px; object-fit: contain;
+                        object-position: left top; margin: 0;
+                        border: none; box-shadow: none; border-radius: 5px; }
+.reveal .twoshots figcaption { margin: 0 0 var(--gap-pair); }
+
+/* --- name + one line of explanation, in two columns ------------------------------------------- */
+/* A definite width, like .samefact and .ways: `width: 100%` contributes nothing to the block's
+   shrink-to-fit, so the grid was only as wide as the CONCLUSION happened to be (894px) and each box
+   came out at 436. Fixed at 944 the boxes are 461 whatever sentence closes the slide. The block
+   then measures 1000 of the deck's 1200. */
+.reveal .reflibs { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 22px;
+                   row-gap: 22px; grid-auto-rows: 1fr; width: 944px; max-width: 100%;
+                   margin: 0.7em 0 0; text-align: left; }
+/* Each project is a BOX, the same box the modular diagram draws its techniques in -- same grey,
+   same edge, same 6px corner -- so the two slides in this chapter show the same objects twice
+   rather than a diagram and then a list. The gap does less work now that every item has an edge of
+   its own, so it drops from --gap-item to something nearer the box padding. */
+.reveal .reflib { line-height: 1.25; background: #252525; border: 1px solid #3d3d3d;
+                  border-radius: 6px; padding: 14px 18px; }
+.reveal .reflib .rn { font-size: var(--fs-md); color: var(--c-blue); }
+.reveal .reflib .rd { display: block; font-size: var(--fs-xs); font-weight: 200;
+                      color: var(--c-dim); margin-top: 4px; }
+/* the status pills carry their own size in style.css, which lands too small inside a name */
+.reveal .reflib .rn [class^="tag-"] { font-size: var(--fs-xs); margin-left: 0.5em; }
+/* A pill's icon is white on the pill's own colour (svg.ico inherits currentColor), and smaller
+   than the .flow chips' 0.9em: those icons ARE the label, these sit beside one. */
+.reveal .reflib .rn [class^="tag-"] .ico { height: 0.8em; width: auto;
+                                           margin-right: 0.35em; opacity: 0.9; }
+/* The projects are named by their own logos, the same marks the modular diagram uses, so both
+   slides name them the same way. The line becomes a flex row because the pill used to hang off a
+   text baseline that no longer exists -- `vertical-align` has nothing to align to once the name is
+   a 44px image, and flex centres it on the mark instead. All eight logos share a 65-unit viewBox
+   height, so a single height lines every row up whatever the wordmark's length. */
+.reveal .reflib .rn { display: flex; align-items: center; }
+.reveal .reflib .rn .rlogo { height: 54px; width: auto; margin: 0; }
+/* Two pills on one line say two different things: what the project DOES, then how far along it is.
+   The three kinds get three hues of their own, kept in the same muted family as the status pills in
+   style.css (all of which sit around 85-125 average brightness) so neither pair shouts down the
+   other. The corner is shared by both: style.css draws its pills square, and one radius here rounds
+   every pill on the slide without touching that file. */
+.reveal .reflib .rn .tag-kind { display: inline-block; font-size: var(--fs-xs);
+                                margin-left: auto; padding: 0 0.4em 0.2em; color: white; }
+.reveal .reflib .rn [class^="tag-"] { border-radius: 0.3em; }
+/* style.css pads its pills on three sides only -- 0.2em under the text, nothing over it -- which
+   is invisible while a pill is just a word sitting on its baseline, but puts an icon visibly high
+   in its own box. inline-flex centres both the icon and the word on the pill's middle, and the
+   padding is symmetric so the box agrees with them. Last of these rules on purpose: it has to beat
+   the .tag-kind block above at equal specificity. */
+.reveal .reflib .rn [class^="tag-"] { display: inline-flex; align-items: center;
+                                      padding: 0.15em 0.45em; line-height: 1.15; }
+.reveal .tag-analysis  { background: #55708c; }   /* muted blue   */
+.reveal .tag-modelling { background: #75608c; }   /* muted purple */
+.reveal .tag-reduction { background: #558c85; }   /* muted teal   */
+
+/* --- the layered module diagram ---------------------------------------------------------------- */
+/* Drawn at 800 units wide and shown at 69% of the slide, so a size in user units renders about
+   1.035x larger: 24 lands on --fs-md, 19 on --fs-sm. */
+.reveal svg.modular { display: block; width: 841px; max-width: 100%; height: auto;
+                      margin: 0.6em 0 0; }
+.reveal svg.modular text { fill: #111; font-size: 24px; text-anchor: middle; }
+/* Above its row now, left-aligned with the boxes: the left and right gutters carry the two
+   spines, so the band name cannot sit in the left margin any more. */
+.reveal svg.modular text.band { fill: #999; font-size: 19px; text-anchor: start; }
+.reveal svg.modular text.role { fill: #999; font-size: 19px; }
+.reveal svg.modular text.more { fill: #cfcfcf; font-size: 19px; }
+/* The "lib" / "app" half of a box, beside the project's own logo. */
+.reveal svg.modular text.sfx { fill: #9a9a9a; font-size: 19px; text-anchor: end; }
+/* SVG nodes had their own reason for refusing a transform — auto-animate measures in screen pixels
+   and writes them onto an SVG element, where they are read as user units and the box flies across
+   the diagram — but `.sbody > * *` above now covers them. */
+
+/* --- one photograph carrying a slide ----------------------------------------------------------- */
+.reveal .bigphoto { display: block; height: 380px; width: auto; margin: 0 0 0.5em;
+                    border-radius: 10px; border: none; box-shadow: none; }
+.reveal .bigphoto.tall { height: 500px; }
+
+/* --- one fixed anchor for every title ---------------------------------------------------------- */
+/* reveal centres a slide vertically, so a short slide pushed its heading 240px lower than a tall one
+   and the eye had to re-find the title on every click. A floor height puts the centred block — and
+   therefore the heading — in the same place on every slide.
+   reveal.css forces `min-height: 0 !important` on every section in centred mode, so this has to
+   answer in kind. Centring lives on a wrapper inside the slide, not the slide itself: build.py wraps
+   each leaf slide's content in one .sbody, which is flex whether the slide is showing or not, so the
+   geometry auto-animate measures on the incoming slide is already the final one. */
+.reveal.center .slides > section > section { min-height: 750px !important; }
+.reveal.center .slides > section > section > .sbody {
+    /* `safe center` centres the block on a slide whose content is shorter than the frame, and falls
+       back to flex-start the moment it is taller — which is what a lone screenshot bled past the
+       bottom edge is. Plain `center` would push those slides' titles up by half the overflow. */
+    display: flex; flex-direction: column; justify-content: safe center; align-items: stretch;
+    box-sizing: border-box; height: 750px; text-align: left; overflow: hidden;
+    /* The content block shrink-wraps what is on the slide and is centred in it, so the title, the
+       assertion, the picture description and the picture keep one shared left edge and the block
+       they form carries equal margins either side. A picture is sized first (--shot-h, for a 5px
+       cut) and the block is then laid out around it, which is why .shotbox also carries --shot-w:
+       an absolutely-positioned picture has no width of its own for the block to measure. */
+    /* Not `100%`: the title RULE is drawn in the block's left padding, at the block's own left
+       edge, so a block as wide as the stage puts it hard against the screen — and the deck runs
+       with reveal's `margin: 0`, so in fullscreen the stage edge IS the screen edge. Capped, every
+       block keeps at least --pad-x of clearance on both sides, matching the right margin, and a
+       component wider than that (only .samefact, at 1144) shrinks into it via its own max-width. */
+    width: fit-content; max-width: calc(100% - 2 * var(--edge)); margin: 0 auto;
+    /* height, not min-height: a picture bled past the bottom used to GROW the box, and reveal
+       centres the slide vertically, so the whole slide crept upwards by half the bleed — 55px on
+       the click that pushes the picture down. Capped, the bleed is clipped instead. */
+    padding: var(--pad-top) var(--pad-x) var(--pad-bot) calc(var(--rule) + var(--rule-gap));
+    /* CLIPPED, not sized. `overflow: hidden` would cut at the box; a clip-path with a NEGATIVE
+       bottom inset cuts --vh-extra BELOW it instead, and clipping is not layout -- the box stays
+       750 tall, so nothing centres differently, nothing moves, and every position in this file
+       still means what it says. All that changes is that a picture running past the bottom edge
+       keeps going into the band the window has spare, instead of stopping at the canvas.
+       A flex container already establishes its own formatting context, so dropping `hidden` here
+       costs nothing that `hidden` was providing. */
+    overflow: visible; clip-path: inset(0 0 calc(-1 * var(--vh-extra, 0px)) 0); }
+/* ...except the title card, which hides its content BELOW the fold on purpose -- the slide is laid
+   out in full and pushed down so only the title shows. Extending its clip would leak exactly what
+   the push-down is there to conceal, so it keeps the hard edge. */
+.reveal .slides > section > section.titlecard > .sbody { clip-path: inset(0 0 0 0); }
+/* A slide opens as a TITLE CARD: the title alone on an empty screen, like a small chapter break.
+   The slide is laid out in FULL — the content is there, invisible, below the title — and the whole
+   block is simply pushed down until the title sits at the middle of the frame. That is what keeps
+   the title in the same COLUMN as on every following step: parking the content out of flow instead
+   left the block as narrow as the title, so it centred on its own and the first click moved the
+   title up AND left. Now the click only moves it up, and the content rises with it. */
+.reveal .slides > section > section.titlecard > .sbody { justify-content: flex-start; }
+/* The push-down is a MARGIN on the title, not padding on the body. reveal's auto-animate animates
+   `padding` — it is on its default list — so changing the body's padding moved the whole block AND
+   auto-animate still gave the title its own translate on top: the title dropped 268px below where
+   it had been and only then rose. Margin is not on that list, so the layout difference is carried
+   once, by the title's own translate. */
+.reveal .slides > section > section.titlecard > .sbody > .titlebox {
+    margin-top: calc((750px - var(--pad-top) - var(--pad-bot) - var(--titlebox-h)) / 2); }
+
+/* The covers are the one thing that stays centred: a logo, or a logo with a title and a byline,
+   stacked on an empty screen with no content column to range them against. `.freeform` marks them
+   — the ESS opening slide, the cover and the backup deck's closing slide. */
+/* The chapter dividers get the same block treatment as a content slide: shrink-wrapped and
+   centred. reveal already centres them vertically, so only the horizontal part applies. */
+.reveal.center .slides > section > section.section-title > .sbody,
+.reveal.center .slides > section.section-title > .sbody {
+    width: fit-content; max-width: 100%; margin: 0 auto;
+    padding: 0 var(--pad-x) 0 calc(var(--rule) + var(--rule-gap)); }
+
+.reveal.center .slides > section > section.freeform { min-height: 0 !important; }
+.reveal.center .slides > section > section.freeform > .sbody {
+    min-height: 0; height: auto; width: 100%; align-items: center; justify-content: center;
+    text-align: center; padding: 0; overflow: visible; }
+.reveal .freeform h3.deck-title { text-align: center; width: 100%; }
+/* Inline-level children (an <svg> diagram, a bare <img>) were centred by `text-align` before the
+   wrapper became a flex container; as flex items they align to the start instead. */
+.reveal .sbody > svg, .reveal .sbody > img { align-self: flex-start; }
+.reveal section.freeform > .sbody > svg,
+.reveal section.freeform > .sbody > img { align-self: center; }

@@ -1,0 +1,268 @@
+<div class="external-slide">
+
+<!-- 1.1 Where analysis sits -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Where analysis sits</h3>
+  <div class="pipeline" data-id="pipeline">
+    <div class="pstep" data-id="p1">
+      <p class="ph ph-acq"><i class="fa-microscope" data-id="p1hi"></i>Acquisition</p>
+      <p class="ps">run the experiment, write raw events</p>
+      <img src="images/data-acquisition_instrument.png" alt="a neutron instrument">
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where analysis sits</h3>
+  <div class="pipeline" data-id="pipeline">
+    <div class="pstep" data-id="p1">
+      <p class="ph ph-acq"><i class="fa-microscope" data-id="p1hi"></i>Acquisition</p>
+      <p class="ps">run the experiment, write raw events</p>
+      <img src="images/data-acquisition_instrument.png" alt="a neutron instrument">
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep" data-id="p2">
+      <p class="ph ph-red"><i class="fa-wave-square" data-id="p2hi"></i>Reduction</p>
+      <p class="ps">correct, bin, turn events into a pattern</p>
+      <img src="images/data-reduction_1d-pattern.png" alt="a reduced one-dimensional pattern">
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.png" alt="Scipp">
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where analysis sits</h3>
+  <div class="pipeline" data-id="pipeline">
+    <div class="pstep" data-id="p1">
+      <p class="ph ph-acq"><i class="fa-microscope" data-id="p1hi"></i>Acquisition</p>
+      <p class="ps">run the experiment, write raw events</p>
+      <img src="images/data-acquisition_instrument.png" alt="a neutron instrument">
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep" data-id="p2">
+      <p class="ph ph-red"><i class="fa-wave-square" data-id="p2hi"></i>Reduction</p>
+      <p class="ps">correct, bin, turn events into a pattern</p>
+      <img src="images/data-reduction_1d-pattern.png" alt="a reduced one-dimensional pattern">
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.png" alt="Scipp">
+    </div>
+    <div class="pstep" data-id="p3">
+      <p class="ph ph-ana"><i class="fa-calculator" data-id="p3hi"></i>Analysis</p>
+      <p class="ps">fit a model, get the science out</p>
+      <img src="images/data-analysis_refinement.png" alt="a fitted diffraction pattern">
+      <div class="plogos" data-id="p3logos">
+        <img class="plogo plogo-ed" src="images/easydiffraction_logo_dark.svg" alt="EasyDiffraction">
+        <img class="plogo plogo-sasview" src="images/SASVIEW_logo.png" alt="SasView">
+        <span class="pand" data-id="p3and">and others</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Where analysis sits</h3>
+  <div class="pipeline" data-id="pipeline">
+    <div class="pstep faint" data-id="p1">
+      <p class="ph ph-acq"><i class="fa-microscope" data-id="p1hi"></i>Acquisition</p>
+      <p class="ps">run the experiment, write raw events</p>
+      <img src="images/data-acquisition_instrument.png" alt="a neutron instrument">
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep faint" data-id="p2">
+      <p class="ph ph-red"><i class="fa-wave-square" data-id="p2hi"></i>Reduction</p>
+      <p class="ps">correct, bin, turn events into a pattern</p>
+      <img src="images/data-reduction_1d-pattern.png" alt="a reduced one-dimensional pattern">
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.png" alt="Scipp">
+    </div>
+    <div class="pstep" data-id="p3">
+      <p class="ph ph-ana"><i class="fa-calculator" data-id="p3hi"></i>Analysis</p>
+      <p class="ps">fit a model, get the science out</p>
+      <img src="images/data-analysis_refinement.png" alt="a fitted diffraction pattern">
+      <div class="plogos" data-id="p3logos">
+        <img class="plogo plogo-ed" src="images/easydiffraction_logo_dark.svg" alt="EasyDiffraction">
+        <img class="plogo plogo-sasview" src="images/SASVIEW_logo.png" alt="SasView">
+        <span class="pand" data-id="p3and">and others</span>
+      </div>
+    </div>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Analysis is where every technique goes <span class="blue">its own way</span>.</p>
+  <aside class="notes">
+    The point of the slide is only to place the talk: everything that follows is about the last box.
+    Say it on the dimming click: acquisition and reduction already have facility-wide tools, largely
+    shared across instruments. Analysis is where each technique grew its own program, and with it
+    its own interface.
+  </aside>
+</section>
+
+</section>
+
+<!-- 1.2 One step, many tools -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>One step, many tools</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="pprogs">
+      <p class="lbl"><i class="fa-display"></i>Diffraction programs</p>
+      <p class="sentence">FullProf &middot; Jana2020 &middot; GSAS-II &middot; SHELX &middot; MAUD &middot;
+        FOX &middot; Mag2Pol &middot; TOPAS &middot; HighScore &middot; &hellip;</p>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>One step, many tools</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="pprogs">
+      <p class="lbl"><i class="fa-display"></i>Diffraction programs</p>
+      <p class="sentence">FullProf &middot; Jana2020 &middot; GSAS-II &middot; SHELX &middot; MAUD &middot;
+        FOX &middot; Mag2Pol &middot; TOPAS &middot; HighScore &middot; &hellip;</p>
+    </div>
+    <div data-id="plibs">
+      <p class="lbl"><i class="fa-cubes"></i>Diffraction libraries</p>
+      <p class="sentence">CrysFML &middot; CCSL &middot; CCTBX &middot; pyobjcryst &middot;
+        CrysPy &middot; GSAS-II &middot; &hellip;</p>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>One step, many tools</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="pprogs">
+      <p class="lbl"><i class="fa-display"></i>Diffraction programs</p>
+      <p class="sentence">FullProf &middot; Jana2020 &middot; GSAS-II &middot; SHELX &middot; MAUD &middot;
+        FOX &middot; Mag2Pol &middot; TOPAS &middot; HighScore &middot; &hellip;</p>
+    </div>
+    <div data-id="plibs">
+      <p class="lbl"><i class="fa-cubes"></i>Diffraction libraries</p>
+      <p class="sentence">CrysFML &middot; CCSL &middot; CCTBX &middot; pyobjcryst &middot;
+        CrysPy &middot; GSAS-II &middot; &hellip;</p>
+    </div>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">That is <span class="blue">one</span> technique. Every other one has its own.</p>
+  <aside class="notes">
+    A scientist who works across two techniques learns two unrelated interfaces, two vocabularies
+    and two input formats — none of which has anything to do with the science.
+  </aside>
+</section>
+
+</section>
+
+<!-- 1.3 How an interface gets in the way -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>How an interface gets in the way</h3>
+  <div class="columns" data-id="columns">
+    <div class="why-col third" data-id="c1">
+      <p class="colcap"><span class="blue">Everything at once</span>many windows and controls, no order</p>
+      <div class="imgwrap"><img src="images/fullprof-window.png" alt="the FullProf Suite window"></div>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How an interface gets in the way</h3>
+  <div class="columns" data-id="columns">
+    <div class="why-col third" data-id="c1">
+      <p class="colcap"><span class="blue">Everything at once</span>many windows and controls, no order</p>
+      <div class="imgwrap"><img src="images/fullprof-window.png" alt="the FullProf Suite window"></div>
+    </div>
+    <div class="why-col third" data-id="c2">
+      <p class="colcap"><span class="blue">Written for the program</span>positional numbers and short names</p>
+      <div class="imgwrap"><img src="images/fullprof-pcr.png" alt="a FullProf PCR input file"></div>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How an interface gets in the way</h3>
+  <div class="columns" data-id="columns">
+    <div class="why-col third" data-id="c1">
+      <p class="colcap"><span class="blue">Everything at once</span>many windows and controls, no order</p>
+      <div class="imgwrap"><img src="images/fullprof-window.png" alt="the FullProf Suite window"></div>
+    </div>
+    <div class="why-col third" data-id="c2">
+      <p class="colcap"><span class="blue">Written for the program</span>positional numbers and short names</p>
+      <div class="imgwrap"><img src="images/fullprof-pcr.png" alt="a FullProf PCR input file"></div>
+    </div>
+    <div class="why-col third" data-id="c3">
+      <p class="colcap"><span class="blue">Friction before you start</span>platform-specific, extra deps</p>
+      <div class="imgwrap"><img src="images/fullprof-xquartz.png" alt="an XQuartz dependency dialog on macOS"></div>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How an interface gets in the way</h3>
+  <div class="columns" data-id="columns">
+    <div class="why-col third" data-id="c1">
+      <p class="colcap"><span class="blue">Everything at once</span>many windows and controls, no order</p>
+      <div class="imgwrap"><img src="images/fullprof-window.png" alt="the FullProf Suite window"></div>
+    </div>
+    <div class="why-col third" data-id="c2">
+      <p class="colcap"><span class="blue">Written for the program</span>positional numbers and short names</p>
+      <div class="imgwrap"><img src="images/fullprof-pcr.png" alt="a FullProf PCR input file"></div>
+    </div>
+    <div class="why-col third" data-id="c3">
+      <p class="colcap"><span class="blue">Friction before you start</span>platform-specific, extra deps</p>
+      <div class="imgwrap"><img src="images/fullprof-xquartz.png" alt="an XQuartz dependency dialog on macOS"></div>
+    </div>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Not the science. Just what a new user <span class="blue">meets first</span>.</p>
+  <aside class="notes">
+    These are the programs our users actually use, and they are scientifically excellent — the
+    complaint is only about the interface. Say so out loud: this is not a "our software is better"
+    slide, it is a "here is the UX debt the field carries" slide.
+  </aside>
+</section>
+
+</section>
+
+<!-- 1.4 Every technique starts over -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>&hellip; and then you do it again</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="d1"><i class="fa-atom lead"></i> A new technique gets a <span class="blue">new program</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>&hellip; and then you do it again</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="d1"><i class="fa-atom lead"></i> A new technique gets a <span class="blue">new program</span></p>
+    <p class="step" data-id="d2"><i class="fa-display lead"></i> A new program gets a <span class="blue">new interface</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>&hellip; and then you do it again</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="d1"><i class="fa-atom lead"></i> A new technique gets a <span class="blue">new program</span></p>
+    <p class="step" data-id="d2"><i class="fa-display lead"></i> A new program gets a <span class="blue">new interface</span></p>
+    <p class="step" data-id="d3"><i class="fa-user-check lead"></i> Every usability lesson is learned once, then <span class="blue">lost</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>&hellip; and then you do it again</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="d1"><i class="fa-atom lead"></i> A new technique gets a <span class="blue">new program</span></p>
+    <p class="step" data-id="d2"><i class="fa-display lead"></i> A new program gets a <span class="blue">new interface</span></p>
+    <p class="step" data-id="d3"><i class="fa-user-check lead"></i> Every usability lesson is learned once, then <span class="blue">lost</span></p>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Different science. Same interface <span class="blue">rebuilt</span> every time.</p>
+  <aside class="notes">
+    This is the hinge of the talk. The rest is: we built one interface carefully, then made it
+    reusable so the next technique does not start from an empty window.
+  </aside>
+</section>
+
+</section>
+
+</div>

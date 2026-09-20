@@ -1,0 +1,17 @@
+[workspace]
+name = "talk"
+description = "reveal.js deck — Same workflow, different techniques (EasyScience)"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64"]
+
+[dependencies]
+python = ">=3.11"
+
+[tasks]
+# The browser cannot assemble the deck itself: pulling slides/*.html in at run time means fetch() on
+# file://, which browsers block as a cross-origin read. So index.html is built from the slide files.
+build = "python build.py"
+# Edit a slide, save, refresh the tab. No server, no command per change.
+watch = "python build.py --watch"
+# Same, plus a local URL — for a phone, another machine, or a browser unhappy with file://.
+serve = "python build.py --serve"
