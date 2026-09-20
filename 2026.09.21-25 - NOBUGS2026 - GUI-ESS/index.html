@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GUI strategies at ESS</title>
+<title>GUI strategies at ESS Science</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
@@ -82,7 +82,7 @@
           <text x="103.7" y="110" font-size="18" font-weight="600" fill="#FFFFFF">Proposal</text>
           <image href="assets/logos/nicos.png" x="295.9" y="26.0" width="72.8" height="24.0"></image>
           <image href="assets/logos/epics.png" x="376.7" y="23.0" width="30.9" height="30.0"></image>
-          <image href="assets/logos/kafka.svg" x="415.6" y="23.0" width="64.6" height="30.0"></image>
+          <image href="assets/logos/mxcube_logo_white_4x.png" x="415.6" y="5.0" width="64.6" height="60.0"></image>
           <rect x="274" y="70" width="228" height="66" rx="10" fill="#1D3A55"></rect>
           <g transform="translate(328.1,95.7) scale(0.03125)"><use href="#fa-atom" width="448" height="512" fill="#FFFFFF"></use></g>
           <text x="351.1" y="110" font-size="18" font-weight="600" fill="#FFFFFF">Experiment</text>
@@ -246,7 +246,7 @@
   <div class="slide">
     <div class="head">
       <h2>Challenges, and the controls split</h2>
-      <p class="subhead">More organisational than technical. Beamline controls are ours; accelerator controls are not.</p>
+      <p class="subhead">More organisational than technical. Beamline controls are (mostly) under our scope; accelerator controls are not.</p>
     </div>
     <div class="body">
       <div class="cols three">
@@ -263,13 +263,14 @@
           <ul>
             <li><em>Scientific plotting is rarely QML-native</em>, so embedding it is extra work &amp; can break styling</li>
             <li>What is QML-native is general-purpose charting, not enough for scattering data</li>
+            <li><em>NICOS ESS fork</em>, merging back after alignment of expectation</li>
           </ul>
         </div>
         <div class="col">
           <span class="chip green"><svg class="chip-i" aria-hidden="true"><use href="#fa-code-branch"></use></svg>Accelerator vs beamline</span>
           <ul>
-            <li>ECDC sits inside DMSC and runs the same NICOS client on every instrument, so <em>one approach rather than one per beamline</em></li>
-            <li>Accelerator controls sit in another division, ICS; we share no UI stack with them</li>
+            <li>ECDC sits inside Science and runs the same NICOS client on every instrument, so <em>one approach rather than one per beamline</em></li>
+            <li>Low level EPICS controls sit in Accelerator division; we share no UI stack with them</li>
           </ul>
         </div>
       </div>
