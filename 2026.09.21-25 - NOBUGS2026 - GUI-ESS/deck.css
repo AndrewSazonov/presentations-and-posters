@@ -391,7 +391,11 @@ html, body, .reveal-viewport { background: #191919; }
    too large. It tracks the line the mark now stands beside — the address. */
 .reveal .subject { display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
                    gap: 0 0.6em; margin: 0 0 14px; font-size: var(--fs-sm); }
-.reveal .subject .clogo { height: 30px; width: auto; flex: 0 0 auto; position: relative; top: 0.11em; }
+/* NO OPTICAL NUDGE ON THIS ONE. The marks beside a lowercase product name are pushed down 0.11em
+   because their artwork sits high in its own box; this one does not — measured, its ink is centred
+   in its viewBox to within half a unit of 65 — so the same nudge would simply drop it below the
+   line it is meant to sit on. */
+.reveal .subject .clogo { height: 38px; width: auto; flex: 0 0 auto; }
 .reveal .subject .su { font-size: var(--fs-sm); color: var(--c-mute); }
 
 /* --- two applications, side by side ------------------------------------------------------------------ */
@@ -409,7 +413,9 @@ html, body, .reveal-viewport { background: #191919; }
    column leaves slack. Ranged left by default, like everything else on a slide; the FIRST of the
    pair is ranged right instead, which puts the two pictures next to each other with the slack on
    the outside rather than opening a gap down the middle. */
-.reveal .twoshots img { display: block; width: 100%; height: 268px;
+/* 260, not 268: the subject line above grew when its mark went up to 38px, and the pictures went
+   past the bottom of the frame — index.html?check flags it. */
+.reveal .twoshots img { display: block; width: 100%; height: 260px;
                         object-fit: contain; object-position: left top; margin: 0;
                         border: none; box-shadow: none; border-radius: 5px; }
 .reveal .twoshots figure.to-right img { object-position: right top; }
