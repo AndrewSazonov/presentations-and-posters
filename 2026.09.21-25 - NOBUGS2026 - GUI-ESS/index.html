@@ -89,14 +89,16 @@
           </defs>
 
           <!-- the four stages, each in one of the deck's four muted hues -->
-          <image href="assets/logos/uos.png" x="116.2" y="23.0" width="27.7" height="30.0"></image>
+          <image href="assets/logos/uos.png" x="80.6" y="23.0" width="27.7" height="30.0"></image>
+          <text class="mark" x="114.3" y="42.6">User Office</text>
           <rect class="stage s-prop" x="16" y="70" width="228" height="66" rx="10"></rect>
           <g transform="translate(82.7,95.7) scale(0.03125)"><use href="#i-file-lines" width="384" height="512" fill="#FFFFFF"></use></g>
           <text x="103.7" y="110">Proposal</text>
 
-          <image href="assets/logos/nicos.png" x="295.9" y="26.0" width="72.8" height="24.0"></image>
-          <image href="assets/logos/epics.png" x="376.7" y="23.0" width="30.9" height="30.0"></image>
-          <image href="assets/logos/mxcube_logo_white_4x.png" x="415.6" y="5.0" width="64.6" height="60.0"></image>
+          <image href="assets/logos/nicos.png" x="291.4" y="28.5" width="57.6" height="19.0"></image>
+          <image href="assets/logos/epics.png" x="359.0" y="25.0" width="26.9" height="26.0"></image>
+          <image href="assets/logos/mxcube_logo_white_4x.png" x="395.9" y="16.0" width="34.5" height="44.0"></image>
+          <text class="mark" x="435.4" y="42.6">MxCuBE</text>
           <rect class="stage s-exp" x="274" y="70" width="228" height="66" rx="10"></rect>
           <g transform="translate(328.1,95.7) scale(0.03125)"><use href="#i-atom" width="448" height="512" fill="#FFFFFF"></use></g>
           <text x="351.1" y="110">Experiment</text>
@@ -106,8 +108,9 @@
           <g transform="translate(571.8,95.7) scale(0.03125)"><use href="#i-filter" width="512" height="512" fill="#FFFFFF"></use></g>
           <text x="596.8" y="110">Data reduction</text>
 
-          <image href="assets/logos/easyscience.svg" x="847.0" y="23.0" width="76.2" height="30.0"></image>
-          <image href="assets/logos/sasview.png" x="931.2" y="23.0" width="29.9" height="30.0"></image>
+          <image href="assets/logos/easyscience.svg" x="819.1" y="23.0" width="76.2" height="30.0"></image>
+          <image href="assets/logos/sasview.png" x="905.3" y="23.0" width="29.9" height="30.0"></image>
+          <text class="mark" x="939.2" y="42.6">SasView</text>
           <rect class="stage s-ana" x="790" y="70" width="228" height="66" rx="10"></rect>
           <g transform="translate(804.4,95.7) scale(0.03125)"><use href="#i-chart-line" width="512" height="512" fill="#FFFFFF"></use></g>
           <text x="829.4" y="110">Analysis &amp; modelling</text>
@@ -123,9 +126,9 @@
           <rect class="stage s-data" x="274" y="196" width="486" height="66" rx="10"></rect>
           <g transform="translate(485.9,221.7) scale(0.03125)"><use href="#i-database" width="448" height="512" fill="#FFFFFF"></use></g>
           <text x="508.9" y="236">Data</text>
-          <image href="assets/logos/scicat.svg" x="377.6" y="277.0" width="31.4" height="30.0"></image>
-          <image href="assets/logos/nexus.png" x="443.0" y="281.5" width="84.3" height="21.0"></image>
-          <image href="assets/logos/fair.svg" x="561.3" y="277.0" width="95.1" height="30.0"></image>
+          <image href="assets/logos/scicat.svg" x="368.2" y="277.0" width="31.4" height="30.0"></image>
+          <image href="assets/logos/nexus.png" x="433.6" y="281.5" width="84.3" height="21.0"></image>
+          <image href="assets/logos/fair.svg" x="551.9" y="274.0" width="114.0" height="36.0"></image>
 
           <rect class="stage s-remote" x="790" y="196" width="228" height="66" rx="10"></rect>
           <g transform="translate(828.0,221.7) scale(0.03125)"><use href="#i-cloud" width="576" height="512" fill="#FFFFFF"></use></g>
@@ -248,29 +251,29 @@
       <div class="columns three">
         <div class="card roomy a-purple">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sitemap"></use></svg><span class="cn">Organisational</span></p>
-          <p class="cd">Each group picks its own stack</p>
           <p class="cd"><em>Little is shared between them</em></p>
+          <p class="cs">Each group picks its own stack</p>
           <p class="cd">GUI expertise stays inside teams</p>
-          <p class="cd">No common review or style practice</p>
+          <p class="cs">No common review or style practice</p>
           <p class="cd">GUI and science share the same people</p>
         </div>
         <div class="card roomy a-navy">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-screwdriver-wrench"></use></svg><span class="cn">Technical</span></p>
           <p class="cd"><em>Scientific plotting is rarely QML-native</em></p>
-          <p class="cd">Embedding it is extra work</p>
-          <p class="cd">It can break the styling</p>
+          <p class="cs">Embedding it is extra work</p>
+          <p class="cs">It can break the styling</p>
           <p class="cd">QML charting is general-purpose</p>
-          <p class="cd">Not enough for scattering data</p>
+          <p class="cs">Not enough for scattering data</p>
           <p class="cd">NICOS ESS fork</p>
-          <p class="cd">Merging back once expectations align</p>
+          <p class="cs">Merging back once expectations align</p>
         </div>
         <div class="card roomy a-green">
           <p class="ct"><svg class="ico" viewBox="0 0 448 512"><use href="#i-code-branch"></use></svg><span class="cn">Accelerator vs beamline</span></p>
-          <p class="cd">ECDC sits inside Science</p>
-          <p class="cd">The same NICOS client everywhere</p>
           <p class="cd"><em>One approach, not one per beamline</em></p>
+          <p class="cs">ECDC sits inside Science</p>
+          <p class="cs">The same NICOS client everywhere</p>
           <p class="cd">Low-level EPICS sits in Accelerator division</p>
-          <p class="cd">We share no UI stack with them</p>
+          <p class="cs">We share no UI stack with them</p>
         </div>
       </div>
     </div>
@@ -379,8 +382,21 @@
   Reveal.initialize({
     width: 1360,   /* 16:9, a little wider than 1280 so the technology cards never crowd */
     height: 765,
-    margin: 0,     /* reveal insets the stage by 4% of the viewport by default, which puts a band of
-                      background around a deck that already carries its own margins. */
+    /* A BAND ROUND THE STAGE, ALWAYS. This was 0, on the grounds that the deck carries its own
+       margins — but it only carries a RIGHT one. The title's blue rule is drawn in .sbody's left
+       padding at stage x=0, so the deck's left edge IS the rule, and whatever clear space it
+       appeared to have was the letterbox the browser chrome happened to leave.
+       Press F and that letterbox goes: this stage is 1360x765, exactly 16:9, so on a 16:9 display
+       fullscreen fits it edge to edge and the rule lands on the screen border.
+       The reference deck does not need this because its stage is 1200x750 — a 1.6 stage on a 16:9
+       screen stays height-limited in fullscreen and letterboxes itself, so it can afford margin 0
+       and cap the scale instead. A 16:9 stage has no such slack, and a scale cap would not help:
+       the band has to be asked for.
+       reveal splits this in HALF per side — 0.08 is 4% left and 4% right — so it takes a
+       bigger number than it looks to get a band you can see. At 0.08 the rule stands about
+       as far off the screen edge as the reference deck's does, which gets its band free by
+       being a 1.6 stage on a 16:9 screen. The cost is the slides drawing ~4% smaller. */
+    margin: 0.08,
     minScale: 0.2,
     maxScale: 2.0,
     controlsTutorial: false,
@@ -417,6 +433,52 @@
   Reveal.on('ready', placeControls);
   Reveal.on('resize', placeControls);
   Reveal.on('slidechanged', placeControls);
+
+  // FULLSCREEN MUST NOT RESIZE THE DECK. Windowed, the browser's chrome eats height and the deck is
+  // height-limited; press F and that height comes back, the deck stops being height-limited and
+  // grows until the WIDTH stops it — so every slide jumps a few per cent larger and the side bands
+  // shrink by the same amount. Capping maxScale at the scale the deck had a moment earlier keeps
+  // fullscreen identical to the window it came from; the height F hands over becomes band above and
+  // below instead of going into the content.
+  // A number in the config cannot do this: the right cap is whatever this window's height makes it,
+  // which differs per machine, per display and per browser chrome.
+  var windowedScale = null;
+  var isFull = function () {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  };
+  var remember = function () { if (!isFull()) windowedScale = Reveal.getScale(); };
+  // Several readings, because no single one is dependable: reveal's 'resize' only fires when the
+  // scale actually CHANGES, so on a deck opened at its final size it may never fire at all...
+  Reveal.on('ready', remember);
+  Reveal.on('resize', remember);
+  window.addEventListener('resize', remember);
+  // ...and this is the safety net. F starts the transition, and on the capture phase we run before
+  // reveal's own key handler, so the deck is still certainly windowed. The macOS fullscreen
+  // animation resizes the viewport repeatedly on the way, and any of those landing before
+  // fullscreenElement is set would overwrite the value we want.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'f' || e.key === 'F') remember();
+  }, true);
+  // ...but only where fullscreen would otherwise leave no side band at all. This stage is 16:9, so
+  // on a 16:9 or narrower display it fills the width exactly and the band collapses. On an
+  // ultrawide the stage is height-limited in fullscreen and letterboxes itself, and capping there
+  // would just leave the slides small in the middle of the room's screen. Read off `screen`, not
+  // the viewport, which is still mid-animation when this fires.
+  var fullscreenFillsWidth = function () {
+    return screen.width / 1360 <= screen.height / 765;
+  };
+  var onFullscreenChange = function () {
+    // configure() re-lays out, which fires 'resize' again; remember()'s guard stops that becoming a
+    // loop, since it only writes windowedScale when NOT fullscreen.
+    var cap = isFull() && windowedScale && fullscreenFillsWidth() ? windowedScale : 2;
+    Reveal.configure({ maxScale: cap });
+    // ...and re-place the arrows, twice: the viewport is mid-animation when this fires, so the
+    // first reading is of a window still on its way and the later one catches where it settles.
+    placeControls();
+    setTimeout(placeControls, 700);
+  };
+  document.addEventListener('fullscreenchange', onFullscreenChange);
+  document.addEventListener('webkitfullscreenchange', onFullscreenChange);
 
   // LAYOUT SELF-CHECK. Open index.html?check to get one line per slide whose content runs past the
   // slide box, listed in a <pre id="layout-check"> at the foot of the page and in the console.

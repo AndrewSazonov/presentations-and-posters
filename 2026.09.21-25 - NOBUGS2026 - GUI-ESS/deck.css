@@ -171,7 +171,9 @@ html, body, .reveal-viewport { background: #191919; }
 /* Desktop is a row of three, web a row of four, and BOTH are four-column grids of the same width, so
    the columns line up down the slide rather than forming two unrelated rows. EasyScience spans two:
    it is the one card that names three applications. */
-.reveal .group + .group { margin-top: 18px; }
+/* Tight: this band is the only content in the deck that fills its slide, and every pixel here
+   is one the bottom margin gets back. */
+.reveal .group + .group { margin-top: 12px; }
 /* No rule under the label. Every card below it now carries an edge of its own, so a line across
    the slide as well was a second divider doing the first one's job. */
 /* The only uppercase left in the deck. Caps are cut for the rhythm of mixed-case setting, so a
@@ -180,10 +182,15 @@ html, body, .reveal-viewport { background: #191919; }
    caps reads as a label band. On "WEB" the same value just pulls three letters apart. */
 .reveal .group-label { font-size: var(--fs-sm); letter-spacing: 0.07em;
                        text-transform: uppercase; color: var(--c-mute);
-                       margin: 0 0 10px; }
+                       margin: 0 0 7px; }
 .reveal .band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
                 align-items: stretch; }
 .reveal .band .card.wide { grid-column: span 2; }
+/* A four-up card is tighter than a two- or three-up one: same component, less room. */
+.reveal .band .card { padding: 9px 12px 10px; }
+.reveal .band .card .cd { margin-top: 7px; }
+.reveal .band .card .cd + .cd { margin-top: 4px; }
+.reveal .band .card .cw { margin-top: 6px; }
 
 /* --- a card: one technology, or the shared library --------------------------------------------------- */
 /* EVERY CARD HAS ONE ACCENT AND EVERYTHING IN IT FOLLOWS: the technology line is set in it, the
@@ -266,12 +273,27 @@ html, body, .reveal-viewport { background: #191919; }
                             width: 5px; height: 5px; border-radius: 50%;
                             background: var(--accent); }
 .reveal .card .cd + .cd { margin-top: 5px; }
+/* A LINE THAT SUPPORTS THE ONE ABOVE IT, rather than the next thing along. Several items on the
+   challenges slide were consequences of their neighbour sitting at the same level, which flattened
+   an argument into a list — the claim and the reason for it read as two unrelated facts.
+   Indented past the parent's dot, a step down the scale and a step back in value, with a smaller
+   and quieter dot of the same accent: near enough to belong to the line above, far enough not to be
+   mistaken for another claim. */
+.reveal .card .cs { position: relative; font-size: var(--fs-xs); line-height: 1.4;
+                    color: var(--c-dim); margin: 5px 0 0; padding-left: 30px; }
+.reveal .card .cs::before { content: ""; position: absolute; left: 17px; top: 0.6em;
+                            width: 4px; height: 4px; border-radius: 50%;
+                            background: var(--accent); opacity: 0.6; }
+/* The gap that does the grouping: a claim opens further from what came before than its own support
+   sits from it. */
+.reveal .card .cs + .cd { margin-top: 13px; }
 /* A card standing two or three across a slide has room the four-up technology band has not, so its
    lines take the step up the scale. Same component, one modifier — rather than a second list idiom
    for the slides that are not the band. */
 .reveal .card.roomy .cd { font-size: var(--fs-sm); margin-top: 13px; }
 .reveal .card.roomy .cd + .cd { margin-top: 8px; }
 .reveal .card.roomy .cd::before { top: 0.55em; width: 6px; height: 6px; }
+.reveal .card.roomy .cs { font-size: var(--fs-xs); }
 .reveal .card.roomy { padding: 14px 20px 18px; }
 /* WHO the work belongs to — the facilities that run it, or the project it sits under. A row of small
    pills rather than a sentence: three names read as three facts only when each has an edge of its
@@ -345,7 +367,15 @@ html, body, .reveal-viewport { background: #191919; }
 .reveal figure.diagram svg { display: block; width: 100%; height: 100%; max-height: 100%;
                              margin: 0 auto; }
 .reveal svg.pipe text { font-size: 18px; font-weight: 400; fill: #fff; }
-.reveal svg.pipe text.note { font-size: 12px; font-weight: 300; fill: var(--c-mute); }
+/* The one line on the diagram that is an ASIDE rather than a label — and at 12px in the quietest
+   grey it had gone past quiet into unreadable. Bigger and a step brighter, still clearly below the
+   18px white that names a stage. */
+.reveal svg.pipe text.note { font-size: 15px; font-weight: 400; fill: var(--c-dim); }
+/* A name set beside a mark that has none of its own. UOS, SasView and MxCuBE are symbols; NICOS,
+   scipp and EasyScience are wordmarks and already say who they are. Smaller than a stage label,
+   because it names a tool rather than a step — but the same white, since it is the tool's name and
+   not a note about it. */
+.reveal svg.pipe text.mark { font-size: 14px; font-weight: 400; fill: #fff; }
 /* The four STAGES are SOLID, in the deck's four muted hues — the same family the column pills sit
    in, so a filled box here and a pill there read as one palette. Left to right, they are the
    pipeline itself. */
