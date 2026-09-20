@@ -75,7 +75,7 @@
   <div class="sbody">
     <div class="titlebox">
       <h3>The integrated data pipeline</h3>
-      <p class="subhead">A user interface at every stage, and <em>no two the same</em>.</p>
+      <p class="subhead">Different user interfaces support each stage of the data pipeline.</p>
     </div>
     <div class="body">
       <figure class="diagram">
@@ -152,8 +152,7 @@
   <div class="sbody">
     <div class="titlebox">
       <h3>UI technologies in a nutshell</h3>
-      <p class="subhead">Qt for native applications, on a desk or at an instrument;
-        <em>web for everything else</em>.</p>
+      <p class="subhead">Qt for desktop applications. Web tools for other stages.</p>
     </div>
     <div class="body">
       <div class="group">
@@ -165,7 +164,7 @@
             <p class="cu">nicos-controls.org</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>MLZ</span></p>
             <p class="cd">Beamline control GUI</p>
-            <p class="cd">ESS ships its own panels</p>
+            <p class="cd">ESS uses custom panels</p>
             <p class="cd">One layout per instrument</p>
           </div>
           <div class="card a-navy">
@@ -174,17 +173,17 @@
             <p class="cu">sasview.org</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>many facilities</span></p>
             <p class="cd">Small-angle scattering analysis</p>
-            <p class="cd">Switching means a full rewrite</p>
-            <p class="cd">The stack came with it</p>
+            <p class="cd">A new toolkit means a rewrite</p>
+            <p class="cd">Adopted with the project</p>
           </div>
           <div class="card a-blue wide">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-qt"></use></svg><span class="cn">Qt QML &middot; PySide6</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience">EasyDiffraction &middot; EasyReflectometry &middot; EasyImaging</p>
             <p class="cu">easyscience.org</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>U G&ouml;ttingen</span><span>JCNS at MLZ</span><span>Chalmers</span></p>
-            <p class="cd">Declarative UI, cleanly split from the Python backend</p>
-            <p class="cd">Plus the EasyDynamics, EasyShapes &amp; EasyTexture prototypes</p>
-            <p class="cd">Prototypes become products, no rewrite needed</p>
+            <p class="cd">Declarative UI in QML, separate from Python code</p>
+            <p class="cd">EasyDynamics, EasyShapes and EasyTexture prototypes</p>
+            <p class="cd">Prototypes become products without a rewrite</p>
           </div>
         </div>
       </div>
@@ -196,10 +195,10 @@
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-jupyter"></use></svg><span class="cn">ipywidgets &middot; Voil&agrave;</span></p>
             <p class="cp lc"><img class="clogo" src="assets/logos/scipp.png" alt="scipp">essreduce</p>
             <p class="cu">scipp.github.io/ess/reduce</p>
-            <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>UKRI-STFC</span></p>
+            <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>STFC</span></p>
             <p class="cd">Generated from a scipp workflow</p>
             <p class="cd">Documented, not deployed at ESS</p>
-            <p class="cd">The form follows the workflow</p>
+            <p class="cd">Works inside notebooks</p>
           </div>
           <div class="card a-purple">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-streamlit"></use></svg><span class="cn">Streamlit &middot; <svg class="ico in" viewBox="0 0 448 512"><use href="#i-python"></use></svg>Python</span></p>
@@ -216,8 +215,8 @@
             <p class="cu">scicatproject.org</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>PSI</span><span>MAX IV</span></p>
             <p class="cd">Data catalogue</p>
-            <p class="cd">Find, browse &amp; access datasets</p>
-            <p class="cd">The stack came with it</p>
+            <p class="cd">Find and access datasets</p>
+            <p class="cd">Adopted with the project</p>
           </div>
           <div class="card a-lime">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-react"></use></svg><span class="cn">React &middot; <svg class="ico in" viewBox="0 0 24 24"><use href="#i-typescript"></use></svg>TypeScript</span></p>
@@ -226,7 +225,7 @@
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>STFC</span><span>ELI</span><span>Diamond</span></p>
             <p class="cd">Proposal submission</p>
             <p class="cd">Facility access</p>
-            <p class="cd">The stack came with it</p>
+            <p class="cd">Adopted with the project</p>
           </div>
         </div>
       </div>
@@ -243,38 +242,37 @@
 <section>
   <div class="sbody">
     <div class="titlebox">
-      <h3>Challenges, and the controls split</h3>
-      <p class="subhead">More <em>organisational</em> than technical; beamline controls are
-        (mostly) ours.</p>
+      <h3>Challenges and controls</h3>
+      <p class="subhead">Most challenges are <em>organisational</em>. Beamline and accelerator controls use different UI approaches.</p>
     </div>
     <div class="body">
       <div class="columns three">
         <div class="card roomy a-purple">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sitemap"></use></svg><span class="cn">Organisational</span></p>
-          <p class="cd"><em>Little is shared between them</em></p>
+          <p class="cd"><em>Little is shared between groups</em></p>
           <p class="cs">Each group picks its own stack</p>
-          <p class="cd">GUI expertise stays inside teams</p>
+          <p class="cd">GUI expertise stays inside each group</p>
           <p class="cs">No common review or style practice</p>
-          <p class="cd">GUI and science share the same people</p>
+          <p class="cd">The same people do science and GUI work</p>
         </div>
         <div class="card roomy a-navy">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-screwdriver-wrench"></use></svg><span class="cn">Technical</span></p>
-          <p class="cd"><em>Scientific plotting is rarely QML-native</em></p>
-          <p class="cs">Embedding it is extra work</p>
-          <p class="cs">It can break the styling</p>
-          <p class="cd">QML charting is general-purpose</p>
-          <p class="cs">Not enough for scattering data</p>
-          <p class="cd">NICOS ESS fork</p>
-          <p class="cs">Merging back once expectations align</p>
+          <p class="cd"><em>Scientific plotting rarely supports QML</em></p>
+          <p class="cs">Embedding plots takes extra work</p>
+          <p class="cs">Embedded plots may not match the UI style</p>
+          <p class="cd">Built-in QML charts lack some features</p>
+          <p class="cs">They would need work for scattering data</p>
+          <p class="cd">ESS maintains a NICOS fork</p>
+          <p class="cs">We aim to converge with the main project</p>
         </div>
         <div class="card roomy a-green">
           <p class="ct"><svg class="ico" viewBox="0 0 448 512"><use href="#i-code-branch"></use></svg><span class="cn">Beamline vs accelerator</span></p>
-          <p class="cd"><em>Beamline: one NICOS client everywhere</em></p>
-          <p class="cs">ECDC sits inside the Science Division</p>
-          <p class="cs">One approach, not one per beamline</p>
-          <p class="cd">Accelerator: low-level EPICS</p>
+          <p class="cd"><em>Beamlines use a shared NICOS client</em></p>
+          <p class="cs">Maintained by ECDC, part of DMSC</p>
+          <p class="cs">Phoebus (Java desktop) for EPICS screens</p>
+          <p class="cd">Accelerator controls are a separate stack</p>
           <p class="cs">Owned by another division</p>
-          <p class="cs">We share no UI stack with them</p>
+          <p class="cs">We do not share UI components</p>
         </div>
       </div>
     </div>
@@ -291,7 +289,7 @@
   <div class="sbody">
     <div class="titlebox">
       <h3>Reusable UI components</h3>
-      <p class="subhead">One shared QML library behind <em>every EasyScience application</em>.</p>
+      <p class="subhead">Shared QML components across <em>EasyScience applications</em>.</p>
     </div>
     <div class="body">
       <!-- Both boxes are about the SAME library, so it is named once above them rather than inside
@@ -300,15 +298,17 @@
       <div class="columns">
         <div class="card roomy a-blue">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"></use></svg><span class="cn">What we share</span></p>
-          <p class="cd">Shared QML elements for analysis applications</p>
+          <p class="cd">The workflow bar, the panels and the controls</p>
           <p class="cd">Used by every EasyScience application</p>
-          <p class="cd"><em>Shared only within EasyScience</em> &mdash; others bring their own</p>
+          <p class="cd"><em>Shared only within EasyScience</em></p>
+          <p class="cs">Other ESS projects use their own components</p>
         </div>
         <div class="card roomy a-green">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-book-open"></use></svg><span class="cn">How we document it</span></p>
-          <p class="cd">Five worked examples in the repo</p>
-          <p class="cd">The applications are the reference; the docs site is empty</p>
-          <p class="cd"><em>Next: write the docs, tied to the release cycle</em></p>
+          <p class="cd">Five examples in the repository</p>
+          <p class="cd">The applications are the main reference</p>
+          <p class="cs">The docs site is set up but not written</p>
+          <p class="cd"><em>Next: write the docs and update them each release</em></p>
         </div>
       </div>
       <div class="twoshots">
@@ -337,25 +337,28 @@
   <div class="sbody">
     <div class="titlebox">
       <h3>UI generation and AI assistants</h3>
-      <p class="subhead">The assistant ships today; <em>UI generation is not built yet</em>.</p>
+      <p class="subhead">An AI assistant is available today. <em>Two UI generation ideas are still proposals</em>.</p>
     </div>
     <div class="body">
       <div class="columns">
         <div class="card roomy a-orange">
-          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea">not built</span></p>
-          <p class="cd">We <em>could</em> generate a Voil&agrave; GUI from a reduction notebook</p>
+          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea">proposed</span></p>
+          <p class="cd">We <em>could</em> publish essreduce notebook widgets with Voil&agrave;</p>
+          <p class="cs">The workflow already describes the parameters</p>
           <p class="cd">We <em>could</em> assemble a new EasyScience GUI with AI</p>
-          <p class="cs">From our shared widgets and the applications built on them</p>
+          <p class="cs">Using our shared components and existing applications as examples</p>
         </div>
         <div class="card roomy a-purple">
           <p class="ct"><svg class="ico" viewBox="0 0 640 512"><use href="#i-robot"></use></svg><span class="cn">AI assistants</span></p>
-          <p class="cd">SANS-webapp &mdash; on PyPI today</p>
-          <p class="cd">Claude suggests a scattering model from the data</p>
-          <p class="cd"><em>It advises; it does not change the fit</em></p>
+          <p class="cp">SANS-webapp<span class="cu">github.com/ai4se1dk/SANS-webapp</span></p>
+          <p class="cd">Suggests a scattering model from the data</p>
+          <p class="cd">Answers questions about the fit</p>
+          <p class="cd"><em>Cannot change parameters or run the fit</em></p>
+          <p class="cs">Read-only access over MCP</p>
         </div>
       </div>
       <figure class="oneshot">
-        <figcaption><span class="blue">SANS-webapp</span> &middot; AI-assisted model selection, read-only chat beside the fit</figcaption>
+        <figcaption><span class="blue">SANS-webapp</span> &middot; AI-assisted model selection, with a read-only chat panel</figcaption>
         <img src="assets/shots/sans-webapp.png" alt="SANS-webapp: AI-assisted model selection on the left, the fit in the middle, a read-only chat panel on the right">
       </figure>
     </div>

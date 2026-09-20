@@ -265,6 +265,9 @@ html, body, .reveal-viewport { background: #191919; }
                     margin: 0; }
 .reveal .card .cu { font-size: var(--fs-xs); color: var(--c-mute); margin: 3px 0 0;
                     overflow-wrap: anywhere; }
+/* ...and inline, when the address rides on the name's own line rather than under it. The name is
+   semibold, so the address has to say it is not. */
+.reveal .card .cp .cu { margin: 0; font-weight: 400; }
 /* Each line gets a dot in the card's own accent, and a hanging indent so a wrapped second line
    starts under the text rather than under the dot. Three or four short statements in a 280px box
    read as three or four separate claims only when each is marked; unmarked they ran together as one
