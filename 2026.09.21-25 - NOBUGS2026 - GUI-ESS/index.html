@@ -8,6 +8,12 @@
 <title>GUI strategies at ESS — NOBUGS 2026 GUI Workshop</title>
 <link rel="stylesheet" href="vendor/reveal.min.css">
 <!-- The deck's own styles load LAST so they win against reveal's core at equal specificity. -->
+<!-- NO FONT PRELOADS HERE, deliberately. Asking for them in the head saves the browser a beat —
+     a font in an @font-face is not fetched until the CSS has been read — but `rel=preload as=font`
+     is a CORS request whether or not it needs to be, and this deck gets opened straight off the
+     disk as often as it gets served. Over file:// that request is cross-origin, the browser drops
+     it, and the font it poisons is the one the slide was going to use. Ten milliseconds are not
+     worth a deck that opens in the wrong typeface on somebody's laptop. -->
 <link rel="stylesheet" href="deck.css">
 </head>
 <body>
@@ -33,6 +39,7 @@
   <symbol id="i-file-lines" viewBox="0 0 384 512"><path d="M0 64C0 28.7 28.7 0 64 0L213.5 0c17 0 33.3 6.7 45.3 18.7L365.3 125.3c12 12 18.7 28.3 18.7 45.3L384 448c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64zm208-5.5l0 93.5c0 13.3 10.7 24 24 24L325.5 176 208 58.5zM120 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/></symbol>
   <symbol id="i-filter" viewBox="0 0 512 512"><path d="M32 64C19.1 64 7.4 71.8 2.4 83.8S.2 109.5 9.4 118.6L192 301.3 192 416c0 8.5 3.4 16.6 9.4 22.6l64 64c9.2 9.2 22.9 11.9 34.9 6.9S320 492.9 320 480l0-178.7 182.6-182.6c9.2-9.2 11.9-22.9 6.9-34.9S492.9 64 480 64L32 64z"/></symbol>
   <symbol id="i-jupyter" viewBox="0 0 24 24"><path d="M7.157 22.201A1.784 1.799 0 0 1 5.374 24a1.784 1.799 0 0 1-1.784-1.799 1.784 1.799 0 0 1 1.784-1.799 1.784 1.799 0 0 1 1.783 1.799zM20.582 1.427a1.415 1.427 0 0 1-1.415 1.428 1.415 1.427 0 0 1-1.416-1.428A1.415 1.427 0 0 1 19.167 0a1.415 1.427 0 0 1 1.415 1.427zM4.992 3.336A1.047 1.056 0 0 1 3.946 4.39a1.047 1.056 0 0 1-1.047-1.055A1.047 1.056 0 0 1 3.946 2.28a1.047 1.056 0 0 1 1.046 1.056zm7.336 1.517c3.769 0 7.06 1.38 8.768 3.424a9.363 9.363 0 0 0-3.393-4.547 9.238 9.238 0 0 0-5.377-1.728A9.238 9.238 0 0 0 6.95 3.73a9.363 9.363 0 0 0-3.394 4.547c1.713-2.04 5.004-3.424 8.772-3.424zm.001 13.295c-3.768 0-7.06-1.381-8.768-3.425a9.363 9.363 0 0 0 3.394 4.547A9.238 9.238 0 0 0 12.33 21a9.238 9.238 0 0 0 5.377-1.729 9.363 9.363 0 0 0 3.393-4.547c-1.712 2.044-5.003 3.425-8.772 3.425Z"/></symbol>
+  <symbol id="i-lightbulb" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></symbol>
   <symbol id="i-project-diagram" viewBox="0 0 512 512"><path d="M0 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v16h128V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-16H192v16c0 7.3-1.7 14.3-4.6 20.5L256 288h80c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-96c0-7.3 1.7-14.3 4.6-20.5L128 224H48c-26.5 0-48-21.5-48-48z"/></symbol>
   <symbol id="i-python" viewBox="0 0 448 512"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></symbol>
   <symbol id="i-typescript" viewBox="0 0 24 24"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></symbol>
@@ -49,19 +56,36 @@
 <div class="reveal">
 <div class="slides">
 
+<!-- ===== 0. the ESS mark ======================================================================= -->
+<!-- A HOLDING SCREEN, NOT A SLIDE. The identity blue with the mark on it, up while the room fills
+     and the laptop is plugged in. It carries no number and is not counted in the total: the talk
+     starts at the cover. Lifted from the reference deck, which takes it from the ESS Visual
+     Identity Manual — the blue is the manual's own, not the deck's lighter rule blue. -->
+<section class="essmark" data-background-color="rgb(0, 153, 220)">
+  <div class="sbody">
+    <img src="assets/logos/ess.svg" alt="European Spallation Source">
+  </div>
+</section>
+
 <!-- ===== 1. cover ============================================================================== -->
 <!-- The cover speaks the deck's own language: the same left edge, the same blue rule beside the
      title, the same type scale. It is the one slide whose block is centred rather than ranged from
      the top, because it has no body under it to range against. -->
 <section class="cover">
   <div class="sbody">
-    <div class="titlebox">
+    <!-- THE COVER BUILDS UPWARDS: the event line first, then who is speaking, then what about.
+         Each click adds a block ABOVE what is already there, so the earlier lines move down to make
+         room for it and the title lands last. A hidden block on this slide takes no height at all
+         (deck.css), which is what lets the stack grow rather than fade into a gap left for it. -->
+    <div class="titlebox" data-step="2">
       <h3 class="deck-title">GUI strategies at ESS</h3>
     </div>
-    <p class="author">Andrew Sazonov</p>
-    <p class="affil">European Spallation Source (ESS)<br>
+    <p class="author" data-step="1">Andrew Sazonov</p>
+    <p class="affil" data-step="1">European Spallation Source (ESS)<br>
       Data Management and Scientific Computing (DMSC)</p>
-    <p class="event">NOBUGS 2026 &middot; GUI Workshop &middot; 21 September 2026</p>
+    <!-- Not a step: the cover has to say something the moment it arrives. The event line is what is
+         already on screen while the room settles, and the two clicks add to it. -->
+    <p class="event">NOBUGS 2026 &middot; GUI Workshop &middot; 21 Sep 2026</p>
     <aside class="notes">
       A survey talk, not an architecture talk: where the interfaces are, what they are built with,
       what is shared and what is not. Scope is the ESS Science Division — accelerator controls are
@@ -88,53 +112,57 @@
             </marker>
           </defs>
 
-          <!-- the four stages, each in one of the deck's four muted hues -->
-          <image href="assets/logos/uos.png" x="80.6" y="23.0" width="27.7" height="30.0"></image>
-          <text class="mark" x="114.3" y="42.6">User Office</text>
-          <rect class="stage s-prop" x="16" y="70" width="228" height="66" rx="10"></rect>
-          <g transform="translate(82.7,95.7) scale(0.03125)"><use href="#i-file-lines" width="384" height="512" fill="#FFFFFF"></use></g>
-          <text x="103.7" y="110">Proposal</text>
-
-          <image href="assets/logos/nicos.png" x="291.4" y="28.5" width="57.6" height="19.0"></image>
-          <image href="assets/logos/epics.png" x="359.0" y="25.0" width="26.9" height="26.0"></image>
-          <image href="assets/logos/mxcube_logo_white_4x.png" x="395.9" y="16.0" width="34.5" height="44.0"></image>
-          <text class="mark" x="435.4" y="42.6">MxCuBE</text>
-          <rect class="stage s-exp" x="274" y="70" width="228" height="66" rx="10"></rect>
-          <g transform="translate(328.1,95.7) scale(0.03125)"><use href="#i-atom" width="448" height="512" fill="#FFFFFF"></use></g>
-          <text x="351.1" y="110">Experiment</text>
-
-          <image href="assets/logos/scipp.png" x="595.4" y="23.0" width="101.3" height="30.0"></image>
-          <rect class="stage s-red" x="532" y="70" width="228" height="66" rx="10"></rect>
-          <g transform="translate(571.8,95.7) scale(0.03125)"><use href="#i-filter" width="512" height="512" fill="#FFFFFF"></use></g>
-          <text x="596.8" y="110">Data reduction</text>
-
-          <image href="assets/logos/easyscience.svg" x="819.1" y="23.0" width="76.2" height="30.0"></image>
-          <image href="assets/logos/sasview.png" x="905.3" y="23.0" width="29.9" height="30.0"></image>
-          <text class="mark" x="939.2" y="42.6">SasView</text>
-          <rect class="stage s-ana" x="790" y="70" width="228" height="66" rx="10"></rect>
-          <g transform="translate(804.4,95.7) scale(0.03125)"><use href="#i-chart-line" width="512" height="512" fill="#FFFFFF"></use></g>
-          <text x="829.4" y="110">Analysis &amp; modelling</text>
-          <text class="note" x="904" y="152" text-anchor="middle">+ many technique-specific tools</text>
-
-          <line x1="246" y1="103" x2="272" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
-          <line x1="504" y1="103" x2="530" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
-          <line x1="762" y1="103" x2="788" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
-          <line x1="388" y1="136" x2="388" y2="196" stroke="#8f8f8f" stroke-width="1.6" marker-end="url(#ah)"></line>
-          <line x1="646" y1="136" x2="646" y2="196" stroke="#8f8f8f" stroke-width="1.6" marker-end="url(#ah)"></line>
-
-          <!-- what the pipeline stands on, and how it is reached: supporting, so neutral boxes -->
-          <rect class="stage s-data" x="274" y="196" width="486" height="66" rx="10"></rect>
-          <g transform="translate(485.9,221.7) scale(0.03125)"><use href="#i-database" width="448" height="512" fill="#FFFFFF"></use></g>
-          <text x="508.9" y="236">Data</text>
-          <image href="assets/logos/scicat.svg" x="368.2" y="277.0" width="31.4" height="30.0"></image>
-          <image href="assets/logos/nexus.png" x="433.6" y="281.5" width="84.3" height="21.0"></image>
-          <image href="assets/logos/fair.svg" x="551.9" y="274.0" width="114.0" height="36.0"></image>
-
-          <rect class="stage s-remote" x="790" y="196" width="228" height="66" rx="10"></rect>
-          <g transform="translate(828.0,221.7) scale(0.03125)"><use href="#i-cloud" width="576" height="512" fill="#FFFFFF"></use></g>
-          <text x="855.0" y="236">Remote access</text>
-          <image href="assets/logos/visa.png" x="864.7" y="277.0" width="33.0" height="30.0"></image>
-          <image href="assets/logos/jupyter.png" x="917.7" y="277.0" width="25.6" height="30.0"></image>
+          <g data-step="1">
+            <image href="assets/logos/uos.png" x="80.6" y="23.0" width="27.7" height="30.0"></image>
+            <text class="mark" x="114.3" y="42.6">User Office</text>
+            <rect class="stage s-prop" x="16" y="70" width="228" height="66" rx="10"></rect>
+            <g transform="translate(82.7,95.7) scale(0.03125)"><use href="#i-file-lines" width="384" height="512" fill="#FFFFFF"></use></g>
+            <text x="103.7" y="110">Proposal</text>
+          </g>
+          <g data-step="2">
+            <line x1="246" y1="103" x2="272" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
+            <image href="assets/logos/nicos.png" x="291.4" y="28.5" width="57.6" height="19.0"></image>
+            <image href="assets/logos/epics.png" x="359.0" y="25.0" width="26.9" height="26.0"></image>
+            <image href="assets/logos/mxcube_logo_white_4x.png" x="395.9" y="16.0" width="34.5" height="44.0"></image>
+            <text class="mark" x="435.4" y="42.6">MxCuBE</text>
+            <rect class="stage s-exp" x="274" y="70" width="228" height="66" rx="10"></rect>
+            <g transform="translate(328.1,95.7) scale(0.03125)"><use href="#i-atom" width="448" height="512" fill="#FFFFFF"></use></g>
+            <text x="351.1" y="110">Experiment</text>
+          </g>
+          <g data-step="3">
+            <line x1="504" y1="103" x2="530" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
+            <image href="assets/logos/scipp.png" x="595.4" y="23.0" width="101.3" height="30.0"></image>
+            <rect class="stage s-red" x="532" y="70" width="228" height="66" rx="10"></rect>
+            <g transform="translate(571.8,95.7) scale(0.03125)"><use href="#i-filter" width="512" height="512" fill="#FFFFFF"></use></g>
+            <text x="596.8" y="110">Data reduction</text>
+          </g>
+          <g data-step="4">
+            <line x1="762" y1="103" x2="788" y2="103" stroke="#8f8f8f" stroke-width="1.8" marker-end="url(#ah)"></line>
+            <image href="assets/logos/easyscience.svg" x="819.1" y="23.0" width="76.2" height="30.0"></image>
+            <image href="assets/logos/sasview.png" x="905.3" y="23.0" width="29.9" height="30.0"></image>
+            <text class="mark" x="939.2" y="42.6">SasView</text>
+            <rect class="stage s-ana" x="790" y="70" width="228" height="66" rx="10"></rect>
+            <g transform="translate(804.4,95.7) scale(0.03125)"><use href="#i-chart-line" width="512" height="512" fill="#FFFFFF"></use></g>
+            <text x="829.4" y="110">Analysis &amp; modelling</text>
+            <text class="note" x="904" y="152" text-anchor="middle">+ many technique-specific tools</text>
+          </g>
+          <g data-step="5">
+            <line x1="388" y1="136" x2="388" y2="196" stroke="#8f8f8f" stroke-width="1.6" marker-end="url(#ah)"></line>
+            <line x1="646" y1="136" x2="646" y2="196" stroke="#8f8f8f" stroke-width="1.6" marker-end="url(#ah)"></line>
+            <rect class="stage s-data" x="274" y="196" width="486" height="66" rx="10"></rect>
+            <g transform="translate(485.9,221.7) scale(0.03125)"><use href="#i-database" width="448" height="512" fill="#FFFFFF"></use></g>
+            <text x="508.9" y="236">Data</text>
+            <image href="assets/logos/scicat.svg" x="368.2" y="277.0" width="31.4" height="30.0"></image>
+            <image href="assets/logos/nexus.png" x="433.6" y="281.5" width="84.3" height="21.0"></image>
+            <image href="assets/logos/fair.svg" x="551.9" y="274.0" width="114.0" height="36.0"></image>
+          </g>
+          <g data-step="6">
+            <rect class="stage s-remote" x="790" y="196" width="228" height="66" rx="10"></rect>
+            <g transform="translate(828.0,221.7) scale(0.03125)"><use href="#i-cloud" width="576" height="512" fill="#FFFFFF"></use></g>
+            <text x="855.0" y="236">Remote access</text>
+            <image href="assets/logos/visa.png" x="864.7" y="277.0" width="33.0" height="30.0"></image>
+            <image href="assets/logos/jupyter.png" x="917.7" y="277.0" width="25.6" height="30.0"></image>
+          </g>
         </svg>
       </figure>
     </div>
@@ -156,9 +184,9 @@
     </div>
     <div class="body">
       <div class="group">
-        <p class="group-label">Desktop</p>
+        <p class="group-label" data-step="1">Desktop</p>
         <div class="band">
-          <div class="card a-slate">
+          <div class="card a-slate" data-step="1">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-qt"></use></svg><span class="cn">Qt Widgets &middot; PyQt6</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/nicos.png" alt="NICOS">NICOS</p>
             <p class="cu">nicos-controls.org</p>
@@ -167,7 +195,7 @@
             <p class="cd">ESS uses custom panels</p>
             <p class="cd">One layout per instrument</p>
           </div>
-          <div class="card a-navy">
+          <div class="card a-navy" data-step="2">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-qt"></use></svg><span class="cn">Qt Widgets &middot; PySide6</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/sasview.png" alt="SasView">SasView</p>
             <p class="cu">sasview.org</p>
@@ -176,7 +204,7 @@
             <p class="cd">A new toolkit means a rewrite</p>
             <p class="cd">Adopted with the project</p>
           </div>
-          <div class="card a-blue wide">
+          <div class="card a-blue wide" data-step="3">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-qt"></use></svg><span class="cn">Qt QML &middot; PySide6</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience">EasyDiffraction &middot; EasyReflectometry &middot; EasyImaging</p>
             <p class="cu">easyscience.org</p>
@@ -189,9 +217,9 @@
       </div>
 
       <div class="group">
-        <p class="group-label">Web</p>
+        <p class="group-label" data-step="4">Web</p>
         <div class="band">
-          <div class="card a-green">
+          <div class="card a-green" data-step="4">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-jupyter"></use></svg><span class="cn">ipywidgets &middot; Voil&agrave;</span></p>
             <p class="cp lc"><img class="clogo" src="assets/logos/scipp.png" alt="scipp">essreduce</p>
             <p class="cu">scipp.github.io/ess/reduce</p>
@@ -200,7 +228,7 @@
             <p class="cd">Documented, not deployed at ESS</p>
             <p class="cd">Works inside notebooks</p>
           </div>
-          <div class="card a-purple">
+          <div class="card a-purple" data-step="5">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-streamlit"></use></svg><span class="cn">Streamlit &middot; <svg class="ico in" viewBox="0 0 448 512"><use href="#i-python"></use></svg>Python</span></p>
             <p class="cp">SANS-webapp</p>
             <p class="cu">github.com/ai4se1dk/SANS-webapp</p>
@@ -209,23 +237,23 @@
             <p class="cd">AI assistant built in</p>
             <p class="cd">Little GUI code to maintain</p>
           </div>
-          <div class="card a-orange">
+          <div class="card a-orange" data-step="6">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-angular"></use></svg><span class="cn">Angular &middot; <svg class="ico in" viewBox="0 0 24 24"><use href="#i-typescript"></use></svg>TypeScript</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/scicat.svg" alt="SciCat">SciCat</p>
             <p class="cu">scicatproject.org</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>PSI</span><span>MAX IV</span></p>
             <p class="cd">Data catalogue</p>
             <p class="cd">Find and access datasets</p>
-            <p class="cd">Adopted with the project</p>
+            <p class="cd">Browsed from any institution</p>
           </div>
-          <div class="card a-lime">
+          <div class="card a-lime" data-step="7">
             <p class="ct"><svg class="ico" viewBox="0 0 24 24"><use href="#i-react"></use></svg><span class="cn">React &middot; <svg class="ico in" viewBox="0 0 24 24"><use href="#i-typescript"></use></svg>TypeScript</span></p>
             <p class="cp"><img class="clogo" src="assets/logos/uos.png" alt="User Office">User Office</p>
             <p class="cu">github.com/UserOfficeProject</p>
             <p class="cw"><svg class="ico" viewBox="0 0 640 512"><use href="#i-users"></use></svg><span>STFC</span><span>ELI</span><span>Diamond</span></p>
             <p class="cd">Proposal submission</p>
             <p class="cd">Facility access</p>
-            <p class="cd">Adopted with the project</p>
+            <p class="cd">Used before anyone arrives</p>
           </div>
         </div>
       </div>
@@ -233,7 +261,12 @@
     <aside class="notes">
       Qt is the one thing the desktop side agrees on, and it is agreement by accident rather than by
       policy: three groups reached for it independently. On the web, four projects and four stacks,
-      none of them sharing a component with another.
+      none of them sharing a component with another. Worth saying out loud about the last two: ESS
+      did not inherit either of them. It started User Office in 2018 and it leads SciCat today. Two
+      projects we began ourselves, and they still landed on different frameworks — Angular for one,
+      React for the other. The web stack itself was not the free choice it looks like: both serve
+      people who are not at the facility, and a desktop application would have to be installed by
+      every one of them.
     </aside>
   </div>
 </section>
@@ -247,15 +280,15 @@
     </div>
     <div class="body">
       <div class="columns three">
-        <div class="card roomy a-purple">
+        <div class="card roomy a-purple" data-step="1">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sitemap"></use></svg><span class="cn">Organisational</span></p>
           <p class="cd"><em>Little is shared between groups</em></p>
           <p class="cs">Each group picks its own stack</p>
           <p class="cd">GUI expertise stays inside each group</p>
           <p class="cs">No common review or style practice</p>
-          <p class="cd">The same people do science and GUI work</p>
+          <p class="cd">The same people do backend and GUI work</p>
         </div>
-        <div class="card roomy a-navy">
+        <div class="card roomy a-navy" data-step="2">
           <p class="ct"><svg class="ico" viewBox="0 0 512 512"><use href="#i-screwdriver-wrench"></use></svg><span class="cn">Technical</span></p>
           <p class="cd"><em>Scientific plotting rarely supports QML</em></p>
           <p class="cs">Embedding plots takes extra work</p>
@@ -265,14 +298,14 @@
           <p class="cd">ESS maintains a NICOS fork</p>
           <p class="cs">We aim to converge with the main project</p>
         </div>
-        <div class="card roomy a-green">
+        <div class="card roomy a-green" data-step="3">
           <p class="ct"><svg class="ico" viewBox="0 0 448 512"><use href="#i-code-branch"></use></svg><span class="cn">Beamline vs accelerator</span></p>
-          <p class="cd"><em>Beamlines use a shared NICOS client</em></p>
-          <p class="cs">Maintained by ECDC, part of DMSC</p>
+          <p class="cd"><em>Beamline GUIs come from ECDC in DMSC</em></p>
+          <p class="cs">One shared NICOS client</p>
           <p class="cs">Phoebus (Java desktop) for EPICS screens</p>
-          <p class="cd">Accelerator controls are a separate stack</p>
-          <p class="cs">Owned by another division</p>
-          <p class="cs">We do not share UI components</p>
+          <p class="cd">Accelerator GUIs come from elsewhere</p>
+          <p class="cs">Another division, another stack</p>
+          <p class="cs">No UI components in common</p>
         </div>
       </div>
     </div>
@@ -294,16 +327,16 @@
     <div class="body">
       <!-- Both boxes are about the SAME library, so it is named once above them rather than inside
            the left one, where it read as belonging only to what we share. -->
-      <p class="subject"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience"><span class="su">github.com/easyscience</span></p>
+      <p class="subject" data-step="1"><img class="clogo" src="assets/logos/easyscience.svg" alt="EasyScience"><span class="su">github.com/easyscience</span></p>
       <div class="columns">
-        <div class="card roomy a-blue">
+        <div class="card roomy a-blue" data-step="2">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"></use></svg><span class="cn">What we share</span></p>
           <p class="cd">The workflow bar, the panels and the controls</p>
           <p class="cd">Used by every EasyScience application</p>
           <p class="cd"><em>Shared only within EasyScience</em></p>
           <p class="cs">Other ESS projects use their own components</p>
         </div>
-        <div class="card roomy a-green">
+        <div class="card roomy a-green" data-step="3">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-book-open"></use></svg><span class="cn">How we document it</span></p>
           <p class="cd">Five examples in the repository</p>
           <p class="cd">The applications are the main reference</p>
@@ -311,7 +344,7 @@
           <p class="cd"><em>Next: write the docs and update them each release</em></p>
         </div>
       </div>
-      <div class="twoshots">
+      <div class="twoshots" data-step="4">
         <figure class="to-right">
           <figcaption><span class="blue">EasyDiffraction</span> &middot; diffraction data analysis</figcaption>
           <img src="assets/shots/easydiffraction.png" alt="EasyDiffraction, the analysis screen">
@@ -337,29 +370,30 @@
   <div class="sbody">
     <div class="titlebox">
       <h3>UI generation and AI assistants</h3>
-      <p class="subhead">An AI assistant is available today. <em>Two UI generation ideas are still proposals</em>.</p>
+      <p class="subhead">An AI assistant is available today. <em>Two UI generation ideas are not built yet</em>.</p>
     </div>
     <div class="body">
       <div class="columns">
-        <div class="card roomy a-orange">
-          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea">proposed</span></p>
-          <p class="cd">We <em>could</em> publish essreduce notebook widgets with Voil&agrave;</p>
+        <div class="card roomy a-orange" data-step="1">
+          <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea"><svg class="ico" viewBox="0 0 384 512"><use href="#i-lightbulb"></use></svg>ideas</span></p>
+          <p class="cd"><em>Nothing is built yet</em></p>
+          <p class="cd">We could generate data reduction notebooks for Voil&agrave; with AI</p>
           <p class="cs">The workflow already describes the parameters</p>
-          <p class="cd">We <em>could</em> assemble a new EasyScience GUI with AI</p>
+          <p class="cd">We could assemble a new EasyScience GUI with AI</p>
           <p class="cs">Using our shared components and existing applications as examples</p>
         </div>
-        <div class="card roomy a-purple">
+        <div class="card roomy a-purple" data-step="2">
           <p class="ct"><svg class="ico" viewBox="0 0 640 512"><use href="#i-robot"></use></svg><span class="cn">AI assistants</span></p>
           <p class="cp">SANS-webapp<span class="cu">github.com/ai4se1dk/SANS-webapp</span></p>
           <p class="cd">Suggests a scattering model from the data</p>
           <p class="cd">Answers questions about the fit</p>
-          <p class="cd"><em>Cannot change parameters or run the fit</em></p>
-          <p class="cs">Read-only access over MCP</p>
+          <p class="cd"><em>Sets parameters and runs the fit when asked</em></p>
+          <p class="cs">Its tools are off until you switch them on</p>
         </div>
       </div>
-      <figure class="oneshot">
-        <figcaption><span class="blue">SANS-webapp</span> &middot; AI-assisted model selection, with a read-only chat panel</figcaption>
-        <img src="assets/shots/sans-webapp.png" alt="SANS-webapp: AI-assisted model selection on the left, the fit in the middle, a read-only chat panel on the right">
+      <figure class="oneshot" data-step="3">
+        <figcaption><span class="blue">SANS-webapp</span> &middot; AI-assisted model selection, with the chat panel on the right</figcaption>
+        <img src="assets/shots/sans-webapp.png" alt="SANS-webapp: AI-assisted model selection on the left, the fit in the middle, a chat panel on the right">
       </figure>
     </div>
     <aside class="notes">
@@ -371,8 +405,14 @@
       applications already assembled from them, which is the kind of worked corpus an assistant can
       actually build against. Nothing here is running yet.
       AI: built-in heuristics take over when there is no API key; it reaches the fitting engine over
-      MCP, read-only, which is the design decision worth defending — a scientist has to be able to
-      say where every number in a published refinement came from. Next is the same idea inside the
+      MCP. Eleven tools, and the split between them is the design decision worth defending. Four
+      only read — list the models, describe a model's parameters, report the current state, report
+      the fit results. The other seven write: set the model, set a parameter, set several, set the
+      Q range, enable polydispersity, add or remove a structure factor, and run the fit. Every one
+      of those seven is behind a switch in the sidebar that is OFF until somebody turns it on, and
+      answers "AI tools are disabled" until they do. So the assistant is read-only by default and
+      capable on request, which is the right way round: a scientist has to be able to say where
+      every number in a published refinement came from. Next is the same idea inside the
       EasyScience GUIs, starting with explaining a fit. AI coding assistants are routine in
       development; the only one we ship is this one.
     </aside>
@@ -385,6 +425,76 @@
 <script src="vendor/reveal.min.js"></script>
 <script src="vendor/notes.min.js"></script>
 <script>
+  // ONE SLIDE IN THE SOURCE, ONE SECTION PER STEP IN THE DOM. The reference deck writes every step
+  // of every slide out in full — its build.py inlines them and its index.html is 336KB of near
+  // duplicates — because that is what reveal's auto-animate needs: two sections holding the same
+  // elements in two states, so it can measure the difference and tween it. Auto-animate is the only
+  // thing that gives a step its acceleration; a CSS transition of my own can copy the duration and
+  // the curve and still not move the way the reference does, which is what kept looking wrong.
+  // Here the duplicates are made at load instead of in a build step, from one copy of the markup
+  // marked up with data-step. A slide with steps becomes a stack: step 0 is the title card holding
+  // nothing, and step k has everything up to k. Elements not yet due carry `hid`, and that is the
+  // whole difference between one section and the next.
+  (function buildSteps() {
+    // EVERY BOX AND EVERY BLOCK IS NAMED FIRST. Auto-animate pairs an element in one step with the
+    // same element in the next, and the names are how it knows. Left unnamed, it still finds the
+    // headings and paragraphs — it matches those by their text — but not the DIVs around them, and
+    // an element it cannot pair is one it fades in from nothing. That is three faults at once: a
+    // box already on screen fades again on every click, its paragraphs slide while the box itself
+    // only fades, and the rule beside the title stays behind because it is drawn on a div. Naming
+    // the containers pairs them, and a pair MOVES rather than reappearing.
+    document.querySelectorAll('.reveal .slides > section').forEach(function (sec) {
+      var marked = [].slice.call(sec.querySelectorAll('[data-step]'));
+      if (!marked.length) return;
+      // ONLY THE DIRECT CHILDREN OF THE BLOCK ARE NAMED, and that is the whole point. Auto-animate
+      // writes each matched element a transform of its own, and a transform nests: name a box and
+      // the paragraph inside it and the paragraph gets BOTH, so it starts twice as far away as the
+      // box it belongs to and races it home. Naming every element made that four and five deep —
+      // measured, a line of card text started 1158px below the frame while its card started at 290.
+      // The direct children of .sbody are siblings. No pair contains another, nothing compounds,
+      // and everything inside a named block simply travels with it.
+      var body = sec.querySelector('.sbody');
+      if (!body) return;
+      [].forEach.call(body.children, function (el, i) { el.setAttribute('data-id', 'b' + i); });
+      var last = marked.reduce(function (n, el) {
+        return Math.max(n, parseInt(el.getAttribute('data-step'), 10));
+      }, 0);
+      // THE COVER GROWS; every other slide is built into a frame it already fills. A box on a
+      // content slide keeps its place and only its ink is missing, so nothing moves when it
+      // arrives. A line on the cover takes NO HEIGHT until its click, so the stack grows and pushes
+      // what is there down — and auto-animate, pairing a line of no height with a full one, opens
+      // it out rather than fading it in. That is the cover's whole effect, and it is the reference
+      // deck's rule. It keeps its WIDTH throughout, which is what holds the shrink-wrapped block
+      // still: dropped from the markup instead, the block was as wide as its widest VISIBLE line,
+      // so it re-centred and everything slid sideways each time a longer line arrived. */
+      var grows = sec.classList.contains('cover');
+      var stack = document.createElement('section');
+      for (var step = 0; step <= last; step++) {
+        var copy = sec.cloneNode(true);
+        copy.setAttribute('data-auto-animate', '');
+        // The first step starts the animation rather than continuing one: without this reveal tries
+        // to tween it from whatever slide it arrived from.
+        if (step === 0) {
+          copy.setAttribute('data-auto-animate-restart', '');
+          // The cover is not a chapter break — its block is centred and it builds upwards, so there
+          // is no title position for it to come up to.
+          if (!grows) copy.classList.add('titlecard');
+        }
+        [].forEach.call(copy.querySelectorAll('[data-step]'), function (el) {
+          var due = parseInt(el.getAttribute('data-step'), 10);
+          // The box THIS click brings in fades itself (deck.css). reveal used to do it, by fading
+          // everything it could not pair — which meant every box already on screen faded again on
+          // every click. Now only the one that has just arrived does. Not on the cover: there the
+          // line IS paired, and auto-animate opens it out and fades it in the same movement.
+          if (due === step && !grows) el.classList.add('arriving');
+          if (due > step) el.classList.add('hid');
+        });
+        stack.appendChild(copy);
+      }
+      sec.parentNode.replaceChild(stack, sec);
+    });
+  })();
+
   Reveal.initialize({
     width: 1360,   /* 16:9, a little wider than 1280 so the technology cards never crowd */
     height: 765,
@@ -412,33 +522,108 @@
     // Three parts, so the separator is its own span and can be DRAWN rather than typed; see
     // deck.css, where the newline and tabs reveal puts between them are killed by font-size: 0.
     slideNumber: function () {
-      return [Reveal.getIndices().h + 1, '|', Reveal.getHorizontalSlides().length];
+      var h = Reveal.getIndices().h;
+      // The ESS mark is a holding screen shown while the room fills, not part of the talk: it
+      // carries no number, and the cover is 1. An empty first element renders an empty span, which
+      // is also what suppresses the separator there.
+      if (h === 0) return [''];
+      return [h, '|', Reveal.getHorizontalSlides().length - 1];
     },
-    transition: 'slide',
+    // Nothing is rebound. A step is a vertical slide now, so reveal's own keys already mean what
+    // this deck means: left and right move between slides, up and down through the boxes, and
+    // space walks the lot.
+    transition: 'slide',           // a new slide arrives from the right; steps inside one slide
+                                   // are auto-animated, so they stay fades
     transitionSpeed: 'fast',
-    plugins: [RevealNotes]
+    plugins: [RevealNotes],
+    // The reference deck's own two numbers, and now they are doing the reference deck's own job.
+    autoAnimateEasing: 'cubic-bezier(0.770, 0.000, 0.175, 1.000)',
+    autoAnimateDuration: 0.5,
+    // WHAT MOVES IS THE BLOCK, NOT EVERY WORD IN IT. Left to itself reveal pairs every heading,
+    // paragraph and list item as well — it matches them by their text — and since it writes each
+    // pair a transform of its own, a paragraph inside a box that is also moving receives both and
+    // travels twice as far. This pairs the direct children of the block and nothing else: siblings,
+    // so no pair sits inside another, and each carries its subtree with it in one piece.
+    autoAnimateMatcher: function (from, to) {
+      // ONLY WITHIN ONE SLIDE. Steps of the same slide are the same block in two states, and that
+      // is what auto-animate is for. Two different slides are not: pairing them made the title of
+      // an arriving slide animate DOWN from where the last slide's title sat into the middle of the
+      // frame, and only then come up on the first click. Different stack, no pairs, plain slide
+      // transition — which is what the deck asks for everywhere else.
+      if (from.parentNode !== to.parentNode) return [];
+      // OPENING OUT IS A ONE-WAY EFFECT. A cover line growing from no height to its own is the point
+      // of that slide; the same tween run backwards squashes the title flat on its way out, which
+      // is not the reverse of an entrance, it is a different and worse animation. Going back, the
+      // line keeps its size and simply fades.
+      var kids = [].slice.call(to.parentNode.children);
+      var forward = kids.indexOf(to) > kids.indexOf(from);
+      var opens = to.classList.contains('cover') && forward;
+      var pairs = [], mates = {};
+      [].forEach.call(to.querySelectorAll('.sbody > [data-id]'), function (el) {
+        mates[el.getAttribute('data-id')] = el;
+      });
+      [].forEach.call(from.querySelectorAll('.sbody > [data-id]'), function (el) {
+        var mate = mates[el.getAttribute('data-id')];
+        // Skip anything with no box to measure — the speaker notes are display:none, and dividing
+        // by a height of zero hands auto-animate a scale(NaN, NaN) it cannot use.
+        if (mate && !(mate.offsetWidth && mate.offsetHeight)) return;
+        // AND SKIP WHAT IS ON ITS WAY OUT. Stepping back on the cover, a line closes up to nothing:
+        // pairing it tweens the padding and the position of a box that is already clipped to
+        // nothing, so a sliver of the title crawls across the screen. Unpaired, it simply goes.
+        if (mate && mate.classList.contains('hid') && mate.closest('.cover')) return;
+        // SCALE ONLY WHERE A CHANGE OF HEIGHT IS THE POINT. On the cover it is: a line goes from
+        // no height to its own, and opening it out is the effect. On a content slide the block's
+        // height changes merely because a box arrived inside it, and scaling there stretches the
+        // whole block open instead of moving it.
+        // OPACITY IS THE ONLY STYLE WORTH TWEENING HERE. Left alone, auto-animate also carries
+        // colour, background, font size, letter spacing, border and PADDING between the two states
+        // — and it leaves the from-value behind when it is done. The cover's title block reserves
+        // its padding for the rule drawn under the title, and that padding came back as zero, with
+        // the rule sitting on the letters. Nothing in this deck changes any of those between one
+        // step and the next; the position and the ink are the whole difference.
+        if (mate) pairs.push({ from: el, to: mate,
+                               options: { scale: opens, styles: ['opacity'] } });
+      });
+      return pairs;
+    },
+    // Nothing is faded for want of a pair any more: an arriving box brings its own fade.
+    autoAnimateUnmatched: false
   });
 
-  // THE NAVIGATION DIAMOND IS ANCHORED TO THE TITLE AND SCALED TO THE STAGE. The controls live
-  // outside .slides, so reveal neither scales them with the deck nor knows where the title is: on a
-  // large display they shrink away from everything else, and in the corner they sit over content.
-  // Both facts are measured here and published for deck.css — --ctrl-scale is reveal's own scale
-  // factor, --ctrl-cy is the vertical middle of the current slide's title in screen pixels. Neither
-  // can be a number in the stylesheet: they depend on the window, the display and the browser's
-  // chrome. Measured off the h3 alone rather than the whole title block, so the diamond sits level
-  // with the title itself and does not move when a subhead runs to a second line.
+  // THE NAVIGATION DIAMOND HOLDS ONE POSITION FOR THE WHOLE DECK. The controls live outside
+  // .slides, so reveal neither scales them with the deck nor knows where the slide is: on a large
+  // display they shrink away from everything else, and offset from the window they drift out over
+  // the margin. Both facts are measured here and published for deck.css.
+  // The height is where the title SITS, worked out from the two tokens the title is laid out with
+  // rather than read off the title itself. Reading it off the title tied the diamond to something
+  // that moves — a title card carries its title to the middle of the frame, and the diamond went
+  // with it and then jumped back. It is a fixed mark on the frame, the way the reference deck's is:
+  // the same place on the cover, on the ESS mark, on a title card and on a finished slide.
   var placeControls = function () {
     var r = document.querySelector('.reveal');
-    r.style.setProperty('--ctrl-scale', Reveal.getScale());
-    var slide = Reveal.getCurrentSlide();
-    var h3 = slide && slide.querySelector('h3');
-    if (!h3) return;
-    var box = h3.getBoundingClientRect();
-    r.style.setProperty('--ctrl-cy', (box.top + box.height / 2) + 'px');
+    var frame = document.querySelector('.reveal .slides').getBoundingClientRect();
+    var k = Reveal.getScale();
+    r.style.setProperty('--ctrl-scale', k);
+    // THE RIGHT ARROW'S TIP LANDS ON THE DECK'S OWN RIGHT MARGIN, so the diamond ranges against the
+    // text rather than against the window. Two things stand between the offset and the tip: the
+    // band between the window and the slide, which is the 8% margin and changes with the window,
+    // and the cluster's own scaling, which runs about its centre and so pulls its right edge in by
+    // an amount that depends on the scale. Rather than model either, the offset is set, the tip is
+    // measured where it actually landed, and the difference is taken up — one pass is exact,
+    // because moving the box moves the tip with it, one for one.
+    var rev = r.getBoundingClientRect();
+    var tipWants = frame.right - parseFloat(getComputedStyle(r).getPropertyValue('--pad-x')) * k;
+    r.style.setProperty('--ctrl-edge', (rev.right - frame.right) + 'px');
+    var tip = r.querySelector('.controls .navigate-right').getBoundingClientRect();
+    r.style.setProperty('--ctrl-edge',
+      ((rev.right - frame.right) + (tip.right - tipWants)) + 'px');
+    var cs = getComputedStyle(r);
+    var stageY = parseFloat(cs.getPropertyValue('--pad-top')) +
+                 parseFloat(cs.getPropertyValue('--fs-title')) * 1.15 / 2;
+    r.style.setProperty('--ctrl-cy', (frame.top + stageY * k) + 'px');
   };
   Reveal.on('ready', placeControls);
   Reveal.on('resize', placeControls);
-  Reveal.on('slidechanged', placeControls);
 
   // FULLSCREEN MUST NOT RESIZE THE DECK. Windowed, the browser's chrome eats height and the deck is
   // height-limited; press F and that height comes back, the deck stops being height-limited and
@@ -515,7 +700,10 @@
       var box = document.querySelector('.reveal .slides').getBoundingClientRect();
       var out = [];
       document.querySelectorAll('.reveal .slides > section').forEach(function (hsec, h) {
-        Reveal.slide(h, 0);
+        // THE LAST STEP, not the first. Every slide opens as a title card holding nothing, so a
+        // walk through the opening states would measure seven empty frames and call them clean.
+        var steps = hsec.querySelectorAll(':scope > section').length;
+        Reveal.slide(h, steps ? steps - 1 : 0);
         var sec = Reveal.getCurrentSlide(), r = sec.getBoundingClientRect(), issues = [];
         if (r.height > box.height + 1) issues.push('vertical overflow ' + Math.round(r.height - box.height) + 'px');
         // A SUBHEAD IS ONE LINE. It is the title's second line, not a paragraph: at two it stops
