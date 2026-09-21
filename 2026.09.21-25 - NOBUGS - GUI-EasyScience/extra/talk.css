@@ -361,8 +361,11 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 .reveal .cover .author { font-size: var(--fs-md); font-weight: 400; margin: 0 0 0.3em; }
 .reveal .cover .affil { font-size: var(--fs-sm); line-height: 1.45; color: var(--c-mute);
                         margin: 0; }
-.reveal .cover .event { font-size: var(--fs-sm); color: var(--c-mute); margin: 1.5em 0 0;
-                        letter-spacing: var(--track-label); text-transform: uppercase; }
+/* Mixed case and a blue-grey, matching the ESS deck this talk sits beside in the same session. The
+   line names an event rather than labelling the content, so it does not take the uppercase label
+   treatment the chapter line gets. #90a4ae is sampled from that deck: a shade brighter than
+   --c-mute and tinted, so it separates from the neutral grey of the affiliation above it. */
+.reveal .cover .event { font-size: var(--fs-sm); color: #90a4ae; margin: 1.5em 0 0; }
 
 .reveal img.titlelogo { display: block; height: 120px; width: auto; margin: 0 auto 0.45em;
                         border: none; box-shadow: none; }
@@ -378,7 +381,12 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 .reveal .section-map li { display: block; font-size: var(--fs-lg); line-height: 1.85;
                           text-align: left; text-transform: uppercase; letter-spacing: 0.03em; }
 .reveal .section-map li .no { margin-right: 0.7em; }
+/* Three states, not two: white for where the talk is, the cover's blue-grey for what is already
+   behind it, --c-off for what is still ahead. With only `here` and `later` a listener could see
+   where they were but not how far in -- the row above the lit one looked exactly like the row
+   below it. */
 .reveal .section-map li.here { color: #fff; }
+.reveal .section-map li.done { color: #90a4ae; }
 .reveal .section-map li.later { color: var(--c-off); }
 .reveal .section-map li .ico { height: 0.62em; width: auto; margin-right: 0.5em; opacity: 0.8;
                                vertical-align: baseline; }
@@ -388,6 +396,10 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 .reveal svg.ico { fill: currentColor; }
 .reveal svg.ico.lead { height: 0.72em; width: auto; opacity: 0.75; margin-right: 0.3em;
                        vertical-align: -0.04em; }
+/* A lead icon is dimmed because it introduces a white line and should not compete with it. An icon
+   INSIDE a coloured span is part of the phrase, not a bullet for it, so it takes the span's colour
+   at full strength -- at 0.75 it reads as a faded version of the word beside it. */
+.reveal .blue > svg.ico.lead { opacity: 1; }
 
 /* --- a left-aligned list ---------------------------------------------------------------------- */
 .reveal .dolist { width: fit-content; max-width: 100%; margin: 0.5em 0 0; text-align: left; }
@@ -397,6 +409,14 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    carries five rows without spilling. */
 .reveal .dolist.dense .step { font-size: var(--fs-md); margin: var(--gap-item) 0 0; }
 .reveal .dolist.dense .step .sub { font-size: var(--fs-sm); }
+/* Each item in its own panel, borrowing the card from .reflib so the deck has one box. Both
+   slides that use this list carry it: the pattern appears exactly twice in the talk, so styling
+   them differently would read as an inconsistency rather than as a distinction. The backup deck's
+   .dense lists stay plain -- those are read, not presented. */
+.reveal .dolist.boxed { width: 944px; max-width: 100%; }
+.reveal .dolist.boxed .step { background: #252525; border: 1px solid #3d3d3d; border-radius: 6px;
+                              padding: 0.55em 0.8em 0.6em 2.1em; text-indent: -1.3em;
+                              margin: var(--gap-item) 0 0; }
 
 /* --- picture columns -------------------------------------------------------------------------- */
 .reveal .columns { display: flex; align-items: flex-start; justify-content: flex-start; gap: 40px;
@@ -455,8 +475,14 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    so the marks sit in a row and the row admits it does not end there. */
 .reveal .pstep .plogos { display: flex; align-items: center; gap: 14px; margin: 0.5em 0 0; }
 .reveal .pstep .plogos img.plogo { margin: 0; }
-.reveal .pstep .pand { font-size: var(--fs-xs); font-weight: 200; color: var(--c-mute);
-                       white-space: nowrap; }
+/* SasView's mark is an icon with no wordmark in it, unlike EasyDiffraction's, so the name is set
+   beside it in type -- otherwise one program on this row is named and the other is a picture. */
+.reveal .pstep .plogos .pname { font-size: var(--fs-xs); color: #fff; white-space: nowrap;
+                                margin-left: -6px; }
+/* On its own line under the marks: the row says WHICH programs, this says there are more of them,
+   and at 18px it would otherwise be read as a third logo's caption. */
+.reveal .pstep .pand { display: block; font-size: var(--fs-xs); font-weight: 200;
+                       color: var(--c-mute); white-space: nowrap; margin: 0.45em 0 0; }
 
 /* --- a list accumulating on the left, one picture on the right -------------------------------- */
 /* A definite width, like .samefact and .squint: `width: 100%` contributes nothing to the block's
@@ -821,7 +847,7 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 /* --- the layered module diagram ---------------------------------------------------------------- */
 /* Drawn at 800 units wide and shown at 69% of the slide, so a size in user units renders about
    1.035x larger: 24 lands on --fs-md, 19 on --fs-sm. */
-.reveal svg.modular { display: block; width: 841px; max-width: 100%; height: auto;
+.reveal svg.modular { display: block; width: 940px; max-width: 100%; height: auto;
                       margin: 0.6em 0 0; }
 .reveal svg.modular text { fill: #111; font-size: 24px; text-anchor: middle; }
 /* Above its row now, left-aligned with the boxes: the left and right gutters carry the two

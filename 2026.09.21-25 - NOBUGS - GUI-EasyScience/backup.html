@@ -8,18 +8,18 @@
     <meta name="theme-color" content="#333333">
     <title>Same workflow, different techniques — From a diffraction prototype to a reusable EasyScience GUI</title>
 
-    <link rel="stylesheet" href="dist/reset.css?v=20260921005154">
-    <link rel="stylesheet" href="dist/reveal.css?v=20260921005154">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20260921005154">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20260921005154">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20260921005154">
+    <link rel="stylesheet" href="dist/reset.css?v=20260921020551">
+    <link rel="stylesheet" href="dist/reveal.css?v=20260921020551">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20260921020551">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20260921020551">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20260921020551">
 
     <!-- The deck's own styles load LAST so they win against the theme at equal specificity. With
          them first, a rule like `.reveal h3` lost to the theme's `.reveal h1, .reveal h2, .reveal h3`
          and silently did nothing. -->
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20260921005154">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20260921005154">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20260921005154">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20260921020551">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20260921020551">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20260921020551">
   </head>
 
   <body>
@@ -86,6 +86,7 @@
   <symbol id="i-chevron-down" viewBox="0 0 512 512"><path d="M233.4 406.6C245.9 419.1 266.2 419.1 278.7 406.6L470.7 214.6C483.2 202.1 483.2 181.8 470.7 169.3C458.2 156.8 437.9 156.8 425.4 169.3L256 338.7L86.6 169.4C74.1 156.9 53.8 156.9 41.3 169.4C28.8 181.9 28.8 202.2 41.3 214.7L233.3 406.7ZM233.4 406.6Z"/></symbol>
   <symbol id="i-circle-half-stroke" viewBox="0 0 512 512"><path d="M448 256C448 150 362 64 256 64V448C362 448 448 362 448 256ZM0 256C0 164.54 48.79 80.03 128 34.3C207.21 -11.43 304.79 -11.43 384 34.3C463.21 80.03 512 164.54 512 256C512 347.46 463.21 431.97 384 477.7C304.79 523.43 207.21 523.43 128 477.7C48.79 431.97 0 347.46 0 256Z"/></symbol>
   <symbol id="i-clone" viewBox="0 0 512 512"><path d="M288 448H64V224H128V160H64C28.7 160 0 188.7 0 224V448C0 483.3 28.7 512 64 512H288C323.3 512 352 483.3 352 448V384H288V448ZM224 352H448C483.3 352 512 323.3 512 288V64C512 28.7 483.3 0 448 0H224C188.7 0 160 28.7 160 64V288C160 323.3 188.7 352 224 352Z"/></symbol>
+  <symbol id="i-stamp" viewBox="0 0 512 512"><path d="M312 201.8c0-17.4 9.2-33.2 19.9-47C344.5 138.5 352 118.1 352 96c0-53-43-96-96-96s-96 43-96 96c0 22.1 7.5 42.5 20.1 58.8c10.7 13.8 19.9 29.6 19.9 47c0 29.9-24.3 54.2-54.2 54.2H112C50.1 256 0 306.1 0 368c0 20.9 13.4 38.7 32 45.3V464c0 26.5 21.5 48 48 48H432c26.5 0 48-21.5 48-48V413.3c18.6-6.6 32-24.4 32-45.3c0-61.9-50.1-112-112-112H366.2c-29.9 0-54.2-24.3-54.2-54.2zM416 416v32H96V416H416z"/></symbol>
 </svg>
 
     <div class="reveal">
@@ -114,8 +115,8 @@
   <div class="titlebox" data-id="titlebox"><h3>Why Qt and QML</h3></div>
   <div class="dolist dense">
     <p class="step"><svg class="ico lead" viewBox="0 0 576 512"><use href="#i-display"/></svg> A <span class="blue">declarative</span> UI language
-      <span class="sub">a screen is described as layout and state &mdash; little imperative code for a
-        prototype, which is not the same as "no code"</span></p>
+      <span class="sub">a screen is described as layout and state; a prototype needs
+        little imperative code, which is not the same as "no code"</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-arrows-rotate"/></svg> <span class="blue">Live Preview</span>
       <span class="sub">an edit reaches the running application without a rebuild</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-globe"/></svg> One source, <span class="blue">three platforms</span>
@@ -126,7 +127,7 @@
   </div>
 <aside class="notes">
     The honest caveat for "why not the web?": a desktop application was the right answer for a tool
-    that reads local files and runs a fit on the user's own machine. A browser front end is a
+    that reads local files and runs a fit on the user's own machine. A browser frontend is a
     separate discussion, not a correction of this one.
   </aside>
 </section>
@@ -141,7 +142,7 @@
     <p class="step"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-magnifying-glass"/></svg> Phase 1 &middot; <span class="blue">use and document</span>
       <span class="sub">meet the design the way a new user meets it, write down what goes wrong</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-brain"/></svg> Phase 2 &middot; <span class="blue">review and root causes</span>
-      <span class="sub">every component, seen through each design driver in turn &mdash; seven lenses on one screen</span></p>
+      <span class="sub">every component, seen through each design driver in turn &mdash; seven views of one screen</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-tasks"/></svg> Phase 3 &middot; <span class="blue">report and co-create</span>
       <span class="sub">findings grouped by screen: a problem, a root cause, a proposed fix</span></p>
   </div>
@@ -176,7 +177,7 @@
 <section data-auto-animate data-auto-animate-restart>
   <div class="sbody" data-id="sbody">
   <div class="titlebox" data-id="titlebox"><h3>The review reply, in full</h3></div>
-  <img class="bigphoto tall" src="images/ux-review-thread.png?v=20260921005154"
+  <img class="bigphoto tall" src="images/ux-review-thread.png?v=20260921020551"
        alt="the full e-mail from Rune N&oslash;rager, Design Psychology">
 </div>
 </section>
@@ -191,7 +192,7 @@
     <p class="step"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-database"/></svg> The project is a <span class="blue">folder</span>, not a blob
       <span class="sub">Project, Model, Experiment and Analysis each have their own file</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 576 512"><use href="#i-code"/></svg> The format is <span class="blue">CIF</span>, the one the field already uses
-      <span class="sub">named tags rather than positional numbers &mdash; the file says what it means</span></p>
+      <span class="sub">named tags rather than cryptic labels &mdash; the file says what it means</span></p>
     <p class="step"><svg class="ico lead" viewBox="0 0 576 512"><use href="#i-terminal"/></svg> Text mode shows that file <span class="blue">inside</span> the application
       <span class="sub">nothing about the project is hidden behind the interface</span></p>
   </div>
@@ -224,7 +225,7 @@
   <div class="sbody" data-id="sbody">
   <div class="titlebox" data-id="titlebox"><h3>Not cross-platform</h3></div>
   <p class="step sub blue">Jana2006 / 2020 &middot; Windows only</p>
-  <img class="bigphoto" src="images/jana-windows.png?v=20260921005154" alt="the Jana interface on Windows">
+  <img class="bigphoto" src="images/jana-windows.png?v=20260921020551" alt="the Jana interface on Windows">
 </div>
 </section>
 </section>
@@ -234,8 +235,8 @@
 <section data-auto-animate data-auto-animate-restart>
   <div class="sbody" data-id="sbody">
   <div class="titlebox" data-id="titlebox"><h3>Input files written for the program</h3></div>
-  <p class="step sub blue">FullProf PCR &middot; short names, positional columns</p>
-  <img class="bigphoto" src="images/fullprof-pcr.png?v=20260921005154" alt="a FullProf PCR input file">
+  <p class="step sub blue">FullProf PCR &middot; cryptic labels, values by position</p>
+  <img class="bigphoto" src="images/fullprof-pcr.png?v=20260921020551" alt="a FullProf PCR input file">
 </div>
 </section>
 </section>
@@ -268,8 +269,8 @@
   <div class="sbody" data-id="sbody">
   <div class="titlebox" data-id="titlebox"><h3>Built outside ESS</h3></div>
   <p class="step sub blue">EasyTexture &middot; texture data reduction</p>
-  <img class="bigphoto" src="images/easytexture.png?v=20260921005154" alt="the EasyTexture application">
-  <p class="step sub">The same shell, a different institute, and a step of the pipeline
+  <img class="bigphoto" src="images/easytexture.png?v=20260921020551" alt="the EasyTexture application">
+  <p class="step sub">The same interface, a different institute, and a stage of the pipeline
     the components were not designed for.</p>
   </div>
 <aside class="notes">
@@ -299,7 +300,7 @@
     <span class="chip off" data-id="t4"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>Analysis</span>
     <span class="chip off" data-id="t5"><svg class="ico" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg>Summary</span>
   </div><p class="hid step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
-    so the interface never changes shape under you.</p><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p></div>
+    so the interface never changes shape.</p><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p></div>
 <aside class="hid notes">
     Left to right, one path. No modal dialogs, no "open the setup window first".
     Greying out rather than hiding is deliberate: the user sees the whole road from the first
@@ -325,7 +326,7 @@
     <span class="chip" data-id="t4"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>Analysis</span>
     <span class="chip" data-id="t5"><svg class="ico" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg>Summary</span>
   </div><p class="hid step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
-    so the interface never changes shape under you.</p><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p></div>
+    so the interface never changes shape.</p><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p></div>
 <aside class="hid notes">
     Left to right, one path. No modal dialogs, no "open the setup window first".
     Greying out rather than hiding is deliberate: the user sees the whole road from the first
@@ -351,8 +352,8 @@
     <span class="chip" data-id="t4"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>Analysis</span>
     <span class="chip" data-id="t5"><svg class="ico" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg>Summary</span>
   </div><p class="hid step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
-    so the interface never changes shape under you.</p>
-  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p></div>
+    so the interface never changes shape.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p></div>
 <aside class="hid notes">
     Left to right, one path. No modal dialogs, no "open the setup window first".
     Greying out rather than hiding is deliberate: the user sees the whole road from the first
@@ -379,8 +380,8 @@
     <span class="chip off" data-id="t5"><svg class="ico" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg>Summary</span>
   </div>
     <p class="step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
-    so the interface never changes shape under you.</p>
-  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p>
+    so the interface never changes shape.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p>
   </div>
 <aside class="notes">
     Left to right, one path. No modal dialogs, no "open the setup window first".
@@ -452,7 +453,7 @@
 
 <section class="freeform" data-auto-animate data-auto-animate-restart>
   <div class="sbody" data-id="sbody">
-  <img class="titlelogo" data-id="titlelogo" src="images/easyscience-logo.svg?v=20260921005154" alt="EasyScience">
+  <img class="titlelogo" data-id="titlelogo" src="images/easyscience-logo.svg?v=20260921020551" alt="EasyScience">
   <h3 class="deck-title" data-id="title"><span>Thank you</span></h3>
   <p class="blue subtitle">easyscience.org &middot; github.com/easyscience</p>
   <p class="byline">Andrew Sazonov &middot; ESS DMSC<br/>
@@ -470,10 +471,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20260921005154"></script>
-    <script src="plugin/notes/notes.js?v=20260921005154"></script>
-    <script src="plugin/markdown/markdown.js?v=20260921005154"></script>
-    <script src="plugin/highlight/highlight.js?v=20260921005154"></script>
+    <script src="dist/reveal.js?v=20260921020551"></script>
+    <script src="plugin/notes/notes.js?v=20260921020551"></script>
+    <script src="plugin/markdown/markdown.js?v=20260921020551"></script>
+    <script src="plugin/highlight/highlight.js?v=20260921020551"></script>
     <script>
       Reveal.initialize({
           width: 1200,

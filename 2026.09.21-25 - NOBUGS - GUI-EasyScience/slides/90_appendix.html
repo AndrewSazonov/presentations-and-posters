@@ -17,8 +17,8 @@
   <h3>Why Qt and QML</h3>
   <div class="dolist dense">
     <p class="step"><i class="fa-display lead"></i> A <span class="blue">declarative</span> UI language
-      <span class="sub">a screen is described as layout and state &mdash; little imperative code for a
-        prototype, which is not the same as "no code"</span></p>
+      <span class="sub">a screen is described as layout and state; a prototype needs
+        little imperative code, which is not the same as "no code"</span></p>
     <p class="step"><i class="fa-arrows-rotate lead"></i> <span class="blue">Live Preview</span>
       <span class="sub">an edit reaches the running application without a rebuild</span></p>
     <p class="step"><i class="fa-globe lead"></i> One source, <span class="blue">three platforms</span>
@@ -28,7 +28,7 @@
   </div>
   <aside class="notes">
     The honest caveat for "why not the web?": a desktop application was the right answer for a tool
-    that reads local files and runs a fit on the user's own machine. A browser front end is a
+    that reads local files and runs a fit on the user's own machine. A browser frontend is a
     separate discussion, not a correction of this one.
   </aside>
 </section>
@@ -42,7 +42,7 @@
     <p class="step"><i class="fa-magnifying-glass lead"></i> Phase 1 &middot; <span class="blue">use and document</span>
       <span class="sub">meet the design the way a new user meets it, write down what goes wrong</span></p>
     <p class="step"><i class="fa-brain lead"></i> Phase 2 &middot; <span class="blue">review and root causes</span>
-      <span class="sub">every component, seen through each design driver in turn &mdash; seven lenses on one screen</span></p>
+      <span class="sub">every component, seen through each design driver in turn &mdash; seven views of one screen</span></p>
     <p class="step"><i class="fa-tasks lead"></i> Phase 3 &middot; <span class="blue">report and co-create</span>
       <span class="sub">findings grouped by screen: a problem, a root cause, a proposed fix</span></p>
   </div>
@@ -86,7 +86,7 @@
     <p class="step"><i class="fa-database lead"></i> The project is a <span class="blue">folder</span>, not a blob
       <span class="sub">Project, Model, Experiment and Analysis each have their own file</span></p>
     <p class="step"><i class="fa-code lead"></i> The format is <span class="blue">CIF</span>, the one the field already uses
-      <span class="sub">named tags rather than positional numbers &mdash; the file says what it means</span></p>
+      <span class="sub">named tags rather than cryptic labels &mdash; the file says what it means</span></p>
     <p class="step"><i class="fa-terminal lead"></i> Text mode shows that file <span class="blue">inside</span> the application
       <span class="sub">nothing about the project is hidden behind the interface</span></p>
   </div>
@@ -123,7 +123,7 @@
 <section>
 <section data-auto-animate data-auto-animate-restart>
   <h3>Input files written for the program</h3>
-  <p class="step sub blue">FullProf PCR &middot; short names, positional columns</p>
+  <p class="step sub blue">FullProf PCR &middot; cryptic labels, values by position</p>
   <img class="bigphoto" src="images/fullprof-pcr.png" alt="a FullProf PCR input file">
 </section>
 </section>
@@ -154,7 +154,7 @@
   <h3>Built outside ESS</h3>
   <p class="step sub blue">EasyTexture &middot; texture data reduction</p>
   <img class="bigphoto" src="images/easytexture.png" alt="the EasyTexture application">
-  <p class="step sub">The same shell, a different institute, and a step of the pipeline
+  <p class="step sub">The same interface, a different institute, and a stage of the pipeline
     the components were not designed for.</p>
   <aside class="notes">
     TODO confirm the current status and authorship of EasyTexture before showing this.
@@ -212,7 +212,7 @@
     <span class="chip" data-id="t4"><i class="fa-calculator"></i>Analysis</span>
     <span class="chip" data-id="t5"><i class="fa-clipboard-list"></i>Summary</span>
   </div>
-  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p>
 </section>
 
 <section data-auto-animate>
@@ -232,8 +232,8 @@
     <span class="chip off" data-id="t5"><i class="fa-clipboard-list"></i>Summary</span>
   </div>
     <p class="step sub" data-id="sub">A step you cannot take yet stays where it is, greyed out &mdash;
-    so the interface never changes shape under you.</p>
-  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The navigation bar <span class="blue">is</span> the method.</p>
+    so the interface never changes shape.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">The tab bar <span class="blue">is</span> the method.</p>
   <aside class="notes">
     Left to right, one path. No modal dialogs, no "open the setup window first".
     Greying out rather than hiding is deliberate: the user sees the whole road from the first
