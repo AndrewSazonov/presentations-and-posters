@@ -3,17 +3,18 @@
 reveal.js deck for the NOBUGS 2026 GUI Workshop. Where the user interfaces are across the ESS data
 pipeline, what they are built with, what is shared and what is not.
 
-Six slides behind an ESS holding screen. No section dividers, no running order.
+Seven slides behind an ESS holding screen. No section dividers, no running order.
 
 | | | clicks |
 | --- | --- | --- |
 | | the ESS mark — a holding screen, unnumbered | |
 | 1 | cover | 2 |
-| 2 | The integrated data pipeline | 6 |
-| 3 | UI technologies in a nutshell | 7 |
-| 4 | Challenges and controls | 3 |
-| 5 | Reusable UI components | 4 |
-| 6 | UI generation and AI assistants | 3 |
+| 2 | One facility, two host countries | 1 |
+| 3 | The integrated data pipeline | 6 |
+| 4 | UI technologies in a nutshell | 7 |
+| 5 | Challenges and controls | 3 |
+| 6 | Reusable UI components | 4 |
+| 7 | UI generation and AI assistants | 3 |
 
 ## Driving it
 
@@ -124,6 +125,7 @@ index.html      the whole deck: the icon sprite, then one <section> per slide
 deck.css        the design system — type scale, colours, components
 assets/fonts/   Titillium Web, ESS's identity typeface (SIL OFL) — the source of the embedded copies
 assets/logos/   project marks used on the pipeline diagram and the cards
+assets/maps/    the Oresund map, recoloured into the deck's ground
 assets/shots/   application screenshots
 vendor/         reveal.js 5.1.0 core, minified, plus the speaker-notes plugin
 ```

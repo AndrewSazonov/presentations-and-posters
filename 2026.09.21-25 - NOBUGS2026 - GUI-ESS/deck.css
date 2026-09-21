@@ -442,6 +442,16 @@ html, body, .reveal-viewport { background: #191919; }
 .reveal figure.oneshot figcaption { font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.3;
                                     margin: 0 0 var(--gap-pair); white-space: nowrap; }
 
+/* --- the map ------------------------------------------------------------------------------------ */
+/* One picture, centred in what the title leaves. It is drawn 500x300 and shown at whatever height
+   the slide has spare, so it keeps its shape rather than filling the frame — a map stretched to fit
+   is a map that lies. Held a little in from the sides so it reads as a figure on the slide and not
+   as a background the slide happens to sit on. */
+.reveal figure.map { margin: 0; flex: 1 1 auto; min-height: 0;
+                     display: flex; align-items: center; justify-content: center; }
+.reveal figure.map img { display: block; max-width: 84%; max-height: 100%; width: auto; height: auto;
+                         margin: 0; border: none; box-shadow: none; border-radius: 6px; }
+
 /* --- the pipeline diagram --------------------------------------------------------------------------- */
 /* Drawn at 1040 user units and shown at the width the slide leaves it, so the text inherits
    Titillium from `.reveal` and only the sizes and fills are stated here — the diagram is on the
