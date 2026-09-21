@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Where the user interfaces are across the ESS data pipeline, what they are built with, and what is shared">
 <meta name="theme-color" content="#191919">
-<title>GUI strategies at ESS — NOBUGS 2026 GUI Workshop</title>
+<title>GUI approaches at ESS — NOBUGS 2026 GUI Workshop</title>
 <link rel="stylesheet" href="vendor/reveal.min.css">
 <!-- The deck's own styles load LAST so they win against reveal's core at equal specificity. -->
 <!-- NO FONT PRELOADS HERE, deliberately. Asking for them in the head saves the browser a beat —
@@ -77,8 +77,16 @@
          Each click adds a block ABOVE what is already there, so the earlier lines move down to make
          room for it and the title lands last. A hidden block on this slide takes no height at all
          (deck.css), which is what lets the stack grow rather than fade into a gap left for it. -->
+    <!-- THE SCOPE GOES HERE, not in the title. The deck is about the software the science programme
+         runs on — proposals, experiments, data, analysis — and not about the software that runs the
+         accelerator. Narrowing the title to say so ("...at ESS Science") would have been wrong as
+         well as clumsy: User Office and SciCat are facility-wide, and the NICOS client this deck
+         attributes to ECDC comes out of DMSC, not the Science Division. The line below names the
+         work rather than the org chart, and the one thing left out is named where it is a finding
+         rather than a disclaimer — on "Challenges and controls". -->
     <div class="titlebox" data-step="2">
-      <h3 class="deck-title">GUI strategies at ESS</h3>
+      <h3 class="deck-title">GUI approaches at ESS</h3>
+      <p class="subtitle">Software for the science programme, from proposal to analysis</p>
     </div>
     <p class="author" data-step="1">Andrew Sazonov</p>
     <p class="affil" data-step="1">European Spallation Source (ESS)<br>
@@ -380,7 +388,7 @@
       <div class="columns">
         <div class="card roomy a-orange" data-step="1">
           <p class="ct"><svg class="ico" viewBox="0 0 576 512"><use href="#i-wand-magic-sparkles"></use></svg><span class="cn">UI generation</span><span class="tag-idea"><svg class="ico" viewBox="0 0 384 512"><use href="#i-lightbulb"></use></svg>ideas</span></p>
-          <p class="cd"><em>Nothing is built yet</em></p>
+          <p class="cd"><em>Two directions we are considering</em></p>
           <p class="cd">We could generate data reduction notebooks for Voil&agrave; with AI</p>
           <p class="cs">The workflow already describes the parameters</p>
           <p class="cd">We could assemble a new EasyScience GUI with AI</p>
@@ -439,7 +447,55 @@
   // marked up with data-step. A slide with steps becomes a stack: step 0 is the title card holding
   // nothing, and step k has everything up to k. Elements not yet due carry `hid`, and that is the
   // whole difference between one section and the next.
+  // ONE PAGE PER SLIDE, FOR THE PDF. index.html?pdf leaves every slide whole: no stack of steps, no
+  // title card, nothing hidden. decktape walks the deck with reveal's own navigation and prints a
+  // page per slide it finds, so without this it would print a page per CLICK — thirty of them.
+  // NOT the name `print-pdf`: reveal watches the query string for that one and switches to its own
+  // print stylesheet, which drops the backgrounds and reflows the slides. This mode keeps the deck
+  // exactly as the screen draws it, bands and all, and lets decktape photograph it.
+  var PDF = /[?&]pdf(&|=|$)/.test(location.search);
+
+  // THE DIAGRAM IS LAID OUT ONCE, AND IT HAS TO BE AGAINST THE RIGHT FONT. HTML text re-flows when
+  // a webfont finishes loading; SVG text does not always follow. The pipeline's labels are SVG
+  // text, so if they were measured against the fallback they keep those metrics for good. On screen
+  // it never showed — the font is here long before anyone looks — but the PDF export loads the deck
+  // and photographs it in the same second, and every label came out at the wrong size and outside
+  // its box while the rects, arrows and logos around them were exact. Nudging the element once the
+  // fonts have landed forces the one relayout it missed: `display: none` and back is what
+  // invalidates it, and reading a geometry property in between is what makes the browser do the
+  // work now rather than at some later paint that, in the export, never comes.
+  // Replacing the element is what does it. Hiding and showing it again invalidates the BOX, not the
+  // text inside, and the stale glyph metrics survive; a node that has just been inserted has no
+  // layout to keep, so it is measured against whatever font is installed by then — which, after
+  // fonts.ready, is the right one. Nothing holds a reference to these nodes: the diagram is static
+  // markup, and the ids auto-animate pairs on sit above it, on .sbody's own children.
+  var relayoutDiagram = function () {
+    [].forEach.call(document.querySelectorAll('svg.pipe'), function (svg) {
+      svg.parentNode.replaceChild(svg.cloneNode(true), svg);
+    });
+  };
+  // `document.fonts.ready` is not the signal it looks like: it resolves as soon as nothing is
+  // CURRENTLY loading, and at that moment nothing had asked for Titillium yet, so it came back
+  // immediately and the relayout happened before the font arrived. Asking for the two faces the
+  // diagram actually sets text in is a request, and waiting on THAT waits for the font.
+  // The second pass is the guarantee: the diagram is on a slide that starts hidden, and a hidden
+  // element is laid out when it is first shown. Doing it again the first time that slide comes up
+  // costs one clone of some static markup and does not depend on having guessed the order right.
+  if (window.document.fonts) {
+    Promise.all([document.fonts.load('400 18px "Titillium Web"'),
+                 document.fonts.load('600 18px "Titillium Web"')])
+      .then(function () { return document.fonts.ready; })
+      .then(relayoutDiagram);
+  }
+  var diagramSeen = false;
+  Reveal.on('slidechanged', function (e) {
+    if (diagramSeen || !e.currentSlide || !e.currentSlide.querySelector('svg.pipe')) return;
+    diagramSeen = true;
+    relayoutDiagram();
+  });
+
   (function buildSteps() {
+    if (PDF) return;
     // EVERY BOX AND EVERY BLOCK IS NAMED FIRST. Auto-animate pairs an element in one step with the
     // same element in the next, and the names are how it knows. Left unnamed, it still finds the
     // headings and paragraphs — it matches those by their text — but not the DIVs around them, and

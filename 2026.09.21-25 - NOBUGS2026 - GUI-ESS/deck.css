@@ -1,4 +1,4 @@
-/* GUI strategies at ESS — NOBUGS 2026 GUI Workshop
+/* GUI approaches at ESS — NOBUGS 2026 GUI Workshop
    ==================================================================================================
    The visual language is the one used by the "Same workflow, different techniques" deck: ESS's
    identity typeface, one type scale, one blue, one left edge with a blue rule beside the title.
@@ -510,6 +510,13 @@ html, body, .reveal-viewport { background: #191919; }
    centred, and it is meant to GROW — each click adds a line above the last and pushes what is
    already there down. Reserving the space would leave the first line alone in the middle of a gap
    the shape of the finished slide. reveal's own 0.2s fade carries the change. */
+
+/* The cover's one line of scope, in the same voice a content slide's subhead uses: a step below the
+   title, in the grey the deck gives to a line that explains the line above it. It sits INSIDE the
+   title block, so the rule laid flat beneath marks the pair as one unit — the same way the vertical
+   rule spans a title and its subhead everywhere else. */
+.reveal .cover .subtitle { font-size: var(--fs-md); line-height: 1.35; color: var(--c-dim);
+                           margin: 0.35em 0 0; }
 
 .reveal .cover .titlebox { margin-bottom: 0;
                            padding-bottom: calc(26px + var(--rule));

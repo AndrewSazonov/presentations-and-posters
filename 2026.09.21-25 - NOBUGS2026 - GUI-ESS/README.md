@@ -1,4 +1,4 @@
-# GUI strategies at ESS
+# GUI approaches at ESS
 
 reveal.js deck for the NOBUGS 2026 GUI Workshop. Where the user interfaces are across the ESS data
 pipeline, what they are built with, what is shared and what is not.
@@ -103,6 +103,19 @@ that slide has grown past the frame. The check puts the deck in its END state fi
 revealed, no title card — since a slide holding one title always fits.
 
 `.claude/launch.json` starts the same server from the editor's preview pane.
+
+## The PDF
+
+```bash
+./make-pdf.sh
+```
+
+Seven pages, one per slide, each one whole. decktape drives a headless Chromium and photographs
+what reveal draws, so the near-black ground, the card washes and the SVG pipeline survive; a
+browser's own print dialog does not work, because reveal switches to its print stylesheet and drops
+the backgrounds. `index.html?pdf` is the deck's own flag for this: `buildSteps()` returns early, so
+no slide is split into steps, nothing is hidden and nothing opens as a title card. It is
+deliberately not called `print-pdf` — reveal watches the query string for that one.
 
 ## Layout
 
