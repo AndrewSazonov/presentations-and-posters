@@ -981,17 +981,20 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 /* The poster's own band, kept in its own order: core modules down the first column, the six
    domain projects across the other three, so anyone who saw the poster recognises the arrangement.
    The two labels are grid items of the first row, the second spanning the three project columns. */
-.reveal .posterband { display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 16px;
-                      row-gap: 20px; width: 1144px; max-width: 100%; margin: 0;
-                      text-align: left; }
+.reveal .posterband { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+                      width: 1144px; max-width: 100%; margin: 0; text-align: left; }
 .reveal .posterband .lbl { grid-column: span 1; align-self: end; margin: 0 0 -2px; }
 .reveal .posterband .lbl.wide { grid-column: span 3; }
 /* Even padding on all four sides, as a box should have; the height that the uneven top and bottom
    were buying comes from the line height instead, which spends it on the content rather than on
    empty edges. */
-.reveal .posterband .reflib { line-height: 1.75; background: #252525; border: 1px solid #3d3d3d;
-                              border-radius: 6px; padding: 18px; }
+.reveal .posterband .reflib { line-height: 2.05; background: #252525; border: 1px solid #3d3d3d;
+                              border-radius: 6px; padding: 20px; }
 .reveal .posterband .reflib .rn .rlogo { height: 42px; }
+/* The name row is as tall as a face whether or not the tile has one. Without this the three tiles
+   with no photograph -- the two core modules and EasyTexture -- sat 4px higher than their
+   neighbours, which shows on EasyTexture because it stands beside three tiles that do have one. */
+.reveal .posterband .reflib .rn { min-height: 46px; }
 .reveal .posterband .reflib .rd { margin-top: 2px; }
 /* The tags move to a row of their own, as they do on the poster, so the top line of every tile is
    just the mark and the face and stays legible at 275px. */
@@ -1045,7 +1048,21 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    and showing the edit makes that claim in one glance where a missing word would make none. The
    word keeps the line's own colour -- dimming it made the strike read as an error rather than as a
    correction someone made on purpose. */
-.reveal .subtitle .struck { text-decoration: line-through; text-decoration-thickness: 0.055em; }
+/* Not text-decoration: that can only draw a level rule. The word is crossed out by hand -- a
+   bowed pen line rising left to right, overshooting the word at both ends, with round caps.
+   `preserveAspectRatio="none"` lets it stretch to whatever the word measures, and
+   `non-scaling-stroke` keeps the nib an even width while it does. */
+.reveal .subtitle .struck { text-decoration: none;
+                            background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%2030%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M1%2022.6%20C%2020%2021.4%2C%2036%2020.4%2C%2054%2018.6%20S%2084%2016.6%2C%2099%2015.6%27%20fill%3D%27none%27%20stroke%3D%27%236dd1ff%27%20stroke-width%3D%272.6%27%20stroke-linecap%3D%27round%27%20vector-effect%3D%27non-scaling-stroke%27%2F%3E%3C%2Fsvg%3E");
+                            background-repeat: no-repeat;
+                            background-position: center 52%;
+                            background-size: 108% 74%; }
+/* The talk deck gives the body 44px of padding above and 76 below, so a block centred between them
+   settles a little above true centre -- which is where the eye reads centre. That reasoning needs
+   SLACK for `justify-content: center` to act on. These two slides fill 84% of the stage, so there
+   is none, and the asymmetry stops being an optical lift and becomes a flat 32px offset you can
+   see. A 10px difference keeps the intent at this fill level. */
+.reveal section.flash { --pad-bot: 54px; }
 
 /* The flash deck replaces the navigation arrows with the facility mark: at two slides there is
    nothing to navigate, and the corner is better spent saying who this is. */
@@ -1122,9 +1139,16 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    between the two shots. */
 /* No top margin: the title row already carries the gap beneath it, and the two stacked put 69px
    between the title and the first mark. */
-.reveal section.flash .twoshots { gap: 22px; margin-top: 0; }
+/* Narrowed so the pair is exactly as tall as slide 1's band: with the body centred, a taller
+   block lifts the title, and the blue rule beside it has to land at the same height on both
+   slides. The width follows the height so the screenshots stay flush in their columns
+   instead of sitting in a letterboxed box. */
+.reveal section.flash .twoshots { gap: 22px; margin-top: 0; width: 1058px; }
 /* The closing line is the call to action, so the poster number is lit rather than muted, and each
-   half gets the icon that says what kind of thing it is. */
+   half gets the icon that says what kind of thing it is. It is also set at the subtitle size, not
+   the deck's smallest: it is the one line the three minutes exist to transmit, and it stays on
+   screen while the next speaker sets up. */
+.reveal section.flash .credit { font-size: var(--fs-md); }
 .reveal .credit .lit { color: #fff; }
 .reveal .credit .ico { opacity: 0.85; }
 
@@ -1134,3 +1158,19 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 .reveal section.flash .twoshots figcaption { margin-bottom: 12px; }
 .reveal .twoshots figcaption .fdesc { display: block; margin-top: 9px; font-size: var(--fs-sm);
                                       color: var(--c-dim); line-height: 1.3; }
+
+/* A fixed width for both slides, rather than fit-content. Slide 1's band came to exactly 1200 with
+   its padding, so the body filled the stage and the blue rule landed on x=0 -- a projector with
+   overscan would eat it -- while slide 2's content made a 1191px body, so the title and the mark
+   also shifted a few pixels between the only two slides in the deck. 1176 leaves the rule 12px
+   clear and makes the two slides open identically. */
+.reveal.center .slides > section > section.flash > .sbody { width: 1152px; }
+.reveal .posterband { width: 1096px; }
+/* min-width: 0 is load-bearing now that the body has a fixed width: a flex item defaults to
+   min-width:auto, whose floor is its content's min-content size, and for a figure wrapping a
+   2560px screenshot that is 2560px. With a fit-content body the two simply pushed the body wider
+   and nothing looked wrong; against a fixed width they overflowed the stage. */
+.reveal section.flash .twoshots figure { min-width: 0; }
+/* `figure > img`, not `img`: the caption logo is an <img> too, and a bare selector here
+   outranks the .figlogo rule and stretched the mark to screenshot height. */
+.reveal section.flash .twoshots figure > img { height: 322.3px; }

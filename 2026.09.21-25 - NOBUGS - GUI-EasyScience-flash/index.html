@@ -8,17 +8,17 @@
     <meta name="theme-color" content="#333333">
     <title>Same workflow, different techniques — From a diffraction prototype to a reusable EasyScience GUI</title>
 
-    <link rel="stylesheet" href="dist/reset.css?v=20260922194656">
-    <link rel="stylesheet" href="dist/reveal.css?v=20260922194656">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20260922194656">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20260922194656">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20260922194656">
+    <link rel="stylesheet" href="dist/reset.css?v=20260922205246">
+    <link rel="stylesheet" href="dist/reveal.css?v=20260922205246">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20260922205246">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20260922205246">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20260922205246">
 
     <!-- The deck's own styles load LAST so they win against the theme at equal specificity. With
          them first, a rule like `.reveal h3` lost to the theme's `.reveal h1, .reveal h2, .reveal h3`
          and silently did nothing. -->
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20260922194656">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20260922194656">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20260922205246">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20260922205246">
   </head>
 
   <body>
@@ -87,6 +87,7 @@
   <symbol id="i-clone" viewBox="0 0 512 512"><path d="M288 448H64V224H128V160H64C28.7 160 0 188.7 0 224V448C0 483.3 28.7 512 64 512H288C323.3 512 352 483.3 352 448V384H288V448ZM224 352H448C483.3 352 512 323.3 512 288V64C512 28.7 483.3 0 448 0H224C188.7 0 160 28.7 160 64V288C160 323.3 188.7 352 224 352Z"/></symbol>
   <symbol id="i-stamp" viewBox="0 0 512 512"><path d="M312 201.8c0-17.4 9.2-33.2 19.9-47C344.5 138.5 352 118.1 352 96c0-53-43-96-96-96s-96 43-96 96c0 22.1 7.5 42.5 20.1 58.8c10.7 13.8 19.9 29.6 19.9 47c0 29.9-24.3 54.2-54.2 54.2H112C50.1 256 0 306.1 0 368c0 20.9 13.4 38.7 32 45.3V464c0 26.5 21.5 48 48 48H432c26.5 0 48-21.5 48-48V413.3c18.6-6.6 32-24.4 32-45.3c0-61.9-50.1-112-112-112H366.2c-29.9 0-54.2-24.3-54.2-54.2zM416 416v32H96V416H416z"/></symbol>
   <symbol id="i-rocket" viewBox="0 0 512 512"><path d="M156.6 384.9L125.7 354c-8.5-8.5-11.5-20.8-7.7-32.2c3-8.9 7-20.5 11.8-33.8L24 288c-8.6 0-16.6-4.6-20.9-12.1s-4.2-16.7 .2-24.1l52.5-88.5c13-21.9 36.5-35.3 61.9-35.3l82.3 0c2.4-4 4.8-7.7 7.2-11.3C289.1-4.1 411.1-8.1 483.9 5.3c11.6 2.1 20.6 11.2 22.8 22.8c13.4 72.9 9.3 194.8-111.4 276.7c-3.5 2.4-7.3 4.8-11.3 7.2l0 82.3c0 25.4-13.4 49-35.3 61.9l-88.5 52.5c-7.4 4.4-16.6 4.5-24.1 .2s-12.1-12.2-12.1-20.9l0-107.2c-14.1 4.9-26.4 8.9-35.7 11.9c-11.2 3.6-23.4 .5-31.8-7.8zM384 168a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></symbol>
 </svg>
 
     <div class="reveal">
@@ -105,7 +106,7 @@
     <h3 class="deck-title">EasyScience</h3>
     <p class="subtitle">A framework for unified <s class="struck">neutron</s>
       <span class="blue">scattering data analysis</span></p>
-  </div><img class="decklogo" src="images/ess-logo.svg?v=20260922194656" alt="European Spallation Source"></div>
+  </div><img class="decklogo" src="images/ess-logo.svg?v=20260922205246" alt="European Spallation Source"></div>
   
   <p class="author">Andrew Sazonov <span class="sep">&middot;</span> <span class="aff">ESS <span class="flag">🇸🇪</span></span> <span class="sep">&middot;</span> <span class="aff">DMSC <span class="flag">🇩🇰</span></span></p>
 
@@ -113,40 +114,41 @@
     <p class="lbl">Core modules</p>
     <p class="lbl wide">Domain-specific projects</p>
 
-    <div class="reflib core"><span class="rn"><img class="rlogo" src="images/logo-easyscience.svg?v=20260922194656" alt="EasyScience"></span>
+    <div class="reflib core"><span class="rn"><img class="rlogo" src="images/logo-easyscience.svg?v=20260922205246" alt="EasyScience"></span>
       <span class="rd">objects, parameters, engines</span>
       <span class="rtags"><span class="tag-kind tag-modelling"><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"/></svg>backend</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20260922194656" alt="EasyDiffraction"><img class="face" src="images/photo-andrew.jpeg?v=20260922194656" alt="Andrew Sazonov"></span>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20260922205246" alt="EasyDiffraction"><img class="face" src="images/photo-andrew.jpeg?v=20260922205246" alt="Andrew Sazonov"></span>
       <span class="rd">diffraction</span>
-      <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyimaging.svg?v=20260922194656" alt="EasyImaging"><img class="face" src="images/photo-christian.jpeg?v=20260922194656" alt="Christian Vedel"></span>
+      <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>released</span></span></div>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyimaging.svg?v=20260922205246" alt="EasyImaging"><img class="face" src="images/photo-christian.jpeg?v=20260922205246" alt="Christian Vedel"></span>
       <span class="rd">Bragg-edge imaging</span>
       <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange"><svg class="ico" viewBox="0 0 512 512"><use href="#i-rocket"/></svg>new</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyshapes.svg?v=20260922194656" alt="EasyShapes"><img class="face" src="images/photo-ales.jpeg?v=20260922194656" alt="Ales Kutsepau"></span>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyshapes.svg?v=20260922205246" alt="EasyShapes"><img class="face" src="images/photo-ales.jpeg?v=20260922205246" alt="Ales Kutsepau"></span>
       <span class="rd">molecular structure</span>
       <span class="rtags"><span class="tag-kind tag-modelling"><svg class="ico" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange"><svg class="ico" viewBox="0 0 512 512"><use href="#i-rocket"/></svg>new</span></span></div>
 
-    <div class="reflib core"><span class="rn"><img class="rlogo" src="images/logo-easyapplication.svg?v=20260922194656" alt="EasyApplication"></span>
+    <div class="reflib core"><span class="rn"><img class="rlogo" src="images/logo-easyapplication.svg?v=20260922205246" alt="EasyApplication"></span>
       <span class="rd">screens, workflow, controls</span>
       <span class="rtags"><span class="tag-kind tag-modelling"><svg class="ico" viewBox="0 0 576 512"><use href="#i-display"/></svg>frontend</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20260922194656" alt="EasyReflectometry"><img class="face" src="images/photo-piotr.jpeg?v=20260922194656" alt="Piotr Rozyczko"></span>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20260922205246" alt="EasyReflectometry"><img class="face" src="images/photo-piotr.jpeg?v=20260922205246" alt="Piotr Rozyczko"></span>
       <span class="rd">reflectometry</span>
-      <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easydynamics.svg?v=20260922194656" alt="EasyDynamics"><img class="face" src="images/photo-henrik.jpeg?v=20260922194656" alt="Henrik Jacobsen"></span>
+      <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>released</span></span></div>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easydynamics.svg?v=20260922205246" alt="EasyDynamics"><img class="face" src="images/photo-henrik.jpeg?v=20260922205246" alt="Henrik Jacobsen"></span>
       <span class="rd">quasielastic scattering</span>
       <span class="rtags"><span class="tag-kind tag-analysis"><svg class="ico" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange"><svg class="ico" viewBox="0 0 512 512"><use href="#i-rocket"/></svg>new</span></span></div>
-    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easytexture.svg?v=20260922194656" alt="EasyTexture"></span>
+    <div class="reflib proj"><span class="rn"><img class="rlogo" src="images/logo-easytexture.svg?v=20260922205246" alt="EasyTexture"></span>
       <span class="rd">crystallographic texture</span>
       <span class="rtags"><span class="tag-kind tag-reduction"><svg class="ico" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey"><svg class="ico" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span></div>
   </div>
 
   </div>
 <aside class="notes">
-    Do not read the grid. Say: one backend, one frontend, and a project per technique — and each
-    of those faces is the person who builds it. The photographs are the author list; skip the names.
+    Do not read the grid. Say: one backend, one frontend, and a project per technique — and each of
+    those faces is the person who builds it. The photographs are the author list; skip the names.
     EasyTexture has no face because it is built outside ESS, which is the point of its tag.
-    Nothing under the band: the room is already at NOBUGS on the day, so the date and the session
-    name are ceremony. The poster number waits for the last slide, where it stays on screen.
+    Say the struck word out loud, or it reads as a mistake: "our accepted title says neutron; we
+    crossed it out, because the framework no longer depends on it."
+    The poster number is on the NEXT slide, not this one.
   </aside>
 </section>
 </section>
@@ -156,25 +158,27 @@
   <div class="sbody" data-id="sbody">
   <div class="titlerow"><div class="titlegroup">
     <div class="titlebox" data-id="titlebox"><h3>Same screen, different technique</h3></div>
-    <p class="subtitle">Only the <span class="blue">science</span> differs.</p>
-  </div><img class="decklogo" src="images/ess-logo.svg?v=20260922194656" alt="European Spallation Source"></div>
+    <p class="subtitle">Only the <span class="blue">science</span> differs</p>
+  </div><img class="decklogo" src="images/ess-logo.svg?v=20260922205246" alt="European Spallation Source"></div>
   
   <div class="twoshots">
     <figure>
-      <figcaption><img class="figlogo" src="images/logo-easydiffraction.svg?v=20260922194656" alt="EasyDiffraction"><span class="fdesc">a powder pattern and a crystal structure</span></figcaption>
-      <img src="images/ed-analysis-2026.png?v=20260922194656" alt="EasyDiffraction, analysis screen">
+      <figcaption><img class="figlogo" src="images/logo-easydiffraction.svg?v=20260922205246" alt="EasyDiffraction"><span class="fdesc">a powder pattern and a crystal structure</span></figcaption>
+      <img src="images/ed-analysis-2026.png?v=20260922205246" alt="EasyDiffraction, analysis screen">
     </figure>
     <figure>
-      <figcaption><img class="figlogo" src="images/logo-easyreflectometry.svg?v=20260922194656" alt="EasyReflectometry"><span class="fdesc">a reflectivity curve and a layer stack</span></figcaption>
-      <img src="images/er-analysis-2026.png?v=20260922194656" alt="EasyReflectometry, analysis screen">
+      <figcaption><img class="figlogo" src="images/logo-easyreflectometry.svg?v=20260922205246" alt="EasyReflectometry"><span class="fdesc">a reflectivity curve and a layer stack</span></figcaption>
+      <img src="images/er-analysis-2026.png?v=20260922205246" alt="EasyReflectometry, analysis screen">
     </figure>
   </div>
-  <p class="credit"><svg class="ico lead" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg><span class="lit">Poster 134</span> &middot; <svg class="ico lead" viewBox="0 0 512 512"><use href="#i-globe"/></svg><span class="blue">easyscience.org</span></p>
+  <p class="credit"><svg class="ico lead" viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg><span class="lit">Poster 134</span> &middot; <svg class="ico lead" viewBox="0 0 448 512"><use href="#i-user"/></svg><span class="lit">Andrew Sazonov</span> &middot; <svg class="ico lead" viewBox="0 0 512 512"><use href="#i-globe"/></svg><span class="blue">easyscience.org</span></p>
   </div>
 <aside class="notes">
     Let the pair do the work: the plot, the model and the parameter names are technique-specific;
-    the workflow bar, the zones, the table and the fit button are not. Then invite them to the
-    poster — the first slide already gave the number.
+    the workflow bar, the zones, the table and the fit button are not.
+    Then open a reason to come: all of it is open source, each application is also a Python library
+    so the same analysis runs in a notebook, and three groups outside ESS already contribute. None
+    of that is on these two slides — it is on the poster. Close on the number.
   </aside>
 </section>
 </section>
@@ -182,10 +186,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20260922194656"></script>
-    <script src="plugin/notes/notes.js?v=20260922194656"></script>
-    <script src="plugin/markdown/markdown.js?v=20260922194656"></script>
-    <script src="plugin/highlight/highlight.js?v=20260922194656"></script>
+    <script src="dist/reveal.js?v=20260922205246"></script>
+    <script src="plugin/notes/notes.js?v=20260922205246"></script>
+    <script src="plugin/markdown/markdown.js?v=20260922205246"></script>
+    <script src="plugin/highlight/highlight.js?v=20260922205246"></script>
     <script>
       Reveal.initialize({
           width: 1200,

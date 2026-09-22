@@ -54,7 +54,5 @@ build.
 
 ## Still to confirm
 
-- **"Poster 134"** on slide 2. 134 is the *contribution ID* from the abstract, which is not
-  necessarily the number printed on the poster board. Check the programme before presenting.
 - The country flags are Unicode emoji, drawn by the presenting machine's own emoji font. The PDF
   embeds them, so presenting from `flash.pdf` avoids any surprise on a borrowed laptop.
