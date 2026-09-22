@@ -995,6 +995,13 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    with no photograph -- the two core modules and EasyTexture -- sat 4px higher than their
    neighbours, which shows on EasyTexture because it stands beside three tiles that do have one. */
 .reveal .posterband .reflib .rn { min-height: 46px; }
+/* The core modules name what they are built with, where the projects carry a face. The two marks
+   are sized to the same AREA rather than the same height: Python's is square and Qt's is 1.363
+   wide, so matching heights would make Qt read half again as large. */
+.reveal .posterband .reflib .rn .techlogo { margin: 0 0 0 auto; border: none; box-shadow: none;
+                                            width: auto; }
+.reveal .posterband .reflib .rn .techlogo.py { height: 40px; }
+.reveal .posterband .reflib .rn .techlogo.qt { height: 34.3px; }
 .reveal .posterband .reflib .rd { margin-top: 2px; }
 /* The tags move to a row of their own, as they do on the poster, so the top line of every tile is
    just the mark and the face and stays legible at 275px. */
