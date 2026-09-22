@@ -202,7 +202,8 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
    Pinned, it keeps one size on every step and the last click only moves it down, as everywhere
    else. Its width is chosen so the natural height already fits with the conclusion present --
    otherwise pinning would just trade the squeeze for an overflow. */
-.reveal .sbody > svg.modular { flex: 0 0 auto; }
+.reveal .sbody > svg.modular,
+.reveal .sbody > svg.stackfig { flex: 0 0 auto; }
 /* The conclusion FADES; it does not fly. Being out of flow makes its box 0x0 at the origin, and
    reveal pairs it with the visible copy by its text — so auto-animate was carrying it in from 876px
    above the slide and 28px to the left. Pinning the transform leaves only the opacity transition,
@@ -857,6 +858,11 @@ svg text, .reveal svg.modular text { font-family: "Titillium Web", "Segoe UI", s
 .reveal svg.modular text.more { fill: #cfcfcf; font-size: 19px; }
 /* The "lib" / "app" half of a box, beside the project's own logo. */
 .reveal svg.modular text.sfx { fill: #9a9a9a; font-size: 19px; text-anchor: end; }
+/* The layered stack is lifted whole from the DMSC division deck, where every label carries its own
+   inline style. It therefore gets a sizing rule ONLY: `.modular`'s text rules would centre the
+   labels that rely on SVG's own start anchoring and repaint them #111. */
+.reveal svg.stackfig { display: block; width: 880px; max-width: 100%; height: auto;
+                       margin: 0.6em 0 0; }
 /* SVG nodes had their own reason for refusing a transform — auto-animate measures in screen pixels
    and writes them onto an SVG element, where they are read as user units and the box flies across
    the diagram — but `.sbody > * *` above now covers them. */
