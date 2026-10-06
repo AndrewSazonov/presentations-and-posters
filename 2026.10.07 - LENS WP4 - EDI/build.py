@@ -15,40 +15,30 @@ HERE = Path(__file__).parent
 # Section titles live here, not inside the slides: each becomes its own title slide, emitted before the
 # first slide of that section. A slide file therefore carries only its own content.
 SECTION_TITLES = {
-    "10_problem.html": "The problem",
-    "20_evolution.html": "Design evolution",
-    "30_principles.html": "UX principles",
-    "40_reuse.html": "Reuse",
-    # The demo closes the talk, so 60_closing continues 50_demo without a divider of its own.
-    "50_demo.html": "Demo",
-    "90_appendix.html": "Backup",
+    "10_why.html": "Why new software",
+    "20_easydiffraction.html": "EasyDiffraction",
+    "30_crysta.html": "crysta",
+    "40_outlook.html": "Outlook",
 }
 
 ORDER = [
     "00_divider.html",
     "01_title.html",
-    "10_problem.html",
-    "20_evolution.html",
-    "30_principles.html",
-    "40_reuse.html",
-    "50_demo.html",
+    "10_why.html",
+    "20_easydiffraction.html",
 ]
 
-# The backup slides are a separate deck: they are never presented in sequence, only opened when a
-# question needs them, and keeping them out of index.html means the talk ends where it ends.
-BACKUP_ORDER = [
-    "90_appendix.html",
-]
+BACKUP_ORDER: list[str] = []   # no backup deck for this talk
 
 HEAD = """<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="How a diffraction analysis GUI became a module shared across neutron-scattering techniques">
+    <meta name="description" content="EasyDiffraction and crysta — reusing crystallographic libraries, and building our own">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#333333">
-    <title>Same workflow, different techniques — From a diffraction prototype to a reusable EasyScience GUI</title>
+    <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -298,11 +288,10 @@ TAIL = """
 
 # One sprite symbol per section, expanded by expand_icons() along with the icons on the slides.
 SECTION_ICONS = {
-    'The problem': 'magnifying-glass',
-    'Design evolution': 'drafting-compass',
-    'UX principles': 'brain',
-    'Reuse': 'cubes',
-    'Demo': 'display',
+    'Why new software': 'lightbulb',
+    'EasyDiffraction': 'cubes',
+    'crysta': 'microchip',
+    'Outlook': 'flag-checkered',
 }
 
 
@@ -817,6 +806,8 @@ def render(order, sprite, titles=True):
 def main() -> None:
     sprite = (HERE / "extra" / "icons-sprite.svg").read_text(encoding="utf-8")
     for target, order, titles in (("index.html", ORDER, True), ("backup.html", BACKUP_ORDER, False)):
+        if not order:
+            continue
         doc, n = render(order, sprite, titles)
         (HERE / target).write_text(doc, encoding="utf-8")
         print(f"{target} written: {len(order)} files, {n} <section> tags", flush=True)
