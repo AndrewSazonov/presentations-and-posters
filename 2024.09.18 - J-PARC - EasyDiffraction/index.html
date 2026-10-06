@@ -1,0 +1,3295 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="EasyDiffraction presentation">
+    <meta name="twitter:title" content="EasyDiffraction">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content = "EasyDiffraction">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> <!-- iOS status bar as body color -->
+    <meta name="apple-mobile-web-app-title" content="EasyDiffraction">
+    <meta name="application-name" content="EasyDiffraction">
+    <meta name="msapplication-TileColor" content="#a36162">
+    <meta name="theme-color" content="#333333"> <!-- Chrome, Firefox OS and Opera status bar -->
+    <meta itemprop="name" content="EasyDiffraction">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EasyDiffraction">
+
+    <title>EasyDiffraction</title>
+
+    <link rel="stylesheet" type="text/css" href="icons.min.css">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+      @import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
+      button {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+        padding-top: 0.1em;
+        padding-bottom: 0.2em;
+        border-radius: 0.3em;
+        background-color: white;
+      }
+
+      h3 button {
+        font-size: 0.5em;
+        margin-top: -0.25em;
+        vertical-align: middle;
+        margin-left: 0.5em;
+      }
+      p button {
+        font-size: 1em;
+        line-height: 1.5em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        vertical-align: top;
+        border-radius: 0.3em;
+        border: none;
+      }
+
+      .reveal {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .controls-arrow {
+        _color: rgb(109, 209, 255);
+      }
+
+
+      .semi-hidden {
+        opacity: 0.2;
+      }
+
+      .reference {
+        font-size: 16px;
+        color: white;
+        opacity: 0.5;
+      }
+
+      .figure-caption {
+        margin-bottom:-1em;
+        font-size: 16px;
+        color: white;
+        opacity: 0.5;
+      }
+
+      .sub-header {
+        height: 50px;
+        margin: 5px;
+        padding: 0 10px;
+        line-height: 48px;
+        font-size: 22px;
+        text-align: center;
+        color: black;
+        background: rgb(109, 209, 255)
+      }
+
+      .workflow-tab {
+        width: 260px;
+        height: 82px;
+        margin: 5px;
+        line-height: 78px;
+        font-size: 42px;
+        text-align: center;
+        color: black;
+        background: rgb(109, 209, 255)
+      }
+
+      .workflow-sub-tab {
+        width: 180px;
+        height: 50px;
+        margin: 5px;
+        line-height: 48px;
+        font-size: 22px;
+        text-align: center;
+        color: black;
+        background: rgb(109, 209, 255)
+      }
+
+      .workflow-sub-tab-vertical {
+        width: 260px;
+        height: 50px;
+        margin: 5px;
+        line-height: 48px;
+        font-size: 22px;
+        text-align: center;
+        color: black;
+        background: rgb(109, 209, 255)
+      }
+
+      .highlighted-area {
+        height: 50px;
+        margin: 5px;
+        line-height: 48px;
+        background: orange;
+        opacity: 0.3
+      }
+
+			.email {
+				display: block;
+				margin-left: 24px;
+				margin-right: 24px;
+				font-size: 26px;
+				color: rgb(109, 209, 255)
+			}
+
+			.column {
+			  float: left;
+			  padding: 10px;
+        padding-top: 0px;
+        margin-top: -10px;
+			}
+			.column-content {
+				font-size: 18px;
+        background-color:#252525;
+			}
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+
+			.red {
+				color: #e06c75;
+			}
+			.green {
+				color: #98c379;
+			}
+      .green-dark {
+        color: #5d7555;
+      }
+			.blue {
+				color: rgb(109, 209, 255);
+			}
+      .blue2 {
+				color: #999;
+			}
+      .grey {
+        color: #555;
+      }
+      .orange {
+        color: #d19966;
+      }
+
+
+      .tag-blue {
+        display: inline-block;
+        vertical-align: 30%;
+        font-size: 0.5em;
+        padding-bottom: 0.2em;
+        padding-left: 0.4em;
+        padding-right:0.4em;
+        color: white;
+        background: #489ac0;
+      }
+
+
+      .tag-orange {
+        display: inline-block;
+        vertical-align: 30%;
+        font-size: 0.5em;
+        padding-bottom: 0.2em;
+        padding-left: 0.4em;
+        padding-right:0.4em;
+        color: white;
+        background: #a37c59;
+      }
+
+      .tag-green {
+        display: inline-block;
+        vertical-align: 30%;
+        font-size: 0.5em;
+        padding-bottom: 0.2em;
+        padding-left: 0.4em;
+        padding-right:0.4em;
+        color: white;
+        background: #5d7555;
+      }
+
+      .tag-grey {
+        display: inline-block;
+        vertical-align: 30%;
+        font-size: 0.5em;
+        padding-bottom: 0.2em;
+        padding-left: 0.4em;
+        padding-right:0.4em;
+        color: white;
+        background: #555;
+      }
+
+      .flip_H{ transform: scale(-1, 1); }
+      .flip_V{ transform: scale(1, -1); }
+
+
+
+
+
+
+      /* TABLE */
+      table {
+        line-height: 0.8em;
+      }
+
+      table caption {
+        margin-bottom: 0.5em;
+        _font-weight: bold;
+      }
+      table td, table th {
+        border: none !important;
+      }
+
+      table.vertical-table caption,
+      table.vertical-table td:first-child {
+        color: rgb(109, 209, 255);
+      }
+
+      table.loop-table caption,
+      table.loop-table th {
+        color: #98c379;
+      }
+
+      table.acta-cryst-journal caption {
+        text-align: left !important;
+      }
+      table.acta-cryst-journal thead tr:first-child {
+        border-top: 1px solid #fff;
+      }
+      table.acta-cryst-journal tbody tr:first-child {
+        border-top: 1px solid #fff;
+      }
+      table.acta-cryst-journal tbody tr:last-child {
+        border-bottom: 1px solid #fff;
+      }
+      table.acta-cryst-journal th,
+      table.acta-cryst-journal td {
+        text-align: left !important;
+      }
+      table.acta-cryst-journal th:first-child,
+      table.acta-cryst-journal td:first-child {
+        padding-left: 0 !important;
+      }
+      table.acta-cryst-journal th:last-child,
+      table.acta-cryst-journal td:last-child {
+        padding-right: 0 !important;
+      }
+
+      pre {
+        min-width: 100%;
+        padding-left: 1.25em;
+        padding-top: 1.25em;
+        padding-bottom: 1.25em;
+        background-color: #252525;
+      }
+
+        /* OVERALL FONT */
+        .reveal {
+          font-family: "Segoe UI", sans-serif;
+        }
+
+        /* FONT SIZES */
+        .small-font {
+          font-size: 0.8em;
+        }
+
+        .tiny-font {
+          font-size: 0.5em;
+        }
+
+        /* COLUMNS */
+        .columns {
+          display: flex;
+          justify-content: center;
+          gap: 60px;
+        }
+
+        /* COLORS */
+              .red {
+                  color: #e06c75;
+              }
+              .green {
+                  color: #98c379;
+              }
+        .green-dark {
+          color: #5d7555;
+        }
+              .blue {
+                  color: rgb(109, 209, 255);
+              }
+        .grey {
+          color: #555;
+        }
+        .orange {
+          color: #d19966;
+        }
+
+
+    </style>
+  </head>
+  <body>
+
+
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- ESS -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart data-background-color="rgb(0, 153, 220)">
+            <img src="images/ess.svg" data-lazy-loaded="">
+          </section>
+        </section>
+
+
+        <!-- Title -->
+          <section>
+            <section data-auto-animate data-auto-animate-restart>
+              <p>Andrew Sazonov</p>
+              <p>ESS DMSC</p>
+            </section>
+            <section data-auto-animate>
+              <img height="90" src="./images/ED_logo_wfont.svg" data-lazy-loaded="">
+              <p style="color:rgb(150, 150, 150);">Andrew Sazonov</p>
+              <p style="color:rgb(150, 150, 150);">ESS DMSC</p>
+            </section>
+            <section data-auto-animate>
+              <img height="90" src="./images/ED_logo_wfont.svg" data-lazy-loaded="">
+              <h3 style="margin-top:0.0em; margin-bottom:1.0em"><span>Making diffraction data<br> analysis easier</span></h3>
+              <p style="color:rgb(150, 150, 150);">Andrew Sazonov</p>
+              <p style="color:rgb(150, 150, 150);">ESS DMSC</p>
+            </section>
+            <section data-auto-animate>
+              <p>ESS DMSC</p>
+            </section>
+            <section data-auto-animate>
+              <p>ESS — European Spallation Source</p>
+            </section>
+            <section data-auto-animate>
+              <p>ESS — European Spallation Source</p>
+              <p>DMSC — Data Management and Software Centre</p>
+            </section>
+            <section data-auto-animate>
+              <h3>ESS DMSC</h3>
+              <img height="600" src="images/dmsc-ess-map_bridge.svg" data-lazy-loaded="">
+            </section>
+          </section>
+
+
+          <!-- DMSC scope -->
+          <section>
+            <section data-auto-animate data-auto-animate-restart>
+              <h3>DMSC Scope</h3>
+            </section>
+            <section data-auto-animate>
+              <h3>DMSC Scope</h3>
+              <svg viewBox="0 20 500 255">
+                <g data-id="experiment-planning">
+                  <path d="M 240 47 Q 266.793 46.998 289.997 60.393 Q 313.201 73.788 326.6 96.992 Q 339.998 120.195 340 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 240 146.99 100 100 0 90 1@7544636d"/>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+                </g>
+              </svg>
+            </section>
+            <section data-auto-animate>
+              <h3>DMSC Scope</h3>
+              <svg viewBox="0 20 500 255">
+                <g data-id="experiment-planning">
+                  <path d="M 240 47 Q 266.793 46.998 289.997 60.393 Q 313.201 73.788 326.6 96.992 Q 339.998 120.195 340 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 240 146.99 100 100 0 90 1@7544636d"/>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+                </g>
+                <g data-id="neutron-experiment">
+                  <path d="M 240 -248.975 Q 266.793 -248.977 289.997 -235.582 Q 313.201 -222.187 326.6 -198.983 Q 339.998 -175.78 340 -148.985" style="fill: none; stroke-width: 10px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 240 -148.985 100 100 0 90 1@6ce82c14"/>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="190">SAMPLE ENV. CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="210">INSTRUMENT CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="230">DATA ACQUISITION</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="250">LIVE DATA</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.185013, 59.883934)"><tspan x="255.185" y="121.457">Neutron</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>experiment</tspan></text>
+                </g>
+              </svg>
+            </section>
+            <section data-auto-animate>
+              <h3>DMSC Scope</h3>
+              <svg viewBox="0 20 500 255">
+                <g data-id="experiment-planning">
+                  <path d="M 240 47 Q 266.793 46.998 289.997 60.393 Q 313.201 73.788 326.6 96.992 Q 339.998 120.195 340 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 240 146.99 100 100 0 90 1@7544636d"/>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+                </g>
+                <g data-id="neutron-experiment">
+                  <path d="M 240 -248.975 Q 266.793 -248.977 289.997 -235.582 Q 313.201 -222.187 326.6 -198.983 Q 339.998 -175.78 340 -148.985" style="fill: none; stroke-width: 10px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 240 -148.985 100 100 0 90 1@6ce82c14"/>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="190">SAMPLE ENV. CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="210">INSTRUMENT CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="230">DATA ACQUISITION</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="250">LIVE DATA</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.185013, 59.883934)"><tspan x="255.185" y="121.457">Neutron</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>experiment</tspan></text>
+                </g>
+                <g data-id="data-management">
+                  <path d="M -238 -248.99 Q -211.207 -248.992 -188.003 -235.597 Q -164.799 -222.202 -151.4 -198.998 Q -138.002 -175.795 -138 -149" style="fill: none; stroke-width: 10px; stroke: rgb(1, 167, 221);" transform="matrix(-1, 0, 0, -1, 0, 0)" bx:shape="spiral -238 -149 100 100 0 90 1@0197ee6c"/>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="210">STORAGE</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="230">VISUALISATION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="250">DATA REDUCTION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -26.230286, 59.905861)"><tspan x="255.185" y="121.457">Data</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>management</tspan></text>
+                </g>
+              </svg>
+            </section>
+            <section data-auto-animate>
+              <h3>DMSC Scope</h3>
+              <svg viewBox="0 20 500 255">
+                <g data-id="experiment-planning">
+                  <path d="M 240 47 Q 266.793 46.998 289.997 60.393 Q 313.201 73.788 326.6 96.992 Q 339.998 120.195 340 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 240 146.99 100 100 0 90 1@7544636d"/>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+                </g>
+                <g data-id="neutron-experiment">
+                  <path d="M 240 -248.975 Q 266.793 -248.977 289.997 -235.582 Q 313.201 -222.187 326.6 -198.983 Q 339.998 -175.78 340 -148.985" style="fill: none; stroke-width: 10px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 240 -148.985 100 100 0 90 1@6ce82c14"/>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="190">SAMPLE ENV. CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="210">INSTRUMENT CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="230">DATA ACQUISITION</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="250">LIVE DATA</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.185013, 59.883934)"><tspan x="255.185" y="121.457">Neutron</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>experiment</tspan></text>
+                </g>
+                <g data-id="data-management">
+                  <path d="M -238 -248.99 Q -211.207 -248.992 -188.003 -235.597 Q -164.799 -222.202 -151.4 -198.998 Q -138.002 -175.795 -138 -149" style="fill: none; stroke-width: 10px; stroke: rgb(1, 167, 221);" transform="matrix(-1, 0, 0, -1, 0, 0)" bx:shape="spiral -238 -149 100 100 0 90 1@0197ee6c"/>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="210">STORAGE</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="230">VISUALISATION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="250">DATA REDUCTION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -26.230286, 59.905861)"><tspan x="255.185" y="121.457">Data</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>management</tspan></text>
+                </g>
+                <g data-id="computational-support">
+                  <path d="M -238 47 Q -211.207 46.998 -188.003 60.393 Q -164.799 73.788 -151.4 96.992 Q -138.002 120.195 -138 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(0, 151, 216);" transform="matrix(-1, 0, 0, 1, 0, 0)" bx:shape="spiral -238 146.99 100 100 0 90 1@e6dad67b"/>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="50">THEORY</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="70">SIMULATION</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="90">MODELLING</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="110">DATA ANALYSIS</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -25.923264, -5.094139)"><tspan x="255.185" y="121.457">Computational</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>support</tspan></text>
+                </g>
+              </svg>
+            </section>
+            <section data-auto-animate>
+              <h3>DMSC Scope</h3>
+              <svg viewBox="0 20 500 255">
+                <g data-id="experiment-planning" class="semi-hidden">
+                  <path d="M 240 47 Q 266.793 46.998 289.997 60.393 Q 313.201 73.788 326.6 96.992 Q 339.998 120.195 340 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 240 146.99 100 100 0 90 1@7544636d"/>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+                  <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+                </g>
+                <g data-id="neutron-experiment" class="semi-hidden">
+                  <path d="M 240 -248.975 Q 266.793 -248.977 289.997 -235.582 Q 313.201 -222.187 326.6 -198.983 Q 339.998 -175.78 340 -148.985" style="fill: none; stroke-width: 10px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 240 -148.985 100 100 0 90 1@6ce82c14"/>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="190">SAMPLE ENV. CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="210">INSTRUMENT CONTROL</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="230">DATA ACQUISITION</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" x="364" y="250">LIVE DATA</text>
+                  <text style="fill: rgb(138, 190, 229); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.185013, 59.883934)"><tspan x="255.185" y="121.457">Neutron</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>experiment</tspan></text>
+                </g>
+                <g data-id="data-management" class="semi-hidden">
+                  <path d="M -238 -248.99 Q -211.207 -248.992 -188.003 -235.597 Q -164.799 -222.202 -151.4 -198.998 Q -138.002 -175.795 -138 -149" style="fill: none; stroke-width: 10px; stroke: rgb(1, 167, 221);" transform="matrix(-1, 0, 0, -1, 0, 0)" bx:shape="spiral -238 -149 100 100 0 90 1@0197ee6c"/>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="210">STORAGE</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="230">VISUALISATION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; white-space: pre;" x="23" y="250">DATA REDUCTION</text>
+                  <text style="fill: rgb(56, 180, 221); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -26.230286, 59.905861)"><tspan x="255.185" y="121.457">Data</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>management</tspan></text>
+                </g>
+                <g data-id="computational-support">
+                  <path d="M -238 47 Q -211.207 46.998 -188.003 60.393 Q -164.799 73.788 -151.4 96.992 Q -138.002 120.195 -138 146.99" style="fill: none; stroke-width: 10px; stroke: rgb(0, 151, 216);" transform="matrix(-1, 0, 0, 1, 0, 0)" bx:shape="spiral -238 146.99 100 100 0 90 1@e6dad67b"/>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="50">THEORY</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="70">SIMULATION</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="90">MODELLING</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="110">DATA ANALYSIS</text>
+                  <text style="fill: rgb(1, 167, 221); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -25.923264, -5.094139)"><tspan x="255.185" y="121.457">Computational</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>support</tspan></text>
+                </g>
+              </svg>
+            </section>
+          </section>
+
+
+
+        <!-- Outline -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Outline</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Outline</h3>
+            <p>What EasyDiffraction for?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Outline</h3>
+            <p>What EasyDiffraction for?</p>
+            <p>Why develop new?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Outline</h3>
+            <p>What EasyDiffraction for?</p>
+            <p>Why develop new?</p>
+            <p>What has been done?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Outline</h3>
+            <p>What EasyDiffraction for?</p>
+            <p>Why develop new?</p>
+            <p>What has been done?</p>
+            <p>What is next?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Outline</h3>
+            <p>What EasyDiffraction for?</p>
+            <p>Why develop new?</p>
+            <p>What has been done?</p>
+            <p>What is next?</p>
+            <p>Other techniques</p>
+          </section>
+        </section>
+
+        <!-- Section 1 -->
+        <section>
+          <section data-auto-animate>
+            <h3 class="semi-hidden">Outline</h3>
+            <p>What EasyDiffraction for?</p>
+            <p class="semi-hidden">Why develop new?</p>
+            <p class="semi-hidden">What has been done?</p>
+            <p class="semi-hidden">What is next?</p>
+            <p class="semi-hidden">Other techniques</p>
+          </section>
+        </section>
+
+
+        <!-- Data processing workflow -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Data processing workflow</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><div data-id="workflow-tab-acquisition" class="workflow-tab">Acquisition</div></div>
+            </div>
+            <img height="255" src="./images/data-acquisition_instrument.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><div data-id="workflow-tab-acquisition" class="workflow-tab">Acquisition</div></div>
+            </div>
+            <img height="255" src="./images/data-acquisition_instrument.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-acquisition_2d-raw-data.jpg" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab">Acquisition</div></div>
+            </div>
+            <img height="255" src="./images/data-acquisition_instrument.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-acquisition_2d-raw-data.jpg" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab semi-hidden">Acquisition</div></div>
+              <div><img height="39" src="./images/MANTID-SCIPP_logo.png" style="opacity:0" data-lazy-loaded=""><div data-id="workflow-tab-reduction" class="workflow-tab">Reduction</div></div>
+            </div>
+            <img height="255" src="./images/data-acquisition_2d-raw-data.jpg" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-reduction_1d-pattern.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab semi-hidden">Acquisition</div></div>
+              <div><img height="39" src="./images/MANTID-SCIPP_logo.png" data-lazy-loaded=""><div data-id="workflow-tab-reduction" class="workflow-tab">Reduction</div></div>
+            </div>
+            <img height="255" src="./images/data-acquisition_2d-raw-data.jpg" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-reduction_1d-pattern.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab semi-hidden">Acquisition</div></div>
+              <div><img height="39" src="./images/MANTID-SCIPP_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-reduction" class="workflow-tab semi-hidden">Reduction</div></div>
+              <div><img height="39" src="./images/ED_logo_wfont.svg" style="opacity:0; margin-left:-0.5em" data-lazy-loaded=""><div data-id="workflow-tab-analysis" class="workflow-tab">Analysis</div></div>
+            </div>
+            <img height="255" src="./images/data-reduction_1d-pattern.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-analysis_refinement.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab semi-hidden">Acquisition</div></div>
+              <div><img height="39" src="./images/MANTID-SCIPP_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-reduction" class="workflow-tab semi-hidden">Reduction</div></div>
+              <div><img height="39" src="./images/ED_logo_wfont.svg" style="opacity:0;" data-lazy-loaded=""><div data-id="workflow-tab-analysis" class="workflow-tab">Analysis</div></div>
+            </div>
+            <img height="255" src="./images/data-analysis_refinement.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-analysis_model.png" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div><img height="38" src="./images/NICOS_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-acquisition" class="workflow-tab semi-hidden">Acquisition</div></div>
+              <div><img height="39" src="./images/MANTID-SCIPP_logo.png" class="semi-hidden" data-lazy-loaded=""><div data-id="workflow-tab-reduction" class="workflow-tab semi-hidden">Reduction</div></div>
+              <div><img height="39" src="./images/ED_logo_wfont.svg" data-lazy-loaded=""><div data-id="workflow-tab-analysis" class="workflow-tab">Analysis</div></div>
+            </div>
+            <img height="255" src="./images/data-analysis_refinement.png" style="padding-right:0.5em;" data-lazy-loaded="">
+            <img height="255" src="./images/data-analysis_model.png" data-lazy-loaded="">
+            <div class="reference">DOI: 10.1126/science.1238932 — Diffraction Results from Mars</div>
+          </section>
+          <!--
+          <section data-auto-animate>
+            <h3>Data processing workflow</h3>
+            <div class="r-hstack justify-center">
+              <div data-id="workflow-tab-analysis" class="workflow-tab">Analysis</div>
+            </div>
+            <img height="90" src="./images/ED_logo_wfont.svg" data-lazy-loaded="">
+            <p>Allowing for the calculation of neutron powder diffraction pattern based on a structural model and refinement of its parameters against experimental data.</p>
+          </section>
+          -->
+        </section>
+
+        <!-- Section 2 -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+						<h3 class="semi-hidden">Outline</h3>
+            <p class="semi-hidden">What EasyDiffraction for?</p>
+            <p>Why develop new?</p>
+            <p class="semi-hidden">What has been done?</p>
+            <p class="semi-hidden">What is next?</p>
+            <p class="semi-hidden">Other techniques</p>
+          </section>
+        </section>
+
+        <!-- Existing programs -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Neutron diffraction</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Neutron diffraction</h3>
+            <p>Programs</p>
+            <span data-id="program01" data-auto-animate-delay="0.0"><a href="https://www.ill.eu/sites/fullprof/">FullProf Suite</a> •</span>
+            <span data-id="program02" data-auto-animate-delay="0.1"><a href="http://jana.fzu.cz">Jana2020</a> •</span>
+            <span data-id="program03" data-auto-animate-delay="0.2"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II</a> •</span>
+            <span data-id="program04" data-auto-animate-delay="0.3"><a href="https://shelx.uni-goettingen.de">SHELX</a> •</span>
+            <span data-id="program05" data-auto-animate-delay="0.4"><a href="http://maud.radiographema.eu">MAUD</a> •</span>
+            <span data-id="program06" data-auto-animate-delay="0.5"><a href="https://fox.vincefn.net">FOX</a> •</span>
+            <span data-id="program07" data-auto-animate-delay="0.6"><a href="https://www.ill.eu/users/instruments/instruments-list/d3/software">Mag2Pol</a> •</span>
+            <span data-id="program08" data-auto-animate-delay="0.7"><a href="https://github.com/ikibalin/cryspy">CrysPy Editor</a> •</span>
+            <span data-id="program09" data-auto-animate-delay="0.8"><a href="https://www.bruker.com/en/products-and-solutions/diffractometers-and-scattering-systems/x-ray-diffractometers/diffrac-suite-software/diffrac-topas.html">TOPAS</a> •</span>
+            <span data-id="program10" data-auto-animate-delay="0.9"><a href="http://www.topas-academic.net">TOPAS-Academic</a> •</span> <!-- https://scripts.iucr.org/cgi-bin/paper?S1600576718000183 -->
+            <span data-id="program11" data-auto-animate-delay="1.0"><a href="https://en.wikipedia.org/wiki/Materials_Studio">Materials Studio Reflex</a> •</span> <!-- https://www.3ds.com/fileadmin/PRODUCTS-SERVICES/BIOVIA/PDF/BIOVIA-material-studio-reflex.pdf -->
+            <span data-id="program12" data-auto-animate-delay="1.1"><a href="https://www.malvernpanalytical.com/en/products/category/software/x-ray-diffraction-software/highscore">HighScore</a></span>
+            <p data-auto-animate-delay="1.2">Libraries</p>
+            <span data-id="library01" data-auto-animate-delay="1.3"><a href="https://code.ill.fr/scientific-software/crysfml">CrysFML</a> •</span>
+            <span data-id="library02" data-auto-animate-delay="1.4"><a href="https://www.ill.eu/sites/ccsl/html/ccsldoc.html">CCSL</a> •</span>
+            <span data-id="library03" data-auto-animate-delay="1.5"><a href="https://github.com/diffpy/pyobjcryst">pyobjcryst (ObjCryst++)</a> •</span>
+            <span data-id="library04" data-auto-animate-delay="1.6"><a href="https://github.com/cctbx">CCTBX</a> •</span>
+            <span data-id="library05" data-auto-animate-delay="1.7"><a href="https://github.com/ikibalin/cryspy">CrysPy</a> •</span>
+            <span data-id="library06" data-auto-animate-delay="1.8"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II*</a></span>
+          </section>
+        </section>
+
+        <!-- Existing issues -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Existing issues</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Existing issues</h3>
+            <p>➊ Functionality</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Existing issues</h3>
+            <p>➊ Functionality</p>
+            <p>➋ Usability</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Existing issues</h3>
+            <p>➊ Functionality</p>
+            <p>➋ Usability</p>
+            <p>➌ Maintainability</p>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Site susceptibility</h3><!-- <h3 class="semi-hidden">Existing issues<button>① Functionality</button></h3> -->
+            <p style="color:rgb(109, 209, 255);">CrysPy & CCSL only • Needed for MAGIC@ESS</p>
+            <img height="500" src="images/ASP.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>2D Rietveld</h3>
+            <p style="color:rgb(109, 209, 255);">Modified GSAS-II only • Needed for DREAM@ESS</p>
+            <img height="500" src="images/2D-Rietveld.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Graphical interface complexity</h3> <!-- <h3>Existing issues<button>② Usability</button></h3> -->
+            <p style="color:rgb(109, 209, 255);">FullProf Suite • Many elements, many windows</p>
+            <img height="500" src="images/FP_screenshot.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Input files complexity</h3>
+            <p style="color:rgb(109, 209, 255);">FullProf PCR • Short names, complex structure</p>
+						<figure style="width:1800px;">
+							<img src="images/FP-pcr-file.png" style="margin-left:-500px;" data-lazy-loaded="">
+						</figure>
+					</section>
+          <section data-auto-animate>
+            <h3>Input files complexity</h3>
+            <p style="color:rgb(109, 209, 255);">FullProf PCR • Short names, complex structure</p>
+            <img height="500" src="images/FP-pcr-file.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Extra dependencies</h3>
+            <p style="color:rgb(109, 209, 255);">FullProf • Needs XQuartz on macOS</p>
+            <img height="350" src="images/FP_XQuartz.png" data-lazy-loaded="">
+          </section>
+					<section data-auto-animate>
+            <h3>Not cross-platform</h3>
+            <p style="color:rgb(109, 209, 255);">Jana2006/2020 • Windows only</p>
+            <img height="525" src="images/Jana.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Code complexity</button></h3>
+            <p style="color:rgb(109, 209, 255);">CCSL • Fortran77, short names, goto</p>
+						<figure style="width:990px;">
+							<img src="images/CCSL_code.png" data-lazy-loaded="">
+						</figure>
+          </section>
+					<section data-auto-animate>
+            <h3>Code complexity</button></h3>
+						<p style="color:rgb(109, 209, 255);">CCSL • Fortran77, short names, goto</p>
+            <img height="525" src="images/CCSL_code.png" data-lazy-loaded="">
+          </section>
+        </section>
+
+        <!-- -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Needs</h3>
+          </section>
+          <section data-auto-animate>
+						<h3>Needs</h3>
+            <p>Extend ➊ Functionality</p>
+          </section>
+          <section data-auto-animate>
+						<h3>Needs</h3>
+            <p>Extend ➊ Functionality</p>
+            <p>Improve ➋ Usability</p>
+          </section>
+          <section data-auto-animate>
+						<h3>Needs</h3>
+            <p>Extend ➊ Functionality</p>
+            <p>Improve ➋ Usability</p>
+            <p>Simplify ➌ Maintainability</p>
+          </section>
+        </section>
+
+        <!-- -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>How to proceed?</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>How to proceed?</h3>
+            <p>• Train users multiple programs / libraries?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>How to proceed?</h3>
+            <p>• Train users multiple programs / libraries?</p>
+            <p>• Develop from scratch?</p>
+          </section>
+          <section data-auto-animate>
+            <h3>How to proceed?</h3>
+            <p style="color:rgb(223, 108, 117);"><s>• Train users multiple programs / libraries?</s></p>
+            <p style="color:rgb(223, 108, 117);"><s>• Develop from scratch?</s></p>
+            <p style="color:rgb(152, 195, 121);">• Rely on existing libraries</p>
+          </section>
+        </section>
+
+        <!-- Libraries-based approach -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Libraries-based approach</h3>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Libraries-based approach</h3>
+            <p>Programs</p>
+            <span data-id="program01b"><a href="https://www.ill.eu/sites/fullprof/">FullProf Suite</a> •</span>
+            <span data-id="program02b"><a href="http://jana.fzu.cz">Jana2020</a> •</span>
+            <span data-id="program03b"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II</a> •</span>
+            <span data-id="program04b"><a href="https://shelx.uni-goettingen.de">SHELX</a> •</span>
+            <span data-id="program05b"><a href="http://maud.radiographema.eu">MAUD</a> •</span>
+            <span data-id="program06b"><a href="https://fox.vincefn.net">FOX</a> •</span>
+            <span data-id="program07b"><a href="https://www.ill.eu/users/instruments/instruments-list/d3/software">Mag2Pol</a> •</span>
+            <span data-id="program08b"><a href="https://github.com/ikibalin/cryspy">CrysPy Editor</a> •</span>
+            <span data-id="program09b"><a href="https://www.bruker.com/en/products-and-solutions/diffractometers-and-scattering-systems/x-ray-diffractometers/diffrac-suite-software/diffrac-topas.html">TOPAS</a> •</span>
+            <span data-id="program10b"><a href="http://www.topas-academic.net">TOPAS-Academic</a> •</span> <!-- https://scripts.iucr.org/cgi-bin/paper?S1600576718000183 -->
+            <span data-id="program11b"><a href="https://en.wikipedia.org/wiki/Materials_Studio">Materials Studio Reflex</a> •</span> <!-- https://www.3ds.com/fileadmin/PRODUCTS-SERVICES/BIOVIA/PDF/BIOVIA-material-studio-reflex.pdf -->
+            <span data-id="program12b"><a href="https://www.malvernpanalytical.com/en/products/category/software/x-ray-diffraction-software/highscore">HighScore</a></span>
+            <p>Libraries</p>
+            <span data-id="library01b"><a href="https://code.ill.fr/scientific-software/crysfml">CrysFML</a> •</span>
+            <span data-id="library02b"><a href="https://www.ill.eu/sites/ccsl/html/ccsldoc.html">CCSL</a> •</span>
+            <span data-id="library03b"><a href="https://github.com/diffpy/pyobjcryst">pyobjcryst (ObjCryst++)</a> •</span>
+            <span data-id="library04b"><a href="https://github.com/cctbx">CCTBX</a> •</span>
+            <span data-id="library05b"><a href="https://github.com/ikibalin/cryspy">CrysPy</a> •</span>
+            <span data-id="library06b"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II*</a></span>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Libraries-based approach</h3>
+            <p class="semi-hidden">Programs</p>
+            <span data-id="program01b" data-auto-animate-delay="0.0" class="semi-hidden"><a href="https://www.ill.eu/sites/fullprof/">FullProf Suite</a> •</span>
+            <span data-id="program02b" data-auto-animate-delay="0.5" class="semi-hidden"><a href="http://jana.fzu.cz">Jana2020</a> •</span>
+            <span data-id="program03b" data-auto-animate-delay="0.3" class="semi-hidden"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II</a> •</span>
+            <span data-id="program04b" data-auto-animate-delay="0.1" class="semi-hidden"><a href="https://shelx.uni-goettingen.de">SHELX</a> •</span>
+            <span data-id="program05b" data-auto-animate-delay="0.7" class="semi-hidden"><a href="http://maud.radiographema.eu">MAUD</a> •</span>
+            <span data-id="program06b" data-auto-animate-delay="0.0" class="semi-hidden"><a href="https://fox.vincefn.net">FOX</a> •</span>
+            <span data-id="program07b" data-auto-animate-delay="0.3" class="semi-hidden"><a href="https://www.ill.eu/users/instruments/instruments-list/d3/software">Mag2Pol</a> •</span>
+            <span data-id="program08b" data-auto-animate-delay="0.7" class="semi-hidden"><a href="https://github.com/ikibalin/cryspy">CrysPy Editor</a> •</span>
+            <span data-id="program09b" data-auto-animate-delay="0.2" class="semi-hidden"><a href="https://www.bruker.com/en/products-and-solutions/diffractometers-and-scattering-systems/x-ray-diffractometers/diffrac-suite-software/diffrac-topas.html">TOPAS</a> •</span>
+            <span data-id="program10b" data-auto-animate-delay="0.5" class="semi-hidden"><a href="http://www.topas-academic.net">TOPAS-Academic</a> •</span> <!-- https://scripts.iucr.org/cgi-bin/paper?S1600576718000183 -->
+            <span data-id="program11b" data-auto-animate-delay="0.6" class="semi-hidden"><a href="https://en.wikipedia.org/wiki/Materials_Studio">Materials Studio Reflex</a> •</span> <!-- https://www.3ds.com/fileadmin/PRODUCTS-SERVICES/BIOVIA/PDF/BIOVIA-material-studio-reflex.pdf -->
+            <span data-id="program12b" data-auto-animate-delay="0.4" class="semi-hidden"><a href="https://www.malvernpanalytical.com/en/products/category/software/x-ray-diffraction-software/highscore">HighScore</a></span>
+            <p>Libraries</p>
+            <span data-id="library01b"><a href="https://code.ill.fr/scientific-software/crysfml">CrysFML</a> •</span>
+            <span data-id="library02b" data-auto-animate-delay="0.5" class="semi-hidden"><a href="https://www.ill.eu/sites/ccsl/html/ccsldoc.html">CCSL</a> •</span>
+            <span data-id="library03b" data-auto-animate-delay="0.8" class="semi-hidden"><a href="https://github.com/diffpy/pyobjcryst">pyobjcryst (ObjCryst++)</a> •</span>
+            <span data-id="library04b" data-auto-animate-delay="0.3" class="semi-hidden"><a href="https://github.com/cctbx">CCTBX</a> •</span>
+            <span data-id="library05b"><a href="https://github.com/ikibalin/cryspy">CrysPy</a> •</span>
+            <span data-id="library06b" data-auto-animate-delay="0.4" class="semi-hidden"><a href="https://subversion.xray.aps.anl.gov/trac/pyGSAS">GSAS-II*</a></span>
+          </section>
+
+          <section data-auto-animate>
+            <h3>Libraries-based approach</h3>
+            <p style="color:rgb(109, 209, 255);">https://code.ill.fr/scientific-software/crysfml</p>
+            <img height="525" src="images/CrysFML.png" data-lazy-loaded="">
+          </section>
+
+          <section data-auto-animate>
+            <h3>Libraries-based approach</h3>
+            <p style="color:rgb(109, 209, 255);">https://cryspy.fr</p>
+            <img height="525" src="images/CrysPy.png" data-lazy-loaded="">
+          </section>
+
+          <section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="unified-interface">
+								<g>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, -505.335419, 83.573776)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.000001, -1, 1, -0.000001, -251.499817, 578.000671)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, 393.574097, 1024.026001)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="210" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="350" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="490" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+								</g>
+								<g>
+									<rect x="210" y="225" width="410" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(226, 183, 129);"/>
+									<text style="font-size: 20px; white-space: pre;" x="304.356" y="257.935">Unified interface (Python)</text>
+								</g>
+							</g>
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="easydiffraction-library">
+								<rect x="190" y="205" width="450" height="125" style="stroke: rgb(0, 0, 0); fill: rgb(133, 86, 29);"/>
+								<text style="fill: rgb(225, 184, 129); font-size: 23px; white-space: pre;" transform="matrix(1, 0, 0, 1, -150, -74.26651)"><tspan x="810" y="339.935">EasyDiffraction</tspan><tspan x="849" dy="1em">​</tspan><tspan>Library</tspan></text>
+							</g>
+
+							<g data-id="unified-interface">
+								<g>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, -505.335419, 83.573776)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.000001, -1, 1, -0.000001, -251.499817, 578.000671)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, 393.574097, 1024.026001)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="210" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="350" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="490" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+								</g>
+								<g>
+									<rect x="210" y="225" width="410" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(226, 183, 129);"/>
+									<text style="font-size: 20px; white-space: pre;" x="304.356" y="257.935">Unified interface (Python)</text>
+								</g>
+							</g>
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="scripting">
+								<g>
+									<rect x="10" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="50" y="128.256">Scripting (Python)</text>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, -113.497047, 840.335999)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="270" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="310.255" y="128.256">Jupyter Notebook</text>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(224, 185, 129);" transform="matrix(-0.000001, -1, 1, -0.000001, -248.499756, 395.000641)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+								</g>
+							</g>
+
+							<g data-id="easydiffraction-library">
+								<rect x="190" y="205" width="450" height="125" style="stroke: rgb(0, 0, 0); fill: rgb(133, 86, 29);"/>
+								<text style="fill: rgb(225, 184, 129); font-size: 23px; white-space: pre;" transform="matrix(1, 0, 0, 1, -150, -74.26651)"><tspan x="810" y="339.935">EasyDiffraction</tspan><tspan x="849" dy="1em">​</tspan><tspan>Library</tspan></text>
+							</g>
+
+							<g data-id="unified-interface">
+								<g>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, -505.335419, 83.573776)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.000001, -1, 1, -0.000001, -251.499817, 578.000671)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, 393.574097, 1024.026001)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="210" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="350" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="490" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+								</g>
+								<g>
+									<rect x="210" y="225" width="410" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(226, 183, 129);"/>
+									<text style="font-size: 20px; white-space: pre;" x="304.356" y="257.935">Unified interface (Python)</text>
+								</g>
+							</g>
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="graphical-interface">
+								<rect x="550" y="95" width="260" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+								<text style="font-size: 20px; white-space: pre;" x="567.037" y="128.256">Graphical Interface (QML)</text>
+								<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, 4.664517, -98.497223)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+							</g>
+
+							<g data-id="scripting">
+								<g>
+									<rect x="10" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="50" y="128.256">Scripting (Python)</text>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, -113.497047, 840.335999)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="270" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="310.255" y="128.256">Jupyter Notebook</text>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(224, 185, 129);" transform="matrix(-0.000001, -1, 1, -0.000001, -248.499756, 395.000641)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+								</g>
+							</g>
+
+							<g data-id="easydiffraction-library">
+								<rect x="190" y="205" width="450" height="125" style="stroke: rgb(0, 0, 0); fill: rgb(133, 86, 29);"/>
+								<text style="fill: rgb(225, 184, 129); font-size: 23px; white-space: pre;" transform="matrix(1, 0, 0, 1, -150, -74.26651)"><tspan x="810" y="339.935">EasyDiffraction</tspan><tspan x="849" dy="1em">​</tspan><tspan>Library</tspan></text>
+							</g>
+
+							<g data-id="unified-interface">
+								<g>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, -505.335419, 83.573776)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.000001, -1, 1, -0.000001, -251.499817, 578.000671)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, 393.574097, 1024.026001)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="210" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="350" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="490" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+								</g>
+								<g>
+									<rect x="210" y="225" width="410" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(226, 183, 129);"/>
+									<text style="font-size: 20px; white-space: pre;" x="304.356" y="257.935">Unified interface (Python)</text>
+								</g>
+							</g>
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Libraries-based approach</h3>
+						<svg viewBox="0 0 830 495">
+
+							<g data-id="easydiffraction-application">
+								<text style="fill: rgb(96, 188, 232); font-size: 23px; white-space: pre;" transform="matrix(1, 0, 0, 1, -141.450928, -47.945557)"><tspan x="795.478" y="79.935">EasyDiffraction</tspan><tspan x="813.478" dy="1em">​</tspan><tspan>Application</tspan></text>
+								<path d="M 529.861 164.893 L 529.861 75 L 829.5 75 L 829.5 269.768 L 829.5 494.5 L 489.91 494.5 L 0.5 494.5 L 0.5 164.893 L 529.861 164.893 Z" style="stroke: rgb(0, 0, 0); fill: rgb(15, 74, 101);"/>
+							</g>
+
+							<g data-id="graphical-interface">
+								<rect x="550" y="95" width="260" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+								<text style="font-size: 20px; white-space: pre;" x="567.037" y="128.256">Graphical Interface (QML)</text>
+								<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, 4.664517, -98.497223)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+							</g>
+
+							<g data-id="scripting">
+								<g>
+									<rect x="10" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="50" y="128.256">Scripting (Python)</text>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, -113.497047, 840.335999)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="270" y="95" width="240" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(96, 188, 232);"/>
+									<text style="font-size: 20px; white-space: pre;" x="310.255" y="128.256">Jupyter Notebook</text>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(224, 185, 129);" transform="matrix(-0.000001, -1, 1, -0.000001, -248.499756, 395.000641)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+								</g>
+							</g>
+
+							<g data-id="easydiffraction-library">
+								<rect x="190" y="205" width="450" height="125" style="stroke: rgb(0, 0, 0); fill: rgb(133, 86, 29);"/>
+								<text style="fill: rgb(225, 184, 129); font-size: 23px; white-space: pre;" transform="matrix(1, 0, 0, 1, -150, -74.26651)"><tspan x="810" y="339.935">EasyDiffraction</tspan><tspan x="849" dy="1em">​</tspan><tspan>Library</tspan></text>
+							</g>
+
+							<g data-id="unified-interface">
+								<g>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(0.707106, -0.707107, 0.707107, 0.707106, -505.335419, 83.573776)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+									<path d="M 200 661 H 220 L 220 648.5 L 240 665 L 220 681.5 L 220 669 H 200 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.000001, -1, 1, -0.000001, -251.499817, 578.000671)" bx:shape="arrow 200 648.5 40 33 8 20 0 1@1076ffbb"/>
+									<path d="M 250 661 H 280 L 280 648.5 L 300 665 L 280 681.5 L 280 669 H 250 V 661 Z" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);" transform="matrix(-0.707108, -0.707106, 0.707106, -0.707108, 393.574097, 1024.026001)" bx:shape="arrow 250 648.5 50 33 8 20 0 1@f84545a8"/>
+								</g>
+								<g>
+									<rect x="210" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="350" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+									<rect x="490" y="285" width="130" height="25" style="stroke: rgb(0, 0, 0); fill: rgb(225, 184, 129);"/>
+								</g>
+								<g>
+									<rect x="210" y="225" width="410" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(226, 183, 129);"/>
+									<text style="font-size: 20px; white-space: pre;" x="304.356" y="257.935">Unified interface (Python)</text>
+								</g>
+							</g>
+
+							<g data-id="external-libraries">
+								<g>
+									<rect x="20" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="70" y="422.863">CrysPy (Python)</text>
+								</g>
+								<g>
+									<rect x="290" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="330" y="422.863">CrysFML (Fortran)</text>
+								</g>
+								<g>
+									<rect x="560" y="390" width="250" height="50" style="stroke: rgb(0, 0, 0); fill: rgb(164, 209, 114);"/>
+									<text style="font-size: 20px; white-space: pre;" x="620" y="422.863">Other libraries</text>
+								</g>
+								<text style="fill: rgb(164, 209, 114); font-size: 23px; white-space: pre;" x="330.023" y="474.881">External Libraries</text>
+							</g>
+
+						</svg>
+					</section>
+
+    </section>
+
+    <!-- Section 3 -->
+    <section>
+      <section data-auto-animate data-auto-animate-restart>
+        <h3 class="semi-hidden">Outline</h3>
+        <p class="semi-hidden">What EasyDiffraction for?</p>
+        <p class="semi-hidden">Why develop new?</p>
+        <p>What has been done?</p>
+        <p class="semi-hidden">What is next?</p>
+        <p class="semi-hidden">Other techniques</p>
+      </section>
+    </section>
+
+
+
+
+
+
+
+
+        <!-- EasyDiffraction design -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>GUI design evolution</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">2019 • Initial mockup</p>
+            <img height="500" src="./images/ED_design-2019.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">2020 • Improved design</p>
+            <img height="500" src="./images/ED_design-2020.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">2021 • Simpler. Cleaner. Lighter</p>
+            <img height="500" src="./images/ED_design-2021.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">2023 • Even more improvements</p>
+            <img height="500" src="./images/ED_design-2023.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">UX expert approval</p>
+            <img height="450" src="./images/ED_design-designpsychology.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>GUI design evolution</h3>
+            <p style="color: rgb(109, 209, 255)">UX expert approval</p>
+            <img height="1050" src="./images/ED_design-designpsychology.png" data-lazy-loaded="">
+            <div data-id="highlight-1" data-auto-animate-delay="0.5" class="highlighted-area" style="width:200px; margin-left:472px; margin-top:-730px;"></div>
+            <!-- <div data-id="highlight-2" data-auto-animate-delay="1.0" class="highlighted-area" style="width:265px; margin-left:90px; margin-top:10px;"></div> -->
+          </section>
+        </section>
+
+        <!-- Different user groups -->
+        <!--
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Different user groups</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Different user groups</h3>
+            <p style="color: rgb(109, 209, 255)">Basic functionality • Graphical interface</p>
+            <img class="r-stretch" src="./images/ED_analysis.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Different user groups</h3>
+            <p style="color: rgb(109, 209, 255)">Advanced functionality • Graphical interface</p>
+            <img class="r-stretch" src="./images/ED_analysis-advanced.png" data-lazy-loaded="">
+          </section>
+          <section data-auto-animate>
+            <h3>Different user groups</h3>
+            <p style="color: rgb(109, 209, 255)">More functionality & flexibility • Python / Jupyter</span></p>
+            <figure>
+              <div class="figure-caption">Erik Fransson, PhD, Chalmers University of Technology, SE</div>
+              <img height="535" src="./images/ED_analysis-more-advanced.png" style="border-radius:9px;" data-lazy-loaded="">
+            </figure>
+          </section>
+          <section data-auto-animate>
+            <h3>Different user groups</h3>
+            <p style="color: rgb(109, 209, 255)">More functionality & flexibility • Python / Jupyter</span></p>
+            <figure>
+              <div class="figure-caption">Erik Fransson, PhD, Chalmers University of Technology, SE</div>
+              <img height="535" src="./images/ED_analysis-more-advanced.gif" style="border-radius:9px;" data-lazy-loaded="">
+            </figure>
+          </section>
+        </section>
+      -->
+      <!-- Data analysis workflow -->
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Linear workflow</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-tab-acquisition" class="workflow-tab">Acquisition</div>
+            <div data-id="workflow-tab-reduction" class="workflow-tab">Reduction</div>
+            <div data-id="workflow-tab-analysis" class="workflow-tab">Analysis</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-vstack justify-center">
+            <div data-id="workflow-tab-analysis" class="workflow-tab" style="margin-bottom:33px">Analysis</div>
+          </div>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+          <img width="850" src="./images/ED_project.png" data-lazy-loaded="">
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+          <img width="850" src="./images/ED_sample.png" data-lazy-loaded="">
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+          <img width="850" src="./images/ED_experiment.png" data-lazy-loaded="">
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+          <img width="850" src="./images/ED_analysis.png" data-lazy-loaded="">
+        </section>
+        <section data-auto-animate>
+          <h3>Linear workflow</h3>
+          <div class="r-hstack justify-center">
+            <div data-id="workflow-subtab-project" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-archive"></i> Project
+            </div>
+            <div data-id="workflow-subtab-sample" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-layer-group"></i> Model
+            </div>
+            <div data-id="workflow-subtab-experiment" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-microscope"></i> Experiment
+            </div>
+            <div data-id="workflow-subtab-analysis" class="workflow-sub-tab semi-hidden">
+              <i class="fas fa-calculator"></i> Analysis
+            </div>
+            <div data-id="workflow-subtab-summary" class="workflow-sub-tab">
+              <i class="fas fa-clipboard-list"></i> Summary
+            </div>
+          </div>
+          <img width="850" src="./images/ED_summary.png" data-lazy-loaded="">
+        </section>
+      </section>
+
+
+<!-- Input format -->
+<!-- -->
+<section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate data-auto-animate-restart>
+<h3>Human-readable in/out</h3>
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns small-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<span class="red"><b>Fe3O4</b></span>
+
+<div style="display: inline-flex; opacity: 0">
+  <table class='vertical-table acta-cryst-journal'>
+  <caption>Table 1<br>Crystallographic data</caption>
+  <tbody>
+  <tr><td>Space group</td><td>Pm-3m</td></tr>
+  <tr><td>a</td><td>8.55</td></tr>
+  <tr><td>b</td><td>8.55</td></tr>
+  <tr><td>c</td><td>8.55</td></tr>
+  <tr><td>alpha</td><td>90.0</td></tr>
+  <tr><td>beta</td><td>90.0</td></tr>
+  <tr><td>gamma</td><td>90.0</td></tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="display: inline-flex; opacity: 0">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table 2<br>Atomic coordinates, occupancies and displacement parameters</caption>
+  <thead>
+  <tr><th>Label</th><th>Type</th><th>x</th><th>y</th><th>z</th><th>occ</th><th>Biso</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>FeA</td><td>Fe3+</td><td>0.125</td><td>0.125</td><td>0.125</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>FeB</td><td>Fe3+</td><td>0.5</td><td>0.5</td><td>0.5</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>O</td><td>O2-</td><td>0.256</td><td>0.256</td><td>0.256</td><td>1.0</td><td>0.0</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns small-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<span class="red"><b>Fe3O4</b></span>
+
+<div style="display: inline-flex">
+  <table class='vertical-table acta-cryst-journal'>
+  <caption>Table 1<br>Crystallographic data</caption>
+  <tbody>
+  <tr><td>Space group</td><td>Pm-3m</td></tr>
+  <tr><td>a</td><td>8.55</td></tr>
+  <tr><td>b</td><td>8.55</td></tr>
+  <tr><td>c</td><td>8.55</td></tr>
+  <tr><td>alpha</td><td>90.0</td></tr>
+  <tr><td>beta</td><td>90.0</td></tr>
+  <tr><td>gamma</td><td>90.0</td></tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="display: inline-flex; opacity: 0">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table 2<br>Atomic coordinates, occupancies and displacement parameters</caption>
+  <thead>
+  <tr><th>Label</th><th>Type</th><th>x</th><th>y</th><th>z</th><th>occ</th><th>Biso</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>FeA</td><td>Fe3+</td><td>0.125</td><td>0.125</td><td>0.125</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>FeB</td><td>Fe3+</td><td>0.5</td><td>0.5</td><td>0.5</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>O</td><td>O2-</td><td>0.256</td><td>0.256</td><td>0.256</td><td>1.0</td><td>0.0</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns small-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<span class="red"><b>Fe3O4</b></span>
+
+<div style="display: inline-flex">
+  <table class='vertical-table acta-cryst-journal'>
+  <caption>Table 1<br>Crystallographic data</caption>
+  <tbody>
+  <tr><td>Space group</td><td>Pm-3m</td></tr>
+  <tr><td>a</td><td>8.55</td></tr>
+  <tr><td>b</td><td>8.55</td></tr>
+  <tr><td>c</td><td>8.55</td></tr>
+  <tr><td>alpha</td><td>90.0</td></tr>
+  <tr><td>beta</td><td>90.0</td></tr>
+  <tr><td>gamma</td><td>90.0</td></tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="display: inline-flex">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table 2<br>Atomic coordinates, occupancies and displacement parameters</caption>
+  <thead>
+  <tr><th>Label</th><th>Type</th><th>x</th><th>y</th><th>z</th><th>occ</th><th>Biso</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>FeA</td><td>Fe3+</td><td>0.125</td><td>0.125</td><td>0.125</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>FeB</td><td>Fe3+</td><td>0.5</td><td>0.5</td><td>0.5</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>O</td><td>O2-</td><td>0.256</td><td>0.256</td><td>0.256</td><td>1.0</td><td>0.0</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<span class="red"><b>Fe3O4</b></span>
+
+<div style="display: inline-flex">
+  <table class='vertical-table acta-cryst-journal'>
+  <caption>Table 1<br>Crystallographic data</caption>
+  <tbody>
+  <tr><td>Space group</td><td>Pm-3m</td></tr>
+  <tr><td>a</td><td>8.55</td></tr>
+  <tr><td>b</td><td>8.55</td></tr>
+  <tr><td>c</td><td>8.55</td></tr>
+  <tr><td>alpha</td><td>90.0</td></tr>
+  <tr><td>beta</td><td>90.0</td></tr>
+  <tr><td>gamma</td><td>90.0</td></tr>
+  </tbody>
+  </table>
+</div>
+
+<div style="display: inline-flex">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table 2<br>Atomic coordinates, occupancies and displacement parameters</caption>
+  <thead>
+  <tr><th>Label</th><th>Type</th><th>x</th><th>y</th><th>z</th><th>occ</th><th>Biso</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>FeA</td><td>Fe3+</td><td>0.125</td><td>0.125</td><td>0.125</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>FeB</td><td>Fe3+</td><td>0.5</td><td>0.5</td><td>0.5</td><td>1.0</td><td>0.0</td></tr>
+  <tr><td>O</td><td>O2-</td><td>0.256</td><td>0.256</td><td>0.256</td><td>1.0</td><td>0.0</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+<!-- right column -->
+<div>
+<p>CIF (IUCr)</p>
+
+<pre data-id="feo-cif">
+<span class="red"><b>data_Fe3O4</b></span>
+
+<span class="blue"><b>_space_group</b>.name_H-M_alt</span> "P m -3 m"
+
+<span class="blue"><b>_cell</b>.length_a</span>      8.55
+<span class="blue"><b>_cell</b>.length_b</span>      8.55
+<span class="blue"><b>_cell</b>.length_c</span>      8.55
+<span class="blue"><b>_cell</b>.angle_alpha</span>  90.0
+<span class="blue"><b>_cell</b>.angle_beta</span>   90.0
+<span class="blue"><b>_cell</b>.angle_gamma</span>  90.0
+
+loop_
+<span class="green"><b>_atom_site</b>.label</span>
+<span class="green"><b>_atom_site</b>.type_symbol</span>
+<span class="green"><b>_atom_site</b>.fract_x</span>
+<span class="green"><b>_atom_site</b>.fract_y</span>
+<span class="green"><b>_atom_site</b>.fract_z</span>
+<span class="green"><b>_atom_site</b>.occupancy</span>
+<span class="green"><b>_atom_site</b>.B_iso_or_equiv</span>
+FeA  Fe3+   0.125  0.125  0.125   1.0  0.0
+FeB  Fe3+   0.5    0.5    0.5     1.0  0.0
+O    O2-    0.256  0.256  0.256   1.0  0.0
+</pre>
+
+</div>
+<!-- right column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>CIF (IUCr)</p>
+
+<pre data-id="feo-cif">
+<span class="red"><b>data_Fe3O4</b></span>
+
+<span class="blue"><b>_space_group</b>.name_H-M_alt</span> "P m -3 m"
+
+<span class="blue"><b>_cell</b>.length_a</span>      8.55
+<span class="blue"><b>_cell</b>.length_b</span>      8.55
+<span class="blue"><b>_cell</b>.length_c</span>      8.55
+<span class="blue"><b>_cell</b>.angle_alpha</span>  90.0
+<span class="blue"><b>_cell</b>.angle_beta</span>   90.0
+<span class="blue"><b>_cell</b>.angle_gamma</span>  90.0
+
+loop_
+<span class="green"><b>_atom_site</b>.label</span>
+<span class="green"><b>_atom_site</b>.type_symbol</span>
+<span class="green"><b>_atom_site</b>.fract_x</span>
+<span class="green"><b>_atom_site</b>.fract_y</span>
+<span class="green"><b>_atom_site</b>.fract_z</span>
+<span class="green"><b>_atom_site</b>.occupancy</span>
+<span class="green"><b>_atom_site</b>.B_iso_or_equiv</span>
+FeA  Fe3+   0.125  0.125  0.125   1.0  0.0
+FeB  Fe3+   0.5    0.5    0.5     1.0  0.0
+O    O2-    0.256  0.256  0.256   1.0  0.0
+</pre>
+
+</div>
+<!-- left column -->
+
+<!-- right column -->
+<div>
+<p>JSON</p>
+
+<pre data-id="feo-json">
+{
+  "<span class="red"><b>Fe3O4</b></span>":
+  {
+    "<span class="blue"><b>_space_group</b>.name_H-M_alt</span>": "P m -3 m",
+
+    "<span class="blue"><b>_cell</b>.length_a</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.length_b</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.length_c</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.angle_alpha</span>":  90.0,
+    "<span class="blue"><b>_cell</b>.angle_beta</span>":   90.0,
+    "<span class="blue"><b>_cell</b>.angle_gamma</span>":  90.0,
+
+    "<span class="green"><b>_atom_site</b></span>":
+    [
+      {
+        "<span class="green">label</span>": "FeA",
+        "<span class="green">type_symbol</span>": "Fe3+",
+        "<span class="green">fract_x</span>": 0.125,
+        "<span class="green">fract_y</span>": 0.125,
+        "<span class="green">fract_z</span>": 0.125,
+        "<span class="green">occupancy</span>": 1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      },
+      {
+        "<span class="green">label</span>": "FeB",
+        "<span class="green">type_symbol</span>": "Fe3+",
+        "<span class="green">fract_x</span>": 0.5,
+        "<span class="green">fract_y</span>": 0.5,
+        "<span class="green">fract_z</span>": 0.5,
+        "<span class="green">occupancy</span>": 1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      },
+      {
+        "<span class="green">label</span>": "O",
+        "<span class="green">type_symbol</span>": "O2-",
+        "<span class="green">fract_x</span>": 0.256,
+        "<span class="green">fract_y</span>": 0.256,
+        "<span class="green">fract_z</span>": 0.256,
+        "<span class="green">occupancy</span>": 1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      }
+    ]
+  }
+}
+</pre>
+
+</div>
+<!-- right column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Model (phase) data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>CIF (IUCr)</p>
+
+<pre data-id="feo-cif">
+<span class="red"><b>data_Fe3O4</b></span>
+
+<span class="blue"><b>_space_group</b>.name_H-M_alt</span> "P m -3 m"
+
+<span class="blue"><b>_cell</b>.length_a</span>      8.55
+<span class="blue"><b>_cell</b>.length_b</span>      8.55
+<span class="blue"><b>_cell</b>.length_c</span>      8.55
+<span class="blue"><b>_cell</b>.angle_alpha</span>  90.0
+<span class="blue"><b>_cell</b>.angle_beta</span>   90.0
+<span class="blue"><b>_cell</b>.angle_gamma</span>  90.0
+
+loop_
+<span class="green"><b>_atom_site</b>.label</span>
+<span class="green"><b>_atom_site</b>.type_symbol</span>
+<span class="green"><b>_atom_site</b>.fract_x</span>
+<span class="green"><b>_atom_site</b>.fract_y</span>
+<span class="green"><b>_atom_site</b>.fract_z</span>
+<span class="green"><b>_atom_site</b>.occupancy</span>
+<span class="green"><b>_atom_site</b>.B_iso_or_equiv</span>
+FeA  Fe3+   0.125  0.125  0.125   1.0  0.0
+FeB  Fe3+   0.5    0.5    0.5     1.0  0.0
+O    O2-    0.256  0.256  0.256   1.0  0.0
+</pre>
+
+</div>
+<!-- left column -->
+
+<!-- middle column -->
+<div>
+<p>YAML</p>
+
+<pre>
+<span class="red"><b>Fe3O4</b></span>:<br>
+<span class="blue"><b>_space_group</b>.name_H-M_alt</span>: "P m -3 m"<br>
+<span class="blue"><b>_cell</b>.length_a</span>:      8.55
+<span class="blue"><b>_cell</b>.length_b</span>:      8.55
+<span class="blue"><b>_cell</b>.length_c</span>:      8.55
+<span class="blue"><b>_cell</b>.angle_alpha</span>:  90.0
+<span class="blue"><b>_cell</b>.angle_beta</span>:   90.0
+<span class="blue"><b>_cell</b>.angle_gamma</span>:  90.0
+
+<span class="green"><b>_atom_site</b></span>:
+  - <span class="green">label</span>: FeA
+    <span class="green">type_symbol</span>: Fe3+
+    <span class="green">fract_x</span>: 0.125
+    <span class="green">fract_y</span>: 0.125
+    <span class="green">fract_z</span>: 0.125
+    <span class="green">occupancy</span>: 1.0
+    <span class="green">B_iso_or_equiv</span>: 0.0
+  - <span class="green">label</span>: FeB
+    <span class="green">type_symbol</span>: Fe3+
+    <span class="green">fract_x</span>: 0.5
+    <span class="green">fract_y</span>: 0.5
+    <span class="green">fract_z</span>: 0.5
+    <span class="green">occupancy</span>: 1.0
+    <span class="green">B_iso_or_equiv</span>: 0.0
+  - <span class="green">label</span>: O
+    <span class="green">type_symbol</span>: O2-
+    <span class="green">fract_x</span>: 0.256
+    <span class="green">fract_y</span>: 0.256
+    <span class="green">fract_z</span>: 0.256
+    <span class="green">occupancy</span>: 1.0
+    <span class="green">B_iso_or_equiv</span>: 0.0
+</pre>
+
+</div>
+<!-- middle column -->
+
+<!-- right column -->
+<div>
+<p>JSON</p>
+
+<pre data-id="feo-json">
+{
+  "<span class="red"><b>Fe3O4</b></span>":
+  {
+    "<span class="blue"><b>_space_group</b>.name_H-M_alt</span>": "P m -3 m",
+
+    "<span class="blue"><b>_cell</b>.length_a</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.length_b</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.length_c</span>":      8.55,
+    "<span class="blue"><b>_cell</b>.angle_alpha</span>":  90.0,
+    "<span class="blue"><b>_cell</b>.angle_beta</span>":   90.0,
+    "<span class="blue"><b>_cell</b>.angle_gamma</span>":  90.0,
+
+    "<span class="green"><b>_atom_site</b></span>":
+    [
+      {
+        "<span class="green">label</span>": "FeA",
+        "<span class="green">type_symbol</span>": "Fe3+",
+        "<span class="green">fract_x</span>": 0.125,
+        "<span class="green">fract_y</span>": 0.125,
+        "<span class="green">fract_z</span>": 0.125,
+        "<span class="green">occupancy</span>":1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      },
+      {
+        "<span class="green">label</span>": "FeB",
+        "<span class="green">type_symbol</span>": "Fe3+",
+        "<span class="green">fract_x</span>": 0.5,
+        "<span class="green">fract_y</span>": 0.5,
+        "<span class="green">fract_z</span>": 0.5,
+        "<span class="green">occupancy</span>": 1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      },
+      {
+        "<span class="green">label</span>": "O",
+        "<span class="green">type_symbol</span>": "O2-",
+        "<span class="green">fract_x</span>": 0.256,
+        "<span class="green">fract_y</span>": 0.256,
+        "<span class="green">fract_z</span>": 0.256,
+        "<span class="green">occupancy</span>": 1.0,
+        "<span class="green">B_iso_or_equiv</span>": 0.0
+      }
+    ]
+  }
+}
+</pre>
+
+</div>
+<!-- right column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Experimental data?</p>
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Experimental data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<div style="display: inline-flex">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table<br>Powder diffraction background</caption>
+  <thead>
+  <tr><th>Line segment X&nbsp;&nbsp;&nbsp;</th><th>Line segment intensity&nbsp;&nbsp;&nbsp;</th><th>X coordinate</th></tr>
+  </thead>
+  <tbody>
+  <tr><td> 10.0</td><td>174.3</td><td>2theta</td></tr>
+  <tr><td> 20.0</td><td>159.8</td><td>2theta</td></tr>
+  <tr><td> 30.0</td><td>167.9</td><td>2theta</td></tr>
+  <tr><td> 40.0</td><td>162.7</td><td>2theta</td></tr>
+  <tr><td> 50.0</td><td>166.1</td><td>2theta</td></tr>
+  <tr><td> 70.0</td><td>172.3</td><td>2theta</td></tr>
+  <tr><td> 90.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>110.0</td><td>172.4</td><td>2theta</td></tr>
+  <tr><td>130.0</td><td>182.5</td><td>2theta</td></tr>
+  <tr><td>150.0</td><td>173.0</td><td>2theta</td></tr>
+  <tr><td>165.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>180.0</td><td>175.3</td><td>2theta</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Experimental data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<div style="display: inline-flex">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table<br>Powder diffraction background</caption>
+  <thead>
+  <tr><th>Line segment X&nbsp;&nbsp;&nbsp;</th><th>Line segment intensity&nbsp;&nbsp;&nbsp;</th><th>X coordinate</th></tr>
+  </thead>
+  <tbody>
+  <tr><td> 10.0</td><td>174.3</td><td>2theta</td></tr>
+  <tr><td> 20.0</td><td>159.8</td><td>2theta</td></tr>
+  <tr><td> 30.0</td><td>167.9</td><td>2theta</td></tr>
+  <tr><td> 40.0</td><td>162.7</td><td>2theta</td></tr>
+  <tr><td> 50.0</td><td>166.1</td><td>2theta</td></tr>
+  <tr><td> 70.0</td><td>172.3</td><td>2theta</td></tr>
+  <tr><td> 90.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>110.0</td><td>172.4</td><td>2theta</td></tr>
+  <tr><td>130.0</td><td>182.5</td><td>2theta</td></tr>
+  <tr><td>150.0</td><td>173.0</td><td>2theta</td></tr>
+  <tr><td>165.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>180.0</td><td>175.3</td><td>2theta</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+<!-- middle column -->
+<div>
+<p>CIF (IUCr)</p>
+
+<pre>
+<span class="green"><b>_pd_background</b>.line_segment_X</span>
+<span class="green"><b>_pd_background</b>.line_segment_intensity</span>
+<span class="green"><b>_pd_background</b>.X_coordinate</span>
+ 10.0  174.3  2theta
+ 20.0  159.8  2theta
+ 30.0  167.9  2theta
+ 40.0  162.7  2theta
+ 50.0  166.1  2theta
+ 70.0  172.3  2theta
+ 90.0  171.1  2theta
+110.0  172.4  2theta
+130.0  182.5  2theta
+150.0  173.0  2theta
+165.0  171.1  2theta
+180.0  175.3  2theta
+</pre>
+
+</div>
+<!-- middle column -->
+
+</div>
+<!-- columns -->
+
+</section>
+
+<!-- ---------------------------------------------------------------------- -->
+
+<section data-auto-animate>
+<h3>Human-readable in/out</h3>
+<p style="color: rgb(109, 209, 255)">Experimental data</p>
+
+<!-- columns -->
+<div class="columns tiny-font">
+
+<!-- left column -->
+<div>
+<p>Acta Cryst.</p>
+
+<pre>
+<div style="display: inline-flex">
+  <table class='loop-table acta-cryst-journal'>
+  <caption>Table<br>Powder diffraction background</caption>
+  <thead>
+  <tr><th>Line segment X&nbsp;&nbsp;&nbsp;</th><th>Line segment intensity&nbsp;&nbsp;&nbsp;</th><th>X coordinate</th></tr>
+  </thead>
+  <tbody>
+  <tr><td> 10.0</td><td>174.3</td><td>2theta</td></tr>
+  <tr><td> 20.0</td><td>159.8</td><td>2theta</td></tr>
+  <tr><td> 30.0</td><td>167.9</td><td>2theta</td></tr>
+  <tr><td> 40.0</td><td>162.7</td><td>2theta</td></tr>
+  <tr><td> 50.0</td><td>166.1</td><td>2theta</td></tr>
+  <tr><td> 70.0</td><td>172.3</td><td>2theta</td></tr>
+  <tr><td> 90.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>110.0</td><td>172.4</td><td>2theta</td></tr>
+  <tr><td>130.0</td><td>182.5</td><td>2theta</td></tr>
+  <tr><td>150.0</td><td>173.0</td><td>2theta</td></tr>
+  <tr><td>165.0</td><td>171.1</td><td>2theta</td></tr>
+  <tr><td>180.0</td><td>175.3</td><td>2theta</td></tr>
+  </tbody>
+  </table>
+</div>
+</pre>
+
+</div>
+<!-- left column -->
+
+<!-- middle column -->
+<div>
+<p>CIF (IUCr)</p>
+
+<pre>
+<span class="green"><b>_pd_background</b>.line_segment_X</span>
+<span class="green"><b>_pd_background</b>.line_segment_intensity</span>
+<span class="green"><b>_pd_background</b>.X_coordinate</span>
+ 10.0  174.3  2theta
+ 20.0  159.8  2theta
+ 30.0  167.9  2theta
+ 40.0  162.7  2theta
+ 50.0  166.1  2theta
+ 70.0  172.3  2theta
+ 90.0  171.1  2theta
+110.0  172.4  2theta
+130.0  182.5  2theta
+150.0  173.0  2theta
+165.0  171.1  2theta
+180.0  175.3  2theta
+</pre>
+
+</div>
+<!-- middle column -->
+
+<!-- right column -->
+<div>
+<p>YAML</p>
+
+<pre style="padding-right: 1.25em">
+<span class="green"><b>_pd_background</b></span>:
+  - <span class="green">line_segment_X</span>: 10.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 20.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 30.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 40.0
+    <span class="green">line_segment_intensity</span>: 162.7
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 50.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 70.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 90.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 110.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 130.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 150.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 165.0
+    <span class="green">line_segment_intensity</span>: 174.3
+    <span class="green">X_coordinate</span>: 2theta
+  - <span class="green">line_segment_X</span>: 180.0
+    <span class="green">line_segment_intensity</span>: 175.3
+    <span class="green">X_coordinate</span>: 2theta
+</pre>
+
+</div>
+<!-- right column -->
+
+</div>
+<!-- columns -->
+
+</section> </section>
+
+
+
+
+
+
+
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Other features</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+          <div data-id="cross-platform" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-multiple-devices"></i> Cross-platform</div>
+            <div style="color:#999; font-size:28px">Windows, macOS, Linux (Snap Store), Source</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+          <div data-id="cross-platform" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-multiple-devices"></i> Cross-platform</div>
+            <div style="color:#999; font-size:28px">Windows, macOS, Linux (Snap Store), Source</div>
+          </div>
+          <div data-id="everything-included" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-package"></i> Everything is included</div>
+            <div style="color:#999; font-size:28px">All-in-one installer (app) & Python package (lib)</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+          <div data-id="cross-platform" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-multiple-devices"></i> Cross-platform</div>
+            <div style="color:#999; font-size:28px">Windows, macOS, Linux (Snap Store), Source</div>
+          </div>
+          <div data-id="everything-included" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-package"></i> Everything is included</div>
+            <div style="color:#999; font-size:28px">All-in-one installer (app) & Python package (lib)</div>
+          </div>
+          <div data-id="user-groups" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="fas fa-user"></i> Different user groups</div>
+            <div style="color:#999; font-size:28px">Basic GUI, Advanced GUI & Python/Jupyter</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+          <div data-id="cross-platform" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-multiple-devices"></i> Cross-platform</div>
+            <div style="color:#999; font-size:28px">Windows, macOS, Linux (Snap Store), Source</div>
+          </div>
+          <div data-id="everything-included" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-package"></i> Everything is included</div>
+            <div style="color:#999; font-size:28px">All-in-one installer (app) & Python package (lib)</div>
+          </div>
+          <div data-id="user-groups" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="fas fa-user"></i> Different user groups</div>
+            <div style="color:#999; font-size:28px">Basic GUI, Advanced GUI & Python/Jupyter</div>
+          </div>
+          <div data-id="multi-functional" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-swiss-army-knife"></i> Multi-functional</div>
+            <div style="color:#999; font-size:28px">Multiple calculation and minimization engines</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Other features</h3>
+          <div data-id="open-source" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-open-source"></i> Free and open-source</div>
+            <div style="color:#999; font-size:28px">https://github.com/EasyScience/EasyDiffraction</div>
+          </div>
+          <div data-id="cross-platform" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-multiple-devices"></i> Cross-platform</div>
+            <div style="color:#999; font-size:28px">Windows, macOS, Linux (Snap Store), Source</div>
+          </div>
+          <div data-id="everything-included" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-package"></i> Everything is included</div>
+            <div style="color:#999; font-size:28px">All-in-one installer (app) & Python package (lib)</div>
+          </div>
+          <div data-id="user-groups" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="fas fa-user"></i> Different user groups</div>
+            <div style="color:#999; font-size:28px">Basic GUI, Advanced GUI & Python/Jupyter</div>
+          </div>
+          <div data-id="multi-functional" style="margin:20px">
+            <div style="color: rgb(109, 209, 255)"><i class="icon-swiss-army-knife"></i> Multi-functional</div>
+            <div style="color:#999; font-size:28px">Multiple calculation and minimization engines</div>
+          </div>
+          <div style="margin:20px">
+            <div style="color: rgb(109, 209, 255)">and more...</div>
+          </div>
+        </section>
+      </section>
+
+
+
+
+
+
+
+
+
+        <!--  -->
+        <section>
+          <section data-auto-animate data-auto-animate-restart>
+            <h3>Implemented functionality</h3>
+          </section>
+          <section data-auto-animate>
+            <h3>Implemented functionality</h3>
+            <p style="color: rgb(109, 209, 255)">Version 0.8.5-beta</p>
+          </section>
+          <section data-auto-animate>
+            <h3>Implemented functionality</h3>
+            <p style="color: rgb(109, 209, 255)">Version 0.8.5-beta</p>
+            <p>• Part of <span style="color:rgb(109, 209, 255);">CrysPy</span> and <span style="color:rgb(109, 209, 255);">CrysFML</span> libraries yet</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Implemented functionality</h3>
+          <p style="color: rgb(109, 209, 255)">Version 0.8.5-beta</p>
+          <p>• Part of <span style="color:rgb(109, 209, 255);">CrysPy</span> and <span style="color:rgb(109, 209, 255);">CrysFML</span> libraries yet</p>
+          <p>• 1D powder neutron diffraction: <span style="color:rgb(109, 209, 255);">Constant wavelength</span>, <span style="color:rgb(109, 209, 255);">Time-of-flight</span>, <span style="color:rgb(109, 209, 255);">Polarized</span></p>
+      </section>
+          <section data-auto-animate>
+            <h3>Implemented functionality</h3>
+            <p style="color: rgb(109, 209, 255)">Version 0.8.5-beta</p>
+            <p>• Part of <span style="color:rgb(109, 209, 255);">CrysPy</span> and <span style="color:rgb(109, 209, 255);">CrysFML</span> libraries yet</p>
+            <p>• 1D powder neutron diffraction: <span style="color:rgb(109, 209, 255);">Constant wavelength</span>, <span style="color:rgb(109, 209, 255);">Time-of-flight</span>, <span style="color:rgb(109, 209, 255);">Polarized</span></p>
+            <p>• <span style="color:rgb(109, 209, 255);">Lmfit</span>, <span style="color:rgb(109, 209, 255);">Bumps</span>, <span style="color:rgb(109, 209, 255);">DFO-LS</span> minimization engines</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Implemented functionality</h3>
+          <p style="color: rgb(109, 209, 255)">Version 0.8.5-beta</p>
+          <p><span style="height: 64px; padding: 0px 15px 10px 15px; color:black; background:rgb(223, 108, 117);">Performance issues</span></p>
+          <p>• Part of <span style="color:rgb(109, 209, 255);">CrysPy</span> and <span style="color:rgb(109, 209, 255);">CrysFML</span> libraries yet</p>
+          <p>• 1D powder neutron diffraction: <span style="color:rgb(109, 209, 255);">Constant wavelength</span>, <span style="color:rgb(109, 209, 255);">Time-of-flight</span>, <span style="color:rgb(109, 209, 255);">Polarized</span></p>
+          <p>• <span style="color:rgb(109, 209, 255);">Lmfit</span>, <span style="color:rgb(109, 209, 255);">Bumps</span>, <span style="color:rgb(109, 209, 255);">DFO-LS</span> minimization engines</p>
+      </section>
+        <section data-auto-animate>
+          <h3>Implemented functionality</h3>
+          <p style="color: rgb(109, 209, 255)">Version 0.9.0-alpha</p>
+          <p><span style="height: 64px; padding: 0px 15px 10px 15px; color:black; background:rgb(164, 209, 114);">Improving performance</span></p>
+          <p>• Part of <span style="color:rgb(152, 195, 121);">CrysPy</span> and <span style="color:rgb(223, 108, 117);"><s>CrysFML</s></span> libraries yet</p>
+          <p>• 1D powder neutron diffraction: <span style="color:rgb(152, 195, 121);">Constant wavelength</span>, <span style="color:rgb(223, 108, 117);"><s>Time-of-flight</s></span>, <span style="color:rgb(223, 108, 117);"><s>Polarized</s></span></p>
+          <p>• <span style="color:rgb(152, 195, 121);">Lmfit</span>, <span style="color:rgb(223, 108, 117);"><s>Bumps</s></span>, <span style="color:rgb(223, 108, 117);"><s>DFO-LS</s></span> minimization engines</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Implemented functionality</h3>
+          <p style="color: rgb(109, 209, 255)">Version 0.9.5</p>
+          <p><span style="height: 64px; padding: 0px 15px 10px 15px; color:black; background:rgb(164, 209, 114);">Improving performance</span></p>
+          <p>• Part of <span style="color:rgb(152, 195, 121);">CrysPy</span> and <span style="color:rgb(223, 108, 117);"><s>CrysFML</s></span> libraries yet</p>
+          <p>• 1D powder neutron diffraction: <span style="color:rgb(152, 195, 121);">Constant wavelength</span>, <span style="color:rgb(152, 195, 121);">Time-of-flight</span>, <span style="color:rgb(223, 108, 117);"><s>Polarized</s></span></p>
+          <p>• <span style="color:rgb(152, 195, 121);">Lmfit</span>, <span style="color:rgb(223, 108, 117);"><s>Bumps</s></span>, <span style="color:rgb(223, 108, 117);"><s>DFO-LS</s></span> minimization engines</p>
+        </section>
+      </section>
+
+
+
+
+
+      <!-- SLIDE -->
+      <section>
+
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Performance improvement</h3>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Performance improvement</h3>
+          <p>0.9.5 <span style="color: #777">vs.</span> 0.8.5-beta</p>
+          <div class="r-hstack">
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box1" style="background: #b38459; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params1" style="color: #b38459">12 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box2" style="background: #b38459; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params2" style="color: #b38459">21 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box3" style="background: #3b95bf; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params3" style="color: #3b95bf">34 params</div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Performance improvement</h3>
+          <p>0.9.5 <span style="color: #777">vs.</span> 0.8.5-beta</p>
+          <div class="r-hstack">
+            <div class="r-vstack">
+              <div style="height: 365px; margin: 0 10px"></div>
+              <div data-id="time1" data-auto-animate-delay="0.8" style="color: #777">16s → 3s</div>
+              <div data-id="box1" style="background: #b38459; width: 250px; height: 35px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%; margin-top:-2px">×3</div>
+              </div>
+              <div data-id="params1" style="color: #b38459">12 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box2" style="background: #b38459; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params2" style="color: #b38459">21 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box3" style="background: #3b95bf; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params3" style="color: #3b95bf">34 params</div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Performance improvement</h3>
+          <p>0.9.5 <span style="color: #777">vs.</span> 0.8.5-beta</p>
+          <div class="r-hstack">
+            <div class="r-vstack">
+              <div style="height: 365px; margin: 0 10px"></div>
+              <div data-id="time1" style="color: #777">16s → 3s</div>
+              <div data-id="box1" style="background: #b38459; width: 250px; height: 35px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%; margin-top:-2px">×3</div>
+              </div>
+              <div data-id="params1" style="color: #b38459">12 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 233px; margin: 0 10px"></div>
+              <div data-id="time2" data-auto-animate-delay="0.8" style="color: #777">44s → 3s</div>
+              <div data-id="box2" style="background: #b38459; width: 250px; height: 167px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">×15</div>
+              </div>
+              <div data-id="params2" style="color: #b38459">21 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 400px; margin: 0 10px"></div>
+              <div>&nbsp;</div>
+              <div data-id="box3" style="background: #3b95bf; width: 250px; height: 0px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">&nbsp;</div>
+              </div>
+              <div data-id="params3" style="color: #3b95bf">34 params</div>
+            </div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Performance improvement</h3>
+          <p>0.9.5 <span style="color: #777">vs.</span> 0.8.5-beta</p>
+          <div class="r-hstack">
+            <div class="r-vstack">
+              <div style="height: 365px; margin: 0 10px"></div>
+              <div data-id="time1" style="color: #777">16s → 3s</div>
+              <div data-id="box1" style="background: #b38459; width: 250px; height: 35px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%; margin-top:-2px">×3</div>
+              </div>
+              <div data-id="params1" style="color: #b38459">12 params</div>
+            </div>
+            <div class="r-vstack">
+              <div style="height: 233px; margin: 0 10px"></div>
+              <div data-id="time2" style="color: #777">44s → 3s</div>
+              <div data-id="box2" style="background: #b38459; width: 250px; height: 167px; margin: 0 40px"> <!-- background: #789c5f -->
+                <div class="r-vstack" style="height: 100%">×15</div>
+              </div>
+              <div data-id="params2" style="color: #b38459">21 params</div>
+            </div>
+            <div class="r-vstack">
+              <div data-id="time3" data-auto-animate-delay="0.8" style="color: #777">7m20s → 12s</div>
+              <div data-id="box3" style="background: #3b95bf; width: 250px; height: 400px; margin: 0 40px">
+                <div class="r-vstack" style="height: 100%">×36</div>
+              </div>
+              <div data-id="params3" style="color: #3b95bf">34 params</div>
+            </div>
+          </div>
+        </section>
+
+
+      </section>
+      <!-- SLIDE -->
+
+
+
+      <!-- Collaboration -->
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Collaboration</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Collaboration</h3>
+          <div class="r-vstack">
+            <div data-id="cryspy" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">CrysPy</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Laboratoire Léon Brillouin (LLB)</div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Iurii Kibalin, Arsen Gukasov </div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">github.com/ikibalin/cryspy </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Collaboration</h3>
+          <div class="r-vstack">
+            <div data-id="cryspy" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">CrysPy</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Laboratoire Léon Brillouin (LLB)</div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Iurii Kibalin, Arsen Gukasov </div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">github.com/ikibalin/cryspy </div>
+              </div>
+            </div>
+            <div data-id="crysfml" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">CrysFML</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Institut Laue-Langevin (ILL) </div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Elisa Rebolini, Nebil Katcho, Juan Rodríguez-Carvajal</div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">code.ill.fr/scientific-software/crysfml</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Collaboration</h3>
+          <div class="r-vstack">
+            <div data-id="cryspy" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">CrysPy</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Laboratoire Léon Brillouin (LLB)</div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Iurii Kibalin, Arsen Gukasov </div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">github.com/ikibalin/cryspy </div>
+              </div>
+            </div>
+            <div data-id="crysfml" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">CrysFML</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Institut Laue-Langevin (ILL) </div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Elisa Rebolini, Nebil Katcho, Juan Rodríguez-Carvajal</div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">code.ill.fr/scientific-software/crysfml</div>
+              </div>
+            </div>
+            <div data-id="others" class="r-hstack" style="margin:15px">
+              <div class="workflow-tab" style="width:320px; height: 90px; background:rgb(164, 209, 114);">Other libraries</div>
+              <div style="width:530px; margin-left:27px; margin-top:-7px; text-align:left">
+                <div style="font-size:30px">Open source</div>
+                <div style="font-size:22px; color: rgb(150, 150, 150)">Community driven project?</div>
+                <div style="font-size:22px; color: rgb(109, 209, 255)">github.com/EasyScience/EasyDiffraction</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+
+
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Project page</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Project page</h3>
+          <img width="600" src="./images/ED_url_wfont.svg" data-lazy-loaded="">
+        </section>
+
+        <section data-auto-animate>
+          <h3>Project page</h3>
+          <p style="color:rgb(109, 209, 255)">https://easydiffraction.org</p>
+          <figure style="width:1170px;">
+            <img src="images/ED_web-long.png" style="margin-left:-140px;" data-lazy-loaded="">
+          </figure>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Project page</h3>
+          <p style="color:rgb(109, 209, 255)">https://easydiffraction.org</p>
+          <figure style="width:500px;">
+            <img src="images/ED_web-long.png" style="margin-left:264px;" data-lazy-loaded="">
+          </figure>
+        </section>
+        <section data-auto-animate>
+          <h3>Project page</h3>
+          <p style="color:rgb(109, 209, 255)">https://easydiffraction.org</p>
+          <figure style="width:1300px;">
+            <img src="images/ED_web-long.png" style="margin-left:-340px; margin-top:-3170px" data-lazy-loaded="">
+          </figure>
+        </section>
+        <section data-auto-animate>
+          <h3>Project page</h3>
+          <p style="color:rgb(109, 209, 255)">https://easydiffraction.org</p>
+          <figure style="width:1300px;">
+            <img src="images/ED_web-long.png" style="margin-left:-340px; margin-top:-3745px" data-lazy-loaded="">
+          </figure>
+        </section>
+
+      </section>
+
+
+      <!-- Section -->
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3 class="semi-hidden">Outline</h3>
+          <p class="semi-hidden">What EasyDiffraction for?</p>
+          <p class="semi-hidden">Why develop new?</p>
+          <p class="semi-hidden">What has been done?</p>
+          <p>What is next?</p>
+          <p class="semi-hidden">Other techniques</p>
+        </section>
+      </section>
+
+      <!-- Future -->
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Future plans</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" class="semi-hidden" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+          <div data-id="refactoring" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-sync-alt"></i> Back into the easyscience framework</div>
+            <div style="color:#999; font-size:28px">Modularity, multiple calculators and minimizers, undo/redo, etc.</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" class="semi-hidden" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+          <div data-id="refactoring" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-sync-alt"></i> Back into the easyscience framework</div>
+            <div style="color:#999; font-size:28px">Modularity, multiple calculators and minimizers, undo/redo, etc.</div>
+          </div>
+          <div data-id="calculators" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calculator"></i> New Python Interface for new CrysFML</div>
+            <div style="color:#999; font-size:28px">CrysFML (Fortran 90) → CrysFML2008 (Fortran 2008)</div>
+          </div>
+        </section>
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" class="semi-hidden" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+          <div data-id="refactoring" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-sync-alt"></i> Back into the easyscience framework</div>
+            <div style="color:#999; font-size:28px">Modularity, multiple calculators and minimizers, undo/redo, etc.</div>
+          </div>
+          <div data-id="calculators" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calculator"></i> New Python Interface for new CrysFML</div>
+            <div style="color:#999; font-size:28px">CrysFML (Fortran 90) → CrysFML2008 (Fortran 2008)</div>
+          </div>
+          <div data-id="functionality" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calendar-alt"></i> Extend functionality based on used libraries</div>
+            <div style="color:#999; font-size:28px">Polarized TOF, Single crystals, Magnetic structures, X-rays, etc.</div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <div data-id="functionality" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calendar-alt"></i> Extend functionality based on used libraries</div>
+            <div style="color:#999; font-size:28px">Polarized TOF, <span style="color:rgb(109, 209, 255)">Single crystals</span>, Magnetic structures, X-rays, etc.</div>
+          </div>
+          <img src="images/SAKURA.png" style="margin-left:0px; margin-top:0px" data-lazy-loaded="">
+        </section>
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" class="semi-hidden" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+          <div data-id="refactoring" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-sync-alt"></i> Back into the easyscience framework</div>
+            <div style="color:#999; font-size:28px">Modularity, multiple calculators and minimizers, undo/redo, etc.</div>
+          </div>
+          <div data-id="calculators" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calculator"></i> New Python Interface for new CrysFML</div>
+            <div style="color:#999; font-size:28px">CrysFML (Fortran 90) → CrysFML2008 (Fortran 2008)</div>
+          </div>
+          <div data-id="functionality" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calendar-alt"></i> Extend functionality based on used libraries</div>
+            <div style="color:#999; font-size:28px">Polarized TOF, Single crystals, Magnetic structures, X-rays, etc.</div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h3>Future plans</h3>
+          <div data-id="performance" class="semi-hidden" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-check-circle"></i> Improve performance</div>
+            <div style="color:#999; font-size:28px">Structure refinement, GUI lags, etc.</div>
+          </div>
+          <div data-id="refactoring" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-sync-alt"></i> Back into the easyscience framework</div>
+            <div style="color:#999; font-size:28px">Modularity, multiple calculators and minimizers, undo/redo, etc.</div>
+          </div>
+          <div data-id="calculators" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calculator"></i> New Python Interface for new CrysFML</div>
+            <div style="color:#999; font-size:28px">CrysFML (Fortran 90) → CrysFML2008 (Fortran 2008)</div>
+          </div>
+          <div data-id="functionality" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calendar-alt"></i> Extend functionality based on used libraries</div>
+            <div style="color:#999; font-size:28px">Polarized TOF, Single crystals, Magnetic structures, X-rays, etc.</div>
+          </div>
+          <div data-id="ux" style="margin:20px">
+            <div style="color:rgb(109, 209, 255)"><i class="fas fa-calendar-alt"></i> Add other libraries</div>
+            <div style="color:#999; font-size:28px">Pair distribution function from DiffPy-CMI, etc.</div>
+          </div>
+        </section>
+      </section>
+
+
+
+      <!-- Section 4 -->
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3 class="semi-hidden">Outline</h3>
+          <p class="semi-hidden">What EasyDiffraction for?</p>
+          <p class="semi-hidden">Why develop new?</p>
+          <p class="semi-hidden">What has been done?</p>
+          <p class="semi-hidden">What is next?</p>
+          <p>Other techniques</p>
+        </section>
+      </section>
+
+
+
+        <!-- -->
+        <section>
+
+          <section data-auto-animate data-auto-animate-restart>
+						<h3>Modular structure</h3> <!-- <h3>Modular structure<button>3. Maintainability</button></h3> -->
+					</section>
+
+          <section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">Do everything in one project?</p>
+            <img height="500" src="images/non-modular-sructure.png" data-lazy-loaded="">
+          </section>
+
+          <section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">Divided responsibilities and raised stability</p>
+            <img height="500" src="images/modular-structure.png" data-lazy-loaded="">
+          </section>
+
+          <section data-auto-animate>
+						<h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+							<g data-id="EasyDiffraction">
+								<title>EasyDiffraction</title>
+								<g>
+									<rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+								</g>
+								<g>
+									<rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+								</g>
+								<path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+							</g>
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+							<g data-id="EasyDiffractionBkg">
+								<title>EasyDiffractionBkg</title>
+								<text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+								<rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+							</g>
+							<g data-id="EasyDiffraction">
+								<title>EasyDiffraction</title>
+								<g>
+									<rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+								</g>
+								<g>
+									<rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+								</g>
+								<path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+							</g>
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+							<g data-id="EasyDiffractionBkg">
+								<title>EasyDiffractionBkg</title>
+								<text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+								<rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+							</g>
+							<g data-id="EasyDiffraction">
+								<title>EasyDiffraction</title>
+								<g>
+									<rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+								</g>
+								<g>
+									<rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+								</g>
+								<path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+							</g>
+							<g data-id="EasyBackend">
+								<title>EasyBackend</title>
+								<g>
+									<rect x="40" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="105.196" y="120.995">EasyCore</text>
+								</g>
+								<g transform="matrix(1, 0, 0, 1, 20, 0)">
+									<rect x="280" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+									<text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="296.614" y="121.995">EasyCrystallography</text>
+								</g>
+								<g>
+									<rect x="55" y="140.5" width="5" height="137" style="fill: rgb(164, 209, 114);"/>
+									<path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5"/>
+								</g>
+								<path d="M 872 171.823 H 961 L 961 164.323 L 981 174.323 L 961 184.323 L 961 176.823 H 872 V 171.823 Z" style="fill: rgb(164, 209, 114);" transform="matrix(0, 1, -1, 0, 491.345825, -731.5)" bx:shape="arrow 872 164.323 109 20 5 20 0 1@2be15923"/>
+								<path d="M 260.5 112.5 H 280.5 L 280.5 105 L 300.5 115 L 280.5 125 L 280.5 117.5 H 260.5 V 112.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 260.5 105 40 20 5 20 0 1@189d618a"/>
+							</g>
+						</svg>
+					</section>
+
+					<section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+						  <g data-id="EasyDiffractionBkg">
+						    <title>EasyDiffractionBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+						    <rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+						  </g>
+							<g data-id="EasyDiffraction">
+						    <title>EasyDiffraction</title>
+						    <g>
+						      <rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+						    </g>
+						    <g>
+						      <rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+						    </g>
+						    <path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+						  </g>
+							<g data-id="EasyBackend">
+						    <title>EasyBackend</title>
+						    <g>
+						      <rect x="40" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="105.196" y="120.995">EasyCore</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 20, 0)">
+						      <rect x="280" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="296.614" y="121.995">EasyCrystallography</text>
+						    </g>
+						    <g>
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(164, 209, 114);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5"/>
+						    </g>
+						    <path d="M 872 171.823 H 961 L 961 164.323 L 981 174.323 L 961 184.323 L 961 176.823 H 872 V 171.823 Z" style="fill: rgb(164, 209, 114);" transform="matrix(0, 1, -1, 0, 491.345825, -731.5)" bx:shape="arrow 872 164.323 109 20 5 20 0 1@2be15923"/>
+						    <path d="M 260.5 112.5 H 280.5 L 280.5 105 L 300.5 115 L 280.5 125 L 280.5 117.5 H 260.5 V 112.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 260.5 105 40 20 5 20 0 1@189d618a"/>
+						  </g>
+							<g data-id="EasyFrontend">
+						    <title>EasyFrontend</title>
+						    <g>
+						      <rect x="560" y="90" width="220" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="630" y="120.995">EasyApp</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 520, 0)">
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(96, 188, 232);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(96, 188, 232);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5"/>
+						    </g>
+						  </g>
+						</svg>
+					</section>
+
+
+					<section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+						  <g data-id="EasyDiffractionBkg">
+						    <title>EasyDiffractionBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+						    <rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+						  </g>
+							<g data-id="EasyDiffraction">
+						    <title>EasyDiffraction</title>
+						    <g>
+						      <rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+						    </g>
+						    <g>
+						      <rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+						    </g>
+						    <path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+						  </g>
+							<g data-id="TechniqueIndependantBkg">
+						    <title>TechniqueIndependantBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="792" y="53.532">Generic</text>
+						    <rect x="20" y="70" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(133, 87, 29);"/>
+						  </g>
+							<g data-id="EasyBackend">
+						    <title>EasyBackend</title>
+						    <g>
+						      <rect x="40" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="105.196" y="120.995">EasyCore</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 20, 0)">
+						      <rect x="280" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="296.614" y="121.995">EasyCrystallography</text>
+						    </g>
+						    <g>
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(164, 209, 114);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5"/>
+						    </g>
+						    <path d="M 872 171.823 H 961 L 961 164.323 L 981 174.323 L 961 184.323 L 961 176.823 H 872 V 171.823 Z" style="fill: rgb(164, 209, 114);" transform="matrix(0, 1, -1, 0, 491.345825, -731.5)" bx:shape="arrow 872 164.323 109 20 5 20 0 1@2be15923"/>
+						    <path d="M 260.5 112.5 H 280.5 L 280.5 105 L 300.5 115 L 280.5 125 L 280.5 117.5 H 260.5 V 112.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 260.5 105 40 20 5 20 0 1@189d618a"/>
+						  </g>
+							<g data-id="EasyFrontend">
+						    <title>EasyFrontend</title>
+						    <g>
+						      <rect x="560" y="90" width="220" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="630" y="120.995">EasyApp</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 520, 0)">
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(96, 188, 232);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(96, 188, 232);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5"/>
+						    </g>
+						  </g>
+						</svg>
+					</section>
+
+          <section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+						  <g data-id="EasyDiffractionBkg" class="semi-hidden">
+						    <title>EasyDiffractionBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+						    <rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+						  </g>
+							<g data-id="EasyDiffraction" class="semi-hidden">
+						    <title>EasyDiffraction</title>
+						    <g>
+						      <rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+						    </g>
+						    <g>
+						      <rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+						    </g>
+						    <path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+						  </g>
+							<g data-id="TechniqueIndependantBkg">
+						    <title>TechniqueIndependantBkg</title>
+                <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="792" y="53.532">Generic</text>
+						    <rect x="20" y="70" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(133, 87, 29);"/>
+						  </g>
+							<g data-id="EasyBackend">
+						    <title>EasyBackend</title>
+						    <g>
+						      <rect x="40" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="105.196" y="120.995">EasyCore</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 20, 0)" class="semi-hidden">
+						      <rect x="280" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="296.614" y="121.995">EasyCrystallography</text>
+						    </g>
+						    <g>
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(164, 209, 114);" class="semi-hidden"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5" class="semi-hidden"/>
+						    </g>
+						    <path d="M 872 171.823 H 961 L 961 164.323 L 981 174.323 L 961 184.323 L 961 176.823 H 872 V 171.823 Z" style="fill: rgb(164, 209, 114);" transform="matrix(0, 1, -1, 0, 491.345825, -731.5)" bx:shape="arrow 872 164.323 109 20 5 20 0 1@2be15923" class="semi-hidden"/>
+						    <path d="M 260.5 112.5 H 280.5 L 280.5 105 L 300.5 115 L 280.5 125 L 280.5 117.5 H 260.5 V 112.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 260.5 105 40 20 5 20 0 1@189d618a" class="semi-hidden"/>
+						  </g>
+							<g data-id="EasyFrontend">
+						    <title>EasyFrontend</title>
+						    <g>
+						      <rect x="560" y="90" width="220" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="630" y="120.995">EasyApp</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 520, 0)">
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(96, 188, 232);" class="semi-hidden"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(96, 188, 232);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5" class="semi-hidden"/>
+						    </g>
+						  </g>
+						</svg>
+					</section>
+
+          <section data-auto-animate>
+            <h3>Modular structure</h3>
+            <p style="color:rgb(109, 209, 255)">https://easyscience.software</p>
+						<svg viewBox="0 0 900 500">
+						  <g data-id="EasyDiffractionBkg" class="semi-hidden">
+						    <title>EasyDiffractionBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="760" y="214.463">Diffraction</text>
+						    <rect x="20" y="230" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(16, 74, 102);"/>
+						  </g>
+							<g data-id="EasyDiffraction" class="semi-hidden">
+						    <title>EasyDiffraction</title>
+						    <g>
+						      <rect x="100" y="250" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="136" y="280.532">EasyDiffractionLib</text>
+						    </g>
+						    <g>
+						      <rect x="620" y="250" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="653.305" y="281.995">EasyDiffractionApp</text>
+						    </g>
+						    <path d="M 340.5 272.497 H 554.489 L 554.489 264.997 L 574.489 274.997 L 554.489 284.997 L 554.489 277.497 H 340.5 V 272.497 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 264.997 233.989 20 5 20 0 1@febe93e4"/>
+						  </g>
+							<g data-id="TechniqueIndependantBkg">
+						    <title>TechniqueIndependantBkg</title>
+                <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="792" y="53.532">Generic</text>
+						    <rect x="20" y="70" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(133, 87, 29);"/>
+						  </g>
+							<g data-id="EasyBackend">
+						    <title>EasyBackend</title>
+						    <g>
+						      <rect x="40" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="105.196" y="120.995">EasyCore</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 20, 0)" class="semi-hidden">
+						      <rect x="280" y="90" width="220" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="296.614" y="121.995">EasyCrystallography</text>
+						    </g>
+						    <g>
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(164, 209, 114);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5" class="semi-hidden"/>
+						    </g>
+						    <path d="M 872 171.823 H 961 L 961 164.323 L 981 174.323 L 961 184.323 L 961 176.823 H 872 V 171.823 Z" style="fill: rgb(164, 209, 114);" transform="matrix(0, 1, -1, 0, 491.345825, -731.5)" bx:shape="arrow 872 164.323 109 20 5 20 0 1@2be15923" class="semi-hidden"/>
+						    <path d="M 260.5 112.5 H 280.5 L 280.5 105 L 300.5 115 L 280.5 125 L 280.5 117.5 H 260.5 V 112.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 260.5 105 40 20 5 20 0 1@189d618a" class="semi-hidden"/>
+						  </g>
+							<g data-id="EasyFrontend">
+						    <title>EasyFrontend</title>
+						    <g>
+						      <rect x="560" y="90" width="220" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="630" y="120.995">EasyApp</text>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 520, 0)">
+						      <rect x="55" y="140.5" width="5" height="137" style="fill: rgb(96, 188, 232);"/>
+						      <path d="M 60 272.5 H 80 L 80 265 L 100 275 L 80 285 L 80 277.5 H 60 V 272.5 Z" style="fill: rgb(96, 188, 232);" bx:shape="arrow 60 265 40 20 5 20 0 1@2faa7cd5" class="semi-hidden"/>
+						    </g>
+						  </g>
+							<g data-id="EasyReflectometryBkg">
+						    <title>EasyReflectometryBkg</title>
+						    <text style="white-space: pre; fill: rgb(255, 255, 255); font-size: 25.8px;" x="720" y="373.532">Reflectometry</text>
+						    <rect x="20" y="390" width="860" height="90" style="stroke: rgb(0, 0, 0); fill: rgb(73, 111, 29);"/>
+						  </g>
+							<g data-id="EasyReflectometry">
+						    <title>EasyReflectometry</title>
+						    <g>
+						      <rect x="100" y="410" width="240" height="50" style="fill: rgb(164, 209, 114);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="125.504" y="440.995">EasyReflectometryLib</text>
+						    </g>
+						    <g>
+						      <rect x="620" y="410" width="240" height="50" style="fill: rgb(96, 188, 232);"/>
+						      <text style="fill: rgb(51, 51, 51); font-size: 20px; white-space: pre;" x="640" y="440.792">EasyReflectometryApp</text>
+						    </g>
+						    <g>
+						      <rect x="55" y="277.5" width="5" height="160" style="fill: rgb(164, 209, 114);"/>
+						      <path d="M 60 432.5 H 80 L 80 425 L 100 435 L 80 445 L 80 437.5 H 60 V 432.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 60 425 40 20 5 20 0 1@c3e2b95f"/>
+						    </g>
+						    <g transform="matrix(1, 0, 0, 1, 520, 0)">
+						      <rect x="55" y="277.5" width="5" height="160" style="fill: rgb(96, 188, 232);"/>
+						      <path d="M 60 432.5 H 80 L 80 425 L 100 435 L 80 445 L 80 437.5 H 60 V 432.5 Z" style="fill: rgb(96, 188, 232);" bx:shape="arrow 60 425 40 20 5 20 0 1@c3e2b95f"/>
+						    </g>
+						    <path d="M 340.5 432.5 H 554.489 L 554.489 425 L 574.489 435 L 554.489 445 L 554.489 437.5 H 340.5 V 432.5 Z" style="fill: rgb(164, 209, 114);" bx:shape="arrow 340.5 425 233.989 20 5 20 0 1@a4d804f9"/>
+						  </g>
+						</svg>
+					</section>
+        </section>
+
+
+
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Unified user interface?</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p style="color:rgb(109, 209, 255)">Same look and feel for different techniques</p>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p>• EasyDiffraction <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andrew Sazonov, Piotr Rozyczko</span></p>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p>• EasyDiffraction <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andrew Sazonov, Piotr Rozyczko</span></p>
+          <p>• EasyReflectometry <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andreas Pedersen</span></p>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p>• EasyDiffraction <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andrew Sazonov, Piotr Rozyczko</span></p>
+          <p>• EasyReflectometry <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andreas Pedersen</span></p>
+          <p>• EasyQENS <i class="fa-solid fa-rocket orange"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Henrik Jacobsen</span></p>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p>• EasyDiffraction <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andrew Sazonov, Piotr Rozyczko</span></p>
+          <p>• EasyReflectometry <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andreas Pedersen</span></p>
+          <p>• EasyQENS <i class="fa-solid fa-rocket orange"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Henrik Jacobsen</span></p>
+          <p>• EasyImaging <i class="fa-solid fa-rocket orange"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Christian Vedel</span></p>
+        </section>
+        <section data-auto-animate>
+          <h3>Unified user interface?</h3>
+          <p>• EasyDiffraction <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andrew Sazonov, Piotr Rozyczko</span></p>
+          <p>• EasyReflectometry <i class="fa-solid fa-gears green"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Andreas Pedersen</span></p>
+          <p>• EasyQENS <i class="fa-solid fa-rocket orange"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Henrik Jacobsen</span></p>
+          <p>• EasyImaging <i class="fa-solid fa-rocket orange"></i> <span class="tag-grey">analysis</span><br> <span class="small-font grey">Christian Vedel</span></p>
+          <p>• EasyTexture <i class="fa-solid fa-gears green"></i> <span class="tag-blue">reduction</span><br> <span class="small-font grey">Oleksandr Koshchii, Jens Walter</span></p>
+        </section>
+        <section data-auto-animate>
+          <figure style="width:1300px;">
+            <img src="images/ES_web4.png" style="margin-left:-300px; margin-top:-10px" data-lazy-loaded="">
+          </figure>
+        </section>
+      </section>
+
+
+
+      <section>
+        <section data-auto-animate data-auto-animate-restart>
+          <h3>Live demo?</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Live demo?</h3>
+          <img height="550" src="./images/live-demo.png" data-lazy-loaded="">
+        </section>
+      </section>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+          // The "normal" size of the presentation, aspect ratio will
+          // be preserved when the presentation is scaled to fit different
+          // resolutions. Can be specified using percentage units.
+          width: 1000,
+          height: 750,
+          // Factor of the display size that should remain empty around
+          // the content
+          //margin: 0.1,
+          // Bounds for smallest/largest possible scale to apply to content
+          //minScale: 1.0,
+          //maxScale: 2.0,
+
+          // Help the user learn the controls by providing hints, for example by
+          // bouncing the down arrow when they first encounter a vertical slide
+          controlsTutorial: false,
+          // Add the current slide number to the URL hash so that reloading the
+          // page/copying the URL will return you to the same slide
+          hash: true,
+          // Global override for autolaying embedded media (video/audio/iframe)
+          // - null:   Media will only autoplay if data-autoplay is present
+          // - true:   All media will autoplay, regardless of individual setting
+          // - false:  No media will autoplay, regardless of individual setting
+          autoPlayMedia: null,
+          // Learn about plugins: https://revealjs.com/plugins/
+          plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+  				_autoAnimateEasing: 'cubic-bezier(0.770, 0.000, 0.175, 1.000)',
+  				autoAnimateDuration: 0.8,
+      })
+      Reveal.configure({
+        //pdfMaxPagesPerSlide: 1
+      })
+    </script>
+  </body>
+</html>

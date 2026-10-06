@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 380 322" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(117, 89, 63);" cx="279.998" cy="222" rx="100" ry="100"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(89, 110, 73);" cx="203" cy="136" rx="135" ry="135" bx:origin="0.500007 0.5"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(46, 110, 140);" cx="150.002" cy="166" rx="150" ry="150"/>
+</svg>

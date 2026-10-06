@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <g>
+    <path d="M 243 44 Q 269.793 43.998 292.997 57.393 Q 316.201 70.788 329.6 93.992 Q 342.998 117.195 343 143.99" style="fill: none; stroke-width: 10px; stroke: rgb(182, 213, 236);" bx:shape="spiral 243 143.99 100 100 0 90 1@5ea3df75"/>
+    <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="50">PROPOSAL AND REVIEW</text>
+    <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="70">SCHEDULING</text>
+    <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="90">SAMPLE HANDLING</text>
+    <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="110">VIRTUAL EXPERIMENT</text>
+    <text style="fill: rgb(182, 213, 236); font-size: 11px; white-space: pre;" x="364" y="130">SAFETY TRAINING</text>
+    <text style="fill: rgb(196, 196, 196); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.184982, -5.094139)"><tspan x="255.185" y="121.457">Experiment</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>planning</tspan></text>
+  </g>
+  <g>
+    <path d="M 243 -251.975 Q 269.793 -251.977 292.997 -238.582 Q 316.201 -225.187 329.6 -201.983 Q 342.998 -178.78 343 -151.985" style="fill: none; stroke-width: 10px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 243 -151.985 100 100 0 90 1@2af23d1a"/>
+    <text style="fill: rgb(96, 185, 228); font-size: 11px; white-space: pre;" x="364" y="190">SAMPLE ENV. CONTROL</text>
+    <text style="fill: rgb(96, 185, 228); font-size: 11px; white-space: pre;" x="364" y="210">INSTRUMENT CONTROL</text>
+    <text style="fill: rgb(96, 185, 228); font-size: 11px; white-space: pre;" x="364" y="230">DATA ACQUISITION</text>
+    <text style="fill: rgb(96, 185, 228); font-size: 11px; white-space: pre;" x="364" y="250">LIVE DATA</text>
+    <text style="fill: rgb(196, 196, 196); font-size: 11px; white-space: pre;" transform="matrix(1, 0, 0, 1, -7.185013, 59.883934)"><tspan x="255.185" y="121.457">Neutron</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>experiment</tspan></text>
+  </g>
+  <g>
+    <path d="M -235 -251.99 Q -208.207 -251.992 -185.003 -238.597 Q -161.799 -225.202 -148.4 -201.998 Q -135.002 -178.795 -135 -152" style="fill: none; stroke-width: 10px; stroke: rgb(1, 167, 221);" transform="matrix(-1, 0, 0, -1, 0, 0)" bx:shape="spiral -235 -152 100 100 0 90 1@c9bd21f6"/>
+    <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="210">STORAGE</text>
+    <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="230">VISUALISATION</text>
+    <text style="fill: rgb(1, 167, 221); font-size: 11px; white-space: pre;" x="23" y="250">DATA REDUCTION</text>
+    <text style="fill: rgb(196, 196, 196); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -26.230286, 59.905861)"><tspan x="255.185" y="121.457">Data</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>management</tspan></text>
+  </g>
+  <g>
+    <path d="M -235 44 Q -208.207 43.998 -185.003 57.393 Q -161.799 70.788 -148.4 93.992 Q -135.002 117.195 -135 143.99" style="fill: none; stroke-width: 10px; stroke: rgb(0, 151, 216);" transform="matrix(-1, 0, 0, 1, 0, 0)" bx:shape="spiral -235 143.99 100 100 0 90 1@d4491f2f"/>
+    <text style="fill: rgb(0, 151, 216); font-size: 11px; white-space: pre;" x="23" y="50">THEORY</text>
+    <text style="fill: rgb(0, 151, 216); font-size: 11px; white-space: pre;" x="23" y="70">SIMULATION</text>
+    <text style="fill: rgb(0, 151, 216); font-size: 11px; white-space: pre;" x="23" y="90">MODELLING</text>
+    <text style="fill: rgb(0, 151, 216); font-size: 11px; white-space: pre;" x="23" y="110">DATA ANALYSIS</text>
+    <text style="fill: rgb(196, 196, 196); font-size: 11px; text-anchor: end; white-space: pre;" transform="matrix(1, 0, 0, 1, -25.923264, -5.094139)"><tspan x="255.185" y="121.457">Computational</tspan><tspan x="255.185" dy="1.3em">​</tspan><tspan>support</tspan></text>
+  </g>
+</svg>

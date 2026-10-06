@@ -1,0 +1,3 @@
+Generated with the built-in image generation tool.
+
+Use case: precise-object-edit. Image 1 is the edit target: the playful close-up pencil sketch. Image 2 is the original photo, as a reference for its black background. Change the sketch's off-white background around the head and neck to solid pure black, matching the original photo. Retain the existing pencil-sketch face, recognizable facial features, slightly raised eyebrow, small wry smile, goatee, pose and tight square crop. Keep the light face and graphite detail clear against the black background. Make the shirt dark as in the photo. No white paper margins, no frame, no text, no extra objects. Preserve the sketch style and expression; only change the background and darken the shirt.

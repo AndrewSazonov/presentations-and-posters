@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 279.378 47.246 Q 285.488 48.43 290.711 51.818" style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" bx:shape="spiral 273.268 78.677 32.026 32.026 11 33 1@5a338b4d"/>
+  <path d="M 243 44 Q 269.793 43.998 292.997 57.393 Q 316.201 70.788 329.6 93.992 Q 342.998 117.195 343 143.99" style="fill: none; stroke-width: 20px; stroke: rgb(182, 213, 236);" bx:shape="spiral 243 143.99 100 100 0 90 1@5ea3df75"/>
+  <path d="M 243 -251.975 Q 269.793 -251.977 292.997 -238.582 Q 316.201 -225.187 329.6 -201.983 Q 342.998 -178.78 343 -151.985" style="fill: none; stroke-width: 20px; stroke: rgb(96, 185, 228);" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="spiral 243 -151.985 100 100 0 90 1@2af23d1a"/>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="29.725">PROPOSAL AND REVIEW</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="53.189">SCHEDULING</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="78.691">SAMPLE HANDLING</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="103.845">VIRTUAL EXPERIMENT</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="129.969">SAFETY TRAINING</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364.038" y="176.911">SAMPLE ENV. CONTROL</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="200.715">INSTRUMENT CONTROL</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="225.868">DATA ACQUISITION</text>
+  <text style="fill: rgb(247, 247, 247); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" x="364" y="251.314">LIVE DATA</text>
+  <text style="fill: rgb(182, 214, 236); font-family: &quot;Encode Sans&quot;; font-size: 14px; font-weight: 700; white-space: pre;" x="242" y="27.39">Idea</text>
+  <text style="fill: rgb(196, 196, 196); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" transform="matrix(1, 0, 0, 1, -10.184982, -3.094139)"><tspan x="255.185" y="121.457">EXPERIMENT</tspan><tspan x="255.185" dy="1em">​</tspan><tspan>PLANNING</tspan></text>
+  <text style="fill: rgb(196, 196, 196); font-family: &quot;Encode Sans Condensed&quot;; font-size: 11px; font-weight: 600; white-space: pre;" transform="matrix(1, 0, 0, 1, -10.185013, 57.883934)"><tspan x="255.185" y="121.457">NEUTRON</tspan><tspan x="255.185" dy="1em">​</tspan><tspan>EXPERIMENT</tspan></text>
+</svg>
