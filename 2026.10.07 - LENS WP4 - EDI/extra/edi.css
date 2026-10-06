@@ -1,19 +1,7 @@
 /* Additions for the LENS WP4 talk (EasyDiffraction and crysta) — on top of style.css and talk.css,
    which are the DMSC crysta deck's own, unchanged, so the two talks look the same. */
 
-/* Title: the two products, side by side, before their names are spoken. */
-.reveal .title-marks { display: flex; justify-content: center; align-items: center; gap: 70px;
-                       height: 150px; margin: 0 0 0.6em; }
-.reveal .title-marks img { height: 92px; width: auto; margin: 0; border: none; box-shadow: none; }
-.reveal .title-marks .wordmark { font-size: 1.9em; line-height: 1; color: rgb(164, 209, 114);
-                                 letter-spacing: -0.01em; }
-.reveal .title-marks .plus { font-size: 1.2em; color: #555; }
-
-/* "new": a small tag riding on crysta wherever the name is set large. */
-.reveal .tag-new { display: inline-block; vertical-align: 0.9em; margin-left: 0.35em;
-                   padding: 0.12em 0.45em 0.18em; border-radius: 4px; font-size: 0.32em;
-                   letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
-                   color: #fff; background: #a37c59; }
+/* The event line under the byline on the title slide. */
 .reveal .event { color: #6f6f6f; font-size: 0.6em; margin-top: 0.4em; }
 
 /* "Many tools": two groups of names, each name its own element so they can arrive one by one. */
@@ -50,3 +38,45 @@
                        border: none; box-shadow: none; }
 .reveal .libshot .libcap { margin: 0.45em 0 0; font-size: 0.62em; color: #bbb; }
 .reveal .grp-names .nm.semi-hidden, .reveal .grp-label.semi-hidden { opacity: 0.2; }
+
+/* --- one slot holding several screenshots (from the NOBUGS deck, centred as this deck is) -------
+   The slot carries no data-id: only the pictures inside it are paired by auto-animate, so nothing
+   is moved twice. Every step carries every picture, unrevealed ones `hid`. */
+.reveal .shotbox { position: relative; width: 860px; height: 500px; margin: 0.3em auto 0; }
+.reveal .shotbox img { position: absolute; left: 0; top: 0; margin: 0; width: 100%;
+                       height: calc(var(--zoom, 1) * 100%); object-fit: contain;
+                       border: none; box-shadow: none; border-radius: 6px; max-width: none; max-height: none; }
+/* A cross-fade that does not dip dark: the outgoing picture (`prev`) is pinned opaque underneath
+   and the incoming one fades in on top of it. auto-animate drives opacity through an !important
+   rule of its own, hence the !important here. */
+.reveal .shotbox img { z-index: 1; }
+.reveal .shotbox img.hid.prev { opacity: 1 !important; z-index: 2; }
+.reveal .shotbox img:not(.hid) { z-index: 3; }
+/* The last step puts all four side by side, each under its year, so the claim can be checked. */
+.reveal .shotbox .yr { display: none; }
+.reveal .shotbox.four { display: grid; grid-template-columns: repeat(2, auto); justify-content: center;
+                        column-gap: 18px; height: 500px; align-content: start; }
+.reveal .shotbox.four img { position: static; width: auto; height: 210px; justify-self: center; }
+.reveal .shotbox.four .yr { display: block; font-size: 0.46em; color: #999; margin: 0 0 4px; }
+.reveal .shotbox.four .yr:nth-of-type(n+3) { margin-top: 14px; }
+.reveal .shotbox.four .yr:nth-of-type(1) { grid-area: 1 / 1; }
+.reveal .shotbox.four img:nth-of-type(1) { grid-area: 2 / 1; }
+.reveal .shotbox.four .yr:nth-of-type(2) { grid-area: 1 / 2; }
+.reveal .shotbox.four img:nth-of-type(2) { grid-area: 2 / 2; }
+.reveal .shotbox.four .yr:nth-of-type(3) { grid-area: 3 / 1; }
+.reveal .shotbox.four img:nth-of-type(3) { grid-area: 4 / 1; }
+.reveal .shotbox.four .yr:nth-of-type(4) { grid-area: 3 / 2; }
+.reveal .shotbox.four img:nth-of-type(4) { grid-area: 4 / 2; }
+
+/* The review e-mail: zoomed inside a box that stays put and clips it, so the slide never re-lays out. */
+.reveal .shotbox.mailbox { width: 859px; height: 496px; overflow: hidden; }   /* the marks assume this box */
+.reveal .shotbox.mailbox img { width: auto; object-fit: initial; }
+/* A marker stroke over the zoomed e-mail, drawn left to right once its step is on screen. It is
+   present closed on every step, so the step merge never gives it a fade. */
+.reveal .shotbox .hl { position: absolute; z-index: 4; background: #d19966; opacity: 0.42;
+                       border-radius: 3px; pointer-events: none; clip-path: inset(0 100% 0 0); }
+.reveal .shotbox .hl.on { clip-path: inset(0 0 0 0); }
+@keyframes marker-pen { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+/* `> .sbody` matches the current step only: the stack itself is also `section.present`. */
+.reveal .slides section.present > .sbody .shotbox .hl.on:not(.done) {
+    animation: marker-pen 0.42s cubic-bezier(0.25, 0.1, 0.35, 1) var(--pen, 0.35s) both; }

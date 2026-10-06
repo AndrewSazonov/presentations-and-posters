@@ -8,16 +8,16 @@
     <meta name="theme-color" content="#333333">
     <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006193123">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006193123">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006193123">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006193123">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006193328">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006193328">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006193328">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006193328">
 
-    <link rel="stylesheet" href="dist/reset.css?v=20261006193123">
-    <link rel="stylesheet" href="dist/reveal.css?v=20261006193123">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006193123">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20261006193123">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006193123">
+    <link rel="stylesheet" href="dist/reset.css?v=20261006193328">
+    <link rel="stylesheet" href="dist/reveal.css?v=20261006193328">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006193328">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20261006193328">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006193328">
   </head>
 
   <body>
@@ -107,11 +107,7 @@
 <section>
 
 <section class="freeform" data-auto-animate data-auto-animate-restart>
-  <div class="sbody" data-id="sbody"><div class="hid title-marks" data-id="marks">
-    <img src="images/logo-easydiffraction.svg" alt="EasyDiffraction" data-id="mark-ed">
-    <span class="plus" data-id="mark-plus">+</span>
-    <span class="wordmark" data-id="mark-crysta">crysta<span class="tag-new">new</span></span>
-  </div><h3 class="hid deck-title" data-id="title"><span>EasyDiffraction and crysta</span></h3><p class="hid blue subtitle">Reusing crystallographic libraries,<br>and building our own</p>
+  <div class="sbody" data-id="sbody"><h3 class="hid deck-title" data-id="title"><span>EasyDiffraction and crysta</span></h3><p class="hid blue subtitle">Reusing crystallographic libraries,<br>and building our own</p>
   <p class="byline">Andrew Sazonov<br/>ESS DMSC</p><p class="hid event">LENS WP4 &middot; 7 October 2026</p></div>
 <aside class="hid notes">
     Two routes to the same goal. EasyDiffraction puts one interface on top of existing
@@ -122,26 +118,6 @@
 
 <section class="freeform" data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <div class="title-marks" data-id="marks">
-    <img src="images/logo-easydiffraction.svg" alt="EasyDiffraction" data-id="mark-ed">
-    <span class="plus" data-id="mark-plus">+</span>
-    <span class="wordmark" data-id="mark-crysta">crysta<span class="tag-new">new</span></span>
-  </div><h3 class="hid deck-title" data-id="title"><span>EasyDiffraction and crysta</span></h3><p class="hid blue subtitle">Reusing crystallographic libraries,<br>and building our own</p>
-  <p class="byline">Andrew Sazonov<br/>ESS DMSC</p><p class="hid event">LENS WP4 &middot; 7 October 2026</p></div>
-<aside class="hid notes">
-    Two routes to the same goal. EasyDiffraction puts one interface on top of existing
-    crystallographic libraries; crysta is the in-house engine, new this year, written to find out
-    how far the calculation itself can be pushed. The talk follows that order.
-  </aside>
-</section>
-
-<section class="freeform" data-auto-animate>
-  <div class="sbody" data-id="sbody">
-  <div class="title-marks" data-id="marks">
-    <img src="images/logo-easydiffraction.svg" alt="EasyDiffraction" data-id="mark-ed">
-    <span class="plus" data-id="mark-plus">+</span>
-    <span class="wordmark" data-id="mark-crysta">crysta<span class="tag-new">new</span></span>
-  </div>
   <h3 class="deck-title" data-id="title"><span>EasyDiffraction and crysta</span></h3><p class="hid blue subtitle">Reusing crystallographic libraries,<br>and building our own</p>
   <p class="byline">Andrew Sazonov<br/>ESS DMSC</p><p class="hid event">LENS WP4 &middot; 7 October 2026</p></div>
 <aside class="hid notes">
@@ -153,11 +129,6 @@
 
 <section class="freeform" data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <div class="title-marks" data-id="marks">
-    <img src="images/logo-easydiffraction.svg" alt="EasyDiffraction" data-id="mark-ed">
-    <span class="plus" data-id="mark-plus">+</span>
-    <span class="wordmark" data-id="mark-crysta">crysta<span class="tag-new">new</span></span>
-  </div>
   <h3 class="deck-title" data-id="title"><span>EasyDiffraction and crysta</span></h3>
   <p class="blue subtitle">Reusing crystallographic libraries,<br>and building our own</p>
   <p class="byline">Andrew Sazonov<br/>ESS DMSC</p>
@@ -1017,13 +988,173 @@
 
 </section>
 
+<!-- 2.3 Several years of improving UI/UX: four versions in one slot, then all four -->
+<section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out" data-auto-animate-restart>
+  <div class="sbody" data-id="sbody">
+  <h3>Several years of improving UI/UX</h3>
+  <div class="shotbox evo">
+    <img data-id="v1" src="images/ed-design-2019.png" alt="the first mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png" alt="the 2021 design">
+    <img class="hid" data-id="v4" src="images/ed-analysis-2026.png" alt="the current application">
+    <span class="yr" data-id="y1">2019</span>
+    <span class="yr" data-id="y2">2020</span>
+    <span class="yr" data-id="y3">2021</span>
+    <span class="yr" data-id="y4">2023&ndash;today</span>
+  </div>
+  <p class="step sub" data-id="evocap">2019 &middot; the <span class="blue">first mock-up</span>, for diffraction</p></div>
+<aside class="hid notes">
+    All four at once at the end, so the claim can be checked rather than remembered: name what was removed each time. None of these iterations added a feature to the screen; the functionality grew the whole time, but it moved into the advanced view, into text mode or into the Python library.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Several years of improving UI/UX</h3>
+  <div class="shotbox evo">
+    <img class="hid prev" data-id="v1" src="images/ed-design-2019.png" alt="the first mock-up">
+    <img data-id="v2" src="images/ed-design-2020.png" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png" alt="the 2021 design">
+    <img class="hid" data-id="v4" src="images/ed-analysis-2026.png" alt="the current application">
+    <span class="yr" data-id="y1">2019</span>
+    <span class="yr" data-id="y2">2020</span>
+    <span class="yr" data-id="y3">2021</span>
+    <span class="yr" data-id="y4">2023&ndash;today</span>
+  </div>
+  <p class="step sub" data-id="evocap">2020 &middot; eight tabs became <span class="blue">six</span></p></div>
+<aside class="hid notes">
+    All four at once at the end, so the claim can be checked rather than remembered: name what was removed each time. None of these iterations added a feature to the screen; the functionality grew the whole time, but it moved into the advanced view, into text mode or into the Python library.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Several years of improving UI/UX</h3>
+  <div class="shotbox evo">
+    <img class="hid" data-id="v1" src="images/ed-design-2019.png" alt="the first mock-up">
+    <img class="hid prev" data-id="v2" src="images/ed-design-2020.png" alt="the 2020 design">
+    <img data-id="v3" src="images/ed-design-2021.png" alt="the 2021 design">
+    <img class="hid" data-id="v4" src="images/ed-analysis-2026.png" alt="the current application">
+    <span class="yr" data-id="y1">2019</span>
+    <span class="yr" data-id="y2">2020</span>
+    <span class="yr" data-id="y3">2021</span>
+    <span class="yr" data-id="y4">2023&ndash;today</span>
+  </div>
+  <p class="step sub" data-id="evocap">2021 &middot; <span class="blue">simpler, cleaner, lighter</span></p></div>
+<aside class="hid notes">
+    All four at once at the end, so the claim can be checked rather than remembered: name what was removed each time. None of these iterations added a feature to the screen; the functionality grew the whole time, but it moved into the advanced view, into text mode or into the Python library.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Several years of improving UI/UX</h3>
+  <div class="shotbox evo">
+    <img class="hid" data-id="v1" src="images/ed-design-2019.png" alt="the first mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png" alt="the 2020 design">
+    <img class="hid prev" data-id="v3" src="images/ed-design-2021.png" alt="the 2021 design">
+    <img data-id="v4" src="images/ed-analysis-2026.png" alt="the current application">
+    <span class="yr" data-id="y1">2019</span>
+    <span class="yr" data-id="y2">2020</span>
+    <span class="yr" data-id="y3">2021</span>
+    <span class="yr" data-id="y4">2023&ndash;today</span>
+  </div>
+  <p class="step sub" data-id="evocap">2023&ndash;today &middot; the same shape, <span class="blue">easier to use</span></p></div>
+<aside class="hid notes">
+    All four at once at the end, so the claim can be checked rather than remembered: name what was removed each time. None of these iterations added a feature to the screen; the functionality grew the whole time, but it moved into the advanced view, into text mode or into the Python library.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Several years of improving UI/UX</h3>
+  <div class="shotbox evo four">
+    <img data-id="v1" src="images/ed-design-2019.png" alt="the first mock-up">
+    <img data-id="v2" src="images/ed-design-2020.png" alt="the 2020 design">
+    <img data-id="v3" src="images/ed-design-2021.png" alt="the 2021 design">
+    <img data-id="v4" src="images/ed-analysis-2026.png" alt="the current application">
+    <span class="yr" data-id="y1">2019</span>
+    <span class="yr" data-id="y2">2020</span>
+    <span class="yr" data-id="y3">2021</span>
+    <span class="yr" data-id="y4">2023&ndash;today</span>
+  </div>
+  <p class="step sub" data-id="evocap">Almost every iteration <span class="blue">removed</span> something</p>
+  </div>
+<aside class="notes">
+    All four at once at the end, so the claim can be checked rather than remembered: name what was removed each time. None of these iterations added a feature to the screen; the functionality grew the whole time, but it moved into the advanced view, into text mode or into the Python library.
+  </aside>
+</section>
+
+</section>
+
+<!-- 2.4 Approved by experts: who they are, what they wrote, the two lines that matter -->
+<section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out" data-auto-animate-restart>
+  <div class="sbody" data-id="sbody">
+  <h3>Approved by experts</h3>
+  <div class="shotbox mailbox">
+    <img data-id="site" src="images/designpsykologi.png" alt="the Design Psychology home page" style="left: 35px">
+    <img class="hid" data-id="mail" src="images/ux-expert-email.png" alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface" style="left: 206px">
+    <div class="hl" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
+    <div class="hl" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
+  </div>
+  <p class="step sub" data-id="expcap"><svg class="hid ico lead" viewBox="0 0 512 512"><use href="#i-stamp"/></svg>Two workshops with <span class="blue">Design Psychology</span> &middot; a UX Expert Review</p></div>
+<aside class="hid notes">
+    The method is theirs, not ours: the UX Expert Review, Rune N&oslash;rager, Design Psychology, 2021. Show who they are before what they said, or the compliment reads as self-congratulation. Let the two marker strokes finish before speaking over them: the zoom takes half a second, the strokes land about 1.5 s after the click.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Approved by experts</h3>
+  <div class="shotbox mailbox">
+    <img class="hid" data-id="site" src="images/designpsykologi.png" alt="the Design Psychology home page" style="left: 35px">
+    <img data-id="mail" src="images/ux-expert-email.png" alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface" style="left: 206px">
+    <div class="hl" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
+    <div class="hl" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
+  </div>
+  <p class="step sub" data-id="expcap"><svg class="hid ico lead" viewBox="0 0 512 512"><use href="#i-stamp"/></svg>Then they reviewed <span class="blue">our interface</span></p></div>
+<aside class="hid notes">
+    The method is theirs, not ours: the UX Expert Review, Rune N&oslash;rager, Design Psychology, 2021. Show who they are before what they said, or the compliment reads as self-congratulation. Let the two marker strokes finish before speaking over them: the zoom takes half a second, the strokes land about 1.5 s after the click.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Approved by experts</h3>
+  <div class="shotbox mailbox">
+    <img class="hid" data-id="site" src="images/designpsykologi.png" alt="the Design Psychology home page" style="left: 35px">
+    <img data-id="mail" src="images/ux-expert-email.png" alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface" style="left: 0; --zoom: 1.922">
+    <div class="hl on" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
+    <div class="hl on" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
+  </div>
+  <p class="step sub" data-id="expcap"><svg class="hid ico lead" viewBox="0 0 512 512"><use href="#i-stamp"/></svg>Then they reviewed <span class="blue">our interface</span></p></div>
+<aside class="hid notes">
+    The method is theirs, not ours: the UX Expert Review, Rune N&oslash;rager, Design Psychology, 2021. Show who they are before what they said, or the compliment reads as self-congratulation. Let the two marker strokes finish before speaking over them: the zoom takes half a second, the strokes land about 1.5 s after the click.
+  </aside>
+</section>
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>Approved by experts</h3>
+  <div class="shotbox mailbox">
+    <img class="hid" data-id="site" src="images/designpsykologi.png" alt="the Design Psychology home page" style="left: 35px">
+    <img data-id="mail" src="images/ux-expert-email.png" alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface" style="left: 0; --zoom: 1.922">
+    <div class="hl on done" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
+    <div class="hl on done" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
+  </div>
+  <p class="step sub" data-id="expcap"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-stamp"/></svg><span class="blue">Approved</span> by the experts</p>
+  </div>
+<aside class="notes">
+    The method is theirs, not ours: the UX Expert Review, Rune N&oslash;rager, Design Psychology, 2021. Show who they are before what they said, or the compliment reads as self-congratulation. Let the two marker strokes finish before speaking over them: the zoom takes half a second, the strokes land about 1.5 s after the click.
+  </aside>
+</section>
+
+</section>
+
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20261006193123"></script>
-    <script src="plugin/notes/notes.js?v=20261006193123"></script>
-    <script src="plugin/markdown/markdown.js?v=20261006193123"></script>
-    <script src="plugin/highlight/highlight.js?v=20261006193123"></script>
+    <script src="dist/reveal.js?v=20261006193328"></script>
+    <script src="plugin/notes/notes.js?v=20261006193328"></script>
+    <script src="plugin/markdown/markdown.js?v=20261006193328"></script>
+    <script src="plugin/highlight/highlight.js?v=20261006193328"></script>
     <script>
       Reveal.initialize({
           width: 1200,
@@ -1053,8 +1184,8 @@
               const issues = [];
               if (r.height > box.height + 1) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
-                // Inside a clipping window (the carousel), leaving the box is the point.
-                if (el.closest('.carousel')) return;
+                // Inside a clipping window (the carousel, the zoomed e-mail), leaving the box is the point.
+                if (el.closest('.carousel, .mailbox')) return;
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 if (e.bottom > box.bottom + 2) issues.push(`v-spill <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);

@@ -99,8 +99,8 @@ TAIL = """
               const issues = [];
               if (r.height > box.height + 1) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
-                // Inside a clipping window (the carousel), leaving the box is the point.
-                if (el.closest('.carousel')) return;
+                // Inside a clipping window (the carousel, the zoomed e-mail), leaving the box is the point.
+                if (el.closest('.carousel, .mailbox')) return;
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 if (e.bottom > box.bottom + 2) issues.push(`v-spill <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
