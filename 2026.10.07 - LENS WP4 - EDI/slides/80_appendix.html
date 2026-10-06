@@ -1,0 +1,955 @@
+<div class="external-slide">
+
+<!-- B.0 Backup -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>For questions</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>For questions</h3>
+  <p class="reference" data-id="credits">Photographs: VPNsRus.com / mikemacmarketing, Brandon Grasley, Marnie Joyce, MikeRun, Nicu Buculei &mdash; all CC BY 2.0 via Wikimedia Commons &middot; rocket launch: Scott Andrews / NASA, public domain &middot; rubber duck: Mirko Tobias Sch&auml;fer, CC BY 2.0 &middot; facepalm statue, Tuileries: Alex E. Proimos, CC BY 2.0 &middot; the puzzle is made here from a photograph of Enrico Fermi at the blackboard (Smithsonian Institution, public domain) &middot; the 1902 Wright glider: public domain &middot; Caravaggio, Saint Jerome Writing: public domain &middot; IUCr 2026 logo: IUCr &middot; icons: Font Awesome Free, CC BY 4.0 &middot; conference slides photographed at IUCr 2026, &copy; their authors</p>
+</section>
+
+</section>
+
+<!-- B.1 And Rust? -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>And Rust?</h3>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>And Rust?</h3>
+  <p class="step"><span class="green">Both support fast native code</span> · both support compiled, generic code and vector operations</p>
+  <p class="step"><span class="green">Safer by construction</span> · safe Rust prevents some memory errors. Our C++ checks catch some errors at build time or during tests.</p>
+  <p class="step"><span class="red">Our integration choice</span> · C++ fits our Qt design. A Rust bridge would not always require copying data.</p>
+  <p class="statement">Rust would also be a reasonable option</p>
+</section>
+
+</section>
+
+<!-- B.2 The same trick in Python -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Why a Python Dual class is not the same</h3>
+  
+  <div class="compare">
+    
+    
+  </div>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Why a Python Dual class is not the same</h3>
+  <pre class="small"><code class="language-cpp" data-trim>
+template &lt;typename T&gt;
+T gaussian(T A, T x, T x0, T sigma) {
+    T d = x - x0;
+    return A * exp(-d * d / (T(2) * sigma * sigma));
+}
+  </code></pre>
+  <div class="compare">
+    <div>
+      <h4 class="blue">Python <code>class Dual</code></h4>
+      each <code>*</code> is a method lookup,<br>a new heap object, reference counting<br>
+      <span class="red">≈ 200 – 500 ns</span> per operation
+    </div>
+    <div>
+      <h4 class="blue">C++ <code>template&lt;T&gt;</code></h4>
+      a dual is two doubles in CPU registers,<br>the compiler can inline the operators<br>
+      <span class="green">≈ 1 ns</span> per operation
+    </div>
+  </div>
+  <p class="step">JAX also supports forward-mode derivatives. C++ is one implementation choice.</p>
+</section>
+
+</section>
+
+<!-- backup: derivatives for free -->
+<section data-reserve="off">
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Automatic differentiation</h3>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Automatic differentiation</h3>
+  <p class="statement" data-id="dn1">A number becomes a pair: <span class="blue">(value, slope)</span></p>
+  <p class="statement" data-id="dn3">y = x² at x = 3 :  (3, 1) × (3, 1) = (9, <span class="green">6</span>)</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Automatic differentiation</h3>
+  <p class="statement" data-id="dn1">A number becomes a pair: <span class="blue">(value, slope)</span></p>
+  <p class="statement" data-id="dn3">y = x² at x = 3 :  (3, 1) × (3, 1) = (9, <span class="green">6</span>)</p>
+  <p class="step" data-id="dn4">The calculus lives <span class="blue">once</span>, in about 15 primitive rules · the physics never sees it</p>
+  <aside class="notes">Rules for questions: (a, a′) × (b, b′) = (a·b, a′·b + a·b′) is the product rule; exp((a, a′)) = (exp a, exp a · a′) is the chain rule. Seed the parameter of interest with slope 1 and everything else with slope 0. AD agrees with central finite differences to 1.3e-6 on every column.</aside>
+</section>
+
+<section data-auto-animate>
+  <h3>Automatic differentiation</h3>
+  <p class="statement" data-id="dn1">A number becomes a pair: <span class="blue">(value, slope)</span></p>
+  <svg viewBox="0 0 830 300" style="width:75%">
+    <g data-id="once">
+      <rect x="20" y="105" width="260" height="90" rx="10" style="fill: rgb(133, 86, 29);"/>
+      <text x="150" y="143" text-anchor="middle" style="font-size:24px; fill: rgb(225, 184, 129)">the physics,</text>
+      <text x="150" y="175" text-anchor="middle" style="font-size:24px; fill: rgb(225, 184, 129)">written once</text>
+    </g>
+    <g data-id="arrows4">
+      <line x1="280" y1="150" x2="400" y2="40" style="stroke:#999; stroke-width:3"/>
+      <line x1="280" y1="150" x2="400" y2="115" style="stroke:#999; stroke-width:3"/>
+      <line x1="280" y1="150" x2="400" y2="190" style="stroke:#999; stroke-width:3"/>
+      <line x1="280" y1="150" x2="400" y2="265" style="stroke:#999; stroke-width:3"/>
+    </g>
+    <g data-id="uses">
+      <rect x="405" y="15" width="400" height="50" rx="6" style="fill: rgb(96, 188, 232);"/>
+      <text x="605" y="47" text-anchor="middle" style="font-size:21px; fill:#222">the value</text>
+      <rect x="405" y="90" width="400" height="50" rx="6" style="fill: rgb(164, 209, 114);"/>
+      <text x="605" y="122" text-anchor="middle" style="font-size:21px; fill:#222">the value and one exact derivative</text>
+      <rect x="405" y="165" width="400" height="50" rx="6" style="fill: rgb(164, 209, 114);"/>
+      <text x="605" y="197" text-anchor="middle" style="font-size:21px; fill:#222">the value and 16 derivatives, in one pass</text>
+      <rect x="405" y="240" width="400" height="50" rx="6" style="fill: rgb(226, 183, 129);"/>
+      <text x="605" y="272" text-anchor="middle" style="font-size:21px; fill:#222">eight data points at once</text>
+    </g>
+  </svg>
+  <p class="step" data-id="dn5">No separate derivative formulas · the compiler builds all four from the same formula</p>
+  <aside class="notes">In C++ this is a template over the scalar type: double, dual, dualn&lt;16&gt;, SIMD packet. In Python the same trick costs an object per number, which is the 2810 ms bar. JAX also supports forward-mode differentiation. The best choice depends on the model, its inputs and its outputs.</aside>
+</section>
+
+</section>
+
+<!-- backup: 4.4 Completeness: crysta today -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>How complete is the engine?</h3>
+  
+  
+  
+  <aside class="notes">crysta docs/dev/features.md, Impl column, derived 2026-09-03; line-segment background counted as implemented because it ships and the catalog row lags. Backup slide compares against today's EasyDiffraction feature list.</aside>
+</section>
+
+<section data-auto-animate>
+  <h3>How complete is the engine?</h3>
+  <p class="blue">implemented / partial / planned, by area</p>
+  <svg viewBox="0 0 830 400" style="width:61.5%">
+    <g data-id="legend">
+      <rect x="470" y="8" width="16" height="16" style="fill:#98c379"/><text x="492" y="22" style="font-size:16px; fill:#ccc">implemented</text>
+      <rect x="600" y="8" width="16" height="16" style="fill:#d19966"/><text x="622" y="22" style="font-size:16px; fill:#ccc">partial</text>
+      <rect x="690" y="8" width="16" height="16" style="fill:#444"/><text x="712" y="22" style="font-size:16px; fill:#ccc">planned</text>
+    </g>
+    <g data-id="rows" style="font-size:17px">
+      <text x="320" y="52" text-anchor="end" style="fill:#fff; font-size:15px">Structure model</text>
+<rect x="330" y="38" width="122" height="20" style="fill:#98c379"/><rect x="452" y="38" width="36" height="20" style="fill:#d19966"/><rect x="488" y="38" width="122" height="20" style="fill:#444"/>
+      <text x="320" y="88" text-anchor="end" style="fill:#fff; font-size:15px">Scattering &amp; structure factors</text>
+<rect x="330" y="74" width="49" height="20" style="fill:#98c379"/><rect x="379" y="74" width="85" height="20" style="fill:#444"/>
+      <text x="320" y="124" text-anchor="end" style="fill:#fff; font-size:15px">Peak profiles, TOF</text>
+<rect x="330" y="110" width="73" height="20" style="fill:#98c379"/><rect x="403" y="110" width="24" height="20" style="fill:#d19966"/><rect x="427" y="110" width="24" height="20" style="fill:#444"/>
+      <text x="320" y="160" text-anchor="end" style="fill:#fff; font-size:15px">Peak profiles, constant wavelength</text>
+<rect x="330" y="146" width="12" height="20" style="fill:#98c379"/><rect x="342" y="146" width="24" height="20" style="fill:#d19966"/><rect x="366" y="146" width="85" height="20" style="fill:#444"/>
+      <text x="320" y="196" text-anchor="end" style="fill:#fff; font-size:15px">Corrections</text>
+<rect x="330" y="182" width="12" height="20" style="fill:#98c379"/><rect x="342" y="182" width="182" height="20" style="fill:#444"/>
+      <text x="320" y="232" text-anchor="end" style="fill:#fff; font-size:15px">Background</text>
+<rect x="330" y="218" width="12" height="20" style="fill:#98c379"/><rect x="342" y="218" width="73" height="20" style="fill:#444"/>
+      <text x="320" y="268" text-anchor="end" style="fill:#fff; font-size:15px">Refinement &amp; minimisation</text>
+<rect x="330" y="254" width="73" height="20" style="fill:#98c379"/><rect x="403" y="254" width="24" height="20" style="fill:#d19966"/><rect x="427" y="254" width="303" height="20" style="fill:#444"/>
+      <text x="320" y="304" text-anchor="end" style="fill:#fff; font-size:15px">Total scattering / PDF</text>
+<rect x="330" y="290" width="109" height="20" style="fill:#444"/>
+      <text x="320" y="340" text-anchor="end" style="fill:#fff; font-size:15px">Magnetic</text>
+<rect x="330" y="326" width="12" height="20" style="fill:#98c379"/><rect x="342" y="326" width="36" height="20" style="fill:#444"/>
+      <text x="320" y="376" text-anchor="end" style="fill:#fff; font-size:15px">Software &amp; workflow</text>
+<rect x="330" y="362" width="109" height="20" style="fill:#98c379"/><rect x="439" y="362" width="36" height="20" style="fill:#d19966"/><rect x="475" y="362" width="158" height="20" style="fill:#444"/>
+    </g>
+  </svg>
+  <p class="chart-note">Source: crysta feature catalog, September 2026 · one bar segment per feature</p>
+  <aside class="notes">crysta docs/dev/features.md, Impl column, derived 2026-09-03; line-segment background counted as implemented because it ships and the catalog row lags. Backup slide compares against today's EasyDiffraction feature list.</aside>
+</section>
+
+<section data-auto-animate>
+  <h3>How complete is the engine?</h3>
+  <p class="blue">implemented / partial / planned, by area</p>
+  <p class="statement" data-id="c1">Today: the <span class="blue">TOF neutron powder</span> path, end to end, verified against FullProf</p>
+  <p class="statement" data-id="c2">Constant wavelength on the public API · everything else documented and planned</p>
+</section>
+
+</section>
+
+<!-- B.3 crysta vs EasyDiffraction today -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>crysta vs EasyDiffraction today</h3>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>crysta vs EasyDiffraction today</h3>
+  <svg viewBox="0 0 830 420" style="width:78%">
+    <g data-id="legend2">
+      <rect x="330" y="8" width="16" height="16" style="fill:#98c379"/><text x="352" y="22" style="font-size:16px; fill:#ccc">diffraction-lib (3 external engines)</text>
+      <rect x="600" y="8" width="16" height="16" style="fill:rgb(109, 209, 255)"/><text x="622" y="22" style="font-size:16px; fill:#ccc">crysta today</text>
+      <rect x="720" y="8" width="16" height="16" style="fill:#2b4a5c"/><text x="742" y="22" style="font-size:16px; fill:#ccc">planned</text>
+    </g>
+    <g data-id="rows2" style="font-size:16px">
+      <text x="300" y="52" text-anchor="end" style="fill:#fff">Structure model (17)</text>
+      <rect x="310" y="38" width="441" height="12" style="fill:#98c379"/>
+      <rect x="310" y="52" width="441" height="12" style="fill:rgb(109, 209, 255)"/><rect x="751" y="52" width="59" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="94" text-anchor="end" style="fill:#fff">Magnetic structure (7)</text>
+      <rect x="310" y="94" width="500" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="136" text-anchor="end" style="fill:#fff">Instrument &amp; corrections (8)</text>
+      <rect x="310" y="122" width="500" height="12" style="fill:#98c379"/>
+      <rect x="310" y="136" width="188" height="12" style="fill:rgb(109, 209, 255)"/><rect x="498" y="136" width="312" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="178" text-anchor="end" style="fill:#fff">Peak profiles (8)</text>
+      <rect x="310" y="164" width="438" height="12" style="fill:#98c379"/>
+      <rect x="310" y="178" width="313" height="12" style="fill:rgb(109, 209, 255)"/><rect x="623" y="178" width="187" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="220" text-anchor="end" style="fill:#fff">Background, cutoff, PO, Le Bail, PDF (7)</text>
+      <rect x="310" y="206" width="429" height="12" style="fill:#98c379"/>
+      <rect x="310" y="220" width="143" height="12" style="fill:rgb(109, 209, 255)"/><rect x="453" y="220" width="357" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="262" text-anchor="end" style="fill:#fff">Single crystal (7)</text>
+      <rect x="310" y="248" width="286" height="12" style="fill:#98c379"/>
+      <rect x="310" y="262" width="500" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="304" text-anchor="end" style="fill:#fff">Calculation modes, multi-dataset (5)</text>
+      <rect x="310" y="290" width="500" height="12" style="fill:#98c379"/>
+      <rect x="310" y="304" width="500" height="12" style="fill:rgb(109, 209, 255)"/>
+      <text x="300" y="346" text-anchor="end" style="fill:#fff">Minimisers &amp; MCMC (10)</text>
+      <rect x="310" y="332" width="500" height="12" style="fill:#98c379"/>
+      <rect x="310" y="346" width="100" height="12" style="fill:rgb(109, 209, 255)"/><rect x="410" y="346" width="200" height="12" style="fill:#2b4a5c"/>
+      <text x="300" y="388" text-anchor="end" style="fill:#fff">Fit strategies &amp; constraints (7)</text>
+      <rect x="310" y="374" width="500" height="12" style="fill:#98c379"/>
+      <rect x="310" y="388" width="286" height="12" style="fill:rgb(109, 209, 255)"/><rect x="596" y="388" width="143" height="12" style="fill:#2b4a5c"/>
+    </g>
+  </svg>
+  <p class="chart-note">Engine-level features only · diffraction-lib features page vs crysta feature catalog, 2026-09-03 · bar = share of the group</p>
+</section>
+
+</section>
+
+<!-- B.4 The full stack -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>The full stack</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The full stack</h3>
+  <p>
+    <span class="tag-blue">C++20</span>
+    <span class="tag-blue">nanobind</span>
+    <span class="tag-blue">Qt / QML</span>
+    <span class="tag-blue">Qt for WebAssembly</span>
+    <span class="tag-orange">Eigen</span>
+    <span class="tag-orange">SLEEF</span>
+    <span class="tag-orange">OpenMP</span>
+    <span class="tag-grey">CMake</span>
+    <span class="tag-grey">pixi</span>
+  </p>
+  <p class="step">SIMD widths: AVX-512 (8 lanes), AVX2 (4), NEON (2), chosen at run time · SLEEF for vector exp, erfc, sin, cos, log, atan2</p>
+  <p class="step">Reproducibility gates in CI: SIMD width 0 / 4 / 8, threads 1 to 64, link-time optimisation on or off · byte-identical output</p>
+</section>
+
+</section>
+
+<!-- 3.6 Every core, eight numbers at a time -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Every core, eight numbers at a time</h3>
+  
+  
+  <aside class="notes">SIMD = Single Instruction, Multiple Data. AVX-512 holds 8 doubles, AVX2 4, NEON 2, chosen at run time. The standard maths library is scalar, so we use SLEEF for vector exp, erfc, sin, cos. Kernel 3.1x on AVX-512, structure-factor kernel 5.4x, whole fit 1.4 to 1.6x because the rest of the fit is not in those kernels.</aside>
+</section>
+
+<section data-auto-animate>
+  <h3>Every core, eight numbers at a time</h3>
+  <svg viewBox="0 0 830 300" style="width:75%">
+    <g data-id="lanes">
+      <text x="415" y="40" text-anchor="middle" style="font-size:20px; fill:#999">one peak · eight neighbouring points · one instruction</text>
+      <rect x="40" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="80" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₁</text>
+      <rect x="140" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="180" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₂</text>
+      <rect x="240" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="280" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₃</text>
+      <rect x="340" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="380" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₄</text>
+      <rect x="440" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="480" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₅</text>
+      <rect x="540" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="580" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₆</text>
+      <rect x="640" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="680" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₇</text>
+      <rect x="740" y="60" width="80" height="50" rx="4" style="fill:#252525; stroke:#666"/><text x="780" y="92" text-anchor="middle" style="font-size:20px; fill:#fff">δ₈</text>
+    </g>
+    <g data-id="op">
+      <rect x="40" y="140" width="780" height="50" rx="6" style="fill:rgb(109, 209, 255)"/>
+      <text x="430" y="173" text-anchor="middle" style="font-size:22px; fill:#222">one exp( ), one erfc( ) … for all eight at once</text>
+    </g>
+    <g data-id="out">
+      <rect x="40" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="80" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₁</text>
+      <rect x="140" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="180" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₂</text>
+      <rect x="240" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="280" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₃</text>
+      <rect x="340" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="380" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₄</text>
+      <rect x="440" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="480" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₅</text>
+      <rect x="540" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="580" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₆</text>
+      <rect x="640" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="680" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₇</text>
+      <rect x="740" y="220" width="80" height="50" rx="4" style="fill:#5d7555"/><text x="780" y="252" text-anchor="middle" style="font-size:20px; fill:#fff">y₈</text>
+    </g>
+  </svg>
+  <p class="step" data-id="simd">SIMD · peak kernel <span class="green">3.1×</span> · whole fit <span class="green">1.5×</span></p>
+  <aside class="notes">SIMD = Single Instruction, Multiple Data. AVX-512 holds 8 doubles, AVX2 4, NEON 2, chosen at run time. The standard maths library is scalar, so we use SLEEF for vector exp, erfc, sin, cos. Kernel 3.1x on AVX-512, structure-factor kernel 5.4x, whole fit 1.4 to 1.6x because the rest of the fit is not in those kernels.</aside>
+</section>
+
+<section data-auto-animate>
+  <h3>Every core, eight numbers at a time</h3>
+  <p class="blue">speed-up vs threads · 64-core Intel Xeon</p>
+  <svg viewBox="0 0 830 380" style="width:45%">
+    <g data-id="axes">
+      <line x1="90" y1="340" x2="800" y2="340" style="stroke:#666; stroke-width:2"/>
+      <line x1="90" y1="340" x2="90" y2="40" style="stroke:#666; stroke-width:2"/>
+      <text x="100" y="365" text-anchor="middle" style="font-size:18px; fill:#999">1</text>
+      <text x="210" y="365" text-anchor="middle" style="font-size:18px; fill:#999">2</text>
+      <text x="320" y="365" text-anchor="middle" style="font-size:18px; fill:#999">4</text>
+      <text x="430" y="365" text-anchor="middle" style="font-size:18px; fill:#999">8</text>
+      <text x="540" y="365" text-anchor="middle" style="font-size:18px; fill:#999">16</text>
+      <text x="650" y="365" text-anchor="middle" style="font-size:18px; fill:#999">32</text>
+      <text x="760" y="365" text-anchor="middle" style="font-size:18px; fill:#999">64 threads</text>
+      <text x="75" y="335" text-anchor="end" style="font-size:18px; fill:#999">1×</text>
+      <text x="75" y="233" text-anchor="end" style="font-size:18px; fill:#999">5×</text>
+      <text x="75" y="106" text-anchor="end" style="font-size:18px; fill:#999">10×</text>
+    </g>
+    <g data-id="fit">
+      <polyline points="100,330 210,328.5 320,320.8 430,304.8 540,290.3 650,276.0 760,273.8" style="fill:none; stroke:#d19966; stroke-width:4"/>
+      <text x="800" y="262" text-anchor="end" style="font-size:18px; fill:#d19966">light fit 3.2×</text>
+    </g>
+    <g data-id="j5">
+      <polyline points="100,330 210,312.2 320,280.4 430,232.5 540,171.4 650,115.7 760,93.6" style="fill:none; stroke:#98c379; stroke-width:4"/>
+      <text x="800" y="120" text-anchor="end" style="font-size:18px; fill:#98c379">5-bank joint 10.3×</text>
+    </g>
+    <g data-id="j1">
+      <polyline points="100,330 210,308.9 320,269.2 430,214.0 540,134.0 650,102.5 760,60.5" style="fill:none; stroke:rgb(109, 209, 255); stroke-width:4"/>
+      <text x="800" y="50" text-anchor="end" style="font-size:18px; fill:rgb(109, 209, 255)">1-bank JvD 11.6×</text>
+    </g>
+  </svg>
+  <p class="step" data-id="thr">Threads · one fit on 64 cores, up to <span class="green">11×</span> · and the answer is identical at 1 or 64</p>
+  <aside class="notes">crysta performance ledger, C22-T6: same binary, OMP_NUM_THREADS 1 to 64. OpenMP over disjoint chunks of the pattern, one writer per chunk, no atomics, so the output is byte-identical at any thread count. Light single-bank fits saturate around 3x, heavy joint fits scale to 10x and more.</aside>
+</section>
+
+</section>
+
+<!-- 3.7 Same answer, every time -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Same answer, every time</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Same answer, every time</h3>
+  <p class="step" data-id="r1">1 or 64 threads · 2, 4 or 8 numbers per instruction · tested compiler settings</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Same answer, every time</h3>
+  <p class="step" data-id="r1">1 or 64 threads · 2, 4 or 8 numbers per instruction · tested compiler settings</p>
+  <p class="statement" data-id="r4"><span class="green">Identical numbers</span>, to the last digit,<br>in the tested configurations</p>
+  <p class="step" data-id="r5">checked automatically on every change · these are the numbers that go into your paper</p>
+  <aside class="notes">CI asserts byte-identical output across SIMD widths 0/4/8, thread counts 1 to 64, and link-time optimisation on or off. These checks establish agreement for the configurations tested.</aside>
+</section>
+
+</section>
+
+<!-- 3.8 Where Python still wins -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Where Python still wins</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Where Python still wins</h3>
+  <p class="step" data-id="pw1"><span class="blue">Graphics cards</span> · Numba, JAX and PyTorch have a GPU path today</p>
+  <p class="step" data-id="pw2"><span class="blue">Exploration</span> · a new profile function in an afternoon</p>
+  <p class="step" data-id="pw3"><span class="blue">Orchestration</span> · a thousand datasets, notebooks, plots</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Where Python still wins</h3>
+  <p class="step semi-hidden" data-id="pw1"><span class="blue">Graphics cards</span> · Numba, JAX and PyTorch have a GPU path today</p>
+  <p class="step semi-hidden" data-id="pw2"><span class="blue">Exploration</span> · a new profile function in an afternoon</p>
+  <p class="step semi-hidden" data-id="pw3"><span class="blue">Orchestration</span> · a thousand datasets, notebooks, plots</p>
+  <p class="statement" data-id="pw4">The engine is C++ · the workflow around it is Python</p>
+</section>
+
+</section>
+
+<!-- 5.7 Measure the process -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Measure the process, delete the ritual</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Measure the process, delete the ritual</h3>
+  <p class="blue">median time to accept · 73 finished task cycles</p>
+  <svg viewBox="0 0 830 220" style="width:75%">
+    <g data-id="m1">
+      <text x="10" y="60" style="font-size:22px; fill:#fff">with a planning stage</text>
+      <rect x="290" y="38" width="510" height="34" rx="4" style="fill:#e06c75"/>
+      <text x="790" y="62" text-anchor="end" style="font-size:22px; fill:#222">4.5 h</text>
+    </g>
+    <g data-id="m2">
+      <text x="10" y="140" style="font-size:22px; fill:#fff">without</text>
+      <rect x="290" y="118" width="412" height="34" rx="4" style="fill:#98c379"/>
+      <text x="692" y="142" text-anchor="end" style="font-size:22px; fill:#222">3.7 h</text>
+    </g>
+  </svg>
+  <p class="chart-note">Source: our own cycle records, August 2026 · plan-first cycles also collected more rejections</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Measure the process, delete the ritual</h3>
+  <p class="blue">median time to accept · 73 finished task cycles</p>
+  <p class="statement" data-id="m3">The planning stage <span class="red">lost its default</span> ·<br>repeated plan changes can signal unclear requirements</p>
+  <p class="step" data-id="m4">Every number an agent reports names its source · no provenance, no number</p>
+  <aside class="notes">relay measurement E09-T44, n = 73. Seven silently wrong re-derivations in one session led to the provenance rule and a committed measurement index.</aside>
+</section>
+
+</section>
+
+<!-- 7.3 Not there yet -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Not there yet</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Not there yet</h3>
+  <p class="step" data-id="nt1">Nothing technically stops an agent from merging · discipline, not a lock</p>
+  <p class="step" data-id="nt2">No daily health check across the repositories</p>
+  <p class="step" data-id="nt3">No AI inside the product yet · assistants and what-if refits are drafted, not built</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Not there yet</h3>
+  <p class="step semi-hidden" data-id="nt1">Nothing technically stops an agent from merging · discipline, not a lock</p>
+  <p class="step semi-hidden" data-id="nt2">No daily health check across the repositories</p>
+  <p class="step semi-hidden" data-id="nt3">No AI inside the product yet · assistants and what-if refits are drafted, not built</p>
+  <p class="step" data-id="nt4">And the cost is not tracked · we measure hours, not tokens</p>
+</section>
+
+</section>
+
+<!-- 7.4 Summary -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>In one sentence</h3>
+</section>
+
+<section data-auto-animate>
+  <h3>In one sentence</h3>
+  <p class="statement" data-id="sum1">Several implementations can calculate one pattern quickly.</p>
+</section>
+
+<section data-auto-animate>
+  <h3>In one sentence</h3>
+  <p class="statement semi-hidden" data-id="sum1">Several implementations can calculate one pattern quickly.</p>
+  <p class="statement" data-id="sum2">Fitting hundreds of parameters <span class="blue">exactly</span>, <span class="blue">reproducibly</span>, on every core and in a browser is what this design buys.</p>
+</section>
+
+<section data-auto-animate>
+  <h3>In one sentence</h3>
+  <p class="statement semi-hidden" data-id="sum1">Several implementations can calculate one pattern quickly.</p>
+  <p class="statement semi-hidden" data-id="sum2">Fitting hundreds of parameters <span class="blue">exactly</span>, <span class="blue">reproducibly</span>, on every core and in a browser is what this design buys.</p>
+  <p class="statement" data-id="sum3">AI agents wrote the new code under a process with human oversight.</p>
+</section>
+
+
+</section>
+
+<!-- 2.1b What it looks like -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>What it looks like</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>What it looks like</h3>
+  <div class="placeholder tall">
+    <span class="kind">screenshot placeholder</span>
+    The web app or desktop app on a real dataset: pattern, residual, parameter table.<br>
+    The browser version still needs to be built and tested.
+  </div>
+</section>
+
+</section>
+
+<!-- 7.3 Risks and concerns -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Risks and concerns</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Risks and concerns</h3>
+  <p class="step compact" data-id="r1">Incorrect or incomplete requirements propagate into the implementation</p>
+  <p class="step compact" data-id="r2">Different LLMs may share the same wrong assumptions</p>
+  <p class="step compact" data-id="r3">Overcomplicated or hard-to-maintain solutions</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Risks and concerns</h3>
+  <p class="step compact" data-id="r1">Incorrect or incomplete requirements propagate into the implementation</p>
+  <p class="step compact" data-id="r2">Different LLMs may share the same wrong assumptions</p>
+  <p class="step compact" data-id="r3">Overcomplicated or hard-to-maintain solutions</p>
+  <p class="step compact" data-id="r4">LLM and provider availability, price changes</p>
+  <p class="step compact" data-id="r5">Human review becomes the bottleneck if every generated line must be read</p>
+  <aside class="notes">From the team discussion "How do we work with AI?" (github.com/orgs/easyscience/discussions/73): LLMs tend to treat context variants as requirements and over-complicate; returning to manual development after a long AI-only period may be nearly impossible; skills you do not use get rusty; the code must remain maintainable by humans. The Rust project's policy: LLMs may analyse, review and suggest, but not create soundness-critical code.</aside>
+</section>
+
+</section>
+
+<!-- 7.6 Opportunities -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Opportunities</h3>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Opportunities</h3>
+  <p class="step compact" data-id="o1">Higher development productivity</p>
+  <p class="step compact" data-id="o2">Developer effort moves from implementation details to specifications, architecture, scientific validation and user experience</p>
+  <p class="step compact" data-id="o3">Faster exploration and prototyping of alternative ideas</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Opportunities</h3>
+  <p class="step compact" data-id="o1">Higher development productivity</p>
+  <p class="step compact" data-id="o2">Developer effort moves from implementation details to specifications, architecture, scientific validation and user experience</p>
+  <p class="step compact" data-id="o3">Faster exploration and prototyping of alternative ideas</p>
+  <p class="step compact" data-id="o4">A separate AI review may find problems before human review</p>
+  <p class="step compact" data-id="o5">Larger projects become feasible with limited developer resources</p>
+</section>
+
+</section>
+
+<!-- 2.3 Small, instant, everywhere -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Small, instant, everywhere</h3>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Small, instant, everywhere</h3>
+  <p class="big-number" data-id="n1">1.2 MB</p>
+  <p class="big-label" data-id="l1">native binary, without Python</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Small, instant, everywhere</h3>
+  <p class="big-number" data-id="n1">1.2 MB</p>
+  <p class="big-label" data-id="l1">native binary, without Python</p>
+  <p class="statement" data-id="s2">The design shares one engine across four interfaces. The browser build is planned.</p>
+</section>
+
+</section>
+
+<!-- 5.4 Hidden tests -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Separate tests and implementation</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Separate tests and implementation</h3>
+  <p class="step" data-id="t1">Tests are written <span class="blue">first</span>, by a different agent
+    <span class="sub">calculated patterns and fits are checked against independent references such as FullProf · never against the code's own output</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>Separate tests and implementation</h3>
+  <p class="step" data-id="t1">Tests are written <span class="blue">first</span>, by a different agent
+    <span class="sub">calculated patterns and fits are checked against independent references such as FullProf · never against the code's own output</span></p>
+  <p class="step" data-id="t2">The coding agent can <span class="green">run</span> them but is <span class="red">blocked</span> from reading them
+    <span class="sub">by a permission hook, not by a prompt</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>Separate tests and implementation</h3>
+  <p class="step" data-id="t1">Tests are written <span class="blue">first</span>, by a different agent
+    <span class="sub">calculated patterns and fits are checked against independent references such as FullProf · never against the code's own output</span></p>
+  <p class="step" data-id="t2">The coding agent can <span class="green">run</span> them but is <span class="red">blocked</span> from reading them
+    <span class="sub">by a permission hook, not by a prompt</span></p>
+  <p class="step" data-id="t3">An unjustified weaker test is a <span class="red">blocking</span> review finding
+    <span class="sub">a loosened tolerance, a deleted assertion, an added skip</span></p>
+</section>
+
+</section>
+
+<!-- 5.5 Committed state -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Written down, or it did not happen</h3>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Written down, or it did not happen</h3>
+  <pre data-id="ledger"><code class="language-text" data-trim>
+r12  implement:  green   — all hidden tests pass
+r13  review:     reject  — a tolerance was loosened
+r15  review:     accept
+  </code></pre>
+  <p class="chart-note">A verdict ledger: one committed row per completed turn, append-only</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Written down, or it did not happen</h3>
+  <pre data-id="ledger"><code class="language-text" data-trim>
+r12  implement:  green   — all hidden tests pass
+r13  review:     reject  — a tolerance was loosened
+r15  review:     accept
+  </code></pre>
+  <p class="chart-note">A verdict ledger: one committed row per completed turn, append-only</p>
+  <p class="step" data-id="c1">A spoken "accept" is <span class="red">not</span> an accept · only the committed row closes a task</p>
+</section>
+
+<section data-auto-animate>
+  <h3>Written down, or it did not happen</h3>
+  <pre data-id="ledger"><code class="language-text" data-trim>
+r12  implement:  green   — all hidden tests pass
+r13  review:     reject  — a tolerance was loosened
+r15  review:     accept
+  </code></pre>
+  <p class="chart-note">A verdict ledger: one committed row per completed turn, append-only</p>
+  <p class="step" data-id="c1">A spoken "accept" is <span class="red">not</span> an accept · only the committed row closes a task</p>
+  <p class="step" data-id="c2">A missing or invalid record makes this check <span class="red">stop</span></p>
+  <aside class="notes">Real rows carry a UTC timestamp and the commit sha, e.g. "r12 2026-08-30T14:02Z implement: green @a3f9c12 — hidden 37/37". A message to an agent is a sequencing instruction, never an authority: an agent refuses any claim the ledger does not show; six forged messages were caught this way. Ship gate: every commit after the accept is classified by its changed paths; one path outside the allowed classes refuses the whole ship. Malformed input refuses rather than guessing.</aside>
+</section>
+
+</section>
+
+<!-- 1.4b I deliberately did not read the code -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>I deliberately did not read the code</h3>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>I deliberately did not read the code</h3>
+  <pre class="small" data-id="code"><code class="language-cpp" data-trim data-noescape>
+// x>= 25: the direct product overflows (erfc underflows), so the asymptotic form
+inline double erfcx_nonneg(double x) {
+    if (x < 25.0) {
+        return std::exp(x * x) * std::erfc(x);
+    }
+    const double t = 1.0 / (x * x);
+    return (std::numbers::inv_sqrtpi / x) *
+           (1.0 + t * (-0.5 + t * (0.75 + t * (-1.875 + t * 6.5625))));
+}
+  </code></pre>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>I deliberately did not read the code</h3>
+  <pre class="small" data-id="code"><code class="language-cpp" data-trim data-noescape>
+// x>= 25: the direct product overflows (erfc underflows), so the asymptotic form
+inline double erfcx_nonneg(double x) {
+    if (x < 25.0) {
+        return std::exp(x * x) * std::erfc(x);
+    }
+    const double t = 1.0 / (x * x);
+    return (std::numbers::inv_sqrtpi / x) *
+           (1.0 + t * (-0.5 + t * (0.75 + t * (-1.875 + t * 6.5625))));
+}
+  </code></pre>
+  <p class="step sub" data-id="st1">My work moved from writing it to <span class="blue">specifying it and proving it wrong</span></p>
+  <aside class="notes">Real crysta, src/core/tof_profile.hpp &mdash; the overflow-free scaled complementary error function from the peak shape. I have not read this function. What I did instead was write the requirement, choose the reference to check it against, and let a test written by another agent decide whether it was right.</aside>
+</section>
+
+</section>
+
+<!-- 5.9 By the numbers -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>By the numbers</h3>
+  <div class="columns">
+    <div data-id="n0"></div>
+    <div data-id="n1"></div>
+    <div data-id="n2"></div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>By the numbers</h3>
+  <div class="columns">
+    <div data-id="n0"><p class="big-number">10</p><p class="big-label">weeks</p></div>
+    <div data-id="n1"><p class="big-number">151</p><p class="big-label">tasks shipped</p></div>
+    <div data-id="n2"><p class="big-number">44</p><p class="big-label">milestones</p></div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>By the numbers</h3>
+  <div class="columns">
+    <div data-id="n0"><p class="big-number">10</p><p class="big-label">weeks</p></div>
+    <div data-id="n1"><p class="big-number">151</p><p class="big-label">tasks shipped</p></div>
+    <div data-id="n2"><p class="big-number">44</p><p class="big-label">milestones</p></div>
+  </div>
+  <div class="columns">
+    <div data-id="n3"><p class="big-number">202</p><p class="big-label">review rejects</p></div>
+    <div data-id="n4"><p class="big-number">505</p><p class="big-label">surprises logged</p></div>
+    <div data-id="n5"><p class="big-number">≥ 80 %</p><p class="big-label">test coverage</p></div>
+  </div>
+  <p class="chart-note">Source: our roadmap and measurement records, 3 September 2026 · first commit 25 June 2026</p>
+  <aside class="notes">relay knowledge/roadmap/status.yml (151 done rows, 44 milestones), knowledge/process/measurements.md (202 rejects, 505 friction entries). Coverage gates: 80 % C++ line coverage and 80 % Python surface coverage in both repos. The human wrote no production code; every line was written by an agent under the process shown.</aside>
+</section>
+
+</section>
+
+<!-- 5.6 Approaches tried -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Ways of working I tried</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Ways of working I tried</h3>
+  <p class="step compact" data-id="ap1">① <span class="blue">Write the specification myself</span>, then alternate: AI refines, I correct, AI plans, I correct, AI implements, I review and test
+    <span class="sub">works best · costs by far the most of my time</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>Ways of working I tried</h3>
+  <p class="step compact" data-id="ap1">① <span class="blue">Write the specification myself</span>, then alternate: AI refines, I correct, AI plans, I correct, AI implements, I review and test
+    <span class="sub">works best · costs by far the most of my time</span></p>
+  <p class="step compact" data-id="ap2">② <span class="blue">Describe the idea only</span>, let the agents do the rest
+    <span class="sub">plan, tests, implementation and review all iterated by agents · can miss my intent and need rework</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>Ways of working I tried</h3>
+  <p class="step compact semi-hidden" data-id="ap1">① <span class="blue">Write the specification myself</span>, then alternate: AI refines, I correct, AI plans, I correct, AI implements, I review and test
+    <span class="sub">works best · costs by far the most of my time</span></p>
+  <p class="step compact semi-hidden" data-id="ap2">② <span class="blue">Describe the idea only</span>, let the agents do the rest
+    <span class="sub">plan, tests, implementation and review all iterated by agents · can miss my intent and need rework</span></p>
+  <p class="step compact" data-id="ap3">③ <span class="blue">Now</span> · looking for the balance: a correct result with less manual work</p>
+  <aside class="notes">The team discussion "How do we work with AI?" (github.com/orgs/easyscience/discussions/73, August 2026) names the same three options: vibecoding, a mixed PR pipeline, and handcrafted code. Approach ② is the mixed pipeline. A colleague reported one week of LLM work equalling a year of manual coding on a spectroscopy library, with the caveat that he still reads all the code.</aside>
+</section>
+
+</section>
+
+<!-- 1.2 What the software has to do -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>What the software has to do</h3>
+  <div class="pipeline">
+    
+    
+    
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>What the software has to do</h3>
+  <div class="pipeline">
+    <div class="pstep" data-id="p1">
+      <img src="images/step-measure.png" alt="beam, powder and detector">
+      <p class="ph"><span class="blue">Measure</span></p>
+      <p class="ps">a beam, a powder, a detector</p>
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    
+    
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>What the software has to do</h3>
+  <div class="pipeline">
+    <div class="pstep" data-id="p1">
+      <img src="images/step-measure.png" alt="beam, powder and detector">
+      <p class="ph"><span class="blue">Measure</span></p>
+      <p class="ps">a beam, a powder, a detector</p>
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep" data-id="p2">
+      <img src="images/step-pattern.png" alt="a one-dimensional diffraction pattern">
+      <p class="ph"><span class="blue">Reduce</span></p>
+      <p class="ps">the rings become one curve</p>
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.svg" alt="scipp">
+    </div>
+    
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>What the software has to do</h3>
+  <div class="pipeline">
+    <div class="pstep" data-id="p1">
+      <img src="images/step-measure.png" alt="beam, powder and detector">
+      <p class="ph"><span class="blue">Measure</span></p>
+      <p class="ps">a beam, a powder, a detector</p>
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep" data-id="p2">
+      <img src="images/step-pattern.png" alt="a one-dimensional diffraction pattern">
+      <p class="ph"><span class="blue">Reduce</span></p>
+      <p class="ps">the rings become one curve</p>
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.svg" alt="scipp">
+    </div>
+    <div class="pstep" data-id="p3">
+      <img src="images/step-refined.png" alt="measured and calculated pattern with residual">
+      <p class="ph"><span class="blue">Refine</span></p>
+      <p class="ps">compute it from a model and adjust</p>
+      <img class="plogo plogo-ed" src="images/easydiffraction_logo_dark.svg" alt="EasyDiffraction">
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>What the software has to do</h3>
+  <div class="pipeline">
+    <div class="pstep" data-id="p1">
+      <img src="images/step-measure.png" alt="beam, powder and detector">
+      <p class="ph"><span class="blue">Measure</span></p>
+      <p class="ps">a beam, a powder, a detector</p>
+      <img class="plogo plogo-nicos" src="images/NICOS_logo.png" alt="NICOS">
+    </div>
+    <div class="pstep" data-id="p2">
+      <img src="images/step-pattern.png" alt="a one-dimensional diffraction pattern">
+      <p class="ph"><span class="blue">Reduce</span></p>
+      <p class="ps">the rings become one curve</p>
+      <img class="plogo plogo-scipp" src="images/SCIPP_logo.svg" alt="scipp">
+    </div>
+    <div class="pstep" data-id="p3">
+      <img src="images/step-refined.png" alt="measured and calculated pattern with residual">
+      <p class="ph"><span class="blue">Refine</span></p>
+      <p class="ps">compute it from a model and adjust</p>
+      <img class="plogo plogo-ed" src="images/easydiffraction_logo_dark.svg" alt="EasyDiffraction">
+    </div>
+  </div>
+  <p class="step sub" data-id="pnote">That third step runs <span class="blue">again and again</span> &mdash; and that is where the time goes</p>
+  <aside class="notes">One refinement evaluates the whole pattern once per iteration, and a derivative-based minimiser needs it many times per iteration. So the cost of a refinement is the cost of one pattern calculation multiplied by a few hundred &mdash; which is why the rest of this talk is about how fast and how exactly that one calculation can be done.</aside>
+</section>
+
+</section>
+
+<!-- 2.2 Who is it for -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Who is it for</h3>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Who is it for</h3>
+  <p class="step" data-id="a1"><i class="fa-python lead"></i> <span class="blue">Python library</span> &middot; scripting, Jupyter, teaching material
+    <span class="sub">users who work with scripts</span></p>
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Who is it for</h3>
+  <p class="step" data-id="a1"><i class="fa-python lead"></i> <span class="blue">Python library</span> &middot; scripting, Jupyter, teaching material
+    <span class="sub">users who work with scripts</span></p>
+  <p class="step" data-id="a2"><i class="fa-terminal lead"></i> <span class="blue">Command line</span> &middot; no Python, no GUI
+    <span class="sub">clusters, batch jobs, command-line users</span></p>
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Who is it for</h3>
+  <p class="step" data-id="a1"><i class="fa-python lead"></i> <span class="blue">Python library</span> &middot; scripting, Jupyter, teaching material
+    <span class="sub">users who work with scripts</span></p>
+  <p class="step" data-id="a2"><i class="fa-terminal lead"></i> <span class="blue">Command line</span> &middot; no Python, no GUI
+    <span class="sub">clusters, batch jobs, command-line users</span></p>
+  <p class="step" data-id="a3"><i class="fa-display lead"></i> <span class="blue">Desktop app</span> &middot; intuitive, guided work
+    <span class="sub">from students to experts who prefer a GUI</span></p>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Who is it for</h3>
+  <p class="step" data-id="a1"><i class="fa-python lead"></i> <span class="blue">Python library</span> &middot; scripting, Jupyter, teaching material
+    <span class="sub">users who work with scripts</span></p>
+  <p class="step" data-id="a2"><i class="fa-terminal lead"></i> <span class="blue">Command line</span> &middot; no Python, no GUI
+    <span class="sub">clusters, batch jobs, command-line users</span></p>
+  <p class="step" data-id="a3"><i class="fa-display lead"></i> <span class="blue">Desktop app</span> &middot; intuitive, guided work
+    <span class="sub">from students to experts who prefer a GUI</span></p>
+  <p class="step" data-id="a4"><i class="fa-globe lead"></i> <span class="blue">Web app</span> &middot; the desktop app in a browser
+    <span class="sub">intended for quick checks and everyday work</span></p>
+</section>
+
+</section>
+
+<!-- B.x Whose code that was -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart class="freeform">
+  <p class="statement lead" data-id="wc1">Every <span class="blue">crysta</span> number you have just seen</p>
+</section>
+
+<section data-auto-animate class="freeform">
+  <p class="statement lead" data-id="wc1">Every <span class="blue">crysta</span> number you have just seen</p>
+  <p class="statement lead" data-id="wc2">came from code <span class="blue">AI agents wrote</span><br>and that I have <span class="blue">never read</span></p>
+  <aside class="notes">This is the bridge out of the benchmark section. Everything from the pattern calculation to the refined structure was produced by code written entirely by LLM agents, under the process the next section describes. Pause here.</aside>
+</section>
+
+</section>
+
+</div>

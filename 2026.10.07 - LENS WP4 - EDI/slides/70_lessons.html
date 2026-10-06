@@ -1,0 +1,415 @@
+<div class="external-slide">
+
+<!-- 7.4 I did not write this code -->
+<section>
+
+<section class="freeform" data-auto-animate data-auto-animate-restart>
+  <img class="slidephoto" data-id="qshot" src="images/fragile-slide.jpg" alt="a photograph of the IUCr 2026 slide reading: I did not write this code. So I do not know where it is fragile.">
+</section>
+
+<section class="freeform" data-auto-animate>
+  <img class="slidephoto" data-id="qshot" src="images/fragile-slide.jpg" alt="a photograph of the IUCr 2026 slide reading: I did not write this code. So I do not know where it is fragile.">
+  <div class="talkref" data-id="qref">
+    <img src="images/iucr2026-logo.jpg" alt="IUCr 2026">
+    <div class="tr-text">
+      <p class="tr-label">A different route to the same question</p>
+      <p class="tr-title">AI-written CIF parser for CCTBX</p>
+      <p class="tr-who"><span class="blue">Oleg Sobolev &amp; Paul Adams</span> &middot; <span class="green">Lawrence Berkeley National Laboratory</span></p>
+      <p class="tr-where">MS-116 Teaching crystallographic computing &middot; IUCr 2026, Calgary</p>
+    </div>
+  </div>
+  <aside class="notes">The talk cited on this slide is Oleg Sobolev &amp; Paul Adams, &ldquo;What AI changes in crystallographic computing: lessons from building a native CIF parser for CCTBX&rdquo;, MS-116, IUCr 2026 &mdash; shortened on the slide to fit.</aside>
+</section>
+
+</section>
+
+<!-- 7.2 The test suite -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  <p class="step compact" data-id="t1"><i class="fa-cube lead"></i> <span class="blue">Unit</span> tests
+    <span class="sub">one function or class at a time &middot; C++ and Python</span></p>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  <p class="step compact" data-id="t1"><i class="fa-cube lead"></i> <span class="blue">Unit</span> tests
+    <span class="sub">one function or class at a time &middot; C++ and Python</span></p>
+  <p class="step compact" data-id="t2"><i class="fa-puzzle-piece lead"></i> <span class="blue">Integration</span> tests
+    <span class="sub">components together, across the binding boundary</span></p>
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  <p class="step compact" data-id="t1"><i class="fa-cube lead"></i> <span class="blue">Unit</span> tests
+    <span class="sub">one function or class at a time &middot; C++ and Python</span></p>
+  <p class="step compact" data-id="t2"><i class="fa-puzzle-piece lead"></i> <span class="blue">Integration</span> tests
+    <span class="sub">components together, across the binding boundary</span></p>
+  <p class="step compact" data-id="t3"><i class="fa-project-diagram lead"></i> <span class="blue">System</span> tests
+    <span class="sub">the command line and the project format, end to end</span></p>
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  <p class="step compact" data-id="t1"><i class="fa-cube lead"></i> <span class="blue">Unit</span> tests
+    <span class="sub">one function or class at a time &middot; C++ and Python</span></p>
+  <p class="step compact" data-id="t2"><i class="fa-puzzle-piece lead"></i> <span class="blue">Integration</span> tests
+    <span class="sub">components together, across the binding boundary</span></p>
+  <p class="step compact" data-id="t3"><i class="fa-project-diagram lead"></i> <span class="blue">System</span> tests
+    <span class="sub">the command line and the project format, end to end</span></p>
+  <p class="step compact" data-id="t4"><i class="fa-calculator lead"></i> <span class="blue">Calculation</span> tests
+    <span class="sub">test patterns against an <span class="blue">independent reference</span> &middot; FullProf, CrysFML, CrysPy</span></p>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>How the code is checked</h3>
+  <p class="step compact" data-id="t1"><i class="fa-cube lead"></i> <span class="blue">Unit</span> tests
+    <span class="sub">one function or class at a time &middot; C++ and Python</span></p>
+  <p class="step compact" data-id="t2"><i class="fa-puzzle-piece lead"></i> <span class="blue">Integration</span> tests
+    <span class="sub">components together, across the binding boundary</span></p>
+  <p class="step compact" data-id="t3"><i class="fa-project-diagram lead"></i> <span class="blue">System</span> tests
+    <span class="sub">the command line and the project format, end to end</span></p>
+  <p class="step compact" data-id="t4"><i class="fa-calculator lead"></i> <span class="blue">Calculation</span> tests
+    <span class="sub">test patterns against an <span class="blue">independent reference</span> &middot; FullProf, CrysFML, CrysPy</span></p>
+  <p class="step compact" data-id="t5"><i class="fa-line-chart lead"></i> <span class="blue">Fitting</span> tests
+    <span class="sub">test refinements against an <span class="blue">independent reference</span> &middot; FullProf</span></p>
+</section>
+
+</section>
+
+<!-- 6.5 When it got the physics wrong -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Two errors found by tests</h3>
+  <div class="bugbox" data-id="bug1">
+    
+    
+  </div>
+  <div class="bugbox" data-id="bug2">
+    
+    
+  </div>
+    
+</section>
+
+<section data-auto-animate>
+  <h3>Two errors found by tests</h3>
+  <div class="bugbox" data-id="bug1">
+    <p class="bughead" data-id="bug1head">The tails vanished</p>
+    <p class="step compact" data-id="o1"><i class="fa-book-open lead"></i> The direct formula made the tails return <span class="red">not a number</span>
+    <span class="sub">a <span class="red">very large</span> number times a <span class="red">very small</span> one &middot; the fix computes the same value without ever forming the large one</span></p>
+  </div>
+  <div class="bugbox" data-id="bug2">
+    
+    
+  </div>
+    
+</section>
+
+<section data-auto-animate>
+  <h3>Two errors found by tests</h3>
+  <div class="bugbox" data-id="bug1">
+    <p class="bughead" data-id="bug1head">The tails vanished</p>
+    <p class="step compact" data-id="o1"><i class="fa-book-open lead"></i> The direct formula made the tails return <span class="red">not a number</span>
+    <span class="sub">a <span class="red">very large</span> number times a <span class="red">very small</span> one &middot; the fix computes the same value without ever forming the large one</span></p>
+  </div>
+  <div class="bugbox" data-id="bug2">
+    <p class="bughead" data-id="bug2head">Width or spread</p>
+    <p class="step compact" data-id="o4"><i class="fa-ruler lead"></i> It also mixed up two ways of measuring a peak&rsquo;s width
+    <span class="sub">the width at half height is <span class="red">2.35&times;</span> the Gaussian &sigma; &mdash; the formula wanted &sigma;</span></p>
+  </div>
+    
+</section>
+
+<section data-auto-animate>
+  <h3>Two errors found by tests</h3>
+  <div class="bugbox" data-id="bug1">
+    <p class="bughead" data-id="bug1head">The tails vanished</p>
+    <p class="step compact" data-id="o1"><i class="fa-book-open lead"></i> The direct formula made the tails return <span class="red">not a number</span>
+    <span class="sub">a <span class="red">very large</span> number times a <span class="red">very small</span> one &middot; the fix computes the same value without ever forming the large one</span></p>
+  </div>
+  <div class="bugbox" data-id="bug2">
+    <p class="bughead" data-id="bug2head">Width or spread</p>
+    <p class="step compact" data-id="o4"><i class="fa-ruler lead"></i> It also mixed up two ways of measuring a peak&rsquo;s width
+    <span class="sub">the width at half height is <span class="red">2.35&times;</span> the Gaussian &sigma; &mdash; the formula wanted &sigma;</span></p>
+  </div>
+    <p class="step compact closing" data-id="o5">Both were found by tests written <span class="blue">before</span> the fix</p>
+  <aside class="notes">crysta 5e3197f4, ADR-0042, 3 July. The Jorgensen&ndash;von Dreele time-of-flight peak shape contains exp(u)&middot;erfc(y); written straight from the paper, exp(u) overflows to infinity while erfc(y) underflows to zero, so the product is inf&times;0 = NaN across the peak tails. Evaluating it as exp(u + log erfc y) &mdash; the Mantid form &mdash; never forms the overflowing exponential and the slow-beta tail keeps its true small value. Two more in the same function: the Gaussian kernel quantity was labelled the FWHM when it was the standard deviation (they differ by sqrt(8 ln 2) = 2.355), and the Thompson-Cox-Hastings seam combined the wrong two quantities. The commit trail shows the test lane authoring the gamma-not-zero golden and the overflow regression BEFORE the implement lane fixed it.</aside>
+</section>
+
+</section>
+
+<!-- 5.4b Strict rules for the code -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Checks beyond the test suite</h3>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Checks beyond the test suite</h3>
+  <p class="step compact" data-id="q1"><i class="fa-cplusplus lead"></i> <span class="blue">C++</span> &middot; every compiler warning is an error
+    <span class="sub">static analysis and memory-safety checks on every change</span></p>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Checks beyond the test suite</h3>
+  <p class="step compact" data-id="q1"><i class="fa-cplusplus lead"></i> <span class="blue">C++</span> &middot; every compiler warning is an error
+    <span class="sub">static analysis and memory-safety checks on every change</span></p>
+  <p class="step compact" data-id="q2"><i class="fa-python-alt lead"></i> <span class="blue">Python</span> &middot; strict style and type checks
+    <span class="sub">exceptions need a reason and review</span></p>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Checks beyond the test suite</h3>
+  <p class="step compact" data-id="q1"><i class="fa-cplusplus lead"></i> <span class="blue">C++</span> &middot; every compiler warning is an error
+    <span class="sub">static analysis and memory-safety checks on every change</span></p>
+  <p class="step compact" data-id="q2"><i class="fa-python-alt lead"></i> <span class="blue">Python</span> &middot; strict style and type checks
+    <span class="sub">exceptions need a reason and review</span></p>
+  <p class="step compact" data-id="q3"><i class="fa-balance-scale lead"></i> <span class="blue">Reproducibility</span> &middot; matching numbers in tested configurations
+    <span class="sub">checks vary thread count, vector width and build options</span></p>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>Checks beyond the test suite</h3>
+  <p class="step compact" data-id="q1"><i class="fa-cplusplus lead"></i> <span class="blue">C++</span> &middot; every compiler warning is an error
+    <span class="sub">static analysis and memory-safety checks on every change</span></p>
+  <p class="step compact" data-id="q2"><i class="fa-python-alt lead"></i> <span class="blue">Python</span> &middot; strict style and type checks
+    <span class="sub">exceptions need a reason and review</span></p>
+  <p class="step compact" data-id="q3"><i class="fa-balance-scale lead"></i> <span class="blue">Reproducibility</span> &middot; matching numbers in tested configurations
+    <span class="sub">checks vary thread count, vector width and build options</span></p>
+  <p class="step compact" data-id="q4"><i class="fa-arrows-spin lead"></i> <span class="blue">Every change</span> &middot; CI runs automatically
+    <span class="sub">Linux and macOS &middot; checks depend on the change and event</span></p>
+  <aside class="notes">crysta .github/workflows/ci.yml: -Werror, clang-tidy, cppcheck, clang-format, ASan+UBSan build, ruff (the EasyDiffraction "as strict as possible" rule set, pyproject.toml), mypy strict = true, coverage gates cpp_lines_min = 80 and python_surface_min = 80, byte-identity gates for SIMD width, thread count and link-time optimisation. The active workflow uses Linux and macOS. Some checks run on merge, and documentation changes can use a shorter path. A written merge rule does not itself establish a technical restriction.</aside>
+</section>
+
+</section>
+
+<!-- 7.1 Prerequisites -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>What you need before you start</h3>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>What you need before you start</h3>
+  <p class="step compact" data-id="k1"><i class="fa-database lead"></i> <span class="blue">Knowledge base</span> · the maths and physics, from literature and open code
+    <span class="sub">structure factors, peak profiles, refinement · collected once, in one place</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>What you need before you start</h3>
+  <p class="step compact" data-id="k1"><i class="fa-database lead"></i> <span class="blue">Knowledge base</span> · the maths and physics, from literature and open code
+    <span class="sub">structure factors, peak profiles, refinement · collected once, in one place</span></p>
+  <p class="step compact" data-id="k2"><i class="fa-balance-scale lead"></i> <span class="blue">Independent references</span> · other programs, run as black boxes
+    <span class="sub">FullProf, CrysFML, cctbx … compare outputs independently of the new code</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>What you need before you start</h3>
+  <p class="step compact" data-id="k1"><i class="fa-database lead"></i> <span class="blue">Knowledge base</span> · the maths and physics, from literature and open code
+    <span class="sub">structure factors, peak profiles, refinement · collected once, in one place</span></p>
+  <p class="step compact" data-id="k2"><i class="fa-balance-scale lead"></i> <span class="blue">Independent references</span> · other programs, run as black boxes
+    <span class="sub">FullProf, CrysFML, cctbx … compare outputs independently of the new code</span></p>
+  <p class="step compact" data-id="k3"><i class="fa-brain lead"></i> <span class="blue">Domain knowledge</span> · a human who understands the physics
+    <span class="sub">judge whether the models and test cases make physical sense</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>What you need before you start</h3>
+  <p class="step compact" data-id="k1"><i class="fa-database lead"></i> <span class="blue">Knowledge base</span> · the maths and physics, from literature and open code
+    <span class="sub">structure factors, peak profiles, refinement · collected once, in one place</span></p>
+  <p class="step compact" data-id="k2"><i class="fa-balance-scale lead"></i> <span class="blue">Independent references</span> · other programs, run as black boxes
+    <span class="sub">FullProf, CrysFML, cctbx … compare outputs independently of the new code</span></p>
+  <p class="step compact" data-id="k3"><i class="fa-brain lead"></i> <span class="blue">Domain knowledge</span> · a human who understands the physics
+    <span class="sub">judge whether the models and test cases make physical sense</span></p>
+  <p class="step compact" data-id="k5"><i class="fa-code lead"></i> <span class="blue">Software development skills</span> · to judge what the AI proposes
+    <span class="sub">architecture, interfaces, and when a solution is over-engineered</span></p>
+</section>
+
+<section data-auto-animate>
+  <h3>What you need before you start</h3>
+  <p class="step compact" data-id="k1"><i class="fa-database lead"></i> <span class="blue">Knowledge base</span> · the maths and physics, from literature and open code
+    <span class="sub">structure factors, peak profiles, refinement · collected once, in one place</span></p>
+  <p class="step compact" data-id="k2"><i class="fa-balance-scale lead"></i> <span class="blue">Independent references</span> · other programs, run as black boxes
+    <span class="sub">FullProf, CrysFML, cctbx … compare outputs independently of the new code</span></p>
+  <p class="step compact" data-id="k3"><i class="fa-brain lead"></i> <span class="blue">Domain knowledge</span> · a human who understands the physics
+    <span class="sub">judge whether the models and test cases make physical sense</span></p>
+  <p class="step compact" data-id="k5"><i class="fa-code lead"></i> <span class="blue">Software development skills</span> · to judge what the AI proposes
+    <span class="sub">architecture, interfaces, and when a solution is over-engineered</span></p>
+  <p class="step compact" data-id="k4"><i class="fa-hourglass-half lead"></i> <span class="blue">Time for review</span> · write the rules down, let a machine check them
+    <span class="sub">a check that fails beats a cleverer prompt</span></p>
+</section>
+
+</section>
+
+<!-- 7.6c Literature -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Credits: literature</h3>
+  
+  
+  <aside class="notes">The corpus is 87 papers and reference volumes in a single bibliography, each equation in the book carrying a paper, section or equation number. An unchecked box in that bibliography is a to-source task, not a gap we hide. A value whose only provenance is our own code is a labelled regression pin, never a physics claim.</aside>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Credits: literature</h3>
+  <div class="biblio">
+    <span class="bt">Reference volumes</span><span class="bc"><em>International Tables for Crystallography</em>, Vol.&nbsp;A (symmetry) and Vol.&nbsp;C (tables) &middot; ILL Neutron Data Booklet</span>
+    <span class="bt">Structure factors</span><span class="bc">Cromer &amp; Mann 1968 &middot; Waasmaier &amp; Kirfel 1995 &middot; Busing &amp; Levy 1967</span>
+    <span class="bt">Peak profiles</span><span class="bc">Caglioti 1958 &middot; David 1986 &middot; Thompson, Cox &amp; Hastings 1987 &middot; B&eacute;rar &amp; Baldinozzi 1993 &middot; Finger, Cox &amp; Jephcoat 1994</span>
+    <span class="bt">Time of flight</span><span class="bc">Von Dreele 1982 &middot; Ikeda &amp; Carpenter 1985</span>
+    <span class="bt">Corrections</span><span class="bc">Becker &amp; Coppens 1974 &middot; Hewat 1979 &middot; Dollase 1986</span>
+    <span class="bt">Background</span><span class="bc">Ryan 1988 &middot; Cobas 2006 &middot; Baek 2015</span>
+    <span class="bt">Refinement</span><span class="bc">Rietveld 1969 &middot; Marquardt 1963 &middot; Mor&eacute; 1978 &middot; Toby 2006 &middot; Coelho 2005, 2018</span>
+    <span class="bt">Total scattering</span><span class="bc">Proffen &amp; Billinge 1999 &middot; Jeong 1999 &middot; Keen 2001 &middot; Farrow 2007 &middot; Egami &amp; Billinge, <em>Underneath the Bragg Peaks</em></span>
+    <span class="bt">Magnetism</span><span class="bc">Blume 1963 &middot; Bertaut 1968 &middot; Lisher &amp; Forsyth 1971 &middot; Brown 1979 &middot; Wills 2000 &middot; Rodr&iacute;guez-Carvajal, lecture notes</span>
+  </div>
+  <p class="step sub" data-id="bibnote">87 papers and volumes &middot; the goal: <span class="blue">every equation links to its source</span></p>
+  <aside class="notes">The corpus is 87 papers and reference volumes in a single bibliography, each equation in the book carrying a paper, section or equation number. An unchecked box in that bibliography is a to-source task, not a gap we hide. A value whose only provenance is our own code is a labelled regression pin, never a physics claim.</aside>
+</section>
+
+</section>
+
+<!-- 7.6b Reference implementations -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Credits: open source software</h3>
+  <div class="reflibs">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <aside class="notes">The rule is in the physics book's index: an equation is verified when two or more independent reference libraries implement the same form, allowing for documented convention differences; where they genuinely disagree, the disagreement is recorded and the equation stays partial. Z-Rietveld (Oishi-Tomiyasu, Hirai, KEK/CROSS) was studied the same way but is registered academic software, not open source, so it is not on this slide. This is form verification from source, not numerical verification &mdash; that is the separate FullProf/CrysFML/CrysPy comparison. Licences vary. These credits identify references, not interchangeable permissions to reuse code.</aside>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Credits: open source software</h3>
+  <div class="reflibs">
+    <div class="reflib"><span class="rn">CrysPy</span><span class="rd">Iurii Kibalin &middot; ESS</span></div>
+    <div class="reflib"><span class="rn">CrysFML</span><span class="rd">Rodr&iacute;guez-Carvajal, Gonz&aacute;lez-Platas, Katcho &middot; ILL</span></div>
+    <div class="reflib"><span class="rn">cctbx</span><span class="rd">Grosse-Kunstleve, Adams, Sauter et al. &middot; LBNL</span></div>
+    <div class="reflib"><span class="rn">GSAS-II</span><span class="rd">Toby &amp; Von Dreele &middot; Argonne</span></div>
+    <div class="reflib"><span class="rn">CCSL</span><span class="rd">P. J. Brown &amp; J. C. Matthewman &middot; ILL / CCDC</span></div>
+    <div class="reflib"><span class="rn">ObjCryst++ / Fox</span><span class="rd">Favre-Nicolin &amp; &#268;ern&yacute;</span></div>
+    <div class="reflib"><span class="rn">Dans_Diffraction</span><span class="rd">Dan Porter &middot; Diamond Light Source</span></div>
+    <div class="reflib"><span class="rn">periodictable</span><span class="rd">Paul Kienzle &middot; NIST</span></div>
+    <div class="reflib"><span class="rn">MAUD</span><span class="rd">Luca Lutterotti &middot; University of Trento</span></div>
+    <div class="reflib"><span class="rn">Mantid</span><span class="rd">the Mantid collaboration &middot; ISIS, ORNL, ILL, ESS</span></div>
+  </div>
+  <aside class="notes">The rule is in the physics book's index: an equation is verified when two or more independent reference libraries implement the same form, allowing for documented convention differences; where they genuinely disagree, the disagreement is recorded and the equation stays partial. Z-Rietveld (Oishi-Tomiyasu, Hirai, KEK/CROSS) was studied the same way but is registered academic software, not open source, so it is not on this slide. This is form verification from source, not numerical verification &mdash; that is the separate FullProf/CrysFML/CrysPy comparison. Licences vary. These credits identify references, not interchangeable permissions to reuse code.</aside>
+</section>
+
+</section>
+
+<!-- 7.6e Where this leaves me -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Where this leaves me</h3>
+  <div class="impressions">
+    
+    
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Where this leaves me</h3>
+  <div class="impressions">
+    <div class="impression" data-id="im1">
+      <p class="head">AI <span class="green">helps</span> me build more</p>
+      <p class="sub">I can try ideas I did not have time for</p>
+      <img src="images/rocket-launch.jpg" alt="a rocket lifting off" data-id="img-im1">
+    </div>
+    
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Where this leaves me</h3>
+  <div class="impressions">
+    <div class="impression" data-id="im1">
+      <p class="head">AI <span class="green">helps</span> me build more</p>
+      <p class="sub">I can try ideas I did not have time for</p>
+      <img src="images/rocket-launch.jpg" alt="a rocket lifting off" data-id="img-im1">
+    </div>
+    <div class="impression" data-id="im2">
+      <p class="head">It does <span class="red">not</span> give me free time</p>
+      <p class="sub">checking the work still takes time</p>
+      <img src="images/superbaby.jpg" alt="a baby in a Superman shirt, in tears" data-id="img-im2">
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Where this leaves me</h3>
+  <div class="impressions">
+    <div class="impression" data-id="im1">
+      <p class="head">AI <span class="green">helps</span> me build more</p>
+      <p class="sub">I can try ideas I did not have time for</p>
+      <img src="images/rocket-launch.jpg" alt="a rocket lifting off" data-id="img-im1">
+    </div>
+    <div class="impression" data-id="im2">
+      <p class="head">It does <span class="red">not</span> give me free time</p>
+      <p class="sub">checking the work still takes time</p>
+      <img src="images/superbaby.jpg" alt="a baby in a Superman shirt, in tears" data-id="img-im2">
+    </div>
+  </div>
+  <p class="step sub" data-id="claim">AI can write code &middot; people remain responsible for deciding <span class="blue">what counts as correct</span></p>
+  <aside class="notes">The sentence to leave the room with. Everything in the talk is a way of saying it: the requirements, the independent references, the hidden tests and the automatic gates all exist because the model cannot settle correctness for itself.</aside>
+</section>
+
+</section>
+
+<!-- 7.7 Thank you -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Thank you</h3>
+</section>
+
+</section>
+
+</div>

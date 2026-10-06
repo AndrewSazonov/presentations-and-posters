@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Inline slides/*.html (in the order listed below) into index.html.
 
-Taken over from the 2026-09 DMSC crysta deck, so this talk has its layout and style. Same
-convention as the 2026-01 Shapespyre deck: every slide file wraps its content in
+Same convention as the 2026-01 Shapespyre deck: every slide file wraps its content in
 <div class="external-slide"> … </div>; the build strips that wrapper and inlines the
 <section> stacks so the deck also works when opened with file://.
 """
@@ -16,36 +15,45 @@ HERE = Path(__file__).parent
 # Section titles live here, not inside the slides: each becomes its own title slide, emitted before the
 # first slide of that section. A slide file therefore carries only its own content.
 SECTION_TITLES = {
-    "10_why.html": "Why new software",
-    "20_easydiffraction.html": "EasyDiffraction",
-    "30_crysta.html": "crysta",
-    "40_outlook.html": "Outlook",
+    "10_motivation.html": "Motivation",
+    "20_built.html": "What was built",
+    "30_why_cpp.html": "Speed and correctness",
+    # Lessons are not their own section: what the agent got wrong, what was done about it and what
+    # it taught are part of how the thing was built, so 60 and 70 continue 50 without a divider.
+    "50_process.html": "How it was built",
+    "80_appendix.html": "Backup",
 }
 
 ORDER = [
     "00_divider.html",
     "01_title.html",
-    "10_why.html",
-    "20_easydiffraction.html",
+    "10_motivation.html",
+    "20_built.html",
+    "30_why_cpp.html",
+    "50_process.html",
+    "60_babysitting.html",
+    "70_lessons.html",
 ]
 
-# No backup deck for this talk; list files here to have build.py write backup.html as well.
-BACKUP_ORDER: list[str] = []
+# The backup slides are a separate deck: they are never presented in sequence, only opened when a
+# question needs them, and keeping them out of index.html means the talk ends where it ends.
+BACKUP_ORDER = [
+    "80_appendix.html",
+]
 
 HEAD = """<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="EasyDiffraction and crysta — reusing crystallographic libraries, and building our own">
+    <meta name="description" content="crysta — an AI-built diffraction calculation engine">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#333333">
-    <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
+    <title>What AI can change in crystallographic computing — crysta</title>
 
     <link rel="stylesheet" type="text/css" href="extra/icons.min.css">
     <link rel="stylesheet" type="text/css" href="extra/style.css">
     <link rel="stylesheet" type="text/css" href="extra/talk.css">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css">
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -88,8 +96,6 @@ TAIL = """
       // overflows the 1200x750 slide box (vertical) or spills past its edges (horizontal).
       if (location.search.includes('check')) {
         Reveal.on('ready', () => {
-          // Measured mid-transition, a slide reads as overflowing, so the check switches both off.
-          Reveal.configure({ transition: 'none', autoAnimate: false });
           const out = []; const box = document.querySelector('.reveal .slides').getBoundingClientRect();
           const hs = document.querySelectorAll('.reveal .slides > section');
           hs.forEach((hsec, h) => {
@@ -99,8 +105,6 @@ TAIL = """
               const issues = [];
               if (r.height > box.height + 1) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
-                // Inside a clipping window (the carousel, the zoomed e-mail), leaving the box is the point.
-                if (el.closest('.carousel, .mailbox')) return;
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 if (e.bottom > box.bottom + 2) issues.push(`v-spill <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
@@ -117,12 +121,11 @@ TAIL = """
 """
 
 
-# Sprite names: the outline goes through expand_icons() with the rest of the deck.
 SECTION_ICONS = {
-    "Why new software": "lightbulb",
-    "EasyDiffraction": "cubes",
-    "crysta": "microchip",
-    "Outlook": "flag-checkered",
+    'Motivation': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9C364 289.7 384 243.2 384 192 384 86 298 0 192 0S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9h201.7zm-4.9 48H96v16c0 44.2 35.8 80 80 80h32c44.2 0 80-35.8 80-80zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24"/></svg>',
+    'What was built': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M284-1.3c-17.3-10-38.7-10-56 0l-84.2 48.6c-17.3 10-28 28.5-28 48.5v101.9l-88.3 51c-17.3 10-28 28.5-28 48.5v97.3c0 20 10.7 38.5 28 48.5l84.3 48.6c17.3 10 38.7 10 56 0l88.3-51 88.3 51c17.3 10 38.7 10 56 0l84.1-48.6c17.3-10 28-28.5 28-48.5v-97.3c0-20-10.7-38.5-28-48.5l-88.3-51V95.8c0-20-10.7-38.5-28-48.5zm-52 293.9v106.5l-88.3 51c-1.2.7-2.6 1.1-4 1.1V345.9zm231.4.6c.7 1.2 1.1 2.6 1.1 4v97.3c0 2.9-1.5 5.5-4 6.9L376.2 450c-1.2.7-2.6 1.1-4 1.1V345.8zM348.3 95.8v101.9L256 251V144.5l91.2-52.6c.7 1.2 1.1 2.6 1.1 4z"/></svg>',
+    'Speed and correctness': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M168.5 0c-13.3 0-24 10.7-24 24s10.7 24 24 24h32v25.3C92.5 85.2 8.5 176.8 8.5 288c0 119.3 96.7 216 216 216s216-96.7 216-216c0-39.8-10.8-77.1-29.6-109.2l28.2-28.2c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-23.4 23.4c-32.9-30.2-75.2-50.3-122-55.5V47.9h32c13.3 0 24-10.7 24-24s-10.7-24-24-24h-112zm80 184v104c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24"/></svg>',
+    'How it was built': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v16h128V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-16H192v16c0 7.3-1.7 14.3-4.6 20.5L256 288h80c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48h-96c-26.5 0-48-21.5-48-48v-96c0-7.3 1.7-14.3 4.6-20.5L128 224H48c-26.5 0-48-21.5-48-48z"/></svg>',
 }
 
 
@@ -135,8 +138,10 @@ def section_map(current: str | None) -> str:
     """
     rows = []
     for label in SECTION_TITLES.values():
+        if label == "Backup":            # its own deck now: backup.html
+            continue
         here = "here" if current is None or label == current else "later"
-        rows.append(f'<li class="{here}"><i class="fa-{SECTION_ICONS[label]}"></i>{label}</li>')
+        rows.append(f'<li class="{here}">{SECTION_ICONS[label]}{label}</li>')
     return ('<h2 class="outline-head">Outline</h2>\n'
             f'          <ul class="section-map">{"".join(rows)}</ul>')
 
@@ -429,8 +434,6 @@ def render(order, sprite, titles=True):
 def main() -> None:
     sprite = (HERE / "extra" / "icons-sprite.svg").read_text(encoding="utf-8")
     for target, order, titles in (("index.html", ORDER, True), ("backup.html", BACKUP_ORDER, False)):
-        if not order:
-            continue
         doc, n = render(order, sprite, titles)
         (HERE / target).write_text(doc, encoding="utf-8")
         print(f"{target} written: {len(order)} files, {n} <section> tags", flush=True)

@@ -1,0 +1,1017 @@
+<div class="external-slide">
+
+<!-- 3.0 The test case -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>The test case</h3>
+  
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
+    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
+    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+  <p class="step compact" data-id="m4"><i class="fa-balance-scale lead"></i> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p>
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
+    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+  <p class="step compact" data-id="m4"><i class="fa-balance-scale lead"></i> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p>
+  <p class="step compact" data-id="m5"><i class="fa-microchip lead"></i> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
+    <span class="sub">runs use 1 or 6 threads, as labelled</span></p>
+  <aside class="notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
+</section>
+
+</section>
+
+<!-- 3.1 Speed: one pattern calculation -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      
+      
+      
+      
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      
+      
+      
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysfml">
+        <div class="bar-name" data-id="name-crysfml">CrysFML <span style='opacity:.6'>(Fortran 2008)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-crysfml" style="width: 62.4%"></div>
+          <span class="bar-value" data-id="value-crysfml">313 ms</span>
+        </div>
+      </div>
+      
+      
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysfml">
+        <div class="bar-name" data-id="name-crysfml">CrysFML <span style='opacity:.6'>(Fortran 2008)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-crysfml" style="width: 62.4%"></div>
+          <span class="bar-value" data-id="value-crysfml">313 ms</span>
+        </div>
+      </div>
+      
+      <div class="bar-row" data-id="row-crysta6">
+        <div class="bar-name" data-id="name-crysta6">crysta <span style='opacity:.6'>(C++20), 6 threads</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 51.9%"></div>
+          <span class="bar-value" data-id="value-crysta6">119 ms</span>
+        </div>
+      </div>
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysfml">
+        <div class="bar-name" data-id="name-crysfml">CrysFML <span style='opacity:.6'>(Fortran 2008)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-crysfml" style="width: 62.4%"></div>
+          <span class="bar-value" data-id="value-crysfml">313 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta1">
+        <div class="bar-name" data-id="name-crysta1">crysta <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 69.2%"></div>
+          <span class="bar-value" data-id="value-crysta1">584 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta6">
+        <div class="bar-name" data-id="name-crysta6">crysta <span style='opacity:.6'>(C++20), 6 threads</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 51.9%"></div>
+          <span class="bar-value" data-id="value-crysta6">119 ms</span>
+        </div>
+      </div>
+    </div>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysfml">
+        <div class="bar-name" data-id="name-crysfml">CrysFML <span style='opacity:.6'>(Fortran 2008)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-crysfml" style="width: 62.4%"></div>
+          <span class="bar-value" data-id="value-crysfml">313 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta1">
+        <div class="bar-name" data-id="name-crysta1">crysta <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 69.2%"></div>
+          <span class="bar-value" data-id="value-crysta1">584 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta6">
+        <div class="bar-name" data-id="name-crysta6">crysta <span style='opacity:.6'>(C++20), 6 threads</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 51.9%"></div>
+          <span class="bar-value" data-id="value-crysta6">119 ms</span>
+        </div>
+      </div>
+    </div>
+  <p class="step sub" data-id="foldnote"><i class="fa-bug lead"></i> Recomputing reflections that <span class="blue">symmetry makes identical</span></p>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: one pattern calculation</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span></div>
+    <div class="bars">
+      <div class="bar-row bar-axis" data-id="axis-calc">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-calc"><span data-id="tick-calc-0" style="left: 0.0%">1 ms</span><span data-id="tick-calc-1" style="left: 25.0%">10 ms</span><span data-id="tick-calc-2" style="left: 50.0%">100 ms</span><span data-id="tick-calc-3" style="left: 75.0%">1 s</span><span data-id="tick-calc-4" style="left: 100.0%">10 s</span><div class="bar-axis-line" data-id="axisline-calc"></div></div>
+      </div>
+      <div class="bar-row" data-id="row-proto">
+        <div class="bar-name" data-id="name-proto">Python prototype <span style='opacity:.6'>(no NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill py" data-id="fill-proto" style="width: 91.3%"></div>
+          <span class="bar-value" data-id="value-proto">4.49 s</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-ed">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 68.7%"></div>
+          <span class="bar-value" data-id="value-ed">562 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-cryspy">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(NumPy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 64.4%"></div>
+          <span class="bar-value" data-id="value-cryspy">377 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysfml">
+        <div class="bar-name" data-id="name-crysfml">CrysFML <span style='opacity:.6'>(Fortran 2008)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-crysfml" style="width: 62.4%"></div>
+          <span class="bar-value" data-id="value-crysfml">313 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta1">
+        <div class="bar-name" data-id="name-crysta1">crysta <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 36.6%"></div>
+          <span class="bar-value" data-id="value-crysta1">29 ms</span>
+        </div>
+      </div>
+      <div class="bar-row" data-id="row-crysta6">
+        <div class="bar-name" data-id="name-crysta6">crysta <span style='opacity:.6'>(C++20), 6 threads</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 19.5%"></div>
+          <span class="bar-value" data-id="value-crysta6">6 ms</span>
+        </div>
+      </div>
+    </div>
+  <p class="step sub" data-id="foldnote"><i class="fa-bug lead"></i> Recomputing reflections that <span class="blue">symmetry makes identical</span></p>
+  <aside class="notes">Numbers: enhantica/bench, calculator/results/calc.md &mdash; the run generated 2026-09-05 16:14 UTC for every bar and for crysta after the fix (1 thread 29 ms, 6 threads 6 ms); the two before-fix crysta bars are that same harness&rsquo;s last pre-fix run (bench 3f9ff81: 584 ms and 119 ms). Cross-check, relay C11-T50, one harness, single thread, at this case&rsquo;s cutoff of 12.25 FWHM: 638.0 ms before the fold (crysta b34b818a) against 29.4 ms after (c89e6b23), 21.7&times;. The corpus&rsquo;s 7,394 signed reflections decompose into 357 space-group and Friedel orbits whose members share d and |F|&sup2;, so every member carries the same contribution; the 20.7&times; reflection-count ratio is what the speed-up tracks. The answer was never wrong &mdash; the work was. The fold is model-conditional: preferred orientation, magnetic scattering or a non-symmetry-adapted width each switch it off.</aside>
+</section>
+
+</section>
+
+<!-- 3.2 Correctness: the calculated pattern -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of calculated patterns</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span></div>
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of calculated patterns</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span></div>
+  <img class="chart" src="images/pattern-vs-fullprof-1.svg" alt="FullProf's calculated pattern" data-id="ph1">
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of calculated patterns</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span></div>
+  <img class="chart" src="images/pattern-vs-fullprof-2.svg" alt="crysta's calculated pattern over FullProf's, difference below" data-id="ph1">
+  <aside class="notes">Both curves are CALCULATED patterns; no measured data appears on this slide, and the axes, colours and layout are EasyDiffraction&rsquo;s own verification-page style. Window 30&ndash;50 ms of the fitted range: the largest point-by-point difference is 1.2 counts on a 4457-count peak, 0.03 %. Over the whole fitted range it is 6 counts on 7527, 0.08 %. The other engines against the same FullProf reference: Python prototype 0.009 %, CrysFML 0.012 %, crysta 0.039 %, CrysPy 0.48 % &mdash; CrysPy&rsquo;s is a modelling difference inside CrysPy, not an input difference. The peak windows were equalised across engines first, because each defines them differently.</aside>
+  <p class="step sub" data-id="agree">Largest difference <span class="blue">3.9 / 7527</span> peak counts &mdash; <span class="blue">0.05&nbsp;%</span></p>
+</section>
+
+</section>
+
+<!-- 3.3 A fit is not one calculation -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290"></svg>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290">
+    <g data-id="c1">
+      <rect x="40" y="150" width="200" height="70" rx="8" style="fill: rgb(96, 188, 232);"/>
+      <text x="140" y="193" text-anchor="middle" style="font-size:24px; fill:#222">calculate</text>
+      <text x="140" y="250" text-anchor="middle" style="font-size:20px; fill:#6dd1ff">model</text>
+    </g>
+  </svg>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290">
+    <g data-id="c1">
+      <rect x="40" y="150" width="200" height="70" rx="8" style="fill: rgb(96, 188, 232);"/>
+      <text x="140" y="193" text-anchor="middle" style="font-size:24px; fill:#222">calculate</text>
+      <text x="140" y="250" text-anchor="middle" style="font-size:20px; fill:#6dd1ff">model</text>
+    </g>
+    <g data-id="c2">
+      <line x1="240" y1="185" x2="295" y2="185" style="stroke:#6dd1ff; stroke-width:3"/>
+      <polygon points="295,178 310,185 295,192" style="fill:#6dd1ff"/>
+    </g>
+    <g data-id="c3">
+      <rect x="315" y="150" width="200" height="70" rx="8" style="fill: rgb(152, 195, 121);"/>
+      <text x="415" y="193" text-anchor="middle" style="font-size:24px; fill:#222">compare</text>
+      <text x="415" y="250" text-anchor="middle" style="font-size:20px; fill:#98c379">measured</text>
+    </g>
+  </svg>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290">
+    <g data-id="c1">
+      <rect x="40" y="150" width="200" height="70" rx="8" style="fill: rgb(96, 188, 232);"/>
+      <text x="140" y="193" text-anchor="middle" style="font-size:24px; fill:#222">calculate</text>
+      <text x="140" y="250" text-anchor="middle" style="font-size:20px; fill:#6dd1ff">model</text>
+    </g>
+    <g data-id="c2">
+      <line x1="240" y1="185" x2="295" y2="185" style="stroke:#6dd1ff; stroke-width:3"/>
+      <polygon points="295,178 310,185 295,192" style="fill:#6dd1ff"/>
+    </g>
+    <g data-id="c3">
+      <rect x="315" y="150" width="200" height="70" rx="8" style="fill: rgb(152, 195, 121);"/>
+      <text x="415" y="193" text-anchor="middle" style="font-size:24px; fill:#222">compare</text>
+      <text x="415" y="250" text-anchor="middle" style="font-size:20px; fill:#98c379">measured</text>
+    </g>
+    <g data-id="c4">
+      <line x1="515" y1="185" x2="570" y2="185" style="stroke:#98c379; stroke-width:3"/>
+      <polygon points="570,178 585,185 570,192" style="fill:#98c379"/>
+    </g>
+    <g data-id="c5">
+      <rect x="590" y="150" width="200" height="70" rx="8" style="fill: rgb(226, 183, 129);"/>
+      <text x="690" y="193" text-anchor="middle" style="font-size:24px; fill:#222">adjust</text>
+      <text x="690" y="250" text-anchor="middle" style="font-size:20px; fill:#d19966">10 &ndash; 200 parameters</text>
+    </g>
+  </svg>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290">
+    <g data-id="c1">
+      <rect x="40" y="150" width="200" height="70" rx="8" style="fill: rgb(96, 188, 232);"/>
+      <text x="140" y="193" text-anchor="middle" style="font-size:24px; fill:#222">calculate</text>
+      <text x="140" y="250" text-anchor="middle" style="font-size:20px; fill:#6dd1ff">model</text>
+    </g>
+    <g data-id="c2">
+      <line x1="240" y1="185" x2="295" y2="185" style="stroke:#6dd1ff; stroke-width:3"/>
+      <polygon points="295,178 310,185 295,192" style="fill:#6dd1ff"/>
+    </g>
+    <g data-id="c3">
+      <rect x="315" y="150" width="200" height="70" rx="8" style="fill: rgb(152, 195, 121);"/>
+      <text x="415" y="193" text-anchor="middle" style="font-size:24px; fill:#222">compare</text>
+      <text x="415" y="250" text-anchor="middle" style="font-size:20px; fill:#98c379">measured</text>
+    </g>
+    <g data-id="c4">
+      <line x1="515" y1="185" x2="570" y2="185" style="stroke:#98c379; stroke-width:3"/>
+      <polygon points="570,178 585,185 570,192" style="fill:#98c379"/>
+    </g>
+    <g data-id="c5">
+      <rect x="590" y="150" width="200" height="70" rx="8" style="fill: rgb(226, 183, 129);"/>
+      <text x="690" y="193" text-anchor="middle" style="font-size:24px; fill:#222">adjust</text>
+      <text x="690" y="250" text-anchor="middle" style="font-size:20px; fill:#d19966">10 &ndash; 200 parameters</text>
+    </g>
+    <g data-id="c6">
+      <path d="M 690 150 V 80 H 140 V 138" style="fill:none; stroke:#d19966; stroke-width:3"/>
+      <polygon points="133,138 147,138 140,150" style="fill:#d19966"/>
+      <text x="415" y="66" text-anchor="middle" style="font-size:24px; fill:#d19966">repeat, hundreds of times</text>
+    </g>
+  </svg>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>A fit is not one calculation</h3>
+  <svg viewBox="0 0 830 290">
+    <g data-id="c1">
+      <rect x="40" y="150" width="200" height="70" rx="8" style="fill: rgb(96, 188, 232);"/>
+      <text x="140" y="193" text-anchor="middle" style="font-size:24px; fill:#222">calculate</text>
+      <text x="140" y="250" text-anchor="middle" style="font-size:20px; fill:#6dd1ff">model</text>
+    </g>
+    <g data-id="c2">
+      <line x1="240" y1="185" x2="295" y2="185" style="stroke:#6dd1ff; stroke-width:3"/>
+      <polygon points="295,178 310,185 295,192" style="fill:#6dd1ff"/>
+    </g>
+    <g data-id="c3">
+      <rect x="315" y="150" width="200" height="70" rx="8" style="fill: rgb(152, 195, 121);"/>
+      <text x="415" y="193" text-anchor="middle" style="font-size:24px; fill:#222">compare</text>
+      <text x="415" y="250" text-anchor="middle" style="font-size:20px; fill:#98c379">measured</text>
+    </g>
+    <g data-id="c4">
+      <line x1="515" y1="185" x2="570" y2="185" style="stroke:#98c379; stroke-width:3"/>
+      <polygon points="570,178 585,185 570,192" style="fill:#98c379"/>
+    </g>
+    <g data-id="c5">
+      <rect x="590" y="150" width="200" height="70" rx="8" style="fill: rgb(226, 183, 129);"/>
+      <text x="690" y="193" text-anchor="middle" style="font-size:24px; fill:#222">adjust</text>
+      <text x="690" y="250" text-anchor="middle" style="font-size:20px; fill:#d19966">10 &ndash; 200 parameters</text>
+    </g>
+    <g data-id="c6">
+      <path d="M 690 150 V 80 H 140 V 138" style="fill:none; stroke:#d19966; stroke-width:3"/>
+      <polygon points="133,138 147,138 140,150" style="fill:#d19966"/>
+      <text x="415" y="66" text-anchor="middle" style="font-size:24px; fill:#d19966">repeat, hundreds of times</text>
+    </g>
+  </svg>
+  <p class="step sub" data-id="c7">Adjusting needs <span class="blue">derivatives</span> &mdash; how the pattern moves with a parameter</p>
+</section>
+
+</section>
+
+<!-- 3.4 Three ways to get derivatives -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Three ways to get derivatives</h3>
+  
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Three ways to get derivatives</h3>
+  <p class="step" data-id="d1">&#9312; <span class="blue">Numerical</span> <span style='opacity:.6'>(EasyDiffraction)</span> &middot; change, recalculate, subtract
+    <span class="sub">finite differences &middot; one extra full pattern per parameter, per step &middot; approximate</span></p>
+  
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Three ways to get derivatives</h3>
+  <p class="step" data-id="d1">&#9312; <span class="blue">Numerical</span> <span style='opacity:.6'>(EasyDiffraction)</span> &middot; change, recalculate, subtract
+    <span class="sub">finite differences &middot; one extra full pattern per parameter, per step &middot; approximate</span></p>
+  <p class="step" data-id="d2">&#9313; <span class="blue">Analytic</span> <span style='opacity:.6'>(FullProf)</span> &middot; derive formulas and write them by hand
+    <span class="sub">every profile &times; every parameter &middot; exact, but hundreds of formulas to maintain</span></p>
+  
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Three ways to get derivatives</h3>
+  <p class="step semi-hidden" data-id="d1">&#9312; <span class="blue">Numerical</span> <span style='opacity:.6'>(EasyDiffraction)</span> &middot; change, recalculate, subtract
+    <span class="sub">finite differences &middot; one extra full pattern per parameter, per step &middot; approximate</span></p>
+  <p class="step semi-hidden" data-id="d2">&#9313; <span class="blue">Analytic</span> <span style='opacity:.6'>(FullProf)</span> &middot; derive formulas and write them by hand
+    <span class="sub">every profile &times; every parameter &middot; exact, but hundreds of formulas to maintain</span></p>
+  <p class="step" data-id="d3">&#9314; <span class="blue">Automatic</span> <span style='opacity:.6'>(crysta)</span> &middot; derivatives come from the same formulas
+    <span class="sub">accurate to numerical precision &middot; extra work in the same evaluation</span></p>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Three ways to get derivatives</h3>
+  <p class="step semi-hidden" data-id="d1">&#9312; <span class="blue">Numerical</span> <span style='opacity:.6'>(EasyDiffraction)</span> &middot; change, recalculate, subtract
+    <span class="sub">finite differences &middot; one extra full pattern per parameter, per step &middot; approximate</span></p>
+  <p class="step semi-hidden" data-id="d2">&#9313; <span class="blue">Analytic</span> <span style='opacity:.6'>(FullProf)</span> &middot; derive formulas and write them by hand
+    <span class="sub">every profile &times; every parameter &middot; exact, but hundreds of formulas to maintain</span></p>
+  <p class="step" data-id="d3">&#9314; <span class="blue">Automatic</span> <span style='opacity:.6'>(crysta)</span> &middot; derivatives come from the same formulas
+    <span class="sub">accurate to numerical precision &middot; extra work in the same evaluation</span></p>
+  <p class="step sub" data-id="d4">A number becomes a pair: (<span class="blue">value</span>, <span class="green">slope</span>)<br>
+    y = x&sup2; at x = 3<br>
+    (3, 1) &times; (3, 1) = (<span class="blue">9</span>, <span class="green">6</span>)</p>
+</section>
+
+</section>
+
+<!-- 3.5 Exact derivatives change the fit -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Derivatives change the fit</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> linear scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long short">
+      
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Derivatives change the fit</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> linear scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long short">
+      <div class="bar-row bar-axis" data-id="axis-der">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-der"><span data-id="tick-der-0" style="left: 0.0%">0</span><span data-id="tick-der-1" style="left: 25.0%">200</span><span data-id="tick-der-2" style="left: 50.0%">400</span><span data-id="tick-der-3" style="left: 75.0%">600</span><span data-id="tick-der-4" style="left: 100.0%">800</span><div class="bar-axis-line" data-id="axisline-der"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-num">numerical <span style='opacity:.6'>(CrysPy + lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-num" style="width: 80.4%"></div>
+          <span class="bar-value" data-id="value-num">643 patterns</span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Derivatives change the fit</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> linear scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long short">
+      <div class="bar-row bar-axis" data-id="axis-der">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-der"><span data-id="tick-der-0" style="left: 0.0%">0</span><span data-id="tick-der-1" style="left: 25.0%">200</span><span data-id="tick-der-2" style="left: 50.0%">400</span><span data-id="tick-der-3" style="left: 75.0%">600</span><span data-id="tick-der-4" style="left: 100.0%">800</span><div class="bar-axis-line" data-id="axisline-der"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-num">numerical <span style='opacity:.6'>(CrysPy + lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-num" style="width: 80.4%"></div>
+          <span class="bar-value" data-id="value-num">643 patterns</span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-aut">automatic <span style='opacity:.6'>(crysta)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-aut" style="width: 4.5%"></div>
+          <span class="bar-value" data-id="value-aut">37 equivalents</span>
+        </div>
+      </div>
+    </div>
+  <aside class="notes">The fits have similar, but different, final values: reduced &chi;&sup2; 4.743 for lmfit, 4.871 for crysta. Be precise if asked: a crysta LM step is NOT one calculation. Measured single-threaded, the value pass is 29 ms and the analytic Jacobian 59 ms, about two value passes for all 48 derivatives; a whole iteration is six, the rest being trial steps in the damping ladder. So six steps cost about 36 calculations, 37 counting the starting evaluation, against 643. FullProf is the most step-efficient engine here, about 10 calculations for its 16 cycles, because it also uses analytic derivatives.</aside>
+</section>
+
+</section>
+
+<!-- 3.6 Speed: a full refinement -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      <div class="bar-row bar-axis" data-id="axis-fit">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
+          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      <div class="bar-row bar-axis" data-id="axis-fit">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
+          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(scipy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 87.9%"></div>
+          <span class="bar-value" data-id="value-cryspy">329 s<span class="faint"> / 838 patterns</span></span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      <div class="bar-row bar-axis" data-id="axis-fit">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
+          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(scipy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 87.9%"></div>
+          <span class="bar-value" data-id="value-cryspy">329 s<span class="faint"> / 838 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-fullprof">FullProf fp2k <span style='opacity:.6'>(Fortran)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-fullprof" style="width: 52.8%"></div>
+          <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      <div class="bar-row bar-axis" data-id="axis-fit">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
+          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(scipy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 87.9%"></div>
+          <span class="bar-value" data-id="value-cryspy">329 s<span class="faint"> / 838 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-fullprof">FullProf fp2k <span style='opacity:.6'>(Fortran)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-fullprof" style="width: 52.8%"></div>
+          <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 37.7%"></div>
+          <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Speed: a full refinement</h3>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+    <div class="bars long">
+      <div class="bar-row bar-axis" data-id="axis-fit">
+        <div></div>
+        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
+          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(scipy)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 87.9%"></div>
+          <span class="bar-value" data-id="value-cryspy">329 s<span class="faint"> / 838 patterns</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-fullprof">FullProf fp2k <span style='opacity:.6'>(Fortran)</span></div>
+        <div class="bar-track">
+          <div class="bar-fill fortran" data-id="fill-fullprof" style="width: 52.8%"></div>
+          <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 37.7%"></div>
+          <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
+        </div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
+        <div class="bar-track">
+          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 25.2%"></div>
+          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
+        </div>
+      </div>
+    </div>
+  <aside class="notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+</section>
+
+</section>
+
+<!-- 3.7 Correctness: the refined structure -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    
+    <tbody>
+      
+      
+      
+      
+      
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      
+      
+      
+      
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      <tr data-id="r2"><td>&beta;<sub>0</sub> (decay)</td><td>0.005160 &plusmn; 0.000040</td><td>0.005183 &plusmn; 0.000040</td><td>&minus;0.000023</td><td>0.39</td></tr>
+      
+      
+      
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      <tr data-id="r2"><td>&beta;<sub>0</sub> (decay)</td><td>0.005160 &plusmn; 0.000040</td><td>0.005183 &plusmn; 0.000040</td><td>&minus;0.000023</td><td>0.39</td></tr>
+      <tr data-id="r3"><td colspan="5" class="faint">&hellip; 44 more &hellip;</td></tr>
+      
+      
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      <tr data-id="r2"><td>&beta;<sub>0</sub> (decay)</td><td>0.005160 &plusmn; 0.000040</td><td>0.005183 &plusmn; 0.000040</td><td>&minus;0.000023</td><td>0.39</td></tr>
+      <tr data-id="r3"><td colspan="5" class="faint">&hellip; 44 more &hellip;</td></tr>
+      <tr data-id="r4"><td>Ca1 B<sub>iso</sub></td><td>1.1183 &plusmn; 0.1268</td><td>1.1200 &plusmn; 0.1340</td><td>&minus;0.0017</td><td>0.01</td></tr>
+      
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      <tr data-id="r2"><td>&beta;<sub>0</sub> (decay)</td><td>0.005160 &plusmn; 0.000040</td><td>0.005183 &plusmn; 0.000040</td><td>&minus;0.000023</td><td>0.39</td></tr>
+      <tr data-id="r3"><td colspan="5" class="faint">&hellip; 44 more &hellip;</td></tr>
+      <tr data-id="r4"><td>Ca1 B<sub>iso</sub></td><td>1.1183 &plusmn; 0.1268</td><td>1.1200 &plusmn; 0.1340</td><td>&minus;0.0017</td><td>0.01</td></tr>
+      <tr data-id="r5"><td>F3 B<sub>iso</sub></td><td>1.8516 &plusmn; 0.1594</td><td>1.8520 &plusmn; 0.1690</td><td>&minus;0.0004</td><td>0.00</td></tr>
+    </tbody>
+  </table>
+  
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <h3>Agreement of refined parameters</h3>
+<div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><i class="fa-flask"></i> NCAF</span><span class="item"><i class="fa-chart-line"></i> 3977 points</span><span class="item"><i class="fa-mountain"></i> 627 peaks</span><span class="item"><i class="fa-waves"></i> WISH 2+9</span><span class="item"><i class="fa-microchip-alt"></i> VISA 6 cores</span><span class="item"><i class="fa-ruler-horizontal"></i> log scale</span><span class="item"><i class="fa-flag-checkered"></i> same start</span><span class="item"><i class="fa-circle-check"></i> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><i class="fa-sliders"></i> 48 free par.</span></div>
+  <table class="parity" data-id="tbl4">
+    <thead data-id="th4"><tr><th>parameter</th><th>crysta</th><th>FullProf</th><th>&Delta;</th><th>&Delta;/&sigma;</th></tr></thead>
+    <tbody>
+      <tr data-id="r1"><td>background[21]</td><td>164.36 &plusmn; 21.60</td><td>187.47 &plusmn; 25.41</td><td>&minus;23.11</td><td>0.69</td></tr>
+      <tr data-id="r2"><td>&beta;<sub>0</sub> (decay)</td><td>0.005160 &plusmn; 0.000040</td><td>0.005183 &plusmn; 0.000040</td><td>&minus;0.000023</td><td>0.39</td></tr>
+      <tr data-id="r3"><td colspan="5" class="faint">&hellip; 44 more &hellip;</td></tr>
+      <tr data-id="r4"><td>Ca1 B<sub>iso</sub></td><td>1.1183 &plusmn; 0.1268</td><td>1.1200 &plusmn; 0.1340</td><td>&minus;0.0017</td><td>0.01</td></tr>
+      <tr data-id="r5"><td>F3 B<sub>iso</sub></td><td>1.8516 &plusmn; 0.1594</td><td>1.8520 &plusmn; 0.1690</td><td>&minus;0.0004</td><td>0.00</td></tr>
+    </tbody>
+  </table>
+  <p class="step sub" data-id="esd">Every one within <span class="blue">0.69 &sigma;</span> &middot; median <span class="blue">0.05 &sigma;</span></p>
+  <aside class="notes">The new engine agrees with the reference within the reported uncertainties for this case. Sorted by disagreement in units of the combined standard uncertainty. The fits use the same data, so this is a descriptive comparison, not an independent significance test. the two largest are a background node at the very end of the range and the exponential decay parameter. Source: enhantica/bench, calculator/results/fit.md and the two engines&rsquo; own refined-parameter files.</aside>
+</section>
+
+</section>
+
+</div>
