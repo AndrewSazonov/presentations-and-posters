@@ -45,22 +45,26 @@
                      border: none; box-shadow: none; }
 
 /* "crysta": the engine in a box of the calculation-engine green, then the same box shrinking into
-   the fourth slot of the stack diagram. The box is HTML laid over the SVG, at the slot's position
-   in the drawing's own scale (880 px for 830 user units = 1.0602), so the step is one move and one
-   shrink of one element; it carries `aa-move`, the deck's opt-in for a nested element that moves.
-   The big box keeps the slot's proportions (112 : 56) so the shrink does not squash it. */
+   the fourth slot of the stack diagram. The box is HTML laid over the SVG and placed in per cent of
+   the drawing (viewBox 830 x 408; slot at 398, 330, 112 x 56), so it lands on the slot whatever
+   size the drawing renders at. It carries `aa-move`, the deck's opt-in for a nested element that
+   moves. Only the outer box is paired by auto-animate, and it has no look of its own: the fill,
+   corners and outline are on .cbface inside it, which reveal does not restyle. The big face's
+   corners and outline are the slot's times the shrink (440 / 118.7 = 3.7), so the box only moves
+   and shrinks, without its corners changing on the way. The blue outline marks it as ours. */
 .reveal .crystafig { position: relative; width: 880px; max-width: 100%; margin: 0.6em 0 0; }
-.reveal .crystafig svg.stackfig { margin: 0; }
-.reveal .crystabox { position: absolute; box-sizing: border-box; text-align: center;
-                     background: rgb(164, 209, 114); color: #222; }
-.reveal .crystabox.slot { left: 422px; top: 349.9px; width: 118.7px; height: 59.4px;
-                          border-radius: 6px; padding-top: 6px; }
-.reveal .crystabox.slot .cbname { font-size: 20px; line-height: 1.1; font-weight: 400; }
+.reveal .crystafig svg.stackfig { margin: 0; width: 100%; }
+.reveal .crystabox { position: absolute; }
+.reveal .crystabox .cbface { box-sizing: border-box; width: 100%; height: 100%; text-align: center;
+                             background: rgb(164, 209, 114); color: #222; border: solid var(--c-blue); }
+.reveal .crystabox.slot { left: 47.952%; top: 80.882%; width: 13.494%; height: 13.725%; }
+.reveal .crystabox.slot .cbface { border-radius: 6px; border-width: 2.5px; padding-top: 4px; }
+.reveal .crystabox.slot .cbname { font-size: 20px; line-height: 1.1; font-weight: 600; }
 .reveal .crystabox.slot .cbsub { font-size: 14px; line-height: 1.3; color: #3d5a28; }
-.reveal .crystabox.big { left: 220px; top: 115px; width: 440px; height: 220px; border-radius: 22px;
-                         display: flex; flex-direction: column; align-items: center; justify-content: center;
-                         gap: 10px; }
-.reveal .crystabox.big .cbname { font-size: 56px; line-height: 1; font-weight: 400; }
+.reveal .crystabox.big { left: 25%; top: 24.5%; width: 50%; height: 51%; }
+.reveal .crystabox.big .cbface { border-radius: 22px; border-width: 9px; display: flex; flex-direction: column;
+                                 align-items: center; justify-content: center; gap: 10px; }
+.reveal .crystabox.big .cbname { font-size: 56px; line-height: 1; font-weight: 600; }
 .reveal .crystabox.big .cbitems { font-size: var(--fs-md); line-height: 1.2; color: #3d5a28; }
 .reveal .crystabox.big .cblogos { display: flex; justify-content: center; gap: 18px; }
 .reveal .crystabox.big .cblogos img { height: 34px; width: auto; margin: 0; border: none; box-shadow: none; }
