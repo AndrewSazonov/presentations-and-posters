@@ -133,3 +133,10 @@
                    margin: var(--gap-pair) 0 0; }
 .reveal .pagebox img { position: absolute; left: 0; width: 900px; height: auto; margin: 0;
                        border: none; box-shadow: none; }
+
+/* A boxed list item with an explanatory line: the line starts under the item's text, not under its
+   icon (the box's hanging indent would otherwise pull it left), and keeps the deck's pair gap. */
+.reveal .dolist.boxed .step .sub { text-indent: 0; }
+/* ...and in one-line boxes, as on the NOBUGS deck, the explanation follows the item on the same line,
+   smaller and grey, rather than taking a line of its own. */
+.reveal .dolist .step .sub.inline { display: inline; margin: 0 0 0 0.35em; font-size: var(--fs-sm); }
