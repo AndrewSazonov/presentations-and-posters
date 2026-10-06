@@ -15,43 +15,53 @@ HERE = Path(__file__).parent
 # Section titles live here, not inside the slides: each becomes its own title slide, emitted before the
 # first slide of that section. A slide file therefore carries only its own content.
 SECTION_TITLES = {
-    "10_why.html": "Why new software",
-    "20_easydiffraction.html": "EasyDiffraction",
-    "30_crysta.html": "crysta",
-    "40_outlook.html": "Outlook",
+    "10_problem.html": "The problem",
+    "20_evolution.html": "Design evolution",
+    "30_principles.html": "UX principles",
+    "40_reuse.html": "Reuse",
+    # The demo closes the talk, so 60_closing continues 50_demo without a divider of its own.
+    "50_demo.html": "Demo",
+    "90_appendix.html": "Backup",
 }
 
 ORDER = [
     "00_divider.html",
     "01_title.html",
-    "30_crysta.html",
-    "40_outlook.html",
+    "10_problem.html",
+    "20_evolution.html",
+    "30_principles.html",
+    "40_reuse.html",
+    "50_demo.html",
 ]
 
 # The backup slides are a separate deck: they are never presented in sequence, only opened when a
 # question needs them, and keeping them out of index.html means the talk ends where it ends.
-BACKUP_ORDER: list[str] = []   # no backup deck for this talk
+BACKUP_ORDER = [
+    "90_appendix.html",
+]
 
 HEAD = """<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="EasyDiffraction and crysta — reusing crystallographic libraries, and building our own">
+    <meta name="description" content="How a diffraction analysis GUI became a module shared across neutron-scattering techniques">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#333333">
-    <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
-
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css">
-    <link rel="stylesheet" type="text/css" href="extra/style.css">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css">
+    <title>Same workflow, different techniques — From a diffraction prototype to a reusable EasyScience GUI</title>
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css">
     <link rel="stylesheet" href="dist/theme/black.css">
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+    <!-- The deck's own styles load LAST so they win against the theme at equal specificity. With
+         them first, a rule like `.reveal h3` lost to the theme's `.reveal h1, .reveal h2, .reveal h3`
+         and silently did nothing. -->
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="extra/style.css">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css">
   </head>
 
   <body>
@@ -74,7 +84,26 @@ TAIL = """
       Reveal.initialize({
           width: 1200,
           height: 750,
+          margin: 0,                     // reveal insets the stage by 4% of the viewport by
+                                         // default, which put a band of background between a
+                                         // picture bled to the slide's bottom edge and the bottom
+                                         // of the window. A bleed has to reach the actual edge.
           controlsTutorial: false,
+          progress: false,               // the blue bar along the bottom edge
+          // "5/26" — the slide you are on out of the slides there are, not the click out of the
+          // clicks: a stack is one slide to the room, however many times you press the button.
+          // reveal spreads this into formatNumber(a, delimiter, b), so it has to be an array. Three
+          // parts, so the separator is its own span and can be set larger than the numbers; the
+          // newline and five tabs reveal puts between them are killed by font-size: 0 on the
+          // anchor in extra/talk.css.
+          slideNumber: function () {
+            var h = Reveal.getIndices().h;
+            // The ESS mark is a holding screen shown while the room fills, not part of the talk:
+            // it carries no number, and the title page is 1. An empty first element renders an
+            // empty span, which is also how the separator is suppressed there.
+            if (h === 0) return [''];
+            return [h, '|', Reveal.getHorizontalSlides().length - 1];
+          },
           hash: true,
           transition: 'slide',           // a new slide arrives from the right; steps inside
                                          // one slide are auto-animated, so they stay fades
@@ -84,12 +113,159 @@ TAIL = """
           autoAnimateEasing: 'cubic-bezier(0.770, 0.000, 0.175, 1.000)',
           autoAnimateDuration: 0.5,   // a step is only ever a fade, so it can be quick
       })
+
+      // FULLSCREEN MUST NOT RESIZE THE DECK. The window is already the full width of the display,
+      // so pressing F adds only the height the browser chrome was using. reveal spends it: the deck
+      // stops being height-limited, grows until width limits it instead, and every slide jumps
+      // ~10% larger while the side margins collapse to nothing -- which is what put the title rule
+      // hard against the screen edge. Capping maxScale at the scale the deck had in the window
+      // keeps fullscreen identical to what was on screen a moment earlier; the height F hands over
+      // goes to bands above and below instead of to the content.
+      // A number in the config cannot do this: the right cap is whatever this window's height makes
+      // it, which differs per machine, per display and per browser chrome.
+      var windowedScale = null;
+      var isFull = function () {
+          return !!(document.fullscreenElement || document.webkitFullscreenElement);
+      };
+      var remember = function () { if (!isFull()) windowedScale = Reveal.getScale(); };
+      // Four readings, because no single one is dependable: reveal's 'resize' only fires when the
+      // scale actually CHANGES, so it can never fire at all on a deck opened at its final size...
+      Reveal.on('ready', remember);
+      Reveal.on('resize', remember);
+      window.addEventListener('resize', remember);
+      // ...and this last one is the safety net: F is what starts the transition, and on the capture
+      // phase we run before reveal's own key handler, so the deck is still certainly windowed. The
+      // macOS fullscreen animation resizes the viewport many times on the way, and if any of those
+      // landed before fullscreenElement was set they would overwrite the value we want.
+      document.addEventListener('keydown', function (e) {
+          if (e.key === 'f' || e.key === 'F') remember();
+      }, true);
+      // ...but only where fullscreen would otherwise have NO side margin at all. On a display
+      // narrower than the deck's 1.6 the stage is width-limited in fullscreen and runs edge to
+      // edge; on a 16:9 projector it is height-limited and already sits in a band of its own, and
+      // capping there would just leave the slides small in the middle of the room's screen. Read
+      // off `screen`, not the viewport, which is still mid-animation when this fires.
+      var fullscreenWouldFillWidth = function () {
+          return screen.width / 1200 < screen.height / 750;
+      };
+      var onFullscreenChange = function () {
+          // configure() re-lays out, which fires 'resize' again; remember()'s guard stops that
+          // becoming a loop, since it only writes windowedScale when NOT fullscreen.
+          var cap = isFull() && windowedScale && fullscreenWouldFillWidth() ? windowedScale : 2;
+          Reveal.configure({ maxScale: cap });
+          // ...and re-measure the band, twice. The viewport is mid-animation when this fires, so
+          // the first reading is of a window still on its way; the later one catches the size it
+          // settles at. Without these, fullscreen keeps the windowed band -- which is none -- and
+          // a picture goes on being cut at the canvas edge with screen to spare below it.
+          alignControls();
+          setTimeout(alignControls, 700);
+      };
+      document.addEventListener('fullscreenchange', onFullscreenChange);
+      document.addEventListener('webkitfullscreenchange', onFullscreenChange);
+
+      // THE ARROWS SIT IN THE TOP RIGHT CORNER, small, and stay there. They used to live in the
+      // bottom corner, where they landed on whatever the slide put there -- on a narrow screen the
+      // down arrow sits in the third screenshot of "Three ways in". Up beside the title they are
+      // clear of every slide's content, because the title band is short and ranged left.
+      // The corner is the DECK's, not the window's: on a letterboxed screen those are different
+      // places, and the arrows belong with the slide. That is the whole reason this is in script --
+      // talk.css keeps the controls in screen pixels, since they live outside .slides and are not
+      // scaled with the stage, so lining them up with the stage means measuring it.
+      var controlsBaseline = null, controlsOrigin = null;
+      var alignControls = function () {
+          var reveal = Reveal.getRevealElement();
+          var slides = reveal.querySelector('.slides');
+          var num = reveal.querySelector('.slide-number');
+          var ctl = reveal.querySelector('.controls');
+          if (!slides || !num || !ctl) return;
+          var r = reveal.getBoundingClientRect(), s = slides.getBoundingClientRect();
+          var scale = Reveal.getScale();
+          // The title band: 94 stage units tall, starting 44 down. The arrows ride at its middle on
+          // every slide -- including the dividers and the cover, which have no title block at all,
+          // so a measured height would have been missing exactly where it was needed.
+          var TITLE_TOP = 44, TITLE_H = 94;
+          var want = s.top + (TITLE_TOP + TITLE_H / 2) * scale;
+          // Where the diamond sits with NO shift, measured once and kept. Reading its live position
+          // instead would be self-referential -- the rect already includes the shift set last time,
+          // so each call would add another and the arrows would walk off the top. Held as a distance
+          // from .reveal's BOTTOM edge, which is what the CSS anchors to.
+          if (controlsBaseline === null) {
+              var n0 = num.getBoundingClientRect();
+              controlsBaseline = r.bottom - (n0.top + n0.height / 2);
+          }
+          reveal.style.setProperty('--ctrl-shift', ((r.bottom - controlsBaseline) - want) + 'px');
+          reveal.style.setProperty('--ctrl-right', ((r.right - s.right) + 28 * scale) + 'px');
+          // HOW FAR A PICTURE MAY RUN PAST THE BOTTOM OF THE SLIDE. The deck is a fixed 1200x750
+          // canvas, so on a window taller than 1.6 -- and in fullscreen, where the scale is pinned
+          // and the spare height becomes band -- there is screen below the canvas doing nothing,
+          // while a picture that was cut at the canvas edge still has more to show.
+          // This is the HALF-BAND under the slide, in stage units. It does not resize or move
+          // anything: talk.css spends it purely on the clip, so the layout is identical and the
+          // only difference is how much of an overflowing picture survives.
+          var extra = Math.max(0, (r.height / scale - 750) / 2);
+          reveal.style.setProperty('--vh-extra', extra + 'px');
+          // Drawn at the title band's height, so it reads as part of that band rather than as a
+          // fixed-size widget parked beside it. The span is NOT measured: reveal hides the up and
+          // down arrows on a slide with no vertical steps, and reading it meant un-scaling the
+          // cluster on every call, which made it pulse. It is a constant of the arrow offsets in
+          // talk.css, so it is declared there, beside them.
+          var span = parseFloat(getComputedStyle(reveal).getPropertyValue('--ctrl-span'));
+          // Sized from --ctrl-height, a stage-unit target declared in talk.css beside the arrows.
+          // It started as the title block's own 94, which read a little small; it is a token so the
+          // one number that decides how big the cluster is sits next to the geometry it scales.
+          var tall = parseFloat(getComputedStyle(reveal).getPropertyValue('--ctrl-height')) || TITLE_H;
+          if (span > 0) reveal.style.setProperty('--ctrl-scale', (tall * scale) / span);
+          // The arrows and the number are separate elements, so they only stay a diamond if both
+          // scale about the same point. The number is that point -- it sits at the diamond's middle.
+          if (controlsOrigin === null) {
+              var cr = ctl.getBoundingClientRect(), nr = num.getBoundingClientRect();
+              controlsOrigin = ((nr.left + nr.width / 2) - cr.left) + 'px '
+                             + ((nr.top + nr.height / 2) - cr.top) + 'px';
+              reveal.style.setProperty('--ctrl-origin', controlsOrigin);
+          }
+      };
+      Reveal.on('ready', alignControls);
+      // reveal's own 'resize' only fires when the SCALE changes -- and the fullscreen cap below
+      // exists precisely to stop it changing, so entering fullscreen fires nothing at all. The
+      // viewport still grew, though, and --vh-extra is computed from the viewport. Hence the DOM
+      // resize event as well: it fires whatever the scale does.
+      Reveal.on('resize', alignControls);
+      window.addEventListener('resize', alignControls);
+      // TEMPORARY, for choosing how a lone screenshot is sized — delete once the choice is made.
+      // index.html?pic=5 (as built) | 80 | 200 | 280 | side  — px cut off the bottom of the picture
+      ;(function () {
+        const pic = new URLSearchParams(location.search).get('pic');
+        if (!pic) return;
+        // pic=<px cut off the bottom>: the bigger the cut, the wider the picture.
+        const cut = { '5': 5, '80': 80, '200': 200, '280': 280 }[pic];
+        const st = document.createElement('style');
+        st.textContent = cut
+          ? `.reveal .shotbox { margin-bottom: -${cut}px !important; }`
+          : `.reveal .sbody > .titlebox, .reveal .sbody > .statement,
+             .reveal .sbody > p.step { max-width: 46% !important; }
+             .reveal .sbody > .shotbox { position: absolute !important; left: 52% !important;
+               right: var(--pad-x) !important; top: var(--pad-top) !important;
+               bottom: var(--pad-top) !important; width: auto !important; height: auto !important;
+               margin: 0 !important; }
+             .reveal .sbody > .shotbox img { height: 100% !important; width: 100% !important;
+               object-fit: contain !important; object-position: left top !important; }`;
+        document.head.appendChild(st);
+        const tag = document.createElement('div');
+        tag.textContent = 'pic=' + pic;
+        tag.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:99;font:12px system-ui;' +
+                            'color:#6dd1ff;opacity:.7';
+        document.body.appendChild(tag);
+      })();
       // Layout self-check: open index.html?check to get one line per slide step whose content
       // overflows the 1200x750 slide box (vertical) or spills past its edges (horizontal).
       if (location.search.includes('check')) {
         Reveal.on('ready', () => {
-          // Measured mid-transition, a slide reads as overflowing, so the check switches both off.
-          Reveal.configure({ transition: 'none', autoAnimate: false });
+          // Walk with auto-animate AND the slide transition off: both tween a transform, and
+          // stepping this fast leaves a half-finished one on the slide being measured. The title
+          // card moves the whole block, so every stack reported its first two steps as
+          // overflowing; the horizontal slide-in put the first slide of a stack off to the side,
+          // which is what the standing "#/1/0 h-overflow" line always was.
+          Reveal.configure({ autoAnimate: false, transition: 'none' });
           const out = []; const box = document.querySelector('.reveal .slides').getBoundingClientRect();
           const hs = document.querySelectorAll('.reveal .slides > section');
           hs.forEach((hsec, h) => {
@@ -97,15 +273,20 @@ TAIL = """
             for (let v = 0; v < n; v++) {
               Reveal.slide(h, v); const sec = Reveal.getCurrentSlide(); const r = sec.getBoundingClientRect();
               const issues = [];
-              if (r.height > box.height + 1) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
+              if (r.height > box.height + 1 && !sec.classList.contains('titlecard')) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
+                // A lone screenshot is MEANT to run off the bottom edge — see --bleed in
+                // talk.css — and a title card parks its content below the slide to move it in.
+                if (el.closest('.shotbox') || el.closest('.zonebox')
+                    || sec.classList.contains('titlecard')) return;
                 if (e.bottom > box.bottom + 2) issues.push(`v-spill <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
               });
               if (issues.length) out.push(`#/${h}/${v} ${(sec.querySelector('h3')||{}).textContent||''}: ` + [...new Set(issues)].slice(0,4).join(' | '));
             }
           });
+          Reveal.configure({ autoAnimate: true, transition: 'slide' });
           const pre = document.createElement('pre'); pre.id = 'layout-check'; pre.textContent = out.join(String.fromCharCode(10)) || 'no layout issues'; document.body.appendChild(pre);
         });
       }
@@ -115,29 +296,205 @@ TAIL = """
 """
 
 
+# One sprite symbol per section, expanded by expand_icons() along with the icons on the slides.
 SECTION_ICONS = {
-    'Why new software': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></svg>',
-    'EasyDiffraction': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M290.8 48.6l78.4 29.7L288 109.5 206.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5l0 112.2c-1.3 .4-2.6 .8-3.9 1.3l-96 36.4C14.4 250.6 0 271.5 0 294.7L0 413.9c0 22.2 13.1 42.3 33.5 51.3l96 42.2c14.4 6.3 30.7 6.3 45.1 0L288 457.5l113.5 49.9c14.4 6.3 30.7 6.3 45.1 0l96-42.2c20.3-8.9 33.5-29.1 33.5-51.3l0-119.1c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-1.3-.5-2.6-.9-3.9-1.3l0-112.2c0-23.3-14.4-44.1-36.1-52.4l-96-36.4c-12.8-4.8-26.9-4.8-39.7 0l-96 36.4C150.4 48.4 136 69.3 136 92.5zM392 210.6l-82.4 31.2 0-89.2L392 121l0 89.6zM154.8 250.9l78.4 29.7L152 311.7 70.8 280.6l78.4-29.7c1.8-.7 3.8-.7 5.7 0zm18.8 204.4l0-100.5L256 323.2l0 95.9-82.4 36.2zM421.2 250.9c1.8-.7 3.8-.7 5.7 0l78.4 29.7L424 311.7l-81.2-31.1 78.4-29.7zM523.2 421.2l-77.6 34.1 0-100.5L528 323.2l0 90.7c0 3.2-1.9 6-4.8 7.3z"/></svg>',
-    'crysta': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M176 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40c-35.3 0-64 28.7-64 64l-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0 0 56-40 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l40 0c0 35.3 28.7 64 64 64l0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40 56 0 0 40c0 13.3 10.7 24 24 24s24-10.7 24-24l0-40c35.3 0 64-28.7 64-64l40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0 0-56 40 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0c0-35.3-28.7-64-64-64l0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40-56 0 0-40zM160 128l192 0c17.7 0 32 14.3 32 32l0 192c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-192c0-17.7 14.3-32 32-32zm192 32l-192 0 0 192 192 0 0-192z"/></svg>',
-    'Outlook': '<svg class="ico" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M32 0C49.7 0 64 14.3 64 32l0 16 69-17.2c38.1-9.5 78.3-5.1 113.5 12.5c46.3 23.2 100.8 23.2 147.1 0l9.6-4.8C423.8 28.1 448 43.1 448 66.1l0 279.7c0 13.3-8.3 25.3-20.8 30l-34.7 13c-46.2 17.3-97.6 14.6-141.7-7.4c-37.9-19-81.3-23.7-122.5-13.4L64 384l0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-80 0-66L0 64 0 32C0 14.3 14.3 0 32 0zM64 187.1l64-13.9 0 65.5L64 252.6 64 318l48.8-12.2c5.1-1.3 10.1-2.4 15.2-3.3l0-63.9 38.9-8.4c8.3-1.8 16.7-2.5 25.1-2.1l0-64c13.6 .4 27.2 2.6 40.4 6.4l23.6 6.9 0 66.7-41.7-12.3c-7.3-2.1-14.8-3.4-22.3-3.8l0 71.4c21.8 1.9 43.3 6.7 64 14.4l0-69.8 22.7 6.7c13.5 4 27.3 6.4 41.3 7.4l0-64.2c-7.8-.8-15.6-2.3-23.2-4.5l-40.8-12 0-62c-13-3.8-25.8-8.8-38.2-15c-8.2-4.1-16.9-7-25.8-8.8l0 72.4c-13-.4-26 .8-38.7 3.6L128 173.2 128 98 64 114l0 73.1zM320 335.7c16.8 1.5 33.9-.7 50-6.8l14-5.2 0-71.7-7.9 1.8c-18.4 4.3-37.3 5.7-56.1 4.5l0 77.4zm64-149.4l0-70.8c-20.9 6.1-42.4 9.1-64 9.1l0 69.4c13.9 1.4 28 .5 41.7-2.6l22.3-5.2z"/></svg>',
+    'The problem': 'magnifying-glass',
+    'Design evolution': 'drafting-compass',
+    'UX principles': 'brain',
+    'Reuse': 'cubes',
+    'Demo': 'display',
 }
 
 
-def section_map(current: str | None) -> str:
+def section_map(current: str | None, upto: int | None = None) -> str:
     """The running order as an outline, with the section about to start lit and the rest held back.
 
     A listener twelve minutes in should see, in one glance, where they are and how much is left.
     `current=None` lights every row: the whole plan once, before the talk starts narrowing it.
     Backup is deliberately absent: it is not part of the talk.
     """
-    rows = []
+    rows, n, seen = [], 0, True    # `seen` runs True until the current row, so earlier rows are "done"
     for label in SECTION_TITLES.values():
         if label == "Backup":            # its own deck now: backup.html
             continue
-        here = "here" if current is None or label == current else "later"
-        rows.append(f'<li class="{here}">{SECTION_ICONS[label]}{label}</li>')
-    return ('<h2 class="outline-head">Outline</h2>\n'
-            f'          <ul class="section-map">{"".join(rows)}</ul>')
+        n += 1
+        here = "here" if current is None or label == current else ("done" if seen else "later")
+        if label == current:
+            seen = False
+        if upto is not None and n > upto:   # the opening outline arrives a row at a time
+            here += " hid"
+        # numbered and iconed exactly like the chapter line on the slides themselves, so the outline
+        # and the slide that follows it read as the same label rather than two spellings of one.
+        # A data-id, not the class, identifies a row: the class is what CHANGES between the
+        # whole plan and the divider that narrows it (`here` becomes `later`), and both the
+        # step merge and auto-animate key on the first class when there is no id.
+        rows.append(f'<li class="{here}" data-id="row{n}"><span class="no">{n}</span>'
+                    f'<i class="fa-{SECTION_ICONS[label]}"></i>{label}</li>')
+    # No "Outline" heading: five numbered, iconed rows with one of them lit is self-evidently an
+    # outline, and a slide whose job is orientation should not spend a line saying so.
+    return f'<ul class="section-map">{"".join(rows)}</ul>'
+
+
+
+# --- the manual's chapter line -------------------------------------------------------------------
+# ESS's Visual Identity Manual puts a numbered, uppercase chapter line above every heading
+# ("2.11 BASIC ELEMENTS"). The deck does the same, and the build writes it rather than the slides:
+# the number is the slide's position, so it can only be right if nobody has to maintain it by hand.
+EYEBROW = re.compile(r"(<section\b[^>]*>)(\s*)(<h3\b)")
+
+
+def add_eyebrows(body: str, sec_no: int, sec_name: str, first_stack: int) -> tuple[str, int]:
+    """Put "<sec_no>.<n> <SECTION>" above the <h3> of every step, numbering stacks from first_stack."""
+    out, pos, depth, n = [], 0, 0, first_stack
+    for m in re.finditer(r"<section\b[^>]*>|</section>", body):
+        if m.group(0).startswith("</"):
+            depth -= 1
+            if depth == 0:
+                stack = body[start:m.end()]
+                if "<h3" in stack:
+                    n += 1
+                    tag = (f'<p class="eyebrow" data-id="eyebrow">'
+                           f'<span class="no">{sec_no}.{n}</span>'
+                           f'<i class="fa-{SECTION_ICONS[sec_name]}"></i>{sec_name}</p>\n  ')
+                    stack = EYEBROW.sub(lambda mm: mm.group(1) + mm.group(2) + tag + mm.group(3), stack)
+                out.append(body[pos:start]); out.append(stack); pos = m.end()
+        else:
+            if depth == 0:
+                start = m.start()
+            depth += 1
+    out.append(body[pos:])
+    return "".join(out), n
+
+
+H3 = re.compile(r"<h3\b[^>]*>.*?</h3>", re.S)
+
+
+def title_only_step(body: str) -> str:
+    """Open every stack on its title alone, so the first click reveals the first item.
+
+    A stack used to arrive with its first item already on screen: the title got no moment of its
+    own, and the first click landed on the second thing. The build writes the extra step rather
+    than the slides, because it is the same title copied and a copy is one more thing to keep in
+    sync. reserve_space() then fills the new step with the rest of the stack, hidden, so nothing
+    moves when the first item appears.
+    """
+    out, pos, depth = [], 0, 0
+    for m in re.finditer(r"<section\b[^>]*>|</section>", body):
+        if m.group(0).startswith("</"):
+            depth -= 1
+            if depth == 0:
+                out.append(body[pos:start])
+                out.append(open_on_title(body[start:m.end()]))
+                pos = m.end()
+        else:
+            if depth == 0:
+                start = m.start()
+            depth += 1
+    out.append(body[pos:])
+    return "".join(out)
+
+
+def open_on_title(stack: str) -> str:
+    """Prepend a title-only step to one stack, or hand it back untouched.
+
+    The new step is the FIRST step with everything but the title hidden, not an empty one. An empty
+    step would be filled by reserve_space() from the LAST step instead, and auto-animate matches
+    hidden elements too: the tab strip would arrive carrying the final step's highlight, and the
+    first click would slide the blue pill from Summary back to Project before the slide settled.
+    """
+    steps = list(re.finditer(r"<section\b[^>]*>", stack))
+    if len(steps) < 2:                       # the stack's own tag, then at least one step
+        return stack
+    first = steps[1]
+    # a cover opens on itself: it is already a title on an empty screen
+    if "freeform" in first.group(0) or "cover" in first.group(0):
+        return stack
+    if not H3.search(stack, first.end()):
+        return stack
+    end = _step_end(stack, first.start())
+    parts = []
+    for k in parse(stack[first.end():end]).kids:
+        if k.tag == "#text":
+            parts.append(k.text)
+        elif k.tag == "h3":
+            parts.append(k.render())
+        elif k.tag != "aside":               # speaker notes belong to the step that carries them
+            parts.append(_hide_pairable(k))
+    opening = first.group(0).replace(" data-auto-animate-restart", "")
+    if "data-auto-animate" not in opening:
+        opening = opening[:-1].rstrip() + " data-auto-animate>"
+    return (stack[:first.start()]
+            + '<section class="titlecard" data-auto-animate data-auto-animate-restart>'
+            + "".join(parts) + "</section>\n\n"
+            + opening + stack[first.end():])
+
+
+# What reveal's auto-animate can pair across two steps: anything with a data-id, a paragraph or
+# heading (matched on its text), an image (on its src), a <pre> (on its text). Nothing else — a
+# plain wrapper <div> is never paired.
+PAIRABLE_TAGS = {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6", "img", "video", "iframe", "pre"}
+
+
+def _hide_pairable(node) -> str:
+    """Render `node` with the OUTERMOST auto-animatable descendants hidden, not the node itself.
+
+    Hiding a wrapper gives auto-animate nothing to animate: it cannot pair a plain <div> across two
+    steps, so the wrapper's opacity jumps 0 to 1 and the whole block appears at once instead of
+    fading. Its pairable children each fade, which is what every other step of the deck does.
+    """
+    if "data-id" in node.attrs or node.tag in PAIRABLE_TAGS:
+        return _hidden(node)
+    if not any(k.tag != "#text" for k in node.kids):
+        return _hidden(node)
+    return (node.raw
+            + "".join(k.text if k.tag == "#text" else _hide_pairable(k) for k in node.kids)
+            + f"</{node.tag}>")
+
+
+def _hidden(node) -> str:
+    """The element, rendered with its own subtree, but invisible.
+
+    `hid` goes at the END of the class list on purpose. Node.key() identifies an element without a
+    data-id by its tag and its FIRST class, so prepending would rename `pipeline` to `hid` and
+    reserve_space() would insert a SECOND pipeline below it rather than matching this one.
+    """
+    m = re.search(r'class="([^"]*)"', node.raw)
+    raw = (node.raw[:m.start()] + f'class="{m.group(1)} hid"' + node.raw[m.end():]) if m \
+          else node.raw[:-1].rstrip() + ' class="hid">'
+    if node.tag in VOID_TAGS or raw.endswith("/>"):
+        return raw
+    return raw + "".join(k.render() for k in node.kids) + f"</{node.tag}>"
+
+
+def _step_end(stack: str, start: int) -> int:
+    """Where the <section> opening at `start` closes — the index of its `</section>`."""
+    depth = 0
+    for m in re.finditer(r"<section\b[^>]*>|</section>", stack[start:]):
+        if m.group(0).startswith("</"):
+            depth -= 1
+            if depth == 0:
+                return start + m.start()
+        else:
+            depth += 1
+    raise SystemExit("unclosed <section> in a stack")
+
+
+# The chapter line and the title are one block, so the rule drawn beside them has a height to
+# follow. The box is invisible; only extra/talk.css's `.titlebox::before` shows.
+TITLE_BLOCK = re.compile(r'(?:<p class="eyebrow"[^>]*>.*?</p>\s*)?<h3\b[^>]*>.*?</h3>', re.S)
+
+
+def wrap_titles(body: str) -> str:
+    """Put the chapter line and the slide title in one .titlebox.
+
+    A cover is a title slide, not a slide with a title: it carries no chapter line and the whole
+    screen is already the heading, so `.deck-title` keeps its own spacing and gets no rule.
+    """
+    def one(m):
+        if 'class="deck-title"' in m.group(0):
+            return m.group(0)
+        return f'<div class="titlebox" data-id="titlebox">{m.group(0)}</div>'
+    return TITLE_BLOCK.sub(one, body)
 
 
 SECTION_TAG = re.compile(r"<section\b[^>]*>|</section>", re.I)
@@ -364,7 +721,11 @@ def reserve_space(html):
 # build expands it against extra/icons-sprite.svg, which holds the Font Awesome 6 outlines the
 # deck actually uses. No webfont to ship and no CDN to reach: the glyph is already in the page,
 # and `lead`/`big` pick the two sizes the stylesheet defines.
-ICON_TAG = re.compile(r'<i class="fa-([a-z0-9-]+)((?: (?:lead|big))?)"\s*></i>')
+# An optional data-id rides through to the generated <svg>: reveal pairs only [data-id] and a
+# handful of tags, so an icon inside an element that IS paired would otherwise count as unmatched
+# and be faded in on every step. Tags written without one behave exactly as before.
+ICON_TAG = re.compile(
+    r'<i class="fa-([a-z0-9-]+)((?: (?:lead|big))?)"(?:\s+data-id="([^"]+)")?\s*></i>')
 
 
 def expand_icons(html: str, sprite: str) -> str:
@@ -372,12 +733,13 @@ def expand_icons(html: str, sprite: str) -> str:
     missing = set()
 
     def one(m):
-        name, mod = m.group(1), m.group(2).strip()
+        name, mod, did = m.group(1), m.group(2).strip(), m.group(3)
         if name not in boxes:
             missing.add(name)
             return m.group(0)
         cls = "bigico" if mod == "big" else ("ico lead" if mod == "lead" else "ico")
-        return f'<svg class="{cls}" viewBox="{boxes[name]}"><use href="#i-{name}"/></svg>'
+        ident = f' data-id="{did}"' if did else ""
+        return f'<svg class="{cls}"{ident} viewBox="{boxes[name]}"><use href="#i-{name}"/></svg>'
 
     out = ICON_TAG.sub(one, html)
     if missing:
@@ -393,43 +755,68 @@ def body(fragment: str) -> str:
 def stamp(html: str) -> str:
     import time
     v = time.strftime("%Y%m%d%H%M%S")
-    return re.sub(r'((?:href|src)=")((?:dist|extra|plugin)/[^"?]+)"', lambda m: f'{m.group(1)}{m.group(2)}?v={v}"', html)
+    return re.sub(r'((?:href|src)=")((?:dist|extra|plugin|images)/[^"?]+)"', lambda m: f'{m.group(1)}{m.group(2)}?v={v}"', html)
 
 
 def render(order, sprite, titles=True):
     parts = []
     seen_title = False
+    sec_no, stack_no, sec_name = 0, 0, None
     for name in order:
         text = (HERE / "slides" / name).read_text(encoding="utf-8")
         title = SECTION_TITLES.get(name) if titles else None
+        # The backup deck has no running order, so a numbered chapter line would imply one it does
+        # not have; `titles` is False there, which is the same switch that suppresses its dividers.
+        if titles and SECTION_TITLES.get(name):   # a new chapter restarts the numbering
+            sec_no += 1; stack_no = 0; sec_name = SECTION_TITLES[name]
         if title:
             first = not seen_title
-            if first:
-                # The whole plan first, every section equally lit; the divider that follows dims
-                # all but the one starting, and auto-animate carries the list across.
-                parts.append('        <!-- ===== section: the whole plan ===== -->\n'
-                             '        <section class="section-title" data-auto-animate '
-                             f'data-auto-animate-restart>{section_map(None)}</section>\n')
-            # Only the divider right after the whole-plan slide auto-animates (the rows dim in
-            # place). Every later one takes the deck's ordinary slide-in: matched against the end
-            # of the previous stack, auto-animate stretched the outline instead of moving it.
-            aa = ' data-auto-animate' if first else ''
             seen_title = True
-            parts.append(f'        <!-- ===== section: {title} ===== -->\n'
-                         f'        <section class="section-title"{aa}>'
-                         f'{section_map(title)}</section>\n')
-        parts.append(f"        <!-- ===== {name} ===== -->\n{body(text)}\n")
-    doc = (stamp(HEAD).replace("@ICON_SPRITE@", sprite)
-           + wrap_bodies(reserve_space(expand_icons("\n".join(parts), sprite)))
-           + stamp(TAIL))
+            if first:
+                # The whole plan first, every section equally lit — and arriving a row at a time,
+                # because a list of five that lands in one go is read as a block rather than as
+                # five things. Then, on the LAST click of the same slide, all but the chapter about
+                # to start dims: the plan and the first divider are one slide, not two. Across a
+                # slide boundary reveal measures the body box of the slide it is leaving against
+                # the body box of the one it is entering, and those two differ in height, so it
+                # scaled the running order by 2.5 and dropped it to the top before it settled.
+                rows = sum(1 for v in SECTION_TITLES.values() if v != "Backup")
+                steps = "".join(
+                    '        <section class="section-title" data-auto-animate'
+                    + (' data-auto-animate-restart' if k == 1 else '')
+                    + f'>{section_map(None, upto=k)}</section>\n'
+                    for k in range(1, rows + 1))
+                steps += ('        <section class="section-title" data-auto-animate>'
+                          f'{section_map(title)}</section>\n')
+                parts.append(f'        <!-- ===== section: the whole plan, then {title} ===== -->\n'
+                             '        <section>\n' + steps + '        </section>\n')
+            else:
+                # Every later divider takes the deck's ordinary slide-in. It has no auto-animate:
+                # matched against the end of the previous stack it stretched the outline instead of
+                # moving it, and there is nothing on screen for it to continue from anyway.
+                parts.append(f'        <!-- ===== section: {title} ===== -->\n'
+                             f'        <section class="section-title">'
+                             f'{section_map(title)}</section>\n')
+        chunk = body(text)
+        if sec_name:
+            chunk = title_only_step(chunk)
+            chunk, stack_no = add_eyebrows(chunk, sec_no, sec_name, stack_no)
+        # after the eyebrow exists, so the chapter line ends up inside the box with the title
+        chunk = wrap_titles(chunk)
+        parts.append(f"        <!-- ===== {name} ===== -->\n{chunk}\n")
+    # Stamp the WHOLE document, not just its head and tail: the slides carry <img src="images/...">
+    # too, and an unstamped picture is served from cache after it is re-cropped — the deck went on
+    # showing the old crop until a hard reload, which is exactly the kind of thing that is noticed
+    # on stage and not before. One call, so every asset carries the same version.
+    doc = stamp(HEAD.replace("@ICON_SPRITE@", sprite)
+                + wrap_bodies(reserve_space(expand_icons("\n".join(parts), sprite)))
+                + TAIL)
     return doc, sum(len(re.findall(r"<section", p)) for p in parts)
 
 
 def main() -> None:
     sprite = (HERE / "extra" / "icons-sprite.svg").read_text(encoding="utf-8")
     for target, order, titles in (("index.html", ORDER, True), ("backup.html", BACKUP_ORDER, False)):
-        if not order:
-            continue
         doc, n = render(order, sprite, titles)
         (HERE / target).write_text(doc, encoding="utf-8")
         print(f"{target} written: {len(order)} files, {n} <section> tags", flush=True)

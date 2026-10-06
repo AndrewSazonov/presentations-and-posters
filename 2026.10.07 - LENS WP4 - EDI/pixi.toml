@@ -1,6 +1,6 @@
 [workspace]
 name = "talk"
-description = "reveal.js deck — What AI can change in crystallographic computing"
+description = "reveal.js deck — Same workflow, different techniques (EasyScience)"
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-arm64"]
 
