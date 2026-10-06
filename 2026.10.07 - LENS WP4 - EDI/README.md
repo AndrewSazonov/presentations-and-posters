@@ -74,5 +74,6 @@ another (each name with its own `data-auto-animate-delay`).
 ## Still to do
 
 - Partner logos on "Where EasyScience runs today": the chips are text until
-  `images/logo-mlz-jcns.svg`, `images/logo-goettingen.svg` and `images/logo-shapespyre.svg` exist
+  `images/logo-mlz-jcns.svg`, `images/logo-goettingen.svg`, `images/logo-shapespyre.svg` and
+  `images/logo-chalmers.svg` exist
   (each chip's `data-logo` names its file).
