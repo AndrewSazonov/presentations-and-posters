@@ -37,7 +37,10 @@
 .reveal .congress .cname { font-size: var(--fs-md); line-height: 1.35; margin: 0; text-align: left; }
 .reveal .congress .cname .dim { display: block; font-size: var(--fs-sm); margin-top: var(--gap-pair); }
 /* Each count in the deck's box (as .dolist.boxed and .reflib): same fill, edge and corner. */
-.reveal .stats { display: flex; gap: 22px; margin: var(--gap-item) 0 0; }
+/* The line that says what the three counts count: the size of a list item's explanation, with clear
+   air above it so it reads as the counts' heading rather than as the congress logo's caption. */
+.reveal .statslead { font-size: var(--fs-md); color: var(--c-dim); line-height: 1.35; margin: 40px 0 0; }
+.reveal .stats { display: flex; gap: 22px; margin: 14px 0 0; }
 .reveal .stat { margin: 0; font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.35; text-align: left;
                 width: 300px; box-sizing: border-box; padding: 14px 18px; white-space: nowrap;   /* three span the 944 px of a boxed list */
                 background: #252525; border: 1px solid #3d3d3d; border-radius: 6px; }
