@@ -37,14 +37,15 @@ HEAD = """<!doctype html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description" content="crysta — an AI-built diffraction calculation engine">
+    <meta name="description" content="EasyDiffraction and crysta — reusing crystallographic libraries, and building our own">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta name="theme-color" content="#333333">
-    <title>What AI can change in crystallographic computing — crysta</title>
+    <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
     <link rel="stylesheet" type="text/css" href="extra/icons.min.css">
     <link rel="stylesheet" type="text/css" href="extra/style.css">
     <link rel="stylesheet" type="text/css" href="extra/talk.css">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css">
 
     <link rel="stylesheet" href="dist/reset.css">
     <link rel="stylesheet" href="dist/reveal.css">
@@ -87,6 +88,8 @@ TAIL = """
       // overflows the 1200x750 slide box (vertical) or spills past its edges (horizontal).
       if (location.search.includes('check')) {
         Reveal.on('ready', () => {
+          // Measured mid-transition, a slide reads as overflowing, so the check switches both off.
+          Reveal.configure({ transition: 'none', autoAnimate: false });
           const out = []; const box = document.querySelector('.reveal .slides').getBoundingClientRect();
           const hs = document.querySelectorAll('.reveal .slides > section');
           hs.forEach((hsec, h) => {

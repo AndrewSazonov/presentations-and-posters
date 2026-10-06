@@ -1,0 +1,5 @@
+/* Additions for the LENS WP4 talk, loaded after style.css and talk.css, which are the crysta deck's
+   own and stay unchanged. Every rule here reuses that deck's sizes and colours. */
+
+/* The meeting, under the byline on the title slide: the byline's grey, smaller. */
+.reveal .event { color: #6f6f6f; font-size: 0.6em; margin-top: 0.4em; }
