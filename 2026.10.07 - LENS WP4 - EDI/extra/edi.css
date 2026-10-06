@@ -29,3 +29,17 @@
                            line-height: 1.15; color: var(--c-dim); padding: 0.15em 0.5em;
                            border: 1px solid #5a5a5a; border-radius: 0.3em; }
 .reveal .reflib .partner .ico { height: 0.8em; width: auto; margin-right: 0.4em; opacity: 0.8; }
+
+/* "AI in scientific software": the congress, then three counts from its programme. Ranged left like
+   every other block in the deck; the numbers are the slide's one large line, at --fs-xl. */
+.reveal .congress { display: flex; align-items: center; gap: 28px; margin: 0.4em 0 0; }
+.reveal .congress img { height: 170px; width: auto; margin: 0; border-radius: 8px; border: none; box-shadow: none; }
+.reveal .congress .cname { font-size: var(--fs-md); line-height: 1.35; margin: 0; text-align: left; }
+.reveal .congress .cname .dim { display: block; font-size: var(--fs-sm); margin-top: var(--gap-pair); }
+.reveal .stats { display: flex; gap: 64px; margin: var(--gap-item) 0 0; }
+.reveal .stat { margin: 0; font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.35; text-align: left; }
+.reveal .stat .n { display: block; font-size: var(--fs-xl); line-height: 1.15; color: var(--c-blue); font-weight: 400; }
+
+/* A single photograph under the title, at the deck's screenshot corner radius. */
+.reveal .photo img { display: block; height: 400px; width: auto; margin: 0.3em 0 0; border-radius: 10px;
+                     border: none; box-shadow: none; }

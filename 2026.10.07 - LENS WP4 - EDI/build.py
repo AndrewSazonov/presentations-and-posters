@@ -26,6 +26,7 @@ ORDER = [
     "01_title.html",
     "10_why.html",
     "20_easydiffraction.html",
+    "30_crysta.html",
 ]
 
 BACKUP_ORDER: list[str] = []   # no backup deck for this talk
