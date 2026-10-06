@@ -25,6 +25,7 @@ SECTION_TITLES = {
 ORDER = [
     "00_divider.html",
     "01_title.html",
+    "10_why.html",
 ]
 
 # No backup deck for this talk; list files here to have build.py write backup.html as well.
@@ -86,6 +87,8 @@ TAIL = """
       // overflows the 1200x750 slide box (vertical) or spills past its edges (horizontal).
       if (location.search.includes('check')) {
         Reveal.on('ready', () => {
+          // Measured mid-transition, a slide reads as overflowing, so the check switches both off.
+          Reveal.configure({ transition: 'none', autoAnimate: false });
           const out = []; const box = document.querySelector('.reveal .slides').getBoundingClientRect();
           const hs = document.querySelectorAll('.reveal .slides > section');
           hs.forEach((hsec, h) => {
@@ -95,6 +98,8 @@ TAIL = """
               const issues = [];
               if (r.height > box.height + 1) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
+                // Inside a clipping window (the carousel), leaving the box is the point.
+                if (el.closest('.carousel')) return;
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 if (e.bottom > box.bottom + 2) issues.push(`v-spill <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
