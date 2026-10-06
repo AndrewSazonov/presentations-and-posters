@@ -132,13 +132,9 @@
 .reveal .bar-ticks span { position: absolute; width: 6em; margin-left: -3em; text-align: center;
                           font-size: var(--fs-xs); color: var(--c-mute); white-space: nowrap;
                           bottom: 10px; line-height: 1; }   /* sits just above its tick */
-/* a short tick from each label down to the axis line, at the label's own value */
+/* a short tick from each label down to the axis line, under the middle of the label, the first and last included */
 .reveal .bar-ticks span::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 1px;
                                  height: 7px; background: currentColor; }
-.reveal .bar-ticks span:first-of-type::after { left: 0; }
-.reveal .bar-ticks span:last-of-type::after { left: auto; right: 0; }
-.reveal .bar-ticks span:first-of-type { margin-left: 0; text-align: left; }
-.reveal .bar-ticks span:last-of-type { margin-left: -6em; text-align: right; }
 .reveal .bar-axis-line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
                          background: currentColor; opacity: 0.32; }
 
