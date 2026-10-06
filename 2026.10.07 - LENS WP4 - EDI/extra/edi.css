@@ -173,11 +173,11 @@
 .reveal .dolist .step .sub.inline { display: inline; margin: 0 0 0 0.35em; font-size: var(--fs-sm); }
 .reveal .dolist .step .sub.inline::before { content: "\00b7"; margin-right: 0.35em; }   /* the same separator as in the item itself */
 
-/* "Several years of improving UI/UX": the four designs dealt as a stack of cards. Each new design
+/* "Several years of improving UI/UX": the five designs dealt as a stack of cards. Each new design
    slides in from the right onto the front; the older ones step back up and to the left, smaller and
    dimmer, so the history stays in view behind today's screen. The cards carry `aa-move`, the deck's
    opt-in for nested elements that move; positions, sizes and fade are per step, on the cards. */
-.reveal .sbody > .cards { position: relative; flex: 0 0 auto; width: 717px; height: 414px;   /* the room left under the takeaway */
+.reveal .sbody > .cards { position: relative; flex: 0 0 auto; width: 729px; height: 414px;   /* the room left under the takeaway */
                           margin: var(--gap-pair) 0 0; }
 .reveal .cards img { position: absolute; margin: 0; object-fit: cover; object-position: left top;
                      border-radius: 6px; border: none; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55); }
