@@ -48,16 +48,16 @@
    the fourth slot of the stack diagram. The box is HTML laid over the SVG, at the slot's position
    in the drawing's own scale (880 px for 830 user units = 1.0602), so the step is one move and one
    shrink of one element; it carries `aa-move`, the deck's opt-in for a nested element that moves.
-   The big box keeps the slot's proportions (122 : 56) so the shrink does not squash it. */
+   The big box keeps the slot's proportions (112 : 56) so the shrink does not squash it. */
 .reveal .crystafig { position: relative; width: 880px; max-width: 100%; margin: 0.6em 0 0; }
 .reveal .crystafig svg.stackfig { margin: 0; }
 .reveal .crystabox { position: absolute; box-sizing: border-box; text-align: center;
                      background: rgb(164, 209, 114); color: #222; }
-.reveal .crystabox.slot { left: 453.8px; top: 349.9px; width: 129.4px; height: 59.4px;
+.reveal .crystabox.slot { left: 422px; top: 349.9px; width: 118.7px; height: 59.4px;
                           border-radius: 6px; padding-top: 6px; }
 .reveal .crystabox.slot .cbname { font-size: 20px; line-height: 1.1; font-weight: 400; }
 .reveal .crystabox.slot .cbsub { font-size: 14px; line-height: 1.3; color: #3d5a28; }
-.reveal .crystabox.big { left: 220px; top: 124px; width: 440px; height: 202px; border-radius: 20px;
+.reveal .crystabox.big { left: 220px; top: 115px; width: 440px; height: 220px; border-radius: 22px;
                          display: flex; flex-direction: column; align-items: center; justify-content: center;
                          gap: 10px; }
 .reveal .crystabox.big .cbname { font-size: 56px; line-height: 1; font-weight: 400; }
