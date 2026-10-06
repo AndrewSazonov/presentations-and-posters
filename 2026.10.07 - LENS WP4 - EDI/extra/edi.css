@@ -50,7 +50,7 @@
 .reveal .photo img { display: block; height: 400px; width: auto; margin: 0.3em 0 0; border-radius: 10px;
                      border: none; box-shadow: none; }
 
-/* "crysta": the engine in a box of the calculation-engine green, then the same box shrinking into
+/* "Meet crysta": the engine in a box of its own, then the same box shrinking into
    the fourth slot of the stack diagram. The box is HTML laid over the SVG and placed in per cent of
    the drawing (viewBox 830 x 408; slot at 398, 330, 112 x 56), so it lands on the slot whatever
    size the drawing renders at. It carries `aa-move`, the deck's opt-in for a nested element that
@@ -64,20 +64,21 @@
 .reveal .crystabox.slot { left: 47.952%; top: 80.882%; width: 13.494%; height: 13.725%; }
 .reveal .crystabox.big { left: 25%; top: 24.5%; width: 50%; height: 51%; }
 /* The face: everything on it is in em, and only its font-size changes between the steps (slot 16px,
-   big box 59.3px = 16 x 3.705, the shrink), so corners, outline and both contents scale as one.
-   The outline is the 'Unified interface' orange: ours, like the library on top of it. */
+   big box 59.3px = 16 x 3.705, the shrink), so corners and both contents scale as one. It wears the
+   'Unified interface' box's own fill and no outline: ours, like the library layer above it, which
+   sets it apart from the third-party engines in their green. Secondary text in that layer's brown. */
 .reveal .crystabox .cbface { position: relative; box-sizing: border-box; width: 100%; height: 100%;
-                             background: rgb(164, 209, 114); color: #222; text-align: center;
-                             border: 0.156em solid rgb(226, 183, 129); border-radius: 0.375em; }
+                             background: rgb(226, 183, 129); color: #222; text-align: center;
+                             border-radius: 0.375em; }
 .reveal .crystabox.slot .cbface { font-size: 16px; }
 .reveal .crystabox.big .cbface { font-size: 59.3px; }
 .reveal .crystabox .cblayer { position: absolute; inset: 0; display: flex; flex-direction: column;
                               align-items: center; justify-content: center; }
 .reveal .crystabox .cbslot .cbname { font-size: 1.25em; line-height: 1.1; font-weight: 600; }
-.reveal .crystabox .cbslot .cbsub { font-size: 0.875em; line-height: 1.3; color: #3d5a28; }
+.reveal .crystabox .cbslot .cbsub { font-size: 0.875em; line-height: 1.3; color: rgb(133, 86, 29); }
 .reveal .crystabox .cbbig { gap: 0.15em; }
 .reveal .crystabox .cbbig .cbname { font-size: 0.9em; line-height: 1; font-weight: 600; }
-.reveal .crystabox .cbbig .cbitems { font-size: 0.4em; line-height: 1.2; color: #3d5a28; }
+.reveal .crystabox .cbbig .cbitems { font-size: 0.4em; line-height: 1.2; color: rgb(133, 86, 29); }
 .reveal .crystabox .cbbig .cblogos { display: flex; justify-content: center; gap: 0.3em; }
 .reveal .crystabox .cbbig .cblogos .lg { display: block; width: 0.85em; height: 0.85em;
                                          background: center / contain no-repeat; }
