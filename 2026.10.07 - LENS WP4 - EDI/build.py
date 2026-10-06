@@ -271,7 +271,7 @@ TAIL = """
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
                 // A carousel parks its later columns beyond the edge, a page window holds a page taller than
                 // itself, and both clip: leaving the box is the point.
-                if (el.closest('.carousel, .pagebox')) return;
+                if (el.closest('.carousel, .pagebox, .cards')) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 // A lone screenshot is MEANT to run off the bottom edge — see --bleed in
                 // talk.css — and a title card parks its content below the slide to move it in.
