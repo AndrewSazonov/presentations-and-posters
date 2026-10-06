@@ -58,26 +58,27 @@
 
 /* "Meet crysta": the engine in a box of its own, then the same box shrinking into
    the fourth slot of the stack diagram. The box is HTML laid over the SVG and placed in per cent of
-   the drawing (viewBox 830 x 408; slot at 398, 330, 112 x 56), so it lands on the slot whatever
+   the drawing (viewBox 0 -32 830 448, drawn 750 wide; slot at 420, 330, 112 x 56), so it lands on the slot whatever
    size the drawing renders at. It carries `aa-move`, the deck's opt-in for a nested element that
    moves. Only the outer box is paired by auto-animate, and it has no look of its own: the fill,
    corners and outline are on .cbface inside it, which reveal does not restyle. The big face's
    corners and outline are the slot's times the shrink (440 / 118.7 = 3.7), so the box only moves
-   and shrinks, without its corners changing on the way. */
-.reveal .crystafig { position: relative; width: 880px; max-width: 100%; margin: 0.6em 0 0; }
+   and shrinks, without its corners changing on the way. The figure is 750 wide, as the outlined
+   diagram on "What we rely on", so the two drawings match. */
+.reveal .crystafig { position: relative; width: 750px; max-width: 100%; margin: 0.6em 0 0; }
 .reveal .crystafig svg.stackfig { margin: 0; width: 100%; }
 .reveal .crystabox { position: absolute; }
-.reveal .crystabox.slot { left: 50.602%; top: 80.882%; width: 13.494%; height: 13.725%; }
-.reveal .crystabox.big { left: 25%; top: 24.5%; width: 50%; height: 51%; }
-/* The face: everything on it is in em, and only its font-size changes between the steps (slot 16px,
-   big box 59.3px = 16 x 3.705, the shrink), so corners and both contents scale as one. It wears the
+.reveal .crystabox.slot { left: 50.602%; top: 80.804%; width: 13.494%; height: 12.5%; }
+.reveal .crystabox.big { left: 25%; top: 26.78%; width: 50%; height: 46.45%; }
+/* The face: everything on it is in em, and only its font-size changes between the steps (slot 13.64px,
+   big box 50.54px = 13.64 x 3.705, the shrink), so corners and both contents scale as one. It wears the
    'Unified interface' box's own fill and no outline: ours, like the library layer above it, which
    sets it apart from the third-party engines in their green. Secondary text in that layer's brown. */
 .reveal .crystabox .cbface { position: relative; box-sizing: border-box; width: 100%; height: 100%;
                              background: rgb(226, 183, 129); color: #222; text-align: center;
                              border-radius: 0.375em; }
-.reveal .crystabox.slot .cbface { font-size: 16px; }
-.reveal .crystabox.big .cbface { font-size: 59.3px; }
+.reveal .crystabox.slot .cbface { font-size: 13.64px; }
+.reveal .crystabox.big .cbface { font-size: 50.54px; }
 .reveal .crystabox .cblayer { position: absolute; inset: 0; display: flex; flex-direction: column;
                               align-items: center; justify-content: center; }
 .reveal .crystabox .cbslot .cbname { font-size: 1.25em; line-height: 1.1; font-weight: 600; }
@@ -193,3 +194,8 @@
                      border-radius: 6px; border: none; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55); }
 /* A library's name in a credits panel: brighter, not bolder, so the eye finds where each entry starts. */
 .reveal .samefact .sentence.small b { font-weight: 400; color: #fff; }
+
+/* "What we rely on" with the library and application outlined: the outlines add a band above the
+   top boxes and below the engines, so the drawing is set a little smaller to keep the slide's
+   bottom margin (it would otherwise run to 738 of 750 with the conclusion showing). */
+.reveal .sbody > svg.stackfig.grouped { width: 750px; }
