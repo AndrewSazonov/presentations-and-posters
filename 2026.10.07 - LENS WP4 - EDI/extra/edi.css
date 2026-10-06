@@ -4,8 +4,10 @@
 /* "What users run into": the deck's three-column row, set in a window three columns wide. A step
    that adds a fourth column moves the row's margin, so the columns slide left and the window clips
    the one leaving. The columns carry `aa-move`, the deck's opt-in for an element nested in a block
-   that moves itself; everything inside them is carried along. */
-.reveal .carousel { width: 1144px; max-width: 100%; overflow: hidden; }
+   that moves itself; everything inside them is carried along. The window clips only at its sides:
+   when the conclusion arrives the window drops at once while the columns slide down after it, and
+   a full clip cut off their top line (the blue headings) until they caught up. */
+.reveal .carousel { width: 1144px; max-width: 100%; clip-path: inset(-200px 0 -200px 0); }
 .reveal .carousel .columns { width: max-content; gap: 41px; }
 .reveal .carousel .why-col { flex: 0 0 354px; }
 
