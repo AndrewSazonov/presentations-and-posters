@@ -8,16 +8,16 @@
     <meta name="theme-color" content="#333333">
     <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006193811">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006193811">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006193811">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006193811">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006193935">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006193935">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006193935">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006193935">
 
-    <link rel="stylesheet" href="dist/reset.css?v=20261006193811">
-    <link rel="stylesheet" href="dist/reveal.css?v=20261006193811">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006193811">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20261006193811">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006193811">
+    <link rel="stylesheet" href="dist/reset.css?v=20261006193935">
+    <link rel="stylesheet" href="dist/reveal.css?v=20261006193935">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006193935">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20261006193935">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006193935">
   </head>
 
   <body>
@@ -626,7 +626,7 @@
 <section data-auto-animate data-auto-animate-restart data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
   <div class="sbody" data-id="sbody">
   <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA, 1 thread</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
     <div class="bars long"><div class="hid bar-row bar-axis" data-id="axis-fit">
         <div></div>
         <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
@@ -649,27 +649,21 @@
           <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
         </div>
       </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20)</span></div>
         <div class="bar-track">
           <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 0%"></div>
           <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
         </div>
-      </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 0%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
       </div>
       
     </div></div>
-<aside class="hid notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+<aside class="hid notes">crysta&rsquo;s bar is its measured single-thread refinement time multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench) puts the alternatives at 3.2&times; and 6.0&times; the default ladder at one thread; three is the round figure inside that range. The other bars: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s. Every bar is one thread.</aside>
 </section>
 
 <section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
   <div class="sbody" data-id="sbody">
   <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA, 1 thread</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
     <div class="bars long">
       <div class="bar-row bar-axis" data-id="axis-fit">
         <div></div>
@@ -694,26 +688,20 @@
           <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
         </div>
       </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20)</span></div>
         <div class="bar-track">
           <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 0%"></div>
           <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
         </div>
-      </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 0%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
       </div>
     </div></div>
-<aside class="hid notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+<aside class="hid notes">crysta&rsquo;s bar is its measured single-thread refinement time multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench) puts the alternatives at 3.2&times; and 6.0&times; the default ladder at one thread; three is the round figure inside that range. The other bars: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s. Every bar is one thread.</aside>
 </section>
 
 <section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
   <div class="sbody" data-id="sbody">
   <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA, 1 thread</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
     <div class="bars long">
       <div class="bar-row bar-axis" data-id="axis-fit">
         <div></div>
@@ -739,26 +727,20 @@
           <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
         </div>
       </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20)</span></div>
         <div class="bar-track">
           <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 0%"></div>
           <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
         </div>
-      </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 0%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
       </div>
     </div></div>
-<aside class="hid notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+<aside class="hid notes">crysta&rsquo;s bar is its measured single-thread refinement time multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench) puts the alternatives at 3.2&times; and 6.0&times; the default ladder at one thread; three is the round figure inside that range. The other bars: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s. Every bar is one thread.</aside>
 </section>
 
 <section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
   <div class="sbody" data-id="sbody">
   <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA, 1 thread</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
     <div class="bars long">
       <div class="bar-row bar-axis" data-id="axis-fit">
         <div></div>
@@ -785,26 +767,20 @@
           <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
         </div>
       </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20)</span></div>
         <div class="bar-track">
           <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 0%"></div>
           <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
         </div>
-      </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 0%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
       </div>
     </div></div>
-<aside class="hid notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+<aside class="hid notes">crysta&rsquo;s bar is its measured single-thread refinement time multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench) puts the alternatives at 3.2&times; and 6.0&times; the default ladder at one thread; three is the round figure inside that range. The other bars: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s. Every bar is one thread.</aside>
 </section>
 
 <section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
   <div class="sbody" data-id="sbody">
   <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
+  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA, 1 thread</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
     <div class="bars long">
       <div class="bar-row bar-axis" data-id="axis-fit">
         <div></div>
@@ -832,69 +808,16 @@
         </div>
       </div>
       <div class="bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
+        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20)</span></div>
         <div class="bar-track">
           <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 37.7%"></div>
           <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
-      </div><div class="hid bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 0%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
-      </div>
-    </div></div>
-<aside class="hid notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
-</section>
-
-<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
-  <div class="sbody" data-id="sbody">
-  <h3>Speed: a full refinement</h3>
-  <div class="bar-sub bar-caption blue" data-id="caption"><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flask"/></svg> NCAF</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> 3977 points</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-mountain"/></svg> 627 peaks</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-waves"/></svg> WISH 2+9</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-microchip-alt"/></svg> VISA 6 cores</span><span class="item"><svg class="ico" viewBox="0 0 640 512"><use href="#i-ruler-horizontal"/></svg> log scale</span><span class="item"><svg class="ico" viewBox="0 0 448 512"><use href="#i-flag-checkered"/></svg> same start</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg> similar fit, &chi;&sup2; ~ 4.8</span><span class="item"><svg class="ico" viewBox="0 0 512 512"><use href="#i-sliders"/></svg> 48 free par.</span></div>
-    <div class="bars long">
-      <div class="bar-row bar-axis" data-id="axis-fit">
-        <div></div>
-        <div class="bar-ticks" data-id="ticks-fit"><span data-id="tick-fit-0" style="left: 0.0%">0.1 s</span><span data-id="tick-fit-1" style="left: 25.0%">1 s</span><span data-id="tick-fit-2" style="left: 50.0%">10 s</span><span data-id="tick-fit-3" style="left: 75.0%">100 s</span><span data-id="tick-fit-4" style="left: 100.0%">1000 s</span><div class="bar-axis-line" data-id="axisline-fit"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-name" data-id="name-ed">CrysPy via EasyDiffraction <span style='opacity:.6'>(lmfit)</span></div>
-        <div class="bar-track">
-          <div class="bar-fill numpy" data-id="fill-ed" style="width: 91.8%"></div>
-          <span class="bar-value" data-id="value-ed">468 s<span class="faint"> / 643 patterns</span></span>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-name" data-id="name-cryspy">CrysPy, direct <span style='opacity:.6'>(scipy)</span></div>
-        <div class="bar-track">
-          <div class="bar-fill numpy" data-id="fill-cryspy" style="width: 87.9%"></div>
-          <span class="bar-value" data-id="value-cryspy">329 s<span class="faint"> / 838 patterns</span></span>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-name" data-id="name-fullprof">FullProf fp2k <span style='opacity:.6'>(Fortran)</span></div>
-        <div class="bar-track">
-          <div class="bar-fill fortran" data-id="fill-fullprof" style="width: 52.8%"></div>
-          <span class="bar-value" data-id="value-fullprof">13 s<span class="faint"> / 16 cycles</span></span>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-name" data-id="name-crysta1">crysta estimate <span style='opacity:.6'>(C++20), 1 thread</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta1" style="width: 37.7%"></div>
-          <span class="bar-value" data-id="value-crysta1">3.2 s<span class="faint"> / 37 equivalents</span></span>
-        </div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-name" data-id="name-crysta6">crysta estimate <span style='opacity:.6'>(C++20), 6 threads</span></div>
-        <div class="bar-track">
-          <div class="bar-fill crysta" data-id="fill-crysta6" style="width: 25.2%"></div>
-          <span class="bar-value" data-id="value-crysta6">1.0 s<span class="faint"> / 37 equivalents</span></span>
         </div>
       </div>
     </div>
+
   </div>
-<aside class="notes">crysta&rsquo;s two bars are its measured refinement times multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench, opt-in CLI run) puts the alternatives at 3.2&times; the default ladder for fast_descent and 6.0&times; for multistart_prune, at one thread; three is the round figure the owner chose inside that range. The other bars are unchanged: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s.</aside>
+<aside class="notes">crysta&rsquo;s bar is its measured single-thread refinement time multiplied by three, so the comparison uses a slower descent strategy rather than the fastest one. The committed descent comparison (enhantica/bench) puts the alternatives at 3.2&times; and 6.0&times; the default ladder at one thread; three is the round figure inside that range. The other bars: CrysPy through EasyDiffraction 468&nbsp;s, CrysPy direct 329&nbsp;s, FullProf 13&nbsp;s. Every bar is one thread.</aside>
 </section>
 
 </section>
@@ -1620,10 +1543,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20261006193811"></script>
-    <script src="plugin/notes/notes.js?v=20261006193811"></script>
-    <script src="plugin/markdown/markdown.js?v=20261006193811"></script>
-    <script src="plugin/highlight/highlight.js?v=20261006193811"></script>
+    <script src="dist/reveal.js?v=20261006193935"></script>
+    <script src="plugin/notes/notes.js?v=20261006193935"></script>
+    <script src="plugin/markdown/markdown.js?v=20261006193935"></script>
+    <script src="plugin/highlight/highlight.js?v=20261006193935"></script>
     <script>
       Reveal.initialize({
           width: 1200,
