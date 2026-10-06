@@ -1,0 +1,483 @@
+/* Additions for the 2026 crysta talk — on top of extra/style.css (Shapespyre deck). */
+
+/* Placeholder for a photo / chart still to be produced. */
+.placeholder {
+  display: block;
+  margin: 0.4em auto;
+  border: 2px dashed #777;
+  border-radius: 10px;
+  background: #1e1e1e;
+  color: #aaa;
+  font-size: 22px;
+  line-height: 1.35em;
+  padding: 26px 30px;
+  text-align: center;
+}
+.placeholder .kind {
+  display: block;
+  color: #d19966;
+  font-size: 16px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+
+/* One big statement per slide. */
+.statement {
+  font-size: 1.35em;
+  line-height: 1.35em;
+  margin: 0.6em 0.4em;
+}
+.big-number {
+  font-size: 2.6em;
+  line-height: 1.1em;
+  color: rgb(109, 209, 255);
+  margin: 0.15em 0 0 0;
+}
+.big-label {
+  font-size: 0.75em;
+  color: #bbb;
+  margin: 0 0 0.6em 0;
+}
+
+/* Numbered step lines (① ② ③) with a dimmer explanation underneath. */
+.step {
+  margin: 0.35em 0 0 0;
+}
+.step .sub {
+  display: block;
+  font-size: 0.6em;
+  color: #999;
+  margin-top: -0.1em;
+}
+
+/* Quotes in the baby-sitting part. */
+.quote {
+  /* Five of these stack on one slide and none of them shrinks as the next arrives, so the size is
+     set once, small enough that all five fit. */
+  font-size: 0.85em;
+  line-height: 1.3em;
+  font-style: italic;
+  color: #fff;
+  margin: 0.35em 1em;
+}
+/* A quote already spoken steps back, keyword and all, so the live line is the bright one. */
+.quote.semi-hidden { color: #6f6f6f; }
+.quote.semi-hidden .blue { color: #4a7fa0; }
+.quote.semi-hidden .red { color: #7d4a50; }
+
+/* Part / section marker shown small above a title. */
+.part {
+  font-size: 0.55em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: -0.4em;
+}
+
+/* Inline SVG charts share the deck palette. */
+svg text { font-family: "Segoe UI", sans-serif; }
+.chart-note {
+  font-size: 0.6em;
+  color: #999;
+}
+
+/* Two-column comparison. */
+.compare {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-align: left;
+}
+.compare > div {
+  flex: 1;
+  background: #252525;
+  border-radius: 10px;
+  padding: 16px 22px;
+  font-size: 0.7em;
+  line-height: 1.5em;
+}
+.compare h4 {
+  margin: 0 0 0.3em 0;
+  font-size: 1.1em;
+  text-transform: none;
+}
+
+/* Code blocks a little smaller than the theme default. */
+.reveal pre { font-size: 0.5em; width: 92%; }
+.reveal pre.small { font-size: 0.42em; }
+
+/* Plain table used for the FullProf parity slide. */
+table.parity { font-size: 0.6em; margin: 0 auto; }
+table.parity th { color: rgb(109, 209, 255); font-weight: normal; }
+table.parity td, table.parity th { padding: 0.25em 0.8em; }
+table.parity tr.total td { border-top: 1px solid #666 !important; }
+/* Zebra striping: enough to guide the eye across five columns, not enough to draw attention. */
+.reveal table.parity tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.045); }
+
+/* "Why?" slide: image + caption columns. */
+.why-col { width: 42%; text-align: center; }
+.why-col img { border-radius: 10px; object-fit: cover; width: 100%; height: 300px; }
+.why-col .statement { font-size: 1.1em; margin: 0.4em 0 0 0; }
+.why-col.semi-hidden { opacity: 0.35; }
+
+/* Logo row on "The stack": equal height, common baseline, no theme borders. */
+.logo-row { display: flex; justify-content: center; align-items: center; gap: 56px; margin: 0.6em 0 0.4em 0; }
+.reveal .logo-row img { height: 110px; width: auto; margin: 0; border: none; box-shadow: none; background: none; }
+/* Each logo carries its own caption, so the row aligns on the logos' tops rather than their centres. */
+.reveal .logo-row { align-items: flex-start; }
+.reveal .logo-item { text-align: center; max-width: 5.2em; }
+.reveal .logo-item .cap { display: block; margin-top: 0.4em; font-size: 0.45em; color: #bbb; line-height: 1.3; }
+
+/* Four-item stacks: tighter rhythm. */
+.step.compact { margin-top: 0.1em; font-size: 0.9em; }
+.step.compact .sub { font-size: 0.58em; }
+
+/* Horizontal bar charts. HTML rather than SVG: reveal.js auto-animate moves a matched pair with a CSS
+   transform measured from getBoundingClientRect, which is reliable for HTML boxes and not for SVG
+   geometry attributes. Only .bar-row and .bar-fill carry data-id, so no element is transformed twice. */
+/* Constant height, in px so it cannot drift with the font size: reveal centres a slide vertically, so
+   a chart that grows by a row shifts every existing row upwards and auto-animate then animates that
+   shift — the bars appear to drop and crawl back up. Reserving the full height keeps every row where
+   it is, and only the widths change. */
+.reveal .bars { width: 92%; margin: 1em auto 0; min-height: 290px; }   /* breathing room under the caption */
+/* The name column and the axis column are per-chart, so a chart with long value labels can give them
+   room instead of letting them run off the 1000px slide. */
+.reveal .bar-row { display: grid; grid-template-columns: var(--namew, 44%) var(--axisw, 1fr);
+                   align-items: center; column-gap: 18px; min-height: 46px; margin: 6px 0; }
+.reveal .bar-name { text-align: left; font-size: var(--namefs, 0.58em); line-height: 1.25; }
+.reveal .bar-track { display: flex; align-items: center; gap: 12px; }
+.reveal .bar-fill { height: 32px; border-radius: 4px; flex: none; }
+.reveal .bar-value { font-size: var(--valfs, 0.58em); white-space: nowrap; }
+
+/* A bar that is NEW in this step grows from nothing instead of appearing at full length. reveal.js
+   marks elements it could not match with data-auto-animate-target="unmatched", so this targets only
+   those: a bar that already existed is being moved by reveal's own transform and must not be touched,
+   or the keyframe would override it. */
+@keyframes bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.reveal [data-auto-animate-target="unmatched"] .bar-fill,
+.reveal .bar-fill[data-auto-animate-target="unmatched"] {
+  transform-origin: left center;
+  animation: bar-grow 0.9s ease-in-out;
+}
+
+/* A section opens with its own title slide, emitted by build.py from SECTION_TITLES. */
+.reveal .section-title h2 { font-size: 2.1em; font-weight: 600; letter-spacing: -0.01em; }
+
+/* Log axis: with three or four decades between the fastest and slowest engine a linear bar makes
+   everything below the leader a sliver, so the bars are logarithmic and the decades are labelled. */
+.reveal .bar-ticks { position: relative; height: 0.7em; }   /* labels sit close above the axis line */
+.reveal .bar-axis-line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+                         background: currentColor; opacity: 0.32; }
+/* Centred with a negative margin rather than a transform: reveal.js auto-animate writes its own
+   `transform` onto every matched element for the length of the transition, which would override a
+   translateX() here and make the labels jump sideways on each step. A margin it cannot touch. */
+.reveal .bar-ticks span { position: absolute; width: 6em; margin-left: -3em; text-align: center;
+                          font-size: 0.42em; opacity: 0.5;
+                          white-space: nowrap; }   /* "1000 s" must not wrap onto two lines */
+/* of-type, not child: the axis line div is the container's real last child. */
+.reveal .bar-ticks span:first-of-type { margin-left: 0; text-align: left; }
+.reveal .bar-ticks span:last-of-type { margin-left: -6em; text-align: right; }
+.reveal .bar-axis { margin: 0 0 -2px; min-height: 0; }   /* sits just above the first bar and never moves */
+.reveal .bar-sub { margin: 0.1em 0 0; line-height: 1.25; }
+.reveal .bar-sub svg.ico { height: 0.62em; width: auto; opacity: 0.8; margin-right: 0.14em;
+                           vertical-align: -0.02em; }
+/* The same glyphs leading a list item: a touch larger, and holding the line's own colour. */
+.reveal svg.ico.lead { height: 0.7em; width: auto; opacity: 0.75; margin-right: 0.25em;
+                       vertical-align: -0.04em; }
+
+/* The case caption is laid out as a borderless table: three columns whose widths are shared by every
+   row, so the items line up vertically instead of drifting with their own text width. */
+.reveal .bar-caption { display: grid; grid-template-columns: repeat(3, auto);
+                       justify-content: center; justify-items: start;
+                       column-gap: 1.2em; row-gap: 0.05em; margin: 0.1em auto 0.8em;
+                       font-size: 0.78em; }
+.reveal .bar-sub .item { white-space: nowrap; }
+
+/* Two impressions: a claim, its qualifier, and one big glyph standing in for a photograph. */
+.reveal .impressions { display: flex; justify-content: center; gap: 40px; margin-top: 0.4em; }
+.reveal .impression { flex: 1; max-width: 46%; text-align: center; }
+.reveal .impression .head { font-size: 0.96em; line-height: 1.25; margin: 0; }
+.reveal .impression .sub { font-size: 0.62em; color: #999; line-height: 1.35; margin: 0.5em 0 0; }
+.reveal .impression img { display: block; width: 100%; height: 380px; object-fit: cover;
+                           border-radius: 10px; margin: 0.6em 0 0; border: none; box-shadow: none; }
+
+/* The IUCr programme count: a photo, the congress it comes from, then three figures side by side. */
+.reveal .congress { display: flex; align-items: center; justify-content: center; gap: 32px; height: 370px; margin: 0; }
+.reveal .congress img { height: 240px; width: auto; border-radius: 8px; margin: 0; border: none; box-shadow: none; }
+.reveal .congress .cname { font-size: 0.76em; line-height: 1.35; text-align: left; }
+.reveal .congress .dim { color: #999; }
+.reveal .stats { display: flex; justify-content: center; gap: 56px; margin-top: 0.55em; }
+.reveal .stat { max-width: 8.5em; text-align: center; }
+.reveal .stat .n { display: block; font-size: 1.9em; line-height: 1.1; color: rgb(109, 209, 255); }
+.reveal .stat .l { display: block; font-size: 0.5em; color: #bbb; line-height: 1.3; margin-top: 0.15em; }
+
+/* The photo and the congress block share one slot, so the second replaces the first in place. */
+.reveal .swap { position: relative; margin-top: 0.2em; }   /* height is per step */
+.reveal .swap > * { position: absolute; left: 0; right: 0; top: 0; }
+.reveal .swap > img { height: 400px; top: 0; width: auto; margin: 0 auto; display: block; border: none; box-shadow: none; }
+
+/* Three ways: the list accumulates on the left while one picture changes on the right. */
+.reveal .ways { display: flex; align-items: center; gap: 26px; margin-top: 0.5em; }
+.reveal .ways-text { flex: 0 0 44%; text-align: left; font-size: 0.82em; }
+.reveal .ways-text .step { margin: 0.7em 0; }
+/* headline, then two one-line notes under it */
+.reveal .ways-text .step .sub { font-size: 0.56em; line-height: 1.35; }
+/* The three photographs are all 1600x900 and share one slot, so each fades in with its own line
+   instead of the src swapping under a single element, which changed the picture with no fade. */
+.reveal .ways-image { flex: 0 0 52%; position: relative; height: 500px; }
+.reveal .ways-image img { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+                          object-fit: contain; border-radius: 8px;
+                          margin: 0; border: none; box-shadow: none; }
+
+.reveal .swap + .step.sub { margin-top: 0.35em; }
+
+/* "Why?": the first answer is struck out — the picture fades, the cross does not. */
+.reveal .why-col.struck .imgwrap img { opacity: 0.35; }
+.reveal .why-col.struck .statement { color: #8b8b8b; }
+.reveal .why-col .imgwrap { position: relative; display: inline-block; }
+.reveal .why-col.struck { position: relative; }
+.reveal .why-col .imgwrap img { height: 440px; width: auto; border-radius: 10px; margin: 0;
+                                border: none; box-shadow: none; object-fit: cover; }
+.reveal .cross-out { position: absolute; inset: 0; width: 100%; height: 100%; }
+.reveal .cross-out line { stroke: #e06c75; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+
+/* Credits: the libraries crysta is built on, name and purpose per row. */
+.reveal .libs { display: grid; grid-template-columns: repeat(2, auto); justify-content: center;
+                column-gap: 3em; row-gap: 0.18em; margin: 0.5em auto 0; text-align: left; }
+.reveal .lib { display: flex; align-items: baseline; gap: 0.6em; }
+.reveal .lib .ln { font-size: 0.62em; color: rgb(109, 209, 255); min-width: 6.4em; }
+.reveal .lib .lp { font-size: 0.52em; color: #999; }
+.reveal .libs + .step.sub { font-size: 0.62em; color: #bbb; margin-top: 0.7em; }
+
+/* Two credit grids: the crystallographic codes the physics was cross-checked against, and the
+   literature it was extracted from. Both are read rather than scanned, so the name carries the
+   blue and the people follow it in grey — no icons, no rules, nothing to look at but the names. */
+.reveal .reflibs { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 3em;
+                   row-gap: 0.5em; width: 92%; margin: 0.6em auto 0; text-align: left; }
+.reveal .reflib { line-height: 1.22; }
+.reveal .reflib .rn { font-size: 0.66em; color: rgb(109, 209, 255); }
+.reveal .reflib .rd { display: block; font-size: 0.52em; color: #999; }
+
+.reveal .biblio { display: grid; grid-template-columns: auto 1fr; column-gap: 1.1em;
+                  row-gap: 0.3em; width: 88%; margin: 0.6em auto 0; text-align: left;
+                  align-items: baseline; }
+.reveal .biblio .bt { font-size: 0.54em; color: rgb(109, 209, 255); white-space: nowrap; }
+.reveal .biblio .bc { font-size: 0.46em; color: #999; line-height: 1.3; }
+
+.reveal .reflibs + .step.sub,
+.reveal .biblio + .step.sub { font-size: 0.78em; color: #bbb; margin-top: 0.7em; }
+
+/* The dependency split: what ships inside the engine, and what only builds and checks it. Two
+   columns deliberately unequal — the short left-hand list is the point of the slide. */
+.reveal .deps { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 2.4em;
+                width: 94%; margin: 0.5em auto 0; text-align: left; align-items: start; }
+.reveal .dephead { font-size: 0.6em; margin: 0 0 0.45em; }
+.reveal .dephead .sub { display: block; font-size: 0.6em; color: #888; margin-top: 0.05em; }
+.reveal .deps .reflib { margin-bottom: 0.35em; }
+.reveal .deps + .step.sub { font-size: 0.62em; color: #bbb; margin-top: 0.8em; }
+
+/* The dependency slide reads from the back of the room, so its rows are set larger than the
+   credit grids that share the .reflib markup, and each row leads with the icon of its job. */
+.reveal .deps .reflib .rn { font-size: 0.62em; }
+.reveal .deps .reflib .rd { font-size: 0.5em; }
+.reveal .dephead { font-size: 0.72em; }
+.reveal .deps .reflib { margin-bottom: 0.45em; }
+
+/* Do's and don'ts: a left-aligned block so the icons form one column and a wrapped line does not
+   drift out from under its own bullet. Centred inside the slide, ragged-right inside itself. */
+/* The rules read as a left-aligned list, but the block itself is centred: on a 16:9 slide a
+   92%-wide left-aligned block leaves all its slack on one side and looks misplaced. */
+.reveal .dolist { width: fit-content; max-width: 92%; margin: 0.4em auto 0; text-align: left; }
+/* Hanging indent: a wrapped second line starts under the text, never under its own icon. */
+.reveal .dolist .step { margin: 0.42em 0; padding-left: 1.5em; text-indent: -1.5em; }
+
+/* Attribution for the quoted IUCr 2026 talk: the congress mark, then the talk and who gave it. */
+.reveal .talkref { display: flex; align-items: center; justify-content: center; gap: 26px;
+                   width: 92%; margin: 0.9em auto 0; text-align: left; }
+.reveal .talkref img { height: 92px; width: auto; margin: 0; border: none;
+                       box-shadow: none; border-radius: 6px; }
+.reveal .talkref .tr-title { font-size: 0.5em; line-height: 1.3; color: #e6e8ee; margin: 0; }
+.reveal .talkref .tr-who { font-size: 0.46em; margin: 0.3em 0 0; }
+.reveal .talkref .tr-where { font-size: 0.4em; color: #8a8a8a; margin: 0.18em 0 0; }
+
+/* Measure -> reduce -> refine: three panels of the same height, each with its own caption, so the
+   pictures line up whatever their aspect ratio. */
+.reveal .pipeline { display: flex; align-items: flex-start; justify-content: center;
+                    gap: 30px; width: 96%; margin: 0.6em auto 0; }
+.reveal .pstep { flex: 1 1 0; text-align: center; }
+.reveal .pstep img { display: block; width: 100%; height: 210px; object-fit: contain;
+                     margin: 0 auto; border: none; box-shadow: none; background: none; }
+.reveal .pstep .ph { font-size: 0.62em; margin: 0.45em 0 0; }
+.reveal .pstep .ps { font-size: 0.46em; color: #999; line-height: 1.3; margin: 0.15em 0 0; }
+.reveal .pipeline + .statement { font-size: 0.95em; margin-top: 0.6em; }
+
+/* One fixed anchor for every title. reveal centres a slide vertically, so a short slide pushed its
+   heading 240px lower than a tall one and the eye had to re-find the title on every click. Giving
+   every step a floor height puts the centred block — and therefore the heading — in the same place,
+   and stops the heading drifting upward as items appear within a stack. */
+/* reveal.css forces `min-height: 0 !important` on every section in centred mode, so this rule has
+   to answer in kind — it is more specific, and it is the only way to hold the anchor. */
+.reveal.center .slides > section > section { min-height: 620px !important; }  /* the floor the wrapper centres in */
+/* Vertical centring lives on a wrapper inside the slide, not on the slide itself. build.py wraps
+   each leaf slide's content in one .sbody; the wrapper is flex on every slide, hidden or not, so
+   the geometry reveal's auto-animate measures on the incoming slide is already the final one.
+   Centring the section instead could only apply to the visible slide — reveal hides the rest with
+   `display: none` — so the slide was laid out uncentred, measured, then centred a frame later,
+   which read as everything jumping up and settling back. */
+.reveal.center .slides > section > section > .sbody {
+    display: flex; flex-direction: column; justify-content: center; min-height: 620px; width: 100%; }
+.reveal.center .slides > section > section.freeform > .sbody { min-height: 0; }
+/* Inline-level children (an <svg> diagram, a bare <img>) were centred by `text-align` before the
+   wrapper became a flex container; as flex items they align to the start instead. */
+.reveal .sbody > svg, .reveal .sbody > img { align-self: center; }
+.reveal.center .slides > section > section.freeform { min-height: 0 !important; }
+/* A parenthetical attribution that must be legible but must not compete with the item it credits. */
+.reveal .dim { color: #888; font-size: 0.85em; }
+.reveal .talkref .tr-label { font-size: 0.42em; color: #8a8a8a; letter-spacing: 0.06em;
+                             text-transform: uppercase; margin: 0 0 0.3em; }
+
+/* Feature coverage: the whole bar is what a complete engine needs, and two fills say how far each
+   implementation gets. Same track width on every row, so the rows compare by eye. */
+.reveal .cov { width: 94%; margin: 0.5em auto 0; }
+.reveal .cov-key { display: flex; justify-content: center; gap: 1.6em; align-items: baseline;
+                   font-size: 0.44em; color: #bbb; margin: 0 0 1.2em; }
+.reveal .cov-key i.sw { display: inline-block; width: 0.9em; height: 0.55em; border-radius: 2px;
+                        margin-right: 0.4em; }
+.reveal .cov-key i.sw.ed { background: #98c379; }
+.reveal .cov-key i.sw.cr { background: rgb(109, 209, 255); }
+.reveal .cov-key .cov-key-note { color: #777; }
+.reveal .cov-row { display: grid; grid-template-columns: 40% 1fr; align-items: center;
+                   column-gap: 18px; margin: 8px 0; }
+.reveal .cov-name { font-size: 0.48em; text-align: left; line-height: 1.2; }
+/* an outline, so an empty track still reads as the full bar a complete engine needs */
+.reveal .cov-track { position: relative; height: 30px; border-radius: 4px; box-sizing: border-box;
+                     background: rgba(255, 255, 255, 0.08);
+                     border: 1px solid rgba(255, 255, 255, 0.25); }
+.reveal .cov-fill { position: absolute; left: 0; height: 13px; border-radius: 3px; }
+.reveal .cov-fill.ed { top: 1px; background: #98c379; }
+.reveal .cov-fill.cr { top: 16px; background: rgb(109, 209, 255); }
+
+/* "Why?": the joke is crossed out and then stands aside, small and grey, while the real answer
+   takes the slide — so nobody is left unsure which of the two was serious. */
+.reveal .why-col.hidden-col { opacity: 0; }
+.reveal .columns { display: flex; align-items: center; justify-content: center; gap: 40px; }
+.reveal .why-col.mini { width: 26%; }
+.reveal .why-col.mini .imgwrap img { height: 165px; }
+.reveal .why-col.mini .statement { font-size: 0.72em; }
+
+/* Section divider: the running order, with the section about to start lit and the rest held back,
+   so the audience can see where they are without being told. */
+.reveal .section-title .outline-head { font-size: 0.9em; color: #4a4a4a; margin-bottom: 0.7em; }
+.reveal .section-map { list-style: none; margin: 0; padding: 0; text-align: center; }
+.reveal .section-map li { display: block; font-size: 0.95em; line-height: 1.7em;
+                          letter-spacing: -0.01em; text-align: center; }
+.reveal .section-map li.here { color: #fff; }
+.reveal .section-map li.later { color: #4a4a4a; }
+/* Each step of the chain names the software that does it, small and under its own caption. */
+.reveal .pstep img.plogo { display: block; width: auto; margin: 0.5em auto 0;
+                           object-fit: contain; opacity: 0.85; border: none; box-shadow: none; }
+/* the three marks carry very different amounts of whitespace, so each gets the height at which its
+   wordmark reads at the same size as the others */
+.reveal .pstep img.plogo-nicos { height: 22px; }
+.reveal .pstep img.plogo-scipp { height: 26px; }
+.reveal .pstep img.plogo-ed { height: 34px; }
+/* The congress block sits at the foot of that constant box, so the line under it keeps its place
+   whether the photograph or the logo is showing. */
+.reveal .swap > .congress { top: auto; bottom: 0; }
+.reveal .section-map li .ico { height: 0.62em; width: auto; margin-right: 0.5em; opacity: 0.8;
+                               vertical-align: baseline; }
+/* A large, quiet glyph where a photograph would be decoration. */
+.reveal .bigico { display: block; height: 108px; width: auto; margin: 0 auto 0.35em;
+                  color: #4a4a4a; }
+
+/* "Built on": two bands, one per row — what runs today above, what is only designed below. Every
+   wrapper carries a data-id so auto-animate recurses into it instead of re-fading its children. */
+.reveal .logo-band { margin: 0; }
+.reveal .logo-band:first-of-type { margin-top: 0.45em; }
+.reveal .logo-band + .logo-band { margin-top: 1.3em; }
+.reveal .logo-band .bandhead { margin: 0 0 0.4em; font-size: 0.42em; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #bbb; }
+/* A grid of equal columns, not a flex row: the two bands then line up in the same two columns
+   whatever the captions are, and the logos share one optical box instead of one height. */
+.reveal .logo-band .logo-row { display: grid; grid-template-columns: repeat(2, 6em);
+    justify-content: center; column-gap: 1.8em; margin: 0; }
+.reveal .logo-band .logo-item { max-width: none; width: 100%; }
+.reveal .logo-band img { height: 88px; max-width: 118px; object-fit: contain; }
+.reveal .logo-band .cap { margin-top: 0.5em; }
+
+
+/* A photograph standing where a glyph used to: the same slot, sized so two statement lines still fit. */
+.reveal .bigphoto { display: block; height: 380px; width: auto; margin: 0 auto 0.5em; border-radius: 10px;
+    box-shadow: none; border: none; }
+/* a slide carrying nothing but the picture and one line can give the picture the rest of the room */
+.reveal .bigphoto.tall { height: 500px; }
+
+/* "When it got the physics wrong": two defects, so two panels — otherwise the closing line's "both"
+   has four bullets above it and nothing to point at. A tinted panel rather than a rule, because a
+   3px line at the far left of a centred list reads as decoration, not as a container. */
+.reveal .bugbox { box-sizing: border-box; width: 100%; margin: 0.15em auto 0.3em; padding: 0.12em 0 0.2em;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid #3d3d3d; border-radius: 12px; }
+.reveal .bughead { margin: 0 0 0.1em; font-size: 0.44em; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #cfcfcf; }
+.reveal .step.compact.closing { margin-top: 0.35em; }
+
+/* A photographed conference slide shown as the quotation itself: sized by height so it sits above
+   the reference block, with the deck's usual rounded corner and no border. */
+.reveal .slidephoto { display: block; height: 500px; width: auto; margin: 0 auto 0.5em;
+    border-radius: 8px; border: none; box-shadow: none; }
+
+/* An item that has not been revealed yet keeps its box and is simply invisible: every step of a
+   stack therefore has exactly the same geometry, so nothing on the slide moves as the steps run —
+   each item just fades in where it already belonged. (Dropping the box instead does re-centre the
+   visible block, but reveal's auto-animate then has to reconcile two layouts, which reads as a
+   jump.) The slide as a whole is centred on its full content. */
+.reveal .hid { opacity: 0 !important; }
+
+/* Two states a slide element can be in, as classes rather than inline styles: not yet revealed,
+   and deliberately half-strength (the products diagram's unbuilt branch, a table's footnote row). */
+.reveal .faint { opacity: 0.55; }
+.reveal .half { opacity: 0.5; }
+.reveal table.parity td[colspan] { text-align: center; }
+
+/* What each bar stands for, once, instead of a colour repeated on every step of every chart. */
+.reveal .bar-fill.py      { background: #e06c75; }   /* the pure-Python prototype */
+.reveal .bar-fill.numpy   { background: #e2b781; }   /* CrysPy, direct or through EasyDiffraction */
+.reveal .bar-fill.fortran { background: #98c379; }   /* CrysFML and FullProf */
+.reveal .bar-fill.crysta  { background: rgb(109, 209, 255); }
+
+/* Three chart shapes, named once. The default is the six-engine calculation chart; `long` is for
+   rows whose labels are sentences and whose axis needs the room; `short` is the two-row variant. */
+.reveal .bars.long  { --namew: 34%; --axisw: 620px; --namefs: 0.54em; --valfs: 0.5em; min-height: 320px; }
+.reveal .bars.short { min-height: 180px; --namefs: inherit; --valfs: inherit; }
+
+/* The icons are referenced from the sprite, so the colour has to come from the stylesheet rather
+   than a fill attribute repeated on every instance. */
+.reveal svg.ico, .reveal svg.bigico { fill: currentColor; }
+
+/* The handful of shapes that used to be written inline on the slides. Everything a slide needs is
+   now a class name: the deck's own title, one big statement, a chart image, the two states of the
+   opening slide's image slot, and the parity table. */
+.reveal img.titlephoto { display: block; height: 230px; width: auto; margin: 0 auto 0.4em;
+                         border-radius: 8px; border: none; box-shadow: none; max-height: none; }
+.reveal .deck-title { margin: 0.1em 0 0.3em; font-size: 1.35em; }
+.reveal .subtitle { font-size: 1.15em; margin-bottom: 0.9em; }
+.reveal .byline { color: rgb(150, 150, 150); }
+.reveal .statement.lead { font-size: 1.5em; line-height: 1.35em; }
+.reveal p.step.sub { font-size: 0.7em; color: #bbb; margin-top: 0.5em; }
+.reveal img.chart { display: block; width: 68%; margin: 0 auto; }
+.reveal .placeholder.tall { height: 400px; }
+.reveal .swap.logo { height: 370px; }
+.reveal table.parity { margin-top: 1.5em; }
+
+/* The stack's logos under the products diagram: each arrives with the box it belongs to. */
+.reveal .engine-logos { gap: 44px; margin: 0.5em 0 0; }
+.reveal .engine-logos img { height: 52px; }
+
+/* Auto-animate measures its translate/scale in screen pixels and then writes them as a CSS
+   transform on an SVG element, where they are read as user units — the engine name flew across
+   the diagram and came back — the matched <g> wrapper moved it as well as the <text> itself.
+   Nothing in these diagrams moves between steps, so every matched SVG node refuses the
+   transform; font-size and colour still transition, because those need no coordinate system.
+   Icon groups carry their transform as an SVG attribute and no data-id, so they are untouched. */
+.reveal svg [data-id] { transform: none !important; }

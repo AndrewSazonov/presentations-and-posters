@@ -1,0 +1,17 @@
+/* Additions for the LENS WP4 talk (EasyDiffraction and crysta) — on top of style.css and talk.css,
+   which are the DMSC crysta deck's own, unchanged, so the two talks look the same. */
+
+/* Title: the two products, side by side, before their names are spoken. */
+.reveal .title-marks { display: flex; justify-content: center; align-items: center; gap: 70px;
+                       height: 150px; margin: 0 0 0.6em; }
+.reveal .title-marks img { height: 92px; width: auto; margin: 0; border: none; box-shadow: none; }
+.reveal .title-marks .wordmark { font-size: 1.9em; line-height: 1; color: rgb(164, 209, 114);
+                                 letter-spacing: -0.01em; }
+.reveal .title-marks .plus { font-size: 1.2em; color: #555; }
+
+/* "new": a small tag riding on crysta wherever the name is set large. */
+.reveal .tag-new { display: inline-block; vertical-align: 0.9em; margin-left: 0.35em;
+                   padding: 0.12em 0.45em 0.18em; border-radius: 4px; font-size: 0.32em;
+                   letter-spacing: 0.08em; text-transform: uppercase; line-height: 1;
+                   color: #fff; background: #a37c59; }
+.reveal .event { color: #6f6f6f; font-size: 0.6em; margin-top: 0.4em; }

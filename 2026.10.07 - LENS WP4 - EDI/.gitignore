@@ -1,0 +1,10 @@
+# generated: `python3 build.py` writes index.html, shots/ holds rendered screenshots
+shots/
+*.pyc
+__pycache__/
+
+# solved per machine; the deck needs only python, so a shared lock buys nothing
+pixi.lock
+
+# scratch harness written by mk_measure scripts
+measure.html
