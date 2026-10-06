@@ -54,25 +54,37 @@
    moves. Only the outer box is paired by auto-animate, and it has no look of its own: the fill,
    corners and outline are on .cbface inside it, which reveal does not restyle. The big face's
    corners and outline are the slot's times the shrink (440 / 118.7 = 3.7), so the box only moves
-   and shrinks, without its corners changing on the way. The blue outline marks it as ours. */
+   and shrinks, without its corners changing on the way. */
 .reveal .crystafig { position: relative; width: 880px; max-width: 100%; margin: 0.6em 0 0; }
 .reveal .crystafig svg.stackfig { margin: 0; width: 100%; }
 .reveal .crystabox { position: absolute; }
-.reveal .crystabox .cbface { box-sizing: border-box; width: 100%; height: 100%; text-align: center;
-                             background: rgb(164, 209, 114); color: #222; border: solid var(--c-blue); }
 .reveal .crystabox.slot { left: 47.952%; top: 80.882%; width: 13.494%; height: 13.725%; }
-.reveal .crystabox.slot .cbface { border-radius: 6px; border-width: 2.5px; padding-top: 4px; }
-.reveal .crystabox.slot .cbname { font-size: 20px; line-height: 1.1; font-weight: 600; }
-.reveal .crystabox.slot .cbsub { font-size: 14px; line-height: 1.3; color: #3d5a28; }
 .reveal .crystabox.big { left: 25%; top: 24.5%; width: 50%; height: 51%; }
-.reveal .crystabox.big .cbface { border-radius: 22px; border-width: 9px; display: flex; flex-direction: column;
-                                 align-items: center; justify-content: center; gap: 10px; }
-.reveal .crystabox.big .cbname { font-size: 56px; line-height: 1; font-weight: 600; }
-.reveal .crystabox.big .cbitems { font-size: var(--fs-md); line-height: 1.2; color: #3d5a28; }
-.reveal .crystabox.big .cblogos { display: flex; justify-content: center; gap: 18px; }
-.reveal .crystabox.big .cblogos img { height: 34px; width: auto; margin: 0; border: none; box-shadow: none; }
-/* The step merge reserves the slot box's subtitle inside the big box too; it must not take room. */
-.reveal .crystabox.big .cbsub { display: none; }
+/* The face: everything on it is in em, and only its font-size changes between the steps (slot 16px,
+   big box 59.3px = 16 x 3.705, the shrink), so corners, outline and both contents scale as one.
+   The outline is the 'Unified interface' orange: ours, like the library on top of it. */
+.reveal .crystabox .cbface { position: relative; box-sizing: border-box; width: 100%; height: 100%;
+                             background: rgb(164, 209, 114); color: #222; text-align: center;
+                             border: 0.156em solid rgb(226, 183, 129); border-radius: 0.375em; }
+.reveal .crystabox.slot .cbface { font-size: 16px; }
+.reveal .crystabox.big .cbface { font-size: 59.3px; }
+.reveal .crystabox .cblayer { position: absolute; inset: 0; display: flex; flex-direction: column;
+                              align-items: center; justify-content: center; }
+.reveal .crystabox .cbslot .cbname { font-size: 1.25em; line-height: 1.1; font-weight: 600; }
+.reveal .crystabox .cbslot .cbsub { font-size: 0.875em; line-height: 1.3; color: #3d5a28; }
+.reveal .crystabox .cbbig { gap: 0.15em; }
+.reveal .crystabox .cbbig .cbname { font-size: 0.9em; line-height: 1; font-weight: 600; }
+.reveal .crystabox .cbbig .cbitems { font-size: 0.4em; line-height: 1.2; color: #3d5a28; }
+.reveal .crystabox .cbbig .cblogos { display: flex; justify-content: center; gap: 0.3em; }
+.reveal .crystabox .cbbig .cblogos .lg { display: block; width: 0.85em; height: 0.85em;
+                                         background: center / contain no-repeat; }
+/* Which content shows: the big one on the big box, the slot one in the slot. Arriving in the slot,
+   the big content fades out early in the 0.9 s move and the slot content fades in after its middle. */
+.reveal .crystabox.big .cbslot, .reveal .crystabox.slot .cbbig { opacity: 0; }
+@keyframes cb-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes cb-in  { from { opacity: 0; } to { opacity: 1; } }
+.reveal .slides section.present > .sbody .crystabox.slot .cbbig  { animation: cb-out 0.3s ease-in 0.12s both; }
+.reveal .slides section.present > .sbody .crystabox.slot .cbslot { animation: cb-in 0.35s ease-out 0.42s both; }
 
 /* The test case behind the next three slides, as the deck's chip strip: one glance says which case,
    before the slide says what was measured on it. */
