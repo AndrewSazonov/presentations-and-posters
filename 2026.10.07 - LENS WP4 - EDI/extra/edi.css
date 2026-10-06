@@ -66,3 +66,40 @@
 .reveal .crystabox.big .cblogos img { height: 34px; width: auto; margin: 0; border: none; box-shadow: none; }
 /* The step merge reserves the slot box's subtitle inside the big box too; it must not take room. */
 .reveal .crystabox.big .cbsub { display: none; }
+
+/* The test case behind the next three slides, as the deck's chip strip: one glance says which case,
+   before the slide says what was measured on it. */
+.reveal .flow.casechips { margin: 0; }
+
+/* "Agreement of calculated patterns": the chart as the slide's one picture. */
+.reveal .chartbox img { display: block; height: 400px; width: auto; margin: var(--gap-item) 0 0;
+                        border: none; box-shadow: none; }
+
+/* "Agreement of refined parameters": the crysta deck's parity table, on this deck's scale. */
+.reveal table.parity { margin: var(--gap-item) 0 0; font-size: var(--fs-sm); border-collapse: collapse; }
+.reveal table.parity th { color: var(--c-blue); font-weight: 400; text-align: left; }
+.reveal table.parity td, .reveal table.parity th { padding: 0.3em 1.1em 0.3em 0; border: none; }
+.reveal table.parity tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.045); }
+.reveal table.parity td[colspan] { text-align: center; }
+
+/* "Speed": the crysta deck's log-scale bar chart, on this deck's scale and colours. A bar that is
+   new in a step grows from the left: it is `aa-move`, and reveal scales it from the zero width the
+   step merge gives a reserved bar. */
+.reveal .bars { width: 1144px; max-width: 100%; margin: var(--gap-item) 0 0; }
+.reveal .bar-row { display: grid; grid-template-columns: 400px 1fr; align-items: center;
+                   column-gap: 18px; min-height: 48px; margin: 8px 0; }
+.reveal .bar-name { text-align: left; font-size: var(--fs-sm); line-height: 1.25; }
+.reveal .bar-track { display: flex; align-items: center; gap: 12px; }
+.reveal .bar-fill { height: 32px; border-radius: 4px; flex: none; }
+.reveal .bar-value { font-size: var(--fs-sm); white-space: nowrap; }
+.reveal .bar-fill.numpy   { background: #e2b781; }   /* CrysPy, direct or through EasyDiffraction */
+.reveal .bar-fill.fortran { background: #98c379; }   /* FullProf */
+.reveal .bar-fill.crysta  { background: var(--c-blue); }
+.reveal .bar-axis { min-height: 0; margin: 0 0 -2px; }
+.reveal .bar-ticks { position: relative; height: 1.1em; margin-right: 190px; }   /* the room a value label takes */
+.reveal .bar-ticks span { position: absolute; width: 6em; margin-left: -3em; text-align: center;
+                          font-size: var(--fs-xs); color: var(--c-mute); white-space: nowrap; }
+.reveal .bar-ticks span:first-of-type { margin-left: 0; text-align: left; }
+.reveal .bar-ticks span:last-of-type { margin-left: -6em; text-align: right; }
+.reveal .bar-axis-line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+                         background: currentColor; opacity: 0.32; }
