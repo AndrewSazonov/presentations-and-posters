@@ -91,15 +91,19 @@
 .reveal .flow.casechips { margin: 0; }
 
 /* "Agreement of calculated patterns": the chart as the slide's one picture. */
-.reveal .chartbox img { display: block; height: 400px; width: auto; margin: var(--gap-item) 0 0;
+.reveal .chartbox { position: relative; width: 698px; height: 400px; margin: var(--gap-item) 0 0; }   /* the chart's 1.746 */
+.reveal .chartbox img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; margin: 0;
                         border: none; box-shadow: none; }
 
-/* "Agreement of refined parameters": the crysta deck's parity table, on this deck's scale. */
-.reveal table.parity { margin: var(--gap-item) 0 0; font-size: var(--fs-sm); border-collapse: collapse; }
-.reveal table.parity th { color: var(--c-blue); font-weight: 400; text-align: left; }
-.reveal table.parity td, .reveal table.parity th { padding: 0.3em 1.1em 0.3em 0; border: none; }
-.reveal table.parity tbody tr:nth-child(odd) { background: rgba(255, 255, 255, 0.045); }
-.reveal table.parity td[colspan] { text-align: center; }
+/* "Agreement of refined parameters": the crysta deck's parity table as rows on a grid rather than an
+   HTML table, which auto-animate handles badly (the rows flickered on each click). Each row fades in
+   like a list item; the columns line up because every row shares the same grid. */
+.reveal .ptable { margin: var(--gap-item) 0 0; font-size: var(--fs-sm); }
+.reveal .prow { display: grid; grid-template-columns: 230px 290px 290px 170px 120px; align-items: center;
+                min-height: 52px; padding: 0 18px; }
+.reveal .prow:nth-child(even) { background: rgba(255, 255, 255, 0.045); }
+.reveal .prow.phead { color: var(--c-blue); min-height: 44px; }
+.reveal .prow.more { grid-template-columns: 1fr; text-align: center; color: var(--c-mute); }
 
 /* "Speed": the crysta deck's log-scale bar chart, on this deck's scale and colours. A bar that is
    new in a step grows from the left: it is `aa-move`, and reveal scales it from the zero width the
