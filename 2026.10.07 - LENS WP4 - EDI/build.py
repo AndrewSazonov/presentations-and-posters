@@ -18,7 +18,7 @@ SECTION_TITLES = {
     "10_why.html": "Why new software",
     "20_easydiffraction.html": "EasyDiffraction",
     "30_crysta.html": "crysta",
-    "40_outlook.html": "Outlook",
+    "40_outlook.html": "Status and plans",
 }
 
 ORDER = [
@@ -297,7 +297,7 @@ SECTION_ICONS = {
     'Why new software': 'lightbulb',
     'EasyDiffraction': 'cubes',
     'crysta': 'microchip',
-    'Outlook': 'flag-checkered',
+    'Status and plans': 'flag-checkered',
 }
 
 
