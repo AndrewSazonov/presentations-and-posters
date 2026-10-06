@@ -70,10 +70,3 @@ another (each name with its own `data-auto-animate-delay`).
 - DMSC crysta talk: what analysis needs, AI in scientific software, the pilot project, the test
   case, both agreement slides, speed, 'I did not write this code', the checks, credits, how much is
   done. Numbers there come from `enhantica/bench`.
-
-## Still to do
-
-- Partner logos on "Where EasyScience runs today": the chips are text until
-  `images/logo-mlz-jcns.svg`, `images/logo-goettingen.svg`, `images/logo-shapespyre.svg` and
-  `images/logo-chalmers.svg` exist
-  (each chip's `data-logo` names its file).
