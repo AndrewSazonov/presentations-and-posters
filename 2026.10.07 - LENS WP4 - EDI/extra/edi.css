@@ -13,8 +13,9 @@
 
 /* "Diffraction analysis: many tools": each name is its own element, so the names can arrive one by
    one. .sentence is a flex row, so the names are its items: they wrap at a name, never inside one,
-   with one space's gap, and the block stays centred in its panel as a one-span sentence is. */
-.reveal .samefact .sentence:has(> .nm) { flex-wrap: wrap; align-content: center; column-gap: 0.3em; }
+   with one space's gap. The names start right under the panel's label: centred, the shorter of two
+   panels floated in the middle of its box. */
+.reveal .samefact .sentence:has(> .nm) { flex-wrap: wrap; align-content: flex-start; column-gap: 0.3em; }
 .reveal .samefact .sentence .nm { white-space: nowrap; }
 
 /* "Built on existing libraries": a faded name keeps its place in the sentence. */
