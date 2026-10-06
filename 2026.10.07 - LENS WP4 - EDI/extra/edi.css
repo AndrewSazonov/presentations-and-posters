@@ -32,8 +32,10 @@
    that have scrolled out to the left. */
 .reveal .carousel { width: 1160px; margin: 0.4em auto 0; overflow: hidden; }
 .reveal .carousel .strip { display: flex; gap: 30px; width: max-content; }
-.reveal .tile { flex: none; width: 370px; text-align: left; }
-.reveal .tile .tcap { margin: 0 0 0.4em; font-size: 0.5em; line-height: 1.3; color: #999; min-height: 2.6em; }
-.reveal .tile .tcap .blue { display: block; font-size: 1.3em; }
+/* Captions at the sizes and alignment of the crysta deck's three-panel figures (.pstep .ph / .ps). */
+.reveal .tile { flex: none; width: 370px; text-align: center; }
+.reveal .tile .tcap { margin: 0 0 0.45em; line-height: 1.3; }
+.reveal .tile .tcap .blue { display: block; font-size: 0.62em; }
+.reveal .tile .tcap .tsub { display: block; font-size: 0.46em; color: #999; margin-top: 0.15em; }
 .reveal .tile .tshot { height: 330px; border-radius: 8px; background-color: #f2f2f2;
                        background-size: cover; background-repeat: no-repeat; }
