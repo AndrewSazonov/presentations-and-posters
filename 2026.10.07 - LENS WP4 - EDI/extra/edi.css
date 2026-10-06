@@ -170,6 +170,7 @@
 /* ...and in one-line boxes, as on the NOBUGS deck, the explanation follows the item on the same line,
    smaller and grey, rather than taking a line of its own. */
 .reveal .dolist .step .sub.inline { display: inline; margin: 0 0 0 0.35em; font-size: var(--fs-sm); }
+.reveal .dolist .step .sub.inline::before { content: "\00b7"; margin-right: 0.35em; }   /* the same separator as in the item itself */
 
 /* "Several years of improving UI/UX": the four designs dealt as a stack of cards. Each new design
    slides in from the right onto the front; the older ones step back up and to the left, smaller and
