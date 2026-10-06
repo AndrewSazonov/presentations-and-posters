@@ -475,4 +475,139 @@
 
 </section>
 
+<!-- 3.9 I did not write this code -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>I did not write this code</h3>
+  <div class="photo" data-id="photo"><img src="images/fragile-slide.jpg" alt="a slide reading: I did not write this code. So I do not know where it is fragile."></div>
+  <p class="credit" data-id="credit">Oleg Sobolev &amp; Paul Adams, LBNL &middot; AI-written CIF parser for CCTBX &middot; MS-116, IUCr 2026, Calgary</p>
+</section>
+
+<section data-auto-animate>
+  <h3>I did not write this code</h3>
+  <div class="photo" data-id="photo"><img src="images/fragile-slide.jpg" alt="a slide reading: I did not write this code. So I do not know where it is fragile."></div>
+  <p class="credit" data-id="credit">Oleg Sobolev &amp; Paul Adams, LBNL &middot; AI-written CIF parser for CCTBX &middot; MS-116, IUCr 2026, Calgary</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">So nobody knows <span class="blue">where it is fragile</span>, until it is tested.</p>
+  <aside class="notes">
+    A slide from the IUCr congress, from a different route to the same question: Oleg Sobolev and Paul Adams, whose CIF parser for CCTBX was written by AI. Writing code yourself is also a form of quality assurance; delegate the writing and that is gone, unless you rebuild it on purpose. Which is what the next slide is.
+  </aside>
+</section>
+
+</section>
+
+<!-- 3.10 How the code is checked -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>How the code is checked</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="t1"><i class="fa-vial lead"></i> <span class="blue">Tests</span> at every level
+      <span class="sub">unit, integration, system &middot; C++ and Python</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How the code is checked</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="t1"><i class="fa-vial lead"></i> <span class="blue">Tests</span> at every level
+      <span class="sub">unit, integration, system &middot; C++ and Python</span></p>
+    <p class="step" data-id="t2"><i class="fa-balance-scale lead"></i> Against <span class="blue">independent references</span>
+      <span class="sub">patterns and refinements against FullProf, CrysFML, CrysPy</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How the code is checked</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="t1"><i class="fa-vial lead"></i> <span class="blue">Tests</span> at every level
+      <span class="sub">unit, integration, system &middot; C++ and Python</span></p>
+    <p class="step" data-id="t2"><i class="fa-balance-scale lead"></i> Against <span class="blue">independent references</span>
+      <span class="sub">patterns and refinements against FullProf, CrysFML, CrysPy</span></p>
+    <p class="step" data-id="t3"><i class="fa-hammer lead"></i> <span class="blue">Strict builds</span>
+      <span class="sub">every compiler warning an error &middot; static analysis &middot; memory-safety checks</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How the code is checked</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="t1"><i class="fa-vial lead"></i> <span class="blue">Tests</span> at every level
+      <span class="sub">unit, integration, system &middot; C++ and Python</span></p>
+    <p class="step" data-id="t2"><i class="fa-balance-scale lead"></i> Against <span class="blue">independent references</span>
+      <span class="sub">patterns and refinements against FullProf, CrysFML, CrysPy</span></p>
+    <p class="step" data-id="t3"><i class="fa-hammer lead"></i> <span class="blue">Strict builds</span>
+      <span class="sub">every compiler warning an error &middot; static analysis &middot; memory-safety checks</span></p>
+    <p class="step" data-id="t4"><i class="fa-arrows-spin lead"></i> On <span class="blue">every change</span>
+      <span class="sub">CI on Linux and macOS &middot; the same numbers whatever the build</span></p>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>How the code is checked</h3>
+  <div class="dolist" data-id="dolist">
+    <p class="step" data-id="t1"><i class="fa-vial lead"></i> <span class="blue">Tests</span> at every level
+      <span class="sub">unit, integration, system &middot; C++ and Python</span></p>
+    <p class="step" data-id="t2"><i class="fa-balance-scale lead"></i> Against <span class="blue">independent references</span>
+      <span class="sub">patterns and refinements against FullProf, CrysFML, CrysPy</span></p>
+    <p class="step" data-id="t3"><i class="fa-hammer lead"></i> <span class="blue">Strict builds</span>
+      <span class="sub">every compiler warning an error &middot; static analysis &middot; memory-safety checks</span></p>
+    <p class="step" data-id="t4"><i class="fa-arrows-spin lead"></i> On <span class="blue">every change</span>
+      <span class="sub">CI on Linux and macOS &middot; the same numbers whatever the build</span></p>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">AI writes the code, so it is <span class="blue">checked more</span>, not less.</p>
+  <aside class="notes">
+    Tests written separately from the code they test; every calculation and every refinement compared with independent programs run as black boxes; the strictest build settings we could find; and all of it on every change, automatically.
+  </aside>
+</section>
+
+</section>
+
+<!-- 3.11 Credits: software and literature -->
+<section>
+
+<section data-auto-animate data-auto-animate-restart>
+  <h3>Credits</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="csoft">
+      <p class="lbl"><i class="fa-code"></i>Open-source software</p>
+      <p class="sentence small">CrysPy (I. Kibalin, ESS) &middot; CrysFML (J. Rodr&iacute;guez-Carvajal et al., ILL) &middot; cctbx (R. Grosse-Kunstleve, P. Adams, N. Sauter et al., LBNL) &middot; GSAS-II (B. Toby, R. Von Dreele, ANL) &middot; CCSL (P. J. Brown, J. C. Matthewman) &middot; ObjCryst++ / Fox (V. Favre-Nicolin, R. &#268;ern&yacute;) &middot; Dans_Diffraction (D. Porter, Diamond) &middot; periodictable (P. Kienzle, NIST) &middot; MAUD (L. Lutterotti, Trento) &middot; Mantid (the Mantid collaboration)</p>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Credits</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="csoft">
+      <p class="lbl"><i class="fa-code"></i>Open-source software</p>
+      <p class="sentence small">CrysPy (I. Kibalin, ESS) &middot; CrysFML (J. Rodr&iacute;guez-Carvajal et al., ILL) &middot; cctbx (R. Grosse-Kunstleve, P. Adams, N. Sauter et al., LBNL) &middot; GSAS-II (B. Toby, R. Von Dreele, ANL) &middot; CCSL (P. J. Brown, J. C. Matthewman) &middot; ObjCryst++ / Fox (V. Favre-Nicolin, R. &#268;ern&yacute;) &middot; Dans_Diffraction (D. Porter, Diamond) &middot; periodictable (P. Kienzle, NIST) &middot; MAUD (L. Lutterotti, Trento) &middot; Mantid (the Mantid collaboration)</p>
+    </div>
+    <div data-id="clit">
+      <p class="lbl"><i class="fa-book-open"></i>Literature</p>
+      <p class="sentence small"><i>International Tables</i> A and C &middot; Cromer &amp; Mann &middot; Waasmaier &amp; Kirfel &middot; Busing &amp; Levy &middot; Caglioti &middot; Thompson, Cox &amp; Hastings &middot; Finger, Cox &amp; Jephcoat &middot; Von Dreele &middot; Ikeda &amp; Carpenter &middot; Becker &amp; Coppens &middot; Dollase &middot; Rietveld &middot; Marquardt &middot; Proffen &amp; Billinge &middot; Egami &amp; Billinge &middot; Blume &middot; Bertaut &middot; Wills &middot; &hellip; 87 papers and volumes</p>
+    </div>
+  </div>
+</section>
+
+<section data-auto-animate>
+  <h3>Credits</h3>
+  <div class="samefact" data-id="sf">
+    <div data-id="csoft">
+      <p class="lbl"><i class="fa-code"></i>Open-source software</p>
+      <p class="sentence small">CrysPy (I. Kibalin, ESS) &middot; CrysFML (J. Rodr&iacute;guez-Carvajal et al., ILL) &middot; cctbx (R. Grosse-Kunstleve, P. Adams, N. Sauter et al., LBNL) &middot; GSAS-II (B. Toby, R. Von Dreele, ANL) &middot; CCSL (P. J. Brown, J. C. Matthewman) &middot; ObjCryst++ / Fox (V. Favre-Nicolin, R. &#268;ern&yacute;) &middot; Dans_Diffraction (D. Porter, Diamond) &middot; periodictable (P. Kienzle, NIST) &middot; MAUD (L. Lutterotti, Trento) &middot; Mantid (the Mantid collaboration)</p>
+    </div>
+    <div data-id="clit">
+      <p class="lbl"><i class="fa-book-open"></i>Literature</p>
+      <p class="sentence small"><i>International Tables</i> A and C &middot; Cromer &amp; Mann &middot; Waasmaier &amp; Kirfel &middot; Busing &amp; Levy &middot; Caglioti &middot; Thompson, Cox &amp; Hastings &middot; Finger, Cox &amp; Jephcoat &middot; Von Dreele &middot; Ikeda &amp; Carpenter &middot; Becker &amp; Coppens &middot; Dollase &middot; Rietveld &middot; Marquardt &middot; Proffen &amp; Billinge &middot; Egami &amp; Billinge &middot; Blume &middot; Bertaut &middot; Wills &middot; &hellip; 87 papers and volumes</p>
+    </div>
+  </div>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Decades of work by real people, <span class="blue">long before AI</span>.</p>
+  <aside class="notes">
+    None of this exists without the people who wrote these programs and papers, most of it long before AI. Every equation in crysta links to its source in the literature, and every result is checked against at least one of these programs.
+  </aside>
+</section>
+
+</section>
+
 </div>

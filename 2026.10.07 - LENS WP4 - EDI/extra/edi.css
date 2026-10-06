@@ -103,3 +103,6 @@
 .reveal .bar-ticks span:last-of-type { margin-left: -6em; text-align: right; }
 .reveal .bar-axis-line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
                          background: currentColor; opacity: 0.32; }
+
+/* "Credits": a panel that names many people reads at the deck's small size. */
+.reveal .samefact .sentence.small { display: block; font-size: var(--fs-sm); line-height: 1.5; }   /* running text: italics stay inline */
