@@ -14,3 +14,6 @@
    with one space's gap, and the block stays centred in its panel as a one-span sentence is. */
 .reveal .samefact .sentence:has(> .nm) { flex-wrap: wrap; align-content: center; column-gap: 0.3em; }
 .reveal .samefact .sentence .nm { white-space: nowrap; }
+
+/* "Built on existing libraries": a faded name keeps its place in the sentence. */
+.reveal .samefact .lbl.faint, .reveal .samefact .sentence .nm.faint { opacity: 0.25; }
