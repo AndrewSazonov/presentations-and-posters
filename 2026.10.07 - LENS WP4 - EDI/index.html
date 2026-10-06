@@ -8,16 +8,16 @@
     <meta name="theme-color" content="#333333">
     <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006193935">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006193935">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006193935">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006193935">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006194016">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006194016">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006194016">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006194016">
 
-    <link rel="stylesheet" href="dist/reset.css?v=20261006193935">
-    <link rel="stylesheet" href="dist/reveal.css?v=20261006193935">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006193935">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20261006193935">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006193935">
+    <link rel="stylesheet" href="dist/reset.css?v=20261006194016">
+    <link rel="stylesheet" href="dist/reveal.css?v=20261006194016">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006194016">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20261006194016">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006194016">
   </head>
 
   <body>
@@ -361,9 +361,10 @@
   <h3>The test case</h3><p class="hid step compact" data-id="m1"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-atom"/></svg> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
     <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p><p class="hid step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p><p class="hid step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p><p class="hid step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p></div>
+    <span class="sub">every timing on a single thread</span></p></div>
 <aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
   
   
@@ -378,9 +379,10 @@
   <p class="step compact" data-id="m1"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-atom"/></svg> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
     <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p><p class="hid step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p><p class="hid step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p><p class="hid step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p></div>
+    <span class="sub">every timing on a single thread</span></p></div>
 <aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
   
   
@@ -395,9 +397,10 @@
     <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
   <p class="step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p><p class="hid step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p><p class="hid step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p></div>
+    <span class="sub">every timing on a single thread</span></p></div>
 <aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
   
   
@@ -412,9 +415,10 @@
   <p class="step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p><p class="hid step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p></div>
+    <span class="sub">every timing on a single thread</span></p></div>
 <aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
   
   
@@ -428,10 +432,30 @@
   <p class="step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p><p class="hid step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
+    <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
+    <span class="sub">every timing on a single thread</span></p></div>
+<aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <div class="sbody" data-id="sbody">
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-atom"/></svg> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  <p class="step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p>
   <p class="step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p><p class="hid step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p></div>
+    <span class="sub">every timing on a single thread</span></p></div>
 <aside class="hid notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
   
 </section>
@@ -444,11 +468,13 @@
   <p class="step compact" data-id="m2"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-sliders-h"/></svg> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-chart-line"/></svg> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p>
   <p class="step compact" data-id="m4"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-balance-scale"/></svg> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p>
   <p class="step compact" data-id="m5"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-microchip"/></svg> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p>
+    <span class="sub">every timing on a single thread</span></p>
   </div>
 <aside class="notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
 </section>
@@ -1543,10 +1569,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20261006193935"></script>
-    <script src="plugin/notes/notes.js?v=20261006193935"></script>
-    <script src="plugin/markdown/markdown.js?v=20261006193935"></script>
-    <script src="plugin/highlight/highlight.js?v=20261006193935"></script>
+    <script src="dist/reveal.js?v=20261006194016"></script>
+    <script src="plugin/notes/notes.js?v=20261006194016"></script>
+    <script src="plugin/markdown/markdown.js?v=20261006194016"></script>
+    <script src="plugin/highlight/highlight.js?v=20261006194016"></script>
     <script>
       Reveal.initialize({
           width: 1200,

@@ -212,7 +212,7 @@
   <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
   
   
 </section>
@@ -224,7 +224,23 @@
   <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><i class="fa-chart-line lead"></i> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p>
+  
+  
+</section>
+
+<section data-auto-animate>
+  <h3>The test case</h3>
+  <p class="step compact" data-id="m1"><i class="fa-atom lead"></i> <span class="blue">Sample</span> &middot; NCAF, Na<sub>2</sub>Ca<sub>3</sub>Al<sub>2</sub>F<sub>14</sub>
+    <span class="sub">a standard reference powder &middot; cubic <i>I</i>2<sub>1</sub>3, <i>a</i> = 10.2503 &Aring;, six sites</span></p>
+  <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
+    <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
+  <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><i class="fa-chart-line lead"></i> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p>
   <p class="step compact" data-id="m4"><i class="fa-balance-scale lead"></i> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p>
   
@@ -237,11 +253,13 @@
   <p class="step compact" data-id="m2"><i class="fa-wave-square lead"></i> <span class="blue">Measurement</span> &middot; WISH at ISIS, banks 2 + 9 merged
     <span class="sub">one pattern at 2&theta; = 58.33&deg; &middot; 3977 points, 627 peaks in the fitted range</span></p>
   <p class="step compact" data-id="m3"><i class="fa-sliders-h lead"></i> <span class="blue">Refinement</span> &middot; 48 free parameters
-    <span class="sub">coordinates, displacement, scale, zero, profile, background &middot; same start for every engine</span></p>
+    <span class="sub">coordinates, displacement, scale, zero, profile, background</span></p>
+  <p class="step compact" data-id="m6"><i class="fa-chart-line lead"></i> <span class="blue">Fitting</span> &middot; weighted least squares
+    <span class="sub">same starting values &middot; each engine's own minimiser &middot; reduced &chi;&sup2; &asymp; 4.8 for all</span></p>
   <p class="step compact" data-id="m4"><i class="fa-balance-scale lead"></i> <span class="blue">Reference</span> &middot; FullProf CLI 8.40
     <span class="sub">fp2k &middot; same model and instrument parameters &middot; every difference is measured against it</span></p>
   <p class="step compact" data-id="m5"><i class="fa-microchip lead"></i> <span class="blue">Machine</span> &middot; VISA, an Intel Xeon node &middot; 6 cores
-    <span class="sub">runs use 1 or 6 threads, as labelled</span></p>
+    <span class="sub">every timing on a single thread</span></p>
   <aside class="notes">Everything in this section is one case: the WISH banks 2 and 9 time-of-flight pattern of the NCAF standard, refined from one declared start with the same 48 free parameters in every engine, on a VISA node (the facility&rsquo;s remote analysis service; Intel Xeon Cascadelake with AVX-512, 32 GB, Ubuntu 22.04). The box has 64 cores, but every figure in this talk uses 1 or 6 threads &mdash; the 64-thread rows are in the backup. FullProf is the reference. Say this once here and the shorthand on the charts is readable.</aside>
 </section>
 
