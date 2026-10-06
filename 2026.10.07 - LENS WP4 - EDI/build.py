@@ -541,9 +541,10 @@ def wrap_bodies(html: str) -> str:
 # re-centres on every click and the earlier items rise.
 FADE_ONLY = True
 
-# A bar not shown yet is reserved at zero width, so it grows when its step arrives; the width may be
+# A bar (speed chart, coverage chart) not shown yet is reserved at zero width, so it grows when its
+# step arrives; the width may be
 # a plain percentage or a calc() of the track.
-ZERO_WIDTH = re.compile(r'(class="bar-fill[^"]*"[^>]*style="width: )(?:[0-9.]+%|calc\([^"]*\))')
+ZERO_WIDTH = re.compile(r'(class="(?:hid )?(?:bar|cov)-fill[^"]*"[^>]*style="width: )(?:[0-9.]+%|calc\([^"]*\))')
 
 VOID_TAGS = {"img", "br", "hr", "input", "meta", "link", "use", "path", "rect", "line", "circle",
              "polygon", "polyline", "ellipse", "stop", "source", "col", "area", "base"}
