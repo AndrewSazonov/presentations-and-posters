@@ -1,6 +1,6 @@
 # talk — EasyDiffraction and crysta
 
-*Reusing crystallographic libraries, and building our own.* LENS WG4, 7 October 2026.
+*Reusing crystallographic libraries, and building our own.* LENS WG4, Garching, 7 October 2026.
 
 reveal.js deck. `slides/*.html` are the sources; `index.html` is built from them by `build.py`.
 The deck is a copy of the NOBUGS 2026 talk `2026.09.21 - NOBUGS - GUI-EasyScience` — its build,
