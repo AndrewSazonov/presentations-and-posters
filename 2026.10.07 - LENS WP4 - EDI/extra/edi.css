@@ -39,3 +39,14 @@
 .reveal .tile .tcap .tsub { display: block; font-size: 0.46em; color: #999; margin-top: 0.15em; }
 .reveal .tile .tshot { height: 330px; border-radius: 8px; background-color: #f2f2f2;
                        background-size: cover; background-repeat: no-repeat; }
+
+/* "Built on existing libraries": the name list and the three library pages share one slot (.swap),
+   so each replaces the one before in place and the title never moves. */
+.reveal .swap.libswap { height: 500px; }
+.reveal .libnames { padding-top: 60px; }
+.reveal .libshot { text-align: center; }
+.reveal .libshot .liburl { margin: 0 0 0.3em; font-size: 0.62em; }
+.reveal .libshot img { display: block; height: 380px; width: auto; margin: 0 auto; border-radius: 8px;
+                       border: none; box-shadow: none; }
+.reveal .libshot .libcap { margin: 0.45em 0 0; font-size: 0.62em; color: #bbb; }
+.reveal .grp-names .nm.semi-hidden, .reveal .grp-label.semi-hidden { opacity: 0.2; }

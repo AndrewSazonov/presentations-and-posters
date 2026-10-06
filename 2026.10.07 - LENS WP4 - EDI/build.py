@@ -26,6 +26,7 @@ ORDER = [
     "00_divider.html",
     "01_title.html",
     "10_why.html",
+    "20_easydiffraction.html",
 ]
 
 # No backup deck for this talk; list files here to have build.py write backup.html as well.
