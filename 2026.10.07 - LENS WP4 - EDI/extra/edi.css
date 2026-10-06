@@ -106,3 +106,26 @@
 
 /* "Credits": a panel that names many people reads at the deck's small size. */
 .reveal .samefact .sentence.small { display: block; font-size: var(--fs-sm); line-height: 1.5; }   /* running text: italics stay inline */
+
+/* "How much is done": the crysta deck's coverage chart on this deck's scale. The whole track is what
+   a complete engine needs; the two fills say how far each implementation gets. crysta's fill is
+   `aa-move`, so it grows in on its click. */
+.reveal .cov-key { display: flex; gap: 1.6em; align-items: baseline; font-size: var(--fs-sm);
+                   color: var(--c-dim); margin: 0 0 0.6em; }
+.reveal .cov-key i.sw { display: inline-block; width: 0.9em; height: 0.55em; border-radius: 2px; margin-right: 0.4em; }
+.reveal .cov-key i.sw.ed { background: #98c379; }
+.reveal .cov-key i.sw.cr { background: var(--c-blue); }
+.reveal .cov { width: 1144px; max-width: 100%; }
+.reveal .cov-row { display: grid; grid-template-columns: 380px 1fr; align-items: center; column-gap: 18px; margin: 7px 0; }
+.reveal .cov-name { font-size: var(--fs-xs); text-align: left; line-height: 1.2; }
+.reveal .cov-track { position: relative; height: 28px; border-radius: 4px; box-sizing: border-box;
+                     background: rgba(255, 255, 255, 0.06); border: 1px solid #3d3d3d; }
+.reveal .cov-fill { position: absolute; left: 0; height: 12px; border-radius: 3px; }
+.reveal .cov-fill.ed { top: 1px; background: #98c379; }
+.reveal .cov-fill.cr { top: 14px; background: var(--c-blue); }
+
+/* "Project page": the whole site as one tall screenshot in a window; each step moves the page. */
+.reveal .pagebox { position: relative; width: 900px; height: 430px; overflow: hidden; border-radius: 8px;
+                   margin: var(--gap-pair) 0 0; }
+.reveal .pagebox img { position: absolute; left: 0; width: 900px; height: auto; margin: 0;
+                       border: none; box-shadow: none; }

@@ -27,6 +27,7 @@ ORDER = [
     "10_why.html",
     "20_easydiffraction.html",
     "30_crysta.html",
+    "40_outlook.html",
 ]
 
 BACKUP_ORDER: list[str] = []   # no backup deck for this talk
@@ -268,8 +269,9 @@ TAIL = """
               if (r.height > box.height + 1 && !sec.classList.contains('titlecard')) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
-                // A carousel parks its later columns beyond the edge and clips them: that is the point.
-                if (el.closest('.carousel')) return;
+                // A carousel parks its later columns beyond the edge, a page window holds a page taller than
+                // itself, and both clip: leaving the box is the point.
+                if (el.closest('.carousel, .pagebox')) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 // A lone screenshot is MEANT to run off the bottom edge — see --bleed in
                 // talk.css — and a title card parks its content below the slide to move it in.
@@ -333,7 +335,8 @@ def section_map(current: str | None, upto: int | None = None) -> str:
 # ESS's Visual Identity Manual puts a numbered, uppercase chapter line above every heading
 # ("2.11 BASIC ELEMENTS"). The deck does the same, and the build writes it rather than the slides:
 # the number is the slide's position, so it can only be right if nobody has to maintain it by hand.
-EYEBROW = re.compile(r"(<section\b[^>]*>)(\s*)(<h3\b)")
+# A deck title (the cover, the closing slide) is the whole screen's heading, not a section's slide.
+EYEBROW = re.compile(r"(<section\b[^>]*>)(\s*)(<h3\b(?![^>]*deck-title))")
 
 
 def add_eyebrows(body: str, sec_no: int, sec_name: str, first_stack: int) -> tuple[str, int]:
