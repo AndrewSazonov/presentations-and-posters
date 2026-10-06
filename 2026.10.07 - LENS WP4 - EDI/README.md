@@ -1,8 +1,12 @@
-# talk — Same workflow, different techniques
+# talk — EasyDiffraction and crysta
 
-reveal.js deck for the NOBUGS 2026 GUI Workshop, session 3 (UX Theory). `slides/*.html` are the
-sources; `index.html` is built from them by `build.py`. `outline.md` holds the running order, the
-source-to-slide reuse map and the list of things still to confirm.
+*Reusing crystallographic libraries, and building our own.* LENS WG4, 7 October 2026.
+
+reveal.js deck. `slides/*.html` are the sources; `index.html` is built from them by `build.py`.
+The deck is a copy of the NOBUGS 2026 talk `2026.09.21 - NOBUGS - GUI-EasyScience` — its build,
+layout, type scale and style — with slides from the DMSC crysta talk (`2026.09.07 - DMSC - Crysta`)
+and the J-PARC EasyDiffraction talk (`2024.09.18 - J-PARC - EasyDiffraction`) redrawn in that style.
+`extra/edi.css` holds this talk's additions, on `talk.css`'s variables only.
 
 ## Working on it
 
@@ -17,7 +21,7 @@ Without pixi, the same thing: `python3 build.py --watch`, or `python3 build.py` 
 
 | task | what it does |
 | --- | --- |
-| `pixi run build` | build `index.html` and `backup.html` once |
+| `pixi run build` | build `index.html` once |
 | `pixi run watch` | rebuild on every save |
 | `pixi run serve` | rebuild on every save **and** serve <http://localhost:8000/> |
 
@@ -43,20 +47,32 @@ only when it must be present *and* invisible in that step — a screenshot in a 
 
 ```
 slides/     one file per section; each wraps its stacks in <div class="external-slide">
-extra/      talk.css, style.css, the icon sprite and the local fonts
+            10_why · 20_easydiffraction · 30_crysta · 40_outlook
+extra/      talk.css, style.css (from the NOBUGS deck), edi.css (this talk), the icon sprite, fonts
 images/     screenshots and diagrams
 dist/       reveal.js and its themes
 plugin/     reveal.js plugins
-build.py    inlines slides/ into index.html and backup.html
-outline.md  running order, reuse map, open questions
+build.py    inlines slides/ into index.html
 ```
 
-The backup slides (`slides/90_appendix.html`) build into their own deck, `backup.html`. They are
-never presented in sequence — only opened when a question needs them — so each one is its own
-stack rather than a step of a neighbour.
+There is no backup deck for this talk.
+
+A block marked `data-cascade` is hidden item by item, so a list of names can arrive one after
+another (each name with its own `data-auto-animate-delay`).
 
 ## Where the material came from
 
-Screenshots and diagrams are reused from earlier EasyScience decks and from the 2026 IUCr poster;
-`outline.md` maps each slide to its source. The UX theory on slides 15–16 is Design Psychology's
-*UX Expert Review* method, credited on the slides themselves.
+- NOBUGS 2026 EasyScience talk: the cover, many tools, what users run into, what we rely on, the
+  design evolution, the expert review, three ways to run the workflow, same screen, what became
+  reusable, where EasyScience runs.
+- J-PARC 2024 EasyDiffraction talk: the names arriving one by one, site susceptibility and 2D
+  Rietveld, needs, the libraries-based approach, future plans, the project-page pan.
+- DMSC crysta talk: what analysis needs, AI in scientific software, the pilot project, the test
+  case, both agreement slides, speed, 'I did not write this code', the checks, credits, how much is
+  done. Numbers there come from `enhantica/bench`.
+
+## Still to do
+
+- Partner logos on "Where EasyScience runs today": the chips are text until
+  `images/logo-mlz-jcns.svg`, `images/logo-goettingen.svg` and `images/logo-shapespyre.svg` exist
+  (each chip's `data-logo` names its file).
