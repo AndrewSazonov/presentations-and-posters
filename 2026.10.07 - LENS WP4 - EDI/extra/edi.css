@@ -1,0 +1,16 @@
+/* Additions for the LENS WP4 talk, loaded after talk.css. Every size, colour and gap here is one of
+   talk.css's own variables, so the new components sit on the NOBUGS deck's single type scale. */
+
+/* "What users run into": the deck's three-column row, set in a window three columns wide. A step
+   that adds a fourth column moves the row's margin, so the columns slide left and the window clips
+   the one leaving. The columns carry `aa-move`, the deck's opt-in for an element nested in a block
+   that moves itself; everything inside them is carried along. */
+.reveal .carousel { width: 1144px; max-width: 100%; overflow: hidden; }
+.reveal .carousel .columns { width: max-content; gap: 41px; }
+.reveal .carousel .why-col { flex: 0 0 354px; }
+
+/* "Diffraction analysis: many tools": each name is its own element, so the names can arrive one by
+   one. .sentence is a flex row, so the names are its items: they wrap at a name, never inside one,
+   with one space's gap, and the block stays centred in its panel as a one-span sentence is. */
+.reveal .samefact .sentence:has(> .nm) { flex-wrap: wrap; align-content: center; column-gap: 0.3em; }
+.reveal .samefact .sentence .nm { white-space: nowrap; }

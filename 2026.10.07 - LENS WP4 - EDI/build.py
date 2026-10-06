@@ -52,6 +52,7 @@ HEAD = """<!doctype html>
     <link rel="stylesheet" type="text/css" href="extra/icons.min.css">
     <link rel="stylesheet" type="text/css" href="extra/style.css">
     <link rel="stylesheet" type="text/css" href="extra/talk.css">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css">
   </head>
 
   <body>
@@ -266,6 +267,8 @@ TAIL = """
               if (r.height > box.height + 1 && !sec.classList.contains('titlecard')) issues.push(`vertical overflow ${Math.round(r.height - box.height)}px`);
               sec.querySelectorAll('*').forEach(el => {
                 const e = el.getBoundingClientRect(); if (e.width === 0) return;
+                // A carousel parks its later columns beyond the edge and clips them: that is the point.
+                if (el.closest('.carousel')) return;
                 if (e.right > box.right + 2 || e.left < box.left - 2) issues.push(`h-overflow <${el.tagName.toLowerCase()}> "${(el.textContent||'').trim().slice(0,40)}"`);
                 // A lone screenshot is MEANT to run off the bottom edge — see --bleed in
                 // talk.css — and a title card parks its content below the slide to move it in.
@@ -452,7 +455,9 @@ def _hidden(node) -> str:
           else node.raw[:-1].rstrip() + ' class="hid">'
     if node.tag in VOID_TAGS or raw.endswith("/>"):
         return raw
-    return raw + "".join(k.render() for k in node.kids) + f"</{node.tag}>"
+    cascade = "data-cascade" in node.attrs
+    return raw + "".join(k.render(hide=cascade and "data-id" in k.attrs, cascade=cascade, under=True)
+                         for k in node.kids) + f"</{node.tag}>"
 
 
 def _step_end(stack: str, start: int) -> int:
@@ -521,6 +526,10 @@ def wrap_bodies(html: str) -> str:
 
 
 # --- reserving the space of later steps -------------------------------------------------------
+# A block marked `data-cascade` is hidden item by item rather than as one piece: wherever the build
+# hides it (the title-only step, or a step before the one that adds it), every element inside it
+# with a data-id is hidden too. Those items then fade in on their own, each with whatever
+# data-auto-animate-delay it carries, which is how a list of names arrives one after another.
 # FADE_ONLY makes every step of a stack carry the elements the later steps will add, marked `hid`
 # so they take their space but do not show. A step then differs from the one before it only in
 # which items are visible, so nothing on the slide moves: each item fades in where it already
@@ -553,9 +562,13 @@ class Node:
         first = (self.attrs.get("class", "").split() or [""])[0]
         return ("tag", self.tag, first, ordinal)
 
-    def render(self, hide=False):
+    def render(self, hide=False, cascade=False, under=False):
+        """`under`: some ancestor is hidden. `cascade`: inside a hidden `data-cascade` block, where
+        every element with a data-id is hidden in its own right, so each can fade in by itself."""
         if self.tag == "#text":
             return self.text
+        under = under or hide
+        cascade = cascade or (under and "data-cascade" in self.attrs)
         raw = self.raw
         if hide:
             m = re.search(r'class="([^"]*)"', raw)
@@ -563,7 +576,8 @@ class Node:
                   else raw[:-1].rstrip() + ' class="hid">'
         if self.tag in VOID_TAGS or raw.endswith("/>"):
             return ZERO_WIDTH.sub(r"\g<1>0%", raw) if hide else raw
-        inner = "".join(k.render() for k in self.kids)
+        inner = "".join(k.render(hide=cascade and "data-id" in k.attrs, cascade=cascade, under=under)
+                        for k in self.kids)
         out = raw + inner + f"</{self.tag}>"
         return ZERO_WIDTH.sub(r"\g<1>0%", out) if hide else out
 
