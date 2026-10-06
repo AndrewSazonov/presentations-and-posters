@@ -8,16 +8,16 @@
     <meta name="theme-color" content="#333333">
     <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006194016">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006194016">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006194016">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006194016">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006194033">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006194033">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006194033">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006194033">
 
-    <link rel="stylesheet" href="dist/reset.css?v=20261006194016">
-    <link rel="stylesheet" href="dist/reveal.css?v=20261006194016">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006194016">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20261006194016">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006194016">
+    <link rel="stylesheet" href="dist/reset.css?v=20261006194033">
+    <link rel="stylesheet" href="dist/reveal.css?v=20261006194033">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006194033">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20261006194033">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006194033">
   </head>
 
   <body>
@@ -154,57 +154,57 @@
 
 <section data-auto-animate data-auto-animate-restart>
   <div class="sbody" data-id="sbody">
-  <h3>What modern analysis needs</h3><p class="hid step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
+  <h3>Back to diffraction: what analysis needs</h3><p class="hid step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
     <span class="sub">temperature, field and time series from one experiment</span></p><p class="hid step" data-id="r2"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-table-cells-large"/></svg> <span class="blue">Multidimensional data</span> and very large parameter spaces
     <span class="sub">2D and 3D detectors, joint refinement of many patterns at once</span></p><p class="hid step" data-id="r3"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-robot"/></svg> <span class="blue">Automation</span> · experiments that run themselves
-    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">As the data grows, <span class="blue">performance matters more and more</span></p></div>
+    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">The library-based approach works &mdash; but <span class="blue">performance is not its strongest point</span></p></div>
 <aside class="hid notes">Source: RWG_requirements.pdf (physics literature), transcribed in crysta docs/dev/requirements/rwg-requirements.md. Sections 01 "Support large sequential datasets (~1000) and many (50–100) histograms per point", 02 "Handle very large parameter spaces in sequential workflows" and "Define realistic performance targets for high-throughput use", 04 "Use data-quality signals to guide autonomous or semi-autonomous experiments", 10 "Leave room for cloud, GPU, or supercomputer-backed execution". Also in the brief: neutron and X-ray, monochromatic and TOF, magnetic and modulated models, scriptable APIs, plugins, LLM support.</aside>
   
 </section>
 
 <section data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <h3>What modern analysis needs</h3>
+  <h3>Back to diffraction: what analysis needs</h3>
   <p class="step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
     <span class="sub">temperature, field and time series from one experiment</span></p><p class="hid step" data-id="r2"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-table-cells-large"/></svg> <span class="blue">Multidimensional data</span> and very large parameter spaces
     <span class="sub">2D and 3D detectors, joint refinement of many patterns at once</span></p><p class="hid step" data-id="r3"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-robot"/></svg> <span class="blue">Automation</span> · experiments that run themselves
-    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">As the data grows, <span class="blue">performance matters more and more</span></p></div>
+    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">The library-based approach works &mdash; but <span class="blue">performance is not its strongest point</span></p></div>
 <aside class="hid notes">Source: RWG_requirements.pdf (physics literature), transcribed in crysta docs/dev/requirements/rwg-requirements.md. Sections 01 "Support large sequential datasets (~1000) and many (50–100) histograms per point", 02 "Handle very large parameter spaces in sequential workflows" and "Define realistic performance targets for high-throughput use", 04 "Use data-quality signals to guide autonomous or semi-autonomous experiments", 10 "Leave room for cloud, GPU, or supercomputer-backed execution". Also in the brief: neutron and X-ray, monochromatic and TOF, magnetic and modulated models, scriptable APIs, plugins, LLM support.</aside>
 </section>
 
 <section data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <h3>What modern analysis needs</h3>
+  <h3>Back to diffraction: what analysis needs</h3>
   <p class="step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
     <span class="sub">temperature, field and time series from one experiment</span></p>
   <p class="step" data-id="r2"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-table-cells-large"/></svg> <span class="blue">Multidimensional data</span> and very large parameter spaces
     <span class="sub">2D and 3D detectors, joint refinement of many patterns at once</span></p><p class="hid step" data-id="r3"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-robot"/></svg> <span class="blue">Automation</span> · experiments that run themselves
-    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">As the data grows, <span class="blue">performance matters more and more</span></p></div>
+    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">The library-based approach works &mdash; but <span class="blue">performance is not its strongest point</span></p></div>
 <aside class="hid notes">Source: RWG_requirements.pdf (physics literature), transcribed in crysta docs/dev/requirements/rwg-requirements.md. Sections 01 "Support large sequential datasets (~1000) and many (50–100) histograms per point", 02 "Handle very large parameter spaces in sequential workflows" and "Define realistic performance targets for high-throughput use", 04 "Use data-quality signals to guide autonomous or semi-autonomous experiments", 10 "Leave room for cloud, GPU, or supercomputer-backed execution". Also in the brief: neutron and X-ray, monochromatic and TOF, magnetic and modulated models, scriptable APIs, plugins, LLM support.</aside>
 </section>
 
 <section data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <h3>What modern analysis needs</h3>
+  <h3>Back to diffraction: what analysis needs</h3>
   <p class="step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
     <span class="sub">temperature, field and time series from one experiment</span></p>
   <p class="step" data-id="r2"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-table-cells-large"/></svg> <span class="blue">Multidimensional data</span> and very large parameter spaces
     <span class="sub">2D and 3D detectors, joint refinement of many patterns at once</span></p>
   <p class="step" data-id="r3"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-robot"/></svg> <span class="blue">Automation</span> · experiments that run themselves
-    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">As the data grows, <span class="blue">performance matters more and more</span></p></div>
+    <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p><p class="hid step sub" data-id="r4">The library-based approach works &mdash; but <span class="blue">performance is not its strongest point</span></p></div>
 <aside class="hid notes">Source: RWG_requirements.pdf (physics literature), transcribed in crysta docs/dev/requirements/rwg-requirements.md. Sections 01 "Support large sequential datasets (~1000) and many (50–100) histograms per point", 02 "Handle very large parameter spaces in sequential workflows" and "Define realistic performance targets for high-throughput use", 04 "Use data-quality signals to guide autonomous or semi-autonomous experiments", 10 "Leave room for cloud, GPU, or supercomputer-backed execution". Also in the brief: neutron and X-ray, monochromatic and TOF, magnetic and modulated models, scriptable APIs, plugins, LLM support.</aside>
 </section>
 
 <section data-auto-animate>
   <div class="sbody" data-id="sbody">
-  <h3>What modern analysis needs</h3>
+  <h3>Back to diffraction: what analysis needs</h3>
   <p class="step" data-id="r1"><svg class="ico lead" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg> <span class="blue">Large series</span> · up to 1000 datasets &times; 100 patterns each
     <span class="sub">temperature, field and time series from one experiment</span></p>
   <p class="step" data-id="r2"><svg class="ico lead" viewBox="0 0 448 512"><use href="#i-table-cells-large"/></svg> <span class="blue">Multidimensional data</span> and very large parameter spaces
     <span class="sub">2D and 3D detectors, joint refinement of many patterns at once</span></p>
   <p class="step" data-id="r3"><svg class="ico lead" viewBox="0 0 640 512"><use href="#i-robot"/></svg> <span class="blue">Automation</span> · experiments that run themselves
     <span class="sub">sequencing and recovery without a human · a bad dataset must not stop the run</span></p>
-  <p class="step sub" data-id="r4">As the data grows, <span class="blue">performance matters more and more</span></p>
+  <p class="step sub" data-id="r4">The library-based approach works &mdash; but <span class="blue">performance is not its strongest point</span></p>
   </div>
 <aside class="notes">Source: RWG_requirements.pdf (physics literature), transcribed in crysta docs/dev/requirements/rwg-requirements.md. Sections 01 "Support large sequential datasets (~1000) and many (50–100) histograms per point", 02 "Handle very large parameter spaces in sequential workflows" and "Define realistic performance targets for high-throughput use", 04 "Use data-quality signals to guide autonomous or semi-autonomous experiments", 10 "Leave room for cloud, GPU, or supercomputer-backed execution". Also in the brief: neutron and X-ray, monochromatic and TOF, magnetic and modulated models, scriptable APIs, plugins, LLM support.</aside>
 </section>
@@ -229,7 +229,7 @@
       
       
       
-  </div>
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -248,7 +248,7 @@
       
       
       
-  </div>
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -267,7 +267,7 @@
       
       
       
-  </div>
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -286,7 +286,7 @@
       <div class="stat" data-id="stat1"><span class="n">23</span><span class="l">of 142 microsymposia</span></div><div class="hid stat" data-id="stat2"><span class="n">121</span><span class="l">of 839 microsymposium talks</span></div><div class="hid stat" data-id="stat3"><span class="n">69</span><span class="l">of 932 posters</span></div>
       
       
-  </div>
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -305,7 +305,26 @@
       <div class="stat" data-id="stat1"><span class="n">23</span><span class="l">of 142 microsymposia</span></div>
       <div class="stat" data-id="stat2"><span class="n">121</span><span class="l">of 839 microsymposium talks</span></div><div class="hid stat" data-id="stat3"><span class="n">69</span><span class="l">of 932 posters</span></div>
       
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
+</div>
+</section>
+
+<section data-auto-animate data-auto-animate-duration="0.9" data-auto-animate-easing="ease-in-out">
+  <div class="sbody" data-id="sbody">
+  <h3>AI in scientific software</h3>
+  <div class="swap logo" data-id="swap">
+    
+    <div class="congress" data-id="congress" data-auto-animate-delay="0.5">
+      <img src="images/iucr2026-logo.jpg" alt="IUCr 2026 logo" data-id="iucrlogo">
+      <span class="cname" data-id="cname">27<sup>th</sup> Congress and General Assembly<br>of the International Union of Crystallography<br><span class="dim">&asymp; 1,800 attendees</span></span>
+    </div>
   </div>
+  <p class="step sub" data-id="rule">AI/ML named in the <span class="blue">title or abstract</span></p>
+  <div class="stats">
+      <div class="stat" data-id="stat1"><span class="n">23</span><span class="l">of 142 microsymposia</span></div>
+      <div class="stat" data-id="stat2"><span class="n">121</span><span class="l">of 839 microsymposium talks</span></div>
+      <div class="stat" data-id="stat3"><span class="n">69</span><span class="l">of 932 posters</span></div>
+  </div><p class="hid step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -325,6 +344,7 @@
       <div class="stat" data-id="stat2"><span class="n">121</span><span class="l">of 839 microsymposium talks</span></div>
       <div class="stat" data-id="stat3"><span class="n">69</span><span class="l">of 932 posters</span></div>
   </div>
+  <p class="step sub" data-id="aiclose">AI is changing <span class="blue">how scientific software is written</span></p>
 </div>
 </section>
 
@@ -335,8 +355,8 @@
 
 <section data-auto-animate data-auto-animate-restart>
   <div class="sbody" data-id="sbody">
-  <h3>The experiment</h3><img class="hid bigphoto" data-id="expimg" src="images/first-flight.jpg" alt="the Wright brothers&rsquo; 1902 glider in flight"><p class="hid statement" data-id="q1">How far can we get if <span class="blue">AI writes every line</span><br>of a real crystallographic engine?</p></div>
-<aside class="hid notes">The experiment covers the new engine code, command line, bindings, tests and build setup. Existing libraries remain essential human contributions. This is work towards a usable product, with broader validation still needed.</aside>
+  <h3>The experiment</h3><img class="hid bigphoto" data-id="expimg" src="images/first-flight.jpg" alt="the Wright brothers&rsquo; 1902 glider in flight"><p class="hid statement" data-id="q1">A pilot project: how far can <span class="blue">AI-supported development</span><br>take a <span class="blue">high-performance</span> crystallographic library?</p></div>
+<aside class="hid notes">So we started a pilot project to test the limits: a new crystallographic calculation and refinement library, written in C++ for speed, with AI writing the code and a human owning the requirements, the references and the verdict on what is correct. The existing libraries stay essential: they are the independent references every result is checked against.</aside>
   
   
   
@@ -346,9 +366,9 @@
   <div class="sbody" data-id="sbody">
   <h3>The experiment</h3>
   <img class="bigphoto" data-id="expimg" src="images/first-flight.jpg" alt="the Wright brothers&rsquo; 1902 glider in flight">
-  <p class="statement" data-id="q1">How far can we get if <span class="blue">AI writes every line</span><br>of a real crystallographic engine?</p>
+  <p class="statement" data-id="q1">A pilot project: how far can <span class="blue">AI-supported development</span><br>take a <span class="blue">high-performance</span> crystallographic library?</p>
   </div>
-<aside class="notes">The experiment covers the new engine code, command line, bindings, tests and build setup. Existing libraries remain essential human contributions. This is work towards a usable product, with broader validation still needed.</aside>
+<aside class="notes">So we started a pilot project to test the limits: a new crystallographic calculation and refinement library, written in C++ for speed, with AI writing the code and a human owning the requirements, the references and the verdict on what is correct. The existing libraries stay essential: they are the independent references every result is checked against.</aside>
 </section>
 
 </section>
@@ -1569,10 +1589,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20261006194016"></script>
-    <script src="plugin/notes/notes.js?v=20261006194016"></script>
-    <script src="plugin/markdown/markdown.js?v=20261006194016"></script>
-    <script src="plugin/highlight/highlight.js?v=20261006194016"></script>
+    <script src="dist/reveal.js?v=20261006194033"></script>
+    <script src="plugin/notes/notes.js?v=20261006194033"></script>
+    <script src="plugin/markdown/markdown.js?v=20261006194033"></script>
+    <script src="plugin/highlight/highlight.js?v=20261006194033"></script>
     <script>
       Reveal.initialize({
           width: 1200,
