@@ -174,3 +174,5 @@
                           margin: var(--gap-pair) 0 0; }
 .reveal .cards img { position: absolute; margin: 0; object-fit: cover; object-position: left top;
                      border-radius: 6px; border: none; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55); }
+/* A library's name in a credits panel: brighter, not bolder, so the eye finds where each entry starts. */
+.reveal .samefact .sentence.small b { font-weight: 400; color: #fff; }
