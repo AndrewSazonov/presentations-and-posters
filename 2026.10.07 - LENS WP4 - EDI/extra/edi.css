@@ -17,3 +17,15 @@
 
 /* "Built on existing libraries": a faded name keeps its place in the sentence. */
 .reveal .samefact .lbl.faint, .reveal .samefact .sentence .nm.faint { opacity: 0.25; }
+
+/* "Where EasyScience runs today": a collaborating institution, under its project. Outlined rather
+   than filled, so it reads as who built it with us, not as another status tag. Each chip names
+   the logo file it is waiting for (data-logo); swap the text for that image when it exists. */
+/* Pinned to the card's bottom-right corner, so adding them does not grow the card: the grid's rows
+   are all as tall as the tallest, and one taller card pushed the last row off the slide. */
+.reveal .reflib.has-partners { position: relative; }
+.reveal .reflib .partners { position: absolute; right: 18px; bottom: 12px; display: flex; gap: 8px; }
+.reveal .reflib .partner { display: inline-flex; align-items: center; font-size: var(--fs-xs);
+                           line-height: 1.15; color: var(--c-dim); padding: 0.15em 0.5em;
+                           border: 1px solid #5a5a5a; border-radius: 0.3em; }
+.reveal .reflib .partner .ico { height: 0.8em; width: auto; margin-right: 0.4em; opacity: 0.8; }

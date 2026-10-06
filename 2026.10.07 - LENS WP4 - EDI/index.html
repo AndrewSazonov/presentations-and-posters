@@ -8,19 +8,19 @@
     <meta name="theme-color" content="#333333">
     <title>EasyDiffraction and crysta — reusing crystallographic libraries, and building our own</title>
 
-    <link rel="stylesheet" href="dist/reset.css?v=20261006194821">
-    <link rel="stylesheet" href="dist/reveal.css?v=20261006194821">
-    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006194821">
-    <link rel="stylesheet" href="dist/theme/black.css?v=20261006194821">
-    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006194821">
+    <link rel="stylesheet" href="dist/reset.css?v=20261006194943">
+    <link rel="stylesheet" href="dist/reveal.css?v=20261006194943">
+    <link rel="stylesheet" href="dist/theme/fonts/source-sans-pro/source-sans-pro.css?v=20261006194943">
+    <link rel="stylesheet" href="dist/theme/black.css?v=20261006194943">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css?v=20261006194943">
 
     <!-- The deck's own styles load LAST so they win against the theme at equal specificity. With
          them first, a rule like `.reveal h3` lost to the theme's `.reveal h1, .reveal h2, .reveal h3`
          and silently did nothing. -->
-    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006194821">
-    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006194821">
-    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006194821">
-    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006194821">
+    <link rel="stylesheet" type="text/css" href="extra/icons.min.css?v=20261006194943">
+    <link rel="stylesheet" type="text/css" href="extra/style.css?v=20261006194943">
+    <link rel="stylesheet" type="text/css" href="extra/talk.css?v=20261006194943">
+    <link rel="stylesheet" type="text/css" href="extra/edi.css?v=20261006194943">
   </head>
 
   <body>
@@ -89,6 +89,7 @@
   <symbol id="i-clone" viewBox="0 0 512 512"><path d="M288 448H64V224H128V160H64C28.7 160 0 188.7 0 224V448C0 483.3 28.7 512 64 512H288C323.3 512 352 483.3 352 448V384H288V448ZM224 352H448C483.3 352 512 323.3 512 288V64C512 28.7 483.3 0 448 0H224C188.7 0 160 28.7 160 64V288C160 323.3 188.7 352 224 352Z"/></symbol>
   <symbol id="i-stamp" viewBox="0 0 512 512"><path d="M312 201.8c0-17.4 9.2-33.2 19.9-47C344.5 138.5 352 118.1 352 96c0-53-43-96-96-96s-96 43-96 96c0 22.1 7.5 42.5 20.1 58.8c10.7 13.8 19.9 29.6 19.9 47c0 29.9-24.3 54.2-54.2 54.2H112C50.1 256 0 306.1 0 368c0 20.9 13.4 38.7 32 45.3V464c0 26.5 21.5 48 48 48H432c26.5 0 48-21.5 48-48V413.3c18.6-6.6 32-24.4 32-45.3c0-61.9-50.1-112-112-112H366.2c-29.9 0-54.2-24.3-54.2-54.2zM416 416v32H96V416H416z"/></symbol>
   <symbol id="i-lightbulb" viewBox="0 0 384 512"><path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2c0 0 0 0 0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4c0 0 0 0 0 0c19.8 27.1 39.7 54.4 49.2 86.2l160 0zM192 512c44.2 0 80-35.8 80-80l0-16-160 0 0 16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/></symbol>
+  <symbol id="i-handshake" viewBox="0 0 640 512"><path d="M323.4 85.2l-96.8 78.4c-16.1 13-19.2 36.4-7 53.1c12.9 17.8 38 21.3 55.3 7.8l99.3-77.2c7-5.4 17-4.2 22.5 2.8s4.2 17-2.8 22.5l-20.9 16.2L512 316.8 512 128l-.7 0-3.9-2.5L434.8 79c-15.3-9.8-33.2-15-51.4-15c-21.8 0-43 7.5-60 21.2zm22.8 124.4l-51.7 40.2C263 274.4 217.3 268 193.7 235.6c-22.2-30.5-16.6-73.1 12.7-96.8l83.2-67.3c-11.6-4.9-24.1-7.4-36.8-7.4C234 64 215.7 69.6 200 80l-72 48 0 224 28.2 0 91.4 83.4c19.6 17.9 49.9 16.5 67.8-3.1c5.5-6.1 9.2-13.2 11.1-20.6l17 15.6c19.5 17.9 49.9 16.6 67.8-2.9c4.5-4.9 7.8-10.6 9.9-16.5c19.4 13 45.8 10.3 62.1-7.5c17.9-19.5 16.6-49.9-2.9-67.8l-134.2-123zM16 128c-8.8 0-16 7.2-16 16L0 352c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-224-80 0zM48 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zM544 128l0 224c0 17.7 14.3 32 32 32l32 0c17.7 0 32-14.3 32-32l0-208c0-8.8-7.2-16-16-16l-80 0zm32 208a16 16 0 1 1 32 0 16 16 0 1 1 -32 0z"/></symbol>
 </svg>
 
     <div class="reveal">
@@ -365,22 +366,22 @@
     <div class="columns hid" data-id="columns" style="margin-left: 0px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div><div class="hid why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div><div class="hid why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div><div class="hid why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div><div class="hid why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -397,22 +398,22 @@
     <div class="columns" data-id="columns" style="margin-left: 0px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div><div class="hid why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div><div class="hid why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div><div class="hid why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div><div class="hid why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -429,23 +430,23 @@
     <div class="columns" data-id="columns" style="margin-left: 0px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div><div class="hid why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div><div class="hid why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div><div class="hid why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -462,24 +463,24 @@
     <div class="columns" data-id="columns" style="margin-left: 0px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div>
       <div class="why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div><div class="hid why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div><div class="hid why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -496,25 +497,25 @@
     <div class="columns" data-id="columns" style="margin-left: -395px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div>
       <div class="why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div>
       <div class="why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div><div class="hid why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -531,26 +532,26 @@
     <div class="columns" data-id="columns" style="margin-left: -790px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div>
       <div class="why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div>
       <div class="why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div>
       <div class="why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div><div class="hid why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -567,27 +568,27 @@
     <div class="columns" data-id="columns" style="margin-left: -1185px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div>
       <div class="why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div>
       <div class="why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div>
       <div class="why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div>
       <div class="why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Hard to start, and <span class="blue">missing what ESS needs</span>.</p></div>
@@ -604,27 +605,27 @@
     <div class="columns" data-id="columns" style="margin-left: -1185px">
       <div class="why-col third aa-move" data-id="c1">
         <p class="colcap"><span class="blue">Everything at once</span>windows and controls, no clear order</p>
-        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194821" alt="the FullProf Suite window"></div>
+        <div class="imgwrap"><img src="images/fullprof-window.png?v=20261006194943" alt="the FullProf Suite window"></div>
       </div>
       <div class="why-col third aa-move" data-id="c2">
         <p class="colcap"><span class="blue">Not written for people</span>numbers with cryptic labels</p>
-        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194821" alt="a FullProf PCR input file"></div>
+        <div class="imgwrap"><img src="images/fullprof-pcr.png?v=20261006194943" alt="a FullProf PCR input file"></div>
       </div>
       <div class="why-col third aa-move" data-id="c3">
         <p class="colcap"><span class="blue">Extra dependencies</span>XQuartz to install on macOS</p>
-        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194821" alt="an XQuartz dependency dialog on macOS"></div>
+        <div class="imgwrap"><img src="images/fullprof-xquartz.png?v=20261006194943" alt="an XQuartz dependency dialog on macOS"></div>
       </div>
       <div class="why-col third aa-move" data-id="c4">
         <p class="colcap"><span class="blue">Not cross-platform</span>Jana2020 runs on Windows only</p>
-        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194821" alt="the Jana download page: Windows builds only"></div>
+        <div class="imgwrap"><img src="images/jana-windows.png?v=20261006194943" alt="the Jana download page: Windows builds only"></div>
       </div>
       <div class="why-col third aa-move" data-id="c5">
         <p class="colcap"><span class="blue">Site susceptibility</span>only CrysPy and CCSL &middot; needed for MAGIC</p>
-        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194821" alt="the paper on atomic site susceptibility tensors"></div>
+        <div class="imgwrap"><img src="images/site-susceptibility.png?v=20261006194943" alt="the paper on atomic site susceptibility tensors"></div>
       </div>
       <div class="why-col third aa-move" data-id="c6">
         <p class="colcap"><span class="blue">2D Rietveld</span>only a modified GSAS-II &middot; needed for DREAM</p>
-        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194821" alt="the paper on two-dimensional Rietveld refinement"></div>
+        <div class="imgwrap"><img src="images/2d-rietveld.png?v=20261006194943" alt="the paper on two-dimensional Rietveld refinement"></div>
       </div>
     </div>
   </div>
@@ -892,13 +893,13 @@
   <div class="columns hid" data-id="columns">
     <div class="why-col third" data-id="k1">
       <p class="colcap"><span class="blue">CrysFML</span>symmetry, magnetism &middot; Fortran</p>
-      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194821" alt="the CrysFML repository at code.ill.fr"></div>
+      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194943" alt="the CrysFML repository at code.ill.fr"></div>
     </div><div class="hid why-col third" data-id="k2">
       <p class="colcap"><span class="blue">CrysPy</span>polarised neutrons &middot; Python</p>
-      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194821" alt="the CrysPy home page, cryspy.fr"></div>
+      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194943" alt="the CrysPy home page, cryspy.fr"></div>
     </div><div class="hid why-col third" data-id="k3">
       <p class="colcap"><span class="blue">PDFfit2</span>pair distribution function &middot; C++</p>
-      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194821" alt="the DiffPy home page with a PDFfit2 fit"></div>
+      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194943" alt="the DiffPy home page with a PDFfit2 fit"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Each for <span class="blue">what it does best</span>.</p></div>
 <aside class="hid notes">
@@ -913,13 +914,13 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="k1">
       <p class="colcap"><span class="blue">CrysFML</span>symmetry, magnetism &middot; Fortran</p>
-      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194821" alt="the CrysFML repository at code.ill.fr"></div>
+      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194943" alt="the CrysFML repository at code.ill.fr"></div>
     </div><div class="hid why-col third" data-id="k2">
       <p class="colcap"><span class="blue">CrysPy</span>polarised neutrons &middot; Python</p>
-      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194821" alt="the CrysPy home page, cryspy.fr"></div>
+      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194943" alt="the CrysPy home page, cryspy.fr"></div>
     </div><div class="hid why-col third" data-id="k3">
       <p class="colcap"><span class="blue">PDFfit2</span>pair distribution function &middot; C++</p>
-      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194821" alt="the DiffPy home page with a PDFfit2 fit"></div>
+      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194943" alt="the DiffPy home page with a PDFfit2 fit"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Each for <span class="blue">what it does best</span>.</p></div>
 <aside class="hid notes">
@@ -934,14 +935,14 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="k1">
       <p class="colcap"><span class="blue">CrysFML</span>symmetry, magnetism &middot; Fortran</p>
-      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194821" alt="the CrysFML repository at code.ill.fr"></div>
+      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194943" alt="the CrysFML repository at code.ill.fr"></div>
     </div>
     <div class="why-col third" data-id="k2">
       <p class="colcap"><span class="blue">CrysPy</span>polarised neutrons &middot; Python</p>
-      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194821" alt="the CrysPy home page, cryspy.fr"></div>
+      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194943" alt="the CrysPy home page, cryspy.fr"></div>
     </div><div class="hid why-col third" data-id="k3">
       <p class="colcap"><span class="blue">PDFfit2</span>pair distribution function &middot; C++</p>
-      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194821" alt="the DiffPy home page with a PDFfit2 fit"></div>
+      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194943" alt="the DiffPy home page with a PDFfit2 fit"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Each for <span class="blue">what it does best</span>.</p></div>
 <aside class="hid notes">
@@ -956,15 +957,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="k1">
       <p class="colcap"><span class="blue">CrysFML</span>symmetry, magnetism &middot; Fortran</p>
-      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194821" alt="the CrysFML repository at code.ill.fr"></div>
+      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194943" alt="the CrysFML repository at code.ill.fr"></div>
     </div>
     <div class="why-col third" data-id="k2">
       <p class="colcap"><span class="blue">CrysPy</span>polarised neutrons &middot; Python</p>
-      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194821" alt="the CrysPy home page, cryspy.fr"></div>
+      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194943" alt="the CrysPy home page, cryspy.fr"></div>
     </div>
     <div class="why-col third" data-id="k3">
       <p class="colcap"><span class="blue">PDFfit2</span>pair distribution function &middot; C++</p>
-      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194821" alt="the DiffPy home page with a PDFfit2 fit"></div>
+      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194943" alt="the DiffPy home page with a PDFfit2 fit"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Each for <span class="blue">what it does best</span>.</p></div>
 <aside class="hid notes">
@@ -979,15 +980,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="k1">
       <p class="colcap"><span class="blue">CrysFML</span>symmetry, magnetism &middot; Fortran</p>
-      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194821" alt="the CrysFML repository at code.ill.fr"></div>
+      <div class="imgwrap"><img src="images/crysfml-page.png?v=20261006194943" alt="the CrysFML repository at code.ill.fr"></div>
     </div>
     <div class="why-col third" data-id="k2">
       <p class="colcap"><span class="blue">CrysPy</span>polarised neutrons &middot; Python</p>
-      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194821" alt="the CrysPy home page, cryspy.fr"></div>
+      <div class="imgwrap"><img src="images/cryspy-page.png?v=20261006194943" alt="the CrysPy home page, cryspy.fr"></div>
     </div>
     <div class="why-col third" data-id="k3">
       <p class="colcap"><span class="blue">PDFfit2</span>pair distribution function &middot; C++</p>
-      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194821" alt="the DiffPy home page with a PDFfit2 fit"></div>
+      <div class="imgwrap"><img src="images/diffpy-page.png?v=20261006194943" alt="the DiffPy home page with a PDFfit2 fit"></div>
     </div>
   </div>
   <p class="statement" data-id="close" data-auto-animate-duration="1.1">Each for <span class="blue">what it does best</span>.</p>
@@ -1325,10 +1326,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub hid" data-id="yr">2019 &middot; the <span class="blue">first mock-up</span>, for diffraction</p>
   <div class="shotbox hid" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1351,10 +1352,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub" data-id="yr">2019 &middot; the <span class="blue">first mock-up</span>, for diffraction</p>
   <div class="shotbox" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1377,10 +1378,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub" data-id="yr">2020 &middot; eight tabs became <span class="blue">six</span></p>
   <div class="shotbox" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1403,10 +1404,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub" data-id="yr">2021 &middot; <span class="blue">simpler, cleaner, lighter</span></p>
   <div class="shotbox" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img class="hid" data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1429,10 +1430,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub" data-id="yr">2023&ndash;today &middot; the same shape, <span class="blue">easier to use</span></p>
   <div class="shotbox" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img class="hid" data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img class="hid" data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img class="hid" data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1455,10 +1456,10 @@
   <h3>Several years of improving UI/UX</h3></div>
   <p class="step sub" data-id="yr">Four iterations of the <span class="blue">same screen</span>.</p>
   <div class="shotbox four" data-id="shots" style="--shot-h: 502px; --shot-w: 869px">
-    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194821" alt="the 2019 mock-up">
-    <img data-id="v2" src="images/ed-design-2020.png?v=20261006194821" alt="the 2020 design">
-    <img data-id="v3" src="images/ed-design-2021.png?v=20261006194821" alt="the 2021 design">
-    <img data-id="v5" src="images/ed-analysis-2026.png?v=20261006194821" alt="the current application">
+    <img data-id="v1" src="images/ed-design-2019.png?v=20261006194943" alt="the 2019 mock-up">
+    <img data-id="v2" src="images/ed-design-2020.png?v=20261006194943" alt="the 2020 design">
+    <img data-id="v3" src="images/ed-design-2021.png?v=20261006194943" alt="the 2021 design">
+    <img data-id="v5" src="images/ed-analysis-2026.png?v=20261006194943" alt="the current application">
     <span class="yr" data-id="y1">2019</span>
     <span class="yr" data-id="y2">2020</span>
     <span class="yr" data-id="y3">2021</span>
@@ -1488,9 +1489,9 @@
   <h3>Approved by experts</h3></div>
   <p class="step sub hid" data-id="cap">Two workshops with <span class="blue">Design Psychology</span>, and a UX Expert Review.</p>
   <div class="shotbox" style="--shot-h: 496px; --shot-w: 859px">
-    <img data-id="site" src="images/designpsykologi.png?v=20261006194821"
+    <img data-id="site" src="images/designpsykologi.png?v=20261006194943"
          alt="the Design Psychology home page" class="hid">
-    <img class="hid hid" class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194821"
+    <img class="hid hid" class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194943"
          alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface">
     <div class="hl aa-move hid" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
     <div class="hl aa-move hid" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
@@ -1515,9 +1516,9 @@
   <h3>Approved by experts</h3></div>
   <p class="step sub" data-id="cap">Two workshops with <span class="blue">Design Psychology</span>, and a UX Expert Review.</p>
   <div class="shotbox" style="--shot-h: 496px; --shot-w: 859px">
-    <img data-id="site" src="images/designpsykologi.png?v=20261006194821"
+    <img data-id="site" src="images/designpsykologi.png?v=20261006194943"
          alt="the Design Psychology home page">
-    <img class="hid" class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194821"
+    <img class="hid" class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194943"
          alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface">
     <div class="hl aa-move" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
     <div class="hl aa-move" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
@@ -1542,9 +1543,9 @@
   <h3>Approved by experts</h3></div>
   <p class="step sub" data-id="cap">Then they reviewed <span class="blue">our interface</span>.</p>
   <div class="shotbox" style="--shot-h: 496px; --shot-w: 859px">
-    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194821"
+    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194943"
          alt="the Design Psychology home page">
-    <img class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194821"
+    <img class="aa-move" data-id="mail" src="images/ux-expert-email.png?v=20261006194943"
          alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface">
     <div class="hl aa-move" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
     <div class="hl aa-move" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
@@ -1569,9 +1570,9 @@
   <h3>Approved by experts</h3></div>
   <p class="step sub" data-id="cap">Then they reviewed <span class="blue">our interface</span>.</p>
   <div class="shotbox" style="--shot-h: 496px; --shot-w: 859px">
-    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194821"
+    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194943"
          alt="the Design Psychology home page">
-    <img class="aa-move" data-id="mail" style="--zoom: 1.922" src="images/ux-expert-email.png?v=20261006194821"
+    <img class="aa-move" data-id="mail" style="--zoom: 1.922" src="images/ux-expert-email.png?v=20261006194943"
          alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface">
     <div class="hl aa-move on" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
     <div class="hl aa-move on" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
@@ -1596,9 +1597,9 @@
   <h3>Approved by experts</h3></div>
   <p class="step sub" data-id="cap">Then they reviewed <span class="blue">our interface</span>.</p>
   <div class="shotbox" style="--shot-h: 496px; --shot-w: 859px">
-    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194821"
+    <img class="hid" data-id="site" src="images/designpsykologi.png?v=20261006194943"
          alt="the Design Psychology home page">
-    <img class="aa-move" data-id="mail" style="--zoom: 1.922" src="images/ux-expert-email.png?v=20261006194821"
+    <img class="aa-move" data-id="mail" style="--zoom: 1.922" src="images/ux-expert-email.png?v=20261006194943"
          alt="an e-mail from Rune N&oslash;rager about the easyDiffraction interface">
     <div class="hl aa-move on done" data-id="m1" style="left: 405px; top: 325px; width: 182px; height: 31px; --pen: 0.6s"></div>
     <div class="hl aa-move on done" data-id="m2" style="left:  68px; top: 379px; width: 451px; height: 32px; --pen: 1.1s"></div>
@@ -1631,15 +1632,15 @@
   <div class="columns hid" data-id="columns">
     <div class="why-col third" data-id="u1">
       <p class="colcap"><span class="blue">Graphical interface</span>for users who prefer to click</p>
-      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194821" alt="the application"></div>
+      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194943" alt="the application"></div>
     </div>
     <div class="why-col third hid" data-id="u2">
       <p class="colcap"><span class="blue">Command line</span>for command-line enthusiasts</p>
-      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194821" alt="the same refinement run from a terminal"></div>
+      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194943" alt="the same refinement run from a terminal"></div>
     </div>
     <div class="why-col third hid" data-id="u3">
       <p class="colcap"><span class="blue">Python library</span>for those who prefer scripts</p>
-      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194821" alt="a notebook using the library"></div>
+      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194943" alt="a notebook using the library"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">One workflow for <span class="blue">every kind of user</span>.</p></div>
 <aside class="hid notes">
@@ -1657,15 +1658,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="u1">
       <p class="colcap"><span class="blue">Graphical interface</span>for users who prefer to click</p>
-      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194821" alt="the application"></div>
+      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194943" alt="the application"></div>
     </div>
     <div class="why-col third hid" data-id="u2">
       <p class="colcap"><span class="blue">Command line</span>for command-line enthusiasts</p>
-      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194821" alt="the same refinement run from a terminal"></div>
+      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194943" alt="the same refinement run from a terminal"></div>
     </div>
     <div class="why-col third hid" data-id="u3">
       <p class="colcap"><span class="blue">Python library</span>for those who prefer scripts</p>
-      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194821" alt="a notebook using the library"></div>
+      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194943" alt="a notebook using the library"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">One workflow for <span class="blue">every kind of user</span>.</p></div>
 <aside class="hid notes">
@@ -1683,15 +1684,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="u1">
       <p class="colcap"><span class="blue">Graphical interface</span>for users who prefer to click</p>
-      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194821" alt="the application"></div>
+      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194943" alt="the application"></div>
     </div>
     <div class="why-col third" data-id="u2">
       <p class="colcap"><span class="blue">Command line</span>for command-line enthusiasts</p>
-      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194821" alt="the same refinement run from a terminal"></div>
+      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194943" alt="the same refinement run from a terminal"></div>
     </div>
     <div class="why-col third hid" data-id="u3">
       <p class="colcap"><span class="blue">Python library</span>for those who prefer scripts</p>
-      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194821" alt="a notebook using the library"></div>
+      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194943" alt="a notebook using the library"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">One workflow for <span class="blue">every kind of user</span>.</p></div>
 <aside class="hid notes">
@@ -1709,15 +1710,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="u1">
       <p class="colcap"><span class="blue">Graphical interface</span>for users who prefer to click</p>
-      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194821" alt="the application"></div>
+      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194943" alt="the application"></div>
     </div>
     <div class="why-col third" data-id="u2">
       <p class="colcap"><span class="blue">Command line</span>for command-line enthusiasts</p>
-      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194821" alt="the same refinement run from a terminal"></div>
+      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194943" alt="the same refinement run from a terminal"></div>
     </div>
     <div class="why-col third" data-id="u3">
       <p class="colcap"><span class="blue">Python library</span>for those who prefer scripts</p>
-      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194821" alt="a notebook using the library"></div>
+      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194943" alt="a notebook using the library"></div>
     </div>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">One workflow for <span class="blue">every kind of user</span>.</p></div>
 <aside class="hid notes">
@@ -1735,15 +1736,15 @@
   <div class="columns" data-id="columns">
     <div class="why-col third" data-id="u1">
       <p class="colcap"><span class="blue">Graphical interface</span>for users who prefer to click</p>
-      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194821" alt="the application"></div>
+      <div class="imgwrap"><img src="images/ed-analysis-2026.png?v=20261006194943" alt="the application"></div>
     </div>
     <div class="why-col third" data-id="u2">
       <p class="colcap"><span class="blue">Command line</span>for command-line enthusiasts</p>
-      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194821" alt="the same refinement run from a terminal"></div>
+      <div class="imgwrap"><img src="images/ed-cli.png?v=20261006194943" alt="the same refinement run from a terminal"></div>
     </div>
     <div class="why-col third" data-id="u3">
       <p class="colcap"><span class="blue">Python library</span>for those who prefer scripts</p>
-      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194821" alt="a notebook using the library"></div>
+      <div class="imgwrap"><img src="images/jupyter-2026.png?v=20261006194943" alt="a notebook using the library"></div>
     </div>
   </div>
   <p class="statement" data-id="close" data-auto-animate-duration="1.1">One workflow for <span class="blue">every kind of user</span>.</p>
@@ -1768,13 +1769,13 @@
   <div class="twoshots hid" data-id="two">
     <figure data-id="fa">
       <figcaption data-id="facap"><span class="blue" data-id="faname">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
-      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194821" alt="EasyDiffraction, analysis screen">
+      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194943" alt="EasyDiffraction, analysis screen">
     </figure><figure data-id="fb" class="hid">
       <figcaption data-id="fbcap"><span class="blue" data-id="fbname">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
-      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194821" alt="EasyReflectometry, analysis screen">
+      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194943" alt="EasyReflectometry, analysis screen">
     </figure><figure data-id="fc" class="hid">
       <figcaption data-id="fccap"><span class="blue" data-id="fcname">EasyTexture</span>raw detector data, before any model</figcaption>
-      <img data-id="ic" src="images/easytexture.png?v=20261006194821" alt="EasyTexture, raw-data screen">
+      <img data-id="ic" src="images/easytexture.png?v=20261006194943" alt="EasyTexture, raw-data screen">
     </figure>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Other techniques, and <span class="blue">beyond model refinement</span>.</p></div>
 <aside class="hid notes">
@@ -1796,13 +1797,13 @@
   <div class="twoshots" data-id="two">
     <figure data-id="fa">
       <figcaption data-id="facap"><span class="blue" data-id="faname">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
-      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194821" alt="EasyDiffraction, analysis screen">
+      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194943" alt="EasyDiffraction, analysis screen">
     </figure><figure data-id="fb" class="hid">
       <figcaption data-id="fbcap"><span class="blue" data-id="fbname">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
-      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194821" alt="EasyReflectometry, analysis screen">
+      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194943" alt="EasyReflectometry, analysis screen">
     </figure><figure data-id="fc" class="hid">
       <figcaption data-id="fccap"><span class="blue" data-id="fcname">EasyTexture</span>raw detector data, before any model</figcaption>
-      <img data-id="ic" src="images/easytexture.png?v=20261006194821" alt="EasyTexture, raw-data screen">
+      <img data-id="ic" src="images/easytexture.png?v=20261006194943" alt="EasyTexture, raw-data screen">
     </figure>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Other techniques, and <span class="blue">beyond model refinement</span>.</p></div>
 <aside class="hid notes">
@@ -1824,14 +1825,14 @@
   <div class="twoshots" data-id="two">
     <figure data-id="fa">
       <figcaption data-id="facap"><span class="blue" data-id="faname">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
-      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194821" alt="EasyDiffraction, analysis screen">
+      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194943" alt="EasyDiffraction, analysis screen">
     </figure>
     <figure data-id="fb">
       <figcaption data-id="fbcap"><span class="blue" data-id="fbname">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
-      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194821" alt="EasyReflectometry, analysis screen">
+      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194943" alt="EasyReflectometry, analysis screen">
     </figure><figure data-id="fc" class="hid">
       <figcaption data-id="fccap"><span class="blue" data-id="fcname">EasyTexture</span>raw detector data, before any model</figcaption>
-      <img data-id="ic" src="images/easytexture.png?v=20261006194821" alt="EasyTexture, raw-data screen">
+      <img data-id="ic" src="images/easytexture.png?v=20261006194943" alt="EasyTexture, raw-data screen">
     </figure>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Other techniques, and <span class="blue">beyond model refinement</span>.</p></div>
 <aside class="hid notes">
@@ -1853,15 +1854,15 @@
   <div class="twoshots" data-id="two">
     <figure data-id="fa">
       <figcaption data-id="facap"><span class="blue" data-id="faname">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
-      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194821" alt="EasyDiffraction, analysis screen">
+      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194943" alt="EasyDiffraction, analysis screen">
     </figure>
     <figure data-id="fb">
       <figcaption data-id="fbcap"><span class="blue" data-id="fbname">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
-      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194821" alt="EasyReflectometry, analysis screen">
+      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194943" alt="EasyReflectometry, analysis screen">
     </figure>
     <figure data-id="fc">
       <figcaption data-id="fccap"><span class="blue" data-id="fcname">EasyTexture</span>raw detector data, before any model</figcaption>
-      <img data-id="ic" src="images/easytexture.png?v=20261006194821" alt="EasyTexture, raw-data screen">
+      <img data-id="ic" src="images/easytexture.png?v=20261006194943" alt="EasyTexture, raw-data screen">
     </figure>
   </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Other techniques, and <span class="blue">beyond model refinement</span>.</p></div>
 <aside class="hid notes">
@@ -1883,15 +1884,15 @@
   <div class="twoshots" data-id="two">
     <figure data-id="fa">
       <figcaption data-id="facap"><span class="blue" data-id="faname">EasyDiffraction</span>a powder pattern and a crystal structure</figcaption>
-      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194821" alt="EasyDiffraction, analysis screen">
+      <img data-id="ia" src="images/ed-analysis-2026.png?v=20261006194943" alt="EasyDiffraction, analysis screen">
     </figure>
     <figure data-id="fb">
       <figcaption data-id="fbcap"><span class="blue" data-id="fbname">EasyReflectometry</span>a reflectivity curve and a layer stack</figcaption>
-      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194821" alt="EasyReflectometry, analysis screen">
+      <img data-id="ib" src="images/er-analysis-2026.png?v=20261006194943" alt="EasyReflectometry, analysis screen">
     </figure>
     <figure data-id="fc">
       <figcaption data-id="fccap"><span class="blue" data-id="fcname">EasyTexture</span>raw detector data, before any model</figcaption>
-      <img data-id="ic" src="images/easytexture.png?v=20261006194821" alt="EasyTexture, raw-data screen">
+      <img data-id="ic" src="images/easytexture.png?v=20261006194943" alt="EasyTexture, raw-data screen">
     </figure>
   </div>
   <p class="statement" data-id="close" data-auto-animate-duration="1.1">Other techniques, and <span class="blue">beyond model refinement</span>.</p>
@@ -1921,10 +1922,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff" class="hid">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -1933,12 +1934,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -1949,12 +1950,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -1966,10 +1967,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p></div>
 <aside class="hid notes">
@@ -1991,10 +1992,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff" class="hid">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -2003,12 +2004,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -2019,12 +2020,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -2036,10 +2037,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p></div>
 <aside class="hid notes">
@@ -2061,10 +2062,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -2073,12 +2074,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -2089,12 +2090,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -2106,10 +2107,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p></div>
 <aside class="hid notes">
@@ -2131,10 +2132,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -2143,12 +2144,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -2159,12 +2160,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -2176,10 +2177,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p></div>
 <aside class="hid notes">
@@ -2201,10 +2202,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -2213,12 +2214,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -2229,12 +2230,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -2246,10 +2247,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p></div>
 <aside class="hid notes">
@@ -2271,10 +2272,10 @@
     <g data-id="generic">
       <text data-id="roleL" class="role" x="280" y="20">backend &middot; objects, parameters, fitting, I/O</text>
       <rect data-id="logoS-box" x="95" y="32" width="370" height="78" rx="6" fill="rgb(51, 56, 47)" stroke="rgb(95, 119, 78)" stroke-width="2"/>
-      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194821" x="115" y="51" width="102" height="40"/>
+      <image data-id="logoS" href="images/logo-easyscience.svg?v=20261006194943" x="115" y="51" width="102" height="40"/>
       <text data-id="roleR" class="role" x="725" y="20">frontend &middot; screens, workflow, controls</text>
       <rect data-id="logoA-box" x="540" y="32" width="370" height="78" rx="6" fill="rgb(46, 58, 63)" stroke="rgb(71, 126, 152)" stroke-width="2"/>
-      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194821" x="560" y="51" width="139" height="40"/>
+      <image data-id="logoA" href="images/logo-easyapplication.svg?v=20261006194943" x="560" y="51" width="139" height="40"/>
     </g>
     <g data-id="diff">
       <text data-id="diff-band" class="band" x="95" y="148">Diffraction</text>
@@ -2283,12 +2284,12 @@
       <path data-id="diff-headL" d="M58 198 H83 V192 L95 199 L83 206 V200 H58 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="diff-headR" d="M947 198 H922 V192 L910 199 L922 206 V200 H947 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="diffL-box" x="95" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194821" x="115" y="179" width="126" height="40"/>
+      <image data-id="diffL" href="images/logo-easydiffraction.svg?v=20261006194943" x="115" y="179" width="126" height="40"/>
       <use data-id="diffL-ico" href="#i-cubes" x="367" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffL-sfx" class="sfx" x="445" y="206">library</text>
       <path data-id="diff-headC" d="M465 198 H528 V192 L540 199 L528 206 V200 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="diffA-box" x="540" y="160" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194821" x="560" y="179" width="126" height="40"/>
+      <image data-id="diffA" href="images/logo-easydiffraction.svg?v=20261006194943" x="560" y="179" width="126" height="40"/>
       <use data-id="diffA-ico" href="#i-display" x="776" y="189" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="diffA-sfx" class="sfx" x="890" y="206">application</text>
     </g>
@@ -2299,12 +2300,12 @@
       <path data-id="refl-headL" d="M40 326 H83 V320 L95 327 L83 334 V328 H40 Z" fill="rgb(95, 119, 78)"/>
       <path data-id="refl-headR" d="M965 326 H922 V320 L910 327 L922 334 V328 H965 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="reflL-box" x="95" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194821" x="115" y="307" width="150" height="40"/>
+      <image data-id="reflL" href="images/logo-easyreflectometry.svg?v=20261006194943" x="115" y="307" width="150" height="40"/>
       <use data-id="reflL-ico" href="#i-cubes" x="367" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflL-sfx" class="sfx" x="445" y="334">library</text>
       <path data-id="refl-headC" d="M465 326 H528 V320 L540 327 L528 334 V328 H465 Z" fill="rgb(112, 112, 112)"/>
       <rect data-id="reflA-box" x="540" y="288" width="370" height="78" rx="6" fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2"/>
-      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194821" x="560" y="307" width="150" height="40"/>
+      <image data-id="reflA" href="images/logo-easyreflectometry.svg?v=20261006194943" x="560" y="307" width="150" height="40"/>
       <use data-id="reflA-ico" href="#i-display" x="776" y="317" width="20" height="20" fill="#9a9a9a" opacity="0.85"/>
       <text data-id="reflA-sfx" class="sfx" x="890" y="334">application</text>
     </g>
@@ -2316,10 +2317,10 @@
       <path data-id="rest-headR" d="M983 454 H922 V448 L910 455 L922 462 V456 H983 Z" fill="rgb(71, 126, 152)"/>
       <rect data-id="rest-box" x="95" y="416" width="815" height="78" rx="6"
             fill="rgb(42, 42, 42)" stroke="#5a5a5a" stroke-width="2" stroke-dasharray="7 6"/>
-      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194821" x="226" y="435" width="105" height="40"/>
-      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194821" x="376" y="435" width="116" height="40"/>
-      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194821" x="536" y="435" width="98" height="40"/>
-      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194821" x="680" y="435" width="100" height="40"/>
+      <image data-id="easyimaging" href="images/logo-easyimaging.svg?v=20261006194943" x="226" y="435" width="105" height="40"/>
+      <image data-id="easydynamics" href="images/logo-easydynamics.svg?v=20261006194943" x="376" y="435" width="116" height="40"/>
+      <image data-id="easyshapes" href="images/logo-easyshapes.svg?v=20261006194943" x="536" y="435" width="98" height="40"/>
+      <image data-id="easytexture" href="images/logo-easytexture.svg?v=20261006194943" x="680" y="435" width="100" height="40"/>
     </g>
   </svg>
   <p class="statement" data-id="close" data-auto-animate-duration="1.1">A new technique brings science, <span class="blue">not</span> a new interface.</p>
@@ -2346,19 +2347,17 @@
   <h3>Where EasyScience runs today</h3></div>
   <p class="step sub blue hid" data-id="links">easyscience.org &middot; github.com/easyscience</p>
   <div class="reflibs hid" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
-      <span class="rd" data-id="r2d">reflectometry</span></div><div class="hid reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div><div class="hid reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div><div class="hid reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
-  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry</span></div><div class="hid reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div><div class="hid reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div><div class="hid reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
 <aside class="hid notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
   </aside>
 </section>
 
@@ -2368,19 +2367,17 @@
   <h3>Where EasyScience runs today</h3></div>
   <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
   <div class="reflibs" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
-      <span class="rd" data-id="r2d">reflectometry</span></div><div class="hid reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div><div class="hid reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div><div class="hid reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
-  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry</span></div><div class="hid reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div><div class="hid reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div><div class="hid reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
 <aside class="hid notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
   </aside>
 </section>
 
@@ -2390,21 +2387,19 @@
   <h3>Where EasyScience runs today</h3></div>
   <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
   <div class="reflibs" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r2d">reflectometry</span></div>
-    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
       <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
-    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div><div class="hid reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
-  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div><div class="hid reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div><div class="hid reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
 <aside class="hid notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
   </aside>
 </section>
 
@@ -2414,47 +2409,20 @@
   <h3>Where EasyScience runs today</h3></div>
   <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
   <div class="reflibs" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r2d">reflectometry</span></div>
-    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
       <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
-    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
       <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
-    <div class="reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div><div class="hid reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
-  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p></div>
+    <div class="reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="hid partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div><div class="hid reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
 <aside class="hid notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
-  </aside>
-</section>
-<section data-auto-animate>
-  <div class="sbody" data-id="sbody">
-  <div class="titlebox" data-id="titlebox"><p class="eyebrow" data-id="eyebrow"><span class="no">2.9</span><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"/></svg>EasyDiffraction</p>
-  <h3>Where EasyScience runs today</h3></div>
-  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
-  <div class="reflibs" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
-      <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
-      <span class="rd" data-id="r2d">reflectometry</span></div>
-    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
-    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
-    <div class="reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div>
-    <div class="reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
-  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p></div>
-<aside class="hid notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
   </aside>
 </section>
 
@@ -2464,25 +2432,71 @@
   <h3>Where EasyScience runs today</h3></div>
   <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
   <div class="reflibs" data-id="grid">
-    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194821" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r1d">diffraction</span></div>
-    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194821" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
       <span class="rd" data-id="r2d">reflectometry</span></div>
-    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194821" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
       <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
-    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194821" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
       <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
-    <div class="reflib" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194821" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
-      <span class="rd" data-id="r5d">crystallographic texture &middot; built outside ESS</span></div>
-    <div class="reflib" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194821" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
-      <span class="rd" data-id="r6d">molecular structure generation &middot; simulation workflows</span></div>
+    <div class="reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="hid partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div>
+    <div class="reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="hid partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
+<aside class="hid notes">
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="sbody" data-id="sbody">
+  <div class="titlebox" data-id="titlebox"><p class="eyebrow" data-id="eyebrow"><span class="no">2.9</span><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"/></svg>EasyDiffraction</p>
+  <h3>Where EasyScience runs today</h3></div>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r1d">diffraction</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry</span></div>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
+    <div class="reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div>
+    <div class="reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
+  </div><p class="hid statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p></div>
+<aside class="hid notes">
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
+  </aside>
+</section>
+
+<section data-auto-animate>
+  <div class="sbody" data-id="sbody">
+  <div class="titlebox" data-id="titlebox"><p class="eyebrow" data-id="eyebrow"><span class="no">2.9</span><svg class="ico" viewBox="0 0 576 512"><use href="#i-cubes"/></svg>EasyDiffraction</p>
+  <h3>Where EasyScience runs today</h3></div>
+  <p class="step sub blue" data-id="links">easyscience.org &middot; github.com/easyscience</p>
+  <div class="reflibs" data-id="grid">
+    <div class="reflib" data-id="r1"><span class="rn" data-id="r1n"><img class="rlogo" src="images/logo-easydiffraction.svg?v=20261006194943" alt="EasyDiffraction"><span class="tag-kind tag-analysis" data-id="r1k"><svg class="ico" data-id="r1ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r1s"><svg class="ico" data-id="r1si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r1d">diffraction</span></div>
+    <div class="reflib" data-id="r2"><span class="rn" data-id="r2n"><img class="rlogo" src="images/logo-easyreflectometry.svg?v=20261006194943" alt="EasyReflectometry"><span class="tag-kind tag-analysis" data-id="r2k"><svg class="ico" data-id="r2ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-green" data-id="r2s"><svg class="ico" data-id="r2si" viewBox="0 0 512 512"><use href="#i-circle-check"/></svg>running</span></span>
+      <span class="rd" data-id="r2d">reflectometry</span></div>
+    <div class="reflib" data-id="r3"><span class="rn" data-id="r3n"><img class="rlogo" src="images/logo-easydynamics.svg?v=20261006194943" alt="EasyDynamics"><span class="tag-kind tag-analysis" data-id="r3k"><svg class="ico" data-id="r3ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r3s"><svg class="ico" data-id="r3si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r3d">quasielastic neutron scattering</span></div>
+    <div class="reflib" data-id="r4"><span class="rn" data-id="r4n"><img class="rlogo" src="images/logo-easyimaging.svg?v=20261006194943" alt="EasyImaging"><span class="tag-kind tag-analysis" data-id="r4k"><svg class="ico" data-id="r4ki" viewBox="0 0 448 512"><use href="#i-calculator"/></svg>analysis</span><span class="tag-orange" data-id="r4s"><svg class="ico" data-id="r4si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r4d">Bragg-edge imaging</span></div>
+    <div class="reflib has-partners" data-id="r5"><span class="rn" data-id="r5n"><img class="rlogo" src="images/logo-easytexture.svg?v=20261006194943" alt="EasyTexture"><span class="tag-kind tag-reduction" data-id="r5k"><svg class="ico" data-id="r5ki" viewBox="0 0 512 512"><use href="#i-wave-square"/></svg>reduction</span><span class="tag-grey" data-id="r5s"><svg class="ico" data-id="r5si" viewBox="0 0 512 512"><use href="#i-globe"/></svg>external</span></span>
+      <span class="rd" data-id="r5d">texture</span><span class="partners" data-id="r5p"><span class="partner" data-logo="images/logo-mlz-jcns.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>JCNS &middot; MLZ</span><span class="partner" data-logo="images/logo-goettingen.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>G&ouml;ttingen</span></span></div>
+    <div class="reflib has-partners" data-id="r6"><span class="rn" data-id="r6n"><img class="rlogo" src="images/logo-easyshapes.svg?v=20261006194943" alt="EasyShapes"><span class="tag-kind tag-modelling" data-id="r6k"><svg class="ico" data-id="r6ki" viewBox="0 0 512 512"><use href="#i-layer-group"/></svg>modelling</span><span class="tag-orange" data-id="r6s"><svg class="ico" data-id="r6si" viewBox="0 0 384 512"><use href="#i-hourglass-half"/></svg>new</span></span>
+      <span class="rd" data-id="r6d">molecular structures</span><span class="partners" data-id="r6p"><span class="partner" data-logo="images/logo-shapespyre.svg"><svg class="ico" viewBox="0 0 640 512"><use href="#i-handshake"/></svg>Shapespyre</span></span></div>
   </div>
-  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>.</p>
+  <p class="statement" data-id="close" data-auto-animate-duration="1.1">Different stages, <span class="blue">the same interface</span>, built with partners.</p>
   </div>
 <aside class="notes">
-    Be honest about the three "new" ones — they are at very different levels of maturity, and the brief warns
-    against claiming otherwise. TODO confirm which of them already run on the shared components.
-    Contributors outside ESS: U Göttingen, JCNS at MLZ, Chalmers.
+    Be honest about the new ones: they are at very different levels of maturity. The last click names the collaborating projects: EasyTexture with JCNS at MLZ and the University of G&ouml;ttingen, EasyShapes with Shapespyre.
   </aside>
 </section>
 
@@ -2491,10 +2505,10 @@
       </div>
     </div>
 
-    <script src="dist/reveal.js?v=20261006194821"></script>
-    <script src="plugin/notes/notes.js?v=20261006194821"></script>
-    <script src="plugin/markdown/markdown.js?v=20261006194821"></script>
-    <script src="plugin/highlight/highlight.js?v=20261006194821"></script>
+    <script src="dist/reveal.js?v=20261006194943"></script>
+    <script src="plugin/notes/notes.js?v=20261006194943"></script>
+    <script src="plugin/markdown/markdown.js?v=20261006194943"></script>
+    <script src="plugin/highlight/highlight.js?v=20261006194943"></script>
     <script>
       Reveal.initialize({
           width: 1200,
