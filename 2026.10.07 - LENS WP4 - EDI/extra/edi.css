@@ -23,7 +23,7 @@
 /* Captions at the sizes and alignment of the crysta deck's three-panel figures (.pstep .ph / .ps). */
 .reveal .tile { flex: none; width: 370px; text-align: center; }
 .reveal .tile .tcap { margin: 0 0 0.45em; line-height: 1.3; }
-.reveal .tile .tcap .blue { display: block; font-size: 0.62em; }
+.reveal .tile .tcap > .blue { display: block; font-size: 0.62em; }
 .reveal .tile .tcap .tsub { display: block; font-size: 0.46em; color: #999; margin-top: 0.15em; }
 .reveal .tile .tshot { height: 330px; border-radius: 8px; background-color: #f2f2f2;
                        background-size: cover; background-repeat: no-repeat; }
@@ -80,3 +80,9 @@
 /* `> .sbody` matches the current step only: the stack itself is also `section.present`. */
 .reveal .slides section.present > .sbody .shotbox .hl.on:not(.done) {
     animation: marker-pen 0.42s cubic-bezier(0.25, 0.1, 0.35, 1) var(--pen, 0.35s) both; }
+
+/* Three panels in a row, one per click: the carousel's tiles, standing still. */
+.reveal .trio { display: flex; justify-content: center; gap: 30px; margin: 0.5em auto 0; }
+.reveal .trio img.trioshot { display: block; width: 100%; height: 240px; object-fit: cover;
+                             object-position: left top; margin: 0; border-radius: 8px;
+                             border: none; box-shadow: none; max-width: none; max-height: none; }
