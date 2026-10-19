@@ -19,6 +19,7 @@ SECTION_TITLES = {
     "20_easydiffraction.html": "EasyDiffraction",
     "30_crysta.html": "crysta",
     "40_outlook.html": "Status and plans",
+    "50_demo.html": "Demo",
 }
 
 ORDER = [
@@ -28,6 +29,7 @@ ORDER = [
     "20_easydiffraction.html",
     "30_crysta.html",
     "40_outlook.html",
+    "50_demo.html",
 ]
 
 BACKUP_ORDER: list[str] = []   # no backup deck for this talk
@@ -298,6 +300,7 @@ SECTION_ICONS = {
     'EasyDiffraction': 'cubes',
     'crysta': 'microchip',
     'Status and plans': 'flag-checkered',
+    "Demo": "display",
 }
 
 

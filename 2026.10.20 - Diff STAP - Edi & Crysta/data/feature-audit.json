@@ -1,0 +1,964 @@
+{
+  "checked_on": "2026-10-19",
+  "scope": "Implemented feature coverage within the shared per-area checklist below. EasyDiffraction without crysta uses diffraction-lib master with its connected backends. crysta uses the union of implemented engine capabilities in crysta main and product/workflow capabilities in edi main. Stored schema tokens and future plans do not count. Each item has equal weight within its area; percentages describe this checklist, not a universal measure of product completeness.",
+  "versions": {
+    "lib": {
+      "repository": "easyscience/diffraction-lib",
+      "branch": "master",
+      "commit": "c0654956a1281f1ea3f3467c3367167f93edee18"
+    },
+    "edi": {
+      "repository": "enhantica/edi",
+      "branch": "main",
+      "commit": "b128de7743627def5fc15b009f48f6e45e4e3d14"
+    },
+    "crysta": {
+      "repository": "enhantica/crysta",
+      "branch": "main",
+      "commit": "01b8118d862c971c24d9043af2b3e4b8480833c1",
+      "reason": "Verified remote main with git ls-remote; its source tree is identical to the f865770a SDK pinned by edi main."
+    }
+  },
+  "rows": [
+    {
+      "area": "Structure model",
+      "diffraction_lib": "Cell, symmetry, iso/aniso ADPs",
+      "edi": "Cell, symmetry, iso/aniso ADPs",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/cryspy.py",
+          "line": 665,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/cryspy.py#L665"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 50,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L50"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 186,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L186"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_anisotropic_adps.py",
+          "line": 259,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_anisotropic_adps.py#L259"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/symmetry.hpp",
+          "line": 113,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/symmetry.hpp#L113"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/model.hpp",
+          "line": 544,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/model.hpp#L544"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Hermann-Mauguin space-group resolution",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "IT-number space-group resolution",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "IT coordinate-system/origin code",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Cell lengths",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Cell angles",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Tabulated X-ray form factors",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Natural-element neutron scattering lengths",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Isotope-specific neutron scattering lengths",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Custom neutron scattering-length override",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "Fractional atomic coordinates",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Site occupancies",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Wyckoff labels",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Isotropic Biso",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Isotropic Uiso",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Anisotropic Bani",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Anisotropic Uani",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Anisotropic beta",
+          "without_crysta": 1,
+          "crysta": 1
+        }
+      ],
+      "bar_score": {
+        "denominator": 17,
+        "without_crysta_implemented": 15,
+        "crysta_implemented": 17,
+        "without_crysta_percent": 88.2,
+        "crysta_percent": 100.0
+      }
+    },
+    {
+      "area": "Peak profiles",
+      "diffraction_lib": "CW / TOF, including double b2b",
+      "edi": "CW / TOF, including FCJ and Bérar",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/cryspy.py",
+          "line": 1472,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/cryspy.py#L1472"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3187,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3187"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_c11_t57_profile_surfaces.py",
+          "line": 1,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_c11_t57_profile_surfaces.py#L1"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "src/core/peak.cpp",
+          "line": 32,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/src/core/peak.cpp#L32"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "CW TCH pseudo-Voigt",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW Berar-Baldinozzi asymmetry",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW Finger-Cox-Jephcoat asymmetry",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF non-convoluted pseudo-Voigt",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF Jorgensen",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF Jorgensen-von Dreele",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF double back-to-back exponential pseudo-Voigt",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "TOF Ikeda-Carpenter pseudo-Voigt",
+          "without_crysta": 0,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 8,
+        "without_crysta_implemented": 7,
+        "crysta_implemented": 6,
+        "without_crysta_percent": 87.5,
+        "crysta_percent": 75.0
+      }
+    },
+    {
+      "area": "Instrument & corrections",
+      "diffraction_lib": "CW / TOF, doublets, absorption",
+      "edi": "CW / TOF, doublets, absorption",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/cryspy.py",
+          "line": 303,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/cryspy.py#L303"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3404,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3404"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3461,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3461"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_c15_t2_polarization.py",
+          "line": 1,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_c15_t2_polarization.py#L1"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/instrument.hpp",
+          "line": 1,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/instrument.hpp#L1"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "CW wavelength",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW second wavelength and intensity ratio",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW two-theta zero offset",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW sample displacement",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW sample transparency",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW Lorentz factor",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW X-ray monochromator polarization optics",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW Hewat cylinder absorption",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "CW Lobanov cylinder absorption",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF bank angle",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF offset/linear/quadratic calibration",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF reciprocal calibration term",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF Lorentz factor",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF wavelength-dependent cylinder absorption",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "Per-phase scale factors",
+          "without_crysta": 1,
+          "crysta": 1
+        }
+      ],
+      "bar_score": {
+        "denominator": 15,
+        "without_crysta_implemented": 12,
+        "crysta_implemented": 15,
+        "without_crysta_percent": 80.0,
+        "crysta_percent": 100.0
+      }
+    },
+    {
+      "area": "Background, cutoff, texture",
+      "diffraction_lib": "Segments, polynomials, auto, March",
+      "edi": "Segments, polynomials, March",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/datablocks/experiment/categories/background/estimate.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/datablocks/experiment/categories/background/estimate.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/cryspy.py",
+          "line": 858,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/cryspy.py#L858"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_c13_t6_background.py",
+          "line": 68,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_c13_t6_background.py#L68"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_c13_t4_march.py",
+          "line": 1,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_c13_t4_march.py#L1"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3368,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3368"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "src/core/tokens.cpp",
+          "line": 106,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/src/core/tokens.cpp#L106"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Line-segment background",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Chebyshev background",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Plain polynomial background",
+          "without_crysta": 0,
+          "crysta": 1
+        },
+        {
+          "feature": "arPLS automatic background",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "SNIP automatic background",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "FABC automatic background",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Automatic background-anchor thinning",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "CW peak-range cutoff",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "TOF peak-range cutoff",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "March-Dollase preferred orientation",
+          "without_crysta": 1,
+          "crysta": 1
+        }
+      ],
+      "bar_score": {
+        "denominator": 10,
+        "without_crysta_implemented": 9,
+        "crysta_implemented": 6,
+        "without_crysta_percent": 90.0,
+        "crysta_percent": 60.0
+      }
+    },
+    {
+      "area": "Le Bail, pair distribution",
+      "diffraction_lib": "PDF only",
+      "edi": "Neither implemented",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/pdffit.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/pdffit.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "docs/docs/features/index.md",
+          "line": 229,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/docs/docs/features/index.md#L229"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3826,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3826"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Le Bail profile matching",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Real-space PDF calculation and refinement",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Gaussian-damped sinc PDF termination",
+          "without_crysta": 1,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 3,
+        "without_crysta_implemented": 2,
+        "crysta_implemented": 0,
+        "without_crysta_percent": 66.7,
+        "crysta_percent": 0.0
+      }
+    },
+    {
+      "area": "Magnetic structures",
+      "diffraction_lib": "Not implemented",
+      "edi": "Not implemented",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "docs/docs/features/index.md",
+          "line": 161,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/docs/docs/features/index.md#L161"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 2612,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L2612"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "lib/src/bindings.cpp",
+          "line": 2722,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/lib/src/bindings.cpp#L2722"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Irreducible representations",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Magnetic space groups",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Symmetry-adapted modes",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Magnetic propagation vector",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Magnetic moments",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Local susceptibility tensor",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Magnetic domains",
+          "without_crysta": 0,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 7,
+        "without_crysta_implemented": 0,
+        "crysta_implemented": 0,
+        "without_crysta_percent": 0.0,
+        "crysta_percent": 0.0
+      }
+    },
+    {
+      "area": "Polarised neutrons",
+      "diffraction_lib": "Not implemented",
+      "edi": "Not implemented",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "docs/docs/features/index.md",
+          "line": 391,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/docs/docs/features/index.md#L391"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3859,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3859"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Polarised-neutron powder workflow",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Polarised-neutron single-crystal workflow",
+          "without_crysta": 0,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 2,
+        "without_crysta_implemented": 0,
+        "crysta_implemented": 0,
+        "without_crysta_percent": 0.0,
+        "crysta_percent": 0.0
+      }
+    },
+    {
+      "area": "Single crystal",
+      "diffraction_lib": "CW / TOF, isotropic extinction",
+      "edi": "Not implemented",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/calculators/cryspy.py",
+          "line": 903,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/calculators/cryspy.py#L903"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "docs/docs/features/index.md",
+          "line": 341,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/docs/docs/features/index.md#L341"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/include/edi/model.hpp",
+          "line": 3828,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/include/edi/model.hpp#L3828"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "lib/src/bindings.cpp",
+          "line": 2718,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/lib/src/bindings.cpp#L2718"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Isotropic Gaussian Becker-Coppens extinction",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Isotropic Lorentzian Becker-Coppens extinction",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Anisotropic extinction",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Structural twinning",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Constant-wavelength single-crystal calculation",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Half-wavelength contamination",
+          "without_crysta": 0,
+          "crysta": 0
+        },
+        {
+          "feature": "Time-of-flight single-crystal calculation",
+          "without_crysta": 1,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 7,
+        "without_crysta_implemented": 4,
+        "crysta_implemented": 0,
+        "without_crysta_percent": 57.1,
+        "crysta_percent": 0.0
+      }
+    },
+    {
+      "area": "Calculation modes, multi-dataset",
+      "diffraction_lib": "Phases, banks, mixed engines",
+      "edi": "Phases and banks, crysta only",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/analysis.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/analysis.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "docs/docs/features/index.md",
+          "line": 472,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/docs/docs/features/index.md#L472"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 2548,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L2548"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 5210,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L5210"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/analysis.hpp",
+          "line": 1,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/analysis.hpp#L1"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Powder pattern calculation against measured data",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Powder forward simulation without measured intensities",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Nuclear structure-factor calculation",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Multiple structures/phases",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Multiple experiments/banks",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Joint Bragg and PDF datasets",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Joint datasets using different calculation engines",
+          "without_crysta": 1,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 7,
+        "without_crysta_implemented": 7,
+        "crysta_implemented": 5,
+        "without_crysta_percent": 100.0,
+        "crysta_percent": 71.4
+      }
+    },
+    {
+      "area": "Minimisers & sampling",
+      "diffraction_lib": "6 minimisers + DREAM and emcee",
+      "edi": "LM with analytic derivatives",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/minimizers/enums.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/minimizers/enums.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/minimizers/bumps_dream.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/minimizers/bumps_dream.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/minimizers/emcee.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/minimizers/emcee.py#L1"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 4447,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L4447"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_c34_t24_minimizer_declarations.py",
+          "line": 1,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_c34_t24_minimizer_declarations.py#L1"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/fit.hpp",
+          "line": 1,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/fit.hpp#L1"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Levenberg-Marquardt",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Trust-region reflective",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Nelder-Mead simplex",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Differential evolution",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "DFO-LS",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "DREAM MCMC",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "emcee MCMC",
+          "without_crysta": 1,
+          "crysta": 0
+        },
+        {
+          "feature": "Simulated annealing",
+          "without_crysta": 0,
+          "crysta": 0
+        }
+      ],
+      "bar_score": {
+        "denominator": 8,
+        "without_crysta_implemented": 7,
+        "crysta_implemented": 1,
+        "without_crysta_percent": 87.5,
+        "crysta_percent": 12.5
+      }
+    },
+    {
+      "area": "Fit strategies & constraints",
+      "diffraction_lib": "Single / joint / sequential, constraints",
+      "edi": "Single / joint / sequential, constraints",
+      "evidence": [
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/sequential.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/sequential.py#L1"
+        },
+        {
+          "repository": "easyscience/diffraction-lib",
+          "path": "src/easydiffraction/analysis/categories/constraints/default.py",
+          "line": 1,
+          "url": "https://github.com/easyscience/diffraction-lib/blob/c0654956a1281f1ea3f3467c3367167f93edee18/src/easydiffraction/analysis/categories/constraints/default.py#L1"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 1337,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L1337"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "core/src/adapter.cpp",
+          "line": 2033,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/core/src/adapter.cpp#L2033"
+        },
+        {
+          "repository": "enhantica/edi",
+          "path": "tests/integration/py/test_constraint_fit.py",
+          "line": 46,
+          "url": "https://github.com/enhantica/edi/blob/b128de7743627def5fc15b009f48f6e45e4e3d14/tests/integration/py/test_constraint_fit.py#L46"
+        },
+        {
+          "repository": "enhantica/crysta",
+          "path": "include/crysta/constraints.hpp",
+          "line": 1,
+          "url": "https://github.com/enhantica/crysta/blob/01b8118d862c971c24d9043af2b3e4b8480833c1/include/crysta/constraints.hpp#L1"
+        }
+      ],
+      "checklist": [
+        {
+          "feature": "Single fitting",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Joint fitting",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Sequential fitting",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Custom per-dataset weights",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "Automatic symmetry constraints",
+          "without_crysta": 1,
+          "crysta": 1
+        },
+        {
+          "feature": "User-defined expression constraints",
+          "without_crysta": 1,
+          "crysta": 1
+        }
+      ],
+      "bar_score": {
+        "denominator": 6,
+        "without_crysta_implemented": 6,
+        "crysta_implemented": 6,
+        "without_crysta_percent": 100.0,
+        "crysta_percent": 100.0
+      }
+    }
+  ],
+  "qualifications": [
+    "Feature catalogs in edi and crysta contain stale planned statuses; inspect adapter/model/bindings and checked-in tests instead.",
+    "CW is constant wavelength. Double b2b is the double back-to-back exponential TOF profile. FCJ is Finger-Cox-Jephcoat. March is March-Dollase.",
+    "X-ray polarization optics correction does not imply support for polarised-neutron diffraction.",
+    "edi exports single-crystal/total-scattering type tokens and an abstract ScExperimentBase, but its only concrete experiment family is BraggPdExperiment. Tokens or carried fields alone are not counted as implemented physics.",
+    "diffraction-lib has six local/global minimiser adapters (LMFIT leastsq and least_squares, BUMPS LM/AMOEBA/DE, DFO-LS), plus BUMPS DREAM and emcee sampling. edi delegates fitting to crysta LM; named descent policies are not separate minimiser algorithms or MCMC.",
+    "Tests cited here were inspected as evidence, not executed during this source audit.",
+    "The functionality overview is the union across the two projects, not their intersection. The following comparison separates the implementations.",
+    "The shared checklists preserve the 11 original chart areas. Filled widths equal implemented items divided by listed items. A feature qualifies in at least one compatible beam mode/backend; no claim of support in every combination is implied.",
+    "Peak-profile coverage tracks eight reference families, not a count of all kernels. crysta additionally has pure CW Gaussian/Lorentzian/pseudo-Voigt profiles outside that reference list.",
+    "The deterministic optimiser checklist counts LM once regardless of adapter or descent policy. Analytic derivatives are implemented by crysta, but are not counted as a separate optimiser.",
+    "Single-crystal means a working single-crystal experiment/calculation path. Generic nuclear structure factors in the powder engine do not qualify as single-crystal workflow support.",
+    "diffraction-lib cylinder absorption is CW-only; reciprocal TOF calibration is stored but not sent to its backends. crysta implements these missing TOF/absorption capabilities."
+  ]
+}

@@ -151,9 +151,7 @@
 /* "Credits": a panel that names many people reads at the deck's small size. */
 .reveal .samefact .sentence.small { display: block; font-size: var(--fs-sm); line-height: 1.5; }   /* running text: italics stay inline */
 
-/* "How much is done": the crysta deck's coverage chart on this deck's scale. The whole track is what
-   a complete engine needs; the two fills say how far each implementation gets. crysta's fill is
-   `aa-move`, so it grows in on its click. */
+/* Shared-checklist implementation coverage, retaining the original filled-bar design. */
 .reveal .cov-key { display: flex; gap: 1.6em; align-items: baseline; font-size: var(--fs-sm);
                    color: var(--c-dim); margin: 0 0 0.6em; }
 .reveal .cov-key i.sw { display: inline-block; width: 0.9em; height: 0.55em; border-radius: 2px; margin-right: 0.4em; }
@@ -200,18 +198,30 @@
    bottom margin (it would otherwise run to 738 of 750 with the conclusion showing). */
 .reveal .sbody > svg.stackfig.grouped { width: 750px; }
 
-/* Two online entry points, using the deck's existing panel treatment and type scale. */
+/* Online entry points: titles, URLs and count tags above the facility lists. */
 .reveal .online-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
                           gap: 26px; width: 1144px; max-width: 100%; }
-.reveal .online-option { background: #252525; border: 1px solid #3d3d3d; border-radius: 6px;
-                         padding: 18px 20px; text-align: left; }
-.reveal .online-option h4 { margin: 0; font-family: inherit; font-size: var(--fs-lg);
-                            font-weight: 400; text-transform: none; letter-spacing: 0; }
-.reveal .online-version { margin: 2px 0 14px; font-size: var(--fs-sm); color: var(--c-dim); }
-.reveal .online-count { margin: 0 0 8px; font-size: var(--fs-sm); white-space: nowrap; }
+.reveal .online-option { text-align: left; }
+.reveal .online-option h4 { margin: 0; font-family: inherit; font-size: var(--fs-md);
+                            font-weight: 400; text-transform: none; letter-spacing: 0;
+                            line-height: 1.35; white-space: nowrap; }
+.reveal .online-separator { margin: 0 0.35em; color: var(--c-dim); font-size: var(--fs-sm); }
+.reveal .online-version { font-size: var(--fs-sm); color: var(--c-dim); }
 .reveal .online-link { display: block; font-size: var(--fs-sm); color: var(--c-blue);
-                       margin: 0 0 16px; text-decoration: underline; text-underline-offset: 3px; }
-.reveal .online-instruments { display: block; margin: 0; font-size: var(--fs-sm); line-height: 1.35; }
+                       margin: var(--gap-pair) 0 0; text-decoration: none; }
+.reveal .online-link .ico { height: 0.9em; width: auto; margin-right: 0.4em; vertical-align: -0.11em; }
+.reveal .flow.online-counts { margin: var(--gap-item) 0; }
+.reveal .online-instruments { display: block; margin: 0; font-size: var(--fs-sm); line-height: 1.35;
+                             padding: 18px 20px; background: #252525; border: 1px solid #3d3d3d;
+                             border-radius: 6px; min-height: 270px; }
 .reveal .online-instruments > div { display: grid; grid-template-columns: 130px 1fr; gap: 8px; }
 .reveal .online-instruments dt { font-weight: 400; color: var(--c-dim); }
 .reveal .online-instruments dd { margin: 0; }
+
+/* Six overview items and their conclusion keep comfortable clearance at the bottom. */
+.reveal .dolist.boxed.functionality-list .step { margin-top: calc(var(--gap-item) - var(--gap-pair)); }
+
+/* Teaching uses the overview's six boxed rows and status icons. */
+.reveal .dolist.boxed.teaching-list .step { margin-top: calc(var(--gap-item) - var(--gap-pair)); }
+.reveal .teaching-status.planned { color: #e5a15a; }
+.reveal .teaching-status.done { color: #98c379; }
