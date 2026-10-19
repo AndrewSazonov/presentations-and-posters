@@ -1,0 +1,217 @@
+/* Additions for the LENS WP4 talk, loaded after talk.css. Every size, colour and gap here is one of
+   talk.css's own variables, so the new components sit on the NOBUGS deck's single type scale. */
+
+/* "What users run into": the deck's three-column row, set in a window three columns wide. A step
+   that adds a fourth column moves the row's margin, so the columns slide left and the window clips
+   the one leaving. The columns carry `aa-move`, the deck's opt-in for an element nested in a block
+   that moves itself; everything inside them is carried along. The window clips only at its sides:
+   when the conclusion arrives the window drops at once while the columns slide down after it, and
+   a full clip cut off their top line (the blue headings) until they caught up. */
+.reveal .carousel { width: 1144px; max-width: 100%; clip-path: inset(-200px 0 -200px 0); }
+.reveal .carousel .columns { width: max-content; gap: 41px; }
+.reveal .carousel .why-col { flex: 0 0 354px; }
+
+/* "Diffraction analysis: many tools": each name is its own element, so the names can arrive one by
+   one. .sentence is a flex row, so the names are its items: they wrap at a name, never inside one,
+   with one space's gap. The names start right under the panel's label: centred, the shorter of two
+   panels floated in the middle of its box. */
+.reveal .samefact .sentence:has(> .nm) { flex-wrap: wrap; align-content: flex-start; column-gap: 0.3em; }
+.reveal .samefact .sentence .nm { white-space: nowrap; }
+
+/* "Built on existing libraries": a faded name keeps its place in the sentence. */
+.reveal .samefact .lbl.faint, .reveal .samefact .sentence .nm.faint { opacity: 0.25; }
+
+/* "Where EasyScience runs today": a collaborating institution, under its project. Outlined rather
+   than filled, so it reads as who built it with us, not as another status tag. Each chip names
+   the logo file it is waiting for (data-logo); swap the text for that image when it exists. */
+/* "Where EasyScience is used today": the grid a little wider than the NOBUGS deck's 944px, so
+   each box has more room around its name, tags and partner chips (boxes 519 wide instead of 461). */
+.reveal .reflibs { width: 1060px; }
+/* Pinned to the card's bottom-right corner, so adding them does not grow the card: the grid's rows
+   are all as tall as the tallest, and one taller card pushed the last row off the slide. */
+.reveal .reflib.has-partners { position: relative; }
+.reveal .reflib .partners { position: absolute; right: 18px; bottom: 12px; display: flex; gap: 8px; }
+.reveal .reflib .partner { display: inline-flex; align-items: center; font-size: var(--fs-xs);
+                           line-height: 1.15; color: var(--c-dim); padding: 0.15em 0.5em;
+                           border: 1px solid #5a5a5a; border-radius: 0.3em; }
+.reveal .reflib .partner .ico { height: 0.8em; width: auto; margin-right: 0.4em; opacity: 0.8; }
+
+/* "AI in scientific software": the congress, then three counts from its programme. Ranged left like
+   every other block in the deck; the numbers are the slide's one large line, at --fs-xl. */
+.reveal .congress { display: flex; align-items: center; gap: 28px; margin: 0.4em 0 0; }
+.reveal .congress img { height: 170px; width: auto; margin: 0; border-radius: 8px; border: none; box-shadow: none; }
+.reveal .congress .cname { font-size: var(--fs-md); line-height: 1.35; margin: 0; text-align: left; }
+.reveal .congress .cname .dim { display: block; font-size: var(--fs-sm); margin-top: var(--gap-pair); }
+/* Each count in the deck's box (as .dolist.boxed and .reflib): same fill, edge and corner. */
+/* The line that says what the three counts count: the size of a list item's explanation, with clear
+   air above it so it reads as the counts' heading rather than as the congress logo's caption. */
+.reveal .statslead { font-size: var(--fs-md); color: var(--c-dim); line-height: 1.35; margin: 40px 0 0; }
+.reveal .stats { display: flex; gap: 22px; margin: 14px 0 0; }
+.reveal .stat { margin: 0; font-size: var(--fs-sm); color: var(--c-mute); line-height: 1.35; text-align: left;
+                width: 300px; box-sizing: border-box; padding: 14px 18px; white-space: nowrap;   /* three span the 944 px of a boxed list */
+                background: #252525; border: 1px solid #3d3d3d; border-radius: 6px; }
+.reveal .stat .n { display: block; font-size: var(--fs-xl); line-height: 1.15; color: var(--c-blue); font-weight: 400; }
+
+/* A single photograph under the title, at the deck's screenshot corner radius. */
+.reveal .photo img { display: block; height: 400px; width: auto; margin: 0.3em 0 0; border-radius: 10px;
+                     border: none; box-shadow: none; }
+
+/* "Meet crysta": the engine in a box of its own, then the same box shrinking into
+   the fourth slot of the stack diagram. The box is HTML laid over the SVG and placed in per cent of
+   the drawing (viewBox 0 -32 830 448, drawn 750 wide; slot at 420, 330, 112 x 56), so it lands on the slot whatever
+   size the drawing renders at. It carries `aa-move`, the deck's opt-in for a nested element that
+   moves. Only the outer box is paired by auto-animate, and it has no look of its own: the fill,
+   corners and outline are on .cbface inside it, which reveal does not restyle. The big face's
+   corners and outline are the slot's times the shrink (440 / 118.7 = 3.7), so the box only moves
+   and shrinks, without its corners changing on the way. The figure is 750 wide, as the outlined
+   diagram on "What we rely on", so the two drawings match. */
+.reveal .crystafig { position: relative; width: 750px; max-width: 100%; margin: 0.6em 0 0; }
+.reveal .crystafig svg.stackfig { margin: 0; width: 100%; }
+.reveal .crystabox { position: absolute; }
+.reveal .crystabox.slot { left: 50.602%; top: 80.804%; width: 13.494%; height: 12.5%; }
+.reveal .crystabox.big { left: 25%; top: 26.78%; width: 50%; height: 46.45%; }
+/* The face: everything on it is in em, and only its font-size changes between the steps (slot 13.64px,
+   big box 50.54px = 13.64 x 3.705, the shrink), so corners and both contents scale as one. It wears the
+   'Unified interface' box's own fill and no outline: ours, like the library layer above it, which
+   sets it apart from the third-party engines in their green. Secondary text in that layer's brown. */
+.reveal .crystabox .cbface { position: relative; box-sizing: border-box; width: 100%; height: 100%;
+                             background: rgb(226, 183, 129); color: #222; text-align: center;
+                             border-radius: 0.375em; }
+.reveal .crystabox.slot .cbface { font-size: 13.64px; }
+.reveal .crystabox.big .cbface { font-size: 50.54px; }
+.reveal .crystabox .cblayer { position: absolute; inset: 0; display: flex; flex-direction: column;
+                              align-items: center; justify-content: center; }
+.reveal .crystabox .cbslot .cbname { font-size: 1.25em; line-height: 1.1; font-weight: 600; }
+.reveal .crystabox .cbslot .cbsub { font-size: 0.875em; line-height: 1.3; color: rgb(133, 86, 29); margin-top: 0.3em; }
+/* The slot's two lines sit where the drawing's boxes have theirs (name baseline 23, note 44 of 56),
+   not centred as a pair, which put them closer together than CrysPy's or lmfit's. */
+.reveal .crystabox .cbslot { justify-content: flex-start; padding-top: 0.4em; }
+.reveal .crystabox .cbbig { gap: 0.15em; }
+.reveal .crystabox .cbbig .cbname { font-size: 0.9em; line-height: 1; font-weight: 600; }
+.reveal .crystabox .cbbig .cbitems { font-size: 0.4em; line-height: 1.2; color: rgb(133, 86, 29); }
+.reveal .crystabox .cbbig .cblogos { display: flex; justify-content: center; gap: 0.3em; }
+.reveal .crystabox .cbbig .cblogos .lg { display: block; width: 0.85em; height: 0.85em;
+                                         background: center / contain no-repeat; }
+/* Which content shows: the big one on the big box, the slot one in the slot. Arriving in the slot,
+   the big content fades out early in the 0.9 s move and the slot content fades in after its middle. */
+.reveal .crystabox.big .cbslot, .reveal .crystabox.slot .cbbig { opacity: 0; }
+@keyframes cb-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes cb-in  { from { opacity: 0; } to { opacity: 1; } }
+.reveal .slides section.present > .sbody .crystabox.slot .cbbig  { animation: cb-out 0.3s ease-in 0.12s both; }
+.reveal .slides section.present > .sbody .crystabox.slot .cbslot { animation: cb-in 0.35s ease-out 0.42s both; }
+
+/* The test case behind the next three slides, as the deck's chip strip: one glance says which case,
+   before the slide says what was measured on it. */
+.reveal .flow.casechips { margin: 0; }
+
+/* "Agreement of calculated patterns": the chart as the slide's one picture. */
+/* It is one paired block (data-id), so the last click's conclusion moves it down whole; its pictures
+   ride along. flex: none keeps the column from taking that conclusion's height out of the chart. */
+.reveal .chartbox { position: relative; flex: none; width: 698px; height: 405px; margin: 36px 0 0; }   /* the chart's 1.722; clear air under the chip strip */
+/* Until the chart arrives, both its layers count as hidden, so on that click the second layer
+   starts from nothing instead of from the full chart. */
+.reveal .chartbox.hid img { opacity: 0; }
+.reveal .chartbox img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; margin: 0;
+                        border: none; box-shadow: none; }
+
+/* "Agreement of refined parameters": the crysta deck's parity table as rows on a grid rather than an
+   HTML table, which auto-animate handles badly (the rows flickered on each click). Each row fades in
+   like a list item; the columns line up because every row shares the same grid. */
+.reveal .ptable { margin: var(--gap-item) 0 0; font-size: var(--fs-sm); }
+.reveal .prow { display: grid; grid-template-columns: 230px 290px 290px 170px 120px; align-items: center;
+                min-height: 52px; padding: 0 18px; }
+.reveal .prow:nth-child(even) { background: rgba(255, 255, 255, 0.045); }
+.reveal .prow.phead { color: var(--c-blue); min-height: 44px; }
+.reveal .prow.more { grid-template-columns: 1fr; text-align: center; color: var(--c-mute); }
+
+/* "Speed": the crysta deck's log-scale bar chart, on this deck's scale and colours. A bar that is
+   new in a step grows from the left: it is `aa-move`, and reveal scales it from the zero width the
+   step merge gives a reserved bar. */
+.reveal .bars { width: 1144px; max-width: 100%; margin: 28px 0 0; }   /* clear air under the chip strip */
+.reveal .bar-row { display: grid; grid-template-columns: 400px 1fr; align-items: center;
+                   column-gap: 18px; min-height: 48px; margin: 8px 0; }
+.reveal .bar-name { text-align: left; font-size: var(--fs-sm); line-height: 1.25; }
+.reveal .bar-track { display: flex; align-items: center; gap: 12px; }
+.reveal .bar-fill { height: 32px; border-radius: 4px; flex: none; }
+.reveal .bar-value { font-size: var(--fs-sm); white-space: nowrap; }
+.reveal .bar-fill.numpy   { background: #e2b781; }   /* CrysPy, direct or through EasyDiffraction */
+.reveal .bar-fill.fortran { background: #98c379; }   /* FullProf */
+.reveal .bar-fill.crysta  { background: var(--c-blue); }
+.reveal .bar-axis { min-height: 0; margin: 0 0 -2px; }
+.reveal .bar-ticks { position: relative; height: 1.6em; margin-right: 190px; }   /* the room a value label takes */
+.reveal .bar-ticks span { position: absolute; width: 6em; margin-left: -3em; text-align: center;
+                          font-size: var(--fs-xs); color: var(--c-mute); white-space: nowrap;
+                          bottom: 10px; line-height: 1; }   /* sits just above its tick */
+/* a short tick from each label down to the axis line, under the middle of the label, the first and last included */
+.reveal .bar-ticks span::after { content: ""; position: absolute; left: 50%; bottom: -10px; width: 1px;
+                                 height: 7px; background: currentColor; }
+.reveal .bar-axis-line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+                         background: currentColor; opacity: 0.32; }
+
+/* "Credits": a panel that names many people reads at the deck's small size. */
+.reveal .samefact .sentence.small { display: block; font-size: var(--fs-sm); line-height: 1.5; }   /* running text: italics stay inline */
+
+/* "How much is done": the crysta deck's coverage chart on this deck's scale. The whole track is what
+   a complete engine needs; the two fills say how far each implementation gets. crysta's fill is
+   `aa-move`, so it grows in on its click. */
+.reveal .cov-key { display: flex; gap: 1.6em; align-items: baseline; font-size: var(--fs-sm);
+                   color: var(--c-dim); margin: 0 0 0.6em; }
+.reveal .cov-key i.sw { display: inline-block; width: 0.9em; height: 0.55em; border-radius: 2px; margin-right: 0.4em; }
+.reveal .cov-key i.sw.ed { background: #98c379; }
+.reveal .cov-key i.sw.cr { background: var(--c-blue); }
+.reveal .cov { width: 1144px; max-width: 100%; }
+.reveal .cov-row { display: grid; grid-template-columns: 380px 1fr; align-items: center; column-gap: 18px; margin: 7px 0; }
+.reveal .cov-name { font-size: var(--fs-xs); text-align: left; line-height: 1.2; }
+.reveal .cov-track { position: relative; height: 28px; border-radius: 4px; box-sizing: border-box;
+                     background: rgba(255, 255, 255, 0.06); border: 1px solid #3d3d3d; }
+.reveal .cov-fill { position: absolute; left: 0; height: 12px; border-radius: 3px; }
+.reveal .cov-fill.ed { top: 1px; background: #98c379; }
+.reveal .cov-fill.cr { top: 14px; background: var(--c-blue); }
+
+/* "Project page": the whole site as one tall screenshot in a window the width of the slide; each step
+   moves and scales the page to the next view, as in the J-PARC talk. The window takes the usual 500px
+   in the layout, but the page runs on past it down to the slide's bottom edge, as it ran off the
+   screen there: the clip reaches the bottom padding too (576px seen). */
+.reveal .pagebox { position: relative; width: 1144px; max-width: 100%; height: 500px; overflow: visible;
+                   clip-path: inset(0 0 calc(-1 * var(--pad-bot)) 0); margin: var(--gap-item) 0 0; }
+.reveal .pagebox img { position: absolute; height: auto; margin: 0; border: none; box-shadow: none; max-width: none; }
+
+/* A boxed list item with an explanatory line: the line starts under the item's text, not under its
+   icon (the box's hanging indent would otherwise pull it left), and keeps the deck's pair gap. */
+.reveal .dolist.boxed .step .sub { text-indent: 0; }
+/* ...and in one-line boxes, as on the NOBUGS deck, the explanation follows the item on the same line,
+   smaller and grey, rather than taking a line of its own. */
+.reveal .dolist .step .sub.inline { display: inline; margin: 0 0 0 0.35em; font-size: var(--fs-sm); }
+.reveal .dolist .step .sub.inline::before { content: "\00b7"; margin-right: 0.35em; }   /* the same separator as in the item itself */
+
+/* "Several years of improving UI/UX": the five designs dealt as a stack of cards. Each new design
+   slides in from the right onto the front; the older ones step back up and to the left, smaller and
+   dimmer, so the history stays in view behind today's screen. The cards carry `aa-move`, the deck's
+   opt-in for nested elements that move; positions, sizes and fade are per step, on the cards. */
+.reveal .sbody > .cards { position: relative; flex: 0 0 auto; width: 729px; height: 414px;   /* the room left under the takeaway */
+                          margin: var(--gap-pair) 0 0; }
+.reveal .cards img { position: absolute; margin: 0; object-fit: cover; object-position: left top;
+                     border-radius: 6px; border: none; box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55); }
+/* A library's name in a credits panel: brighter, not bolder, so the eye finds where each entry starts. */
+.reveal .samefact .sentence.small b { font-weight: 400; color: #fff; }
+
+/* "What we rely on" with the library and application outlined: the outlines add a band above the
+   top boxes and below the engines, so the drawing is set a little smaller to keep the slide's
+   bottom margin (it would otherwise run to 738 of 750 with the conclusion showing). */
+.reveal .sbody > svg.stackfig.grouped { width: 750px; }
+
+/* Two online entry points, using the deck's existing panel treatment and type scale. */
+.reveal .online-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+                          gap: 26px; width: 1144px; max-width: 100%; }
+.reveal .online-option { background: #252525; border: 1px solid #3d3d3d; border-radius: 6px;
+                         padding: 18px 20px; text-align: left; }
+.reveal .online-option h4 { margin: 0; font-family: inherit; font-size: var(--fs-lg);
+                            font-weight: 400; text-transform: none; letter-spacing: 0; }
+.reveal .online-version { margin: 2px 0 14px; font-size: var(--fs-sm); color: var(--c-dim); }
+.reveal .online-count { margin: 0 0 8px; font-size: var(--fs-sm); white-space: nowrap; }
+.reveal .online-link { display: block; font-size: var(--fs-sm); color: var(--c-blue);
+                       margin: 0 0 16px; text-decoration: underline; text-underline-offset: 3px; }
+.reveal .online-instruments { display: block; margin: 0; font-size: var(--fs-sm); line-height: 1.35; }
+.reveal .online-instruments > div { display: grid; grid-template-columns: 130px 1fr; gap: 8px; }
+.reveal .online-instruments dt { font-weight: 400; color: var(--c-dim); }
+.reveal .online-instruments dd { margin: 0; }

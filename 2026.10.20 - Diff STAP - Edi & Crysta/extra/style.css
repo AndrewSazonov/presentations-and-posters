@@ -1,0 +1,306 @@
+@import url('segoe-ui.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
+button {
+border: none;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+padding-left: 0.4em;
+padding-right: 0.4em;
+padding-top: 0.1em;
+padding-bottom: 0.2em;
+border-radius: 0.3em;
+background-color: white;
+}
+
+h3 button {
+font-size: 0.5em;
+margin-top: -0.25em;
+vertical-align: middle;
+margin-left: 0.5em;
+}
+p button {
+font-size: 1em;
+line-height: 1.5em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+vertical-align: top;
+border-radius: 0.3em;
+border: none;
+}
+
+.reveal {
+font-family: "Segoe UI", sans-serif;
+}
+
+.controls-arrow {
+_color: rgb(109, 209, 255);
+}
+
+
+.semi-hidden {
+opacity: 0.2;
+}
+
+.reference {
+font-size: 16px;
+color: white;
+opacity: 0.5;
+}
+
+.figure-caption {
+margin-bottom:-1em;
+font-size: 16px;
+color: white;
+opacity: 0.5;
+}
+
+.sub-header {
+height: 50px;
+margin: 5px;
+padding: 0 10px;
+line-height: 48px;
+font-size: 22px;
+text-align: center;
+color: black;
+background: rgb(109, 209, 255)
+}
+
+.workflow-tab {
+width: 260px;
+height: 82px;
+margin: 5px;
+line-height: 78px;
+font-size: 42px;
+text-align: center;
+color: black;
+background: rgb(109, 209, 255)
+}
+
+.workflow-sub-tab {
+width: 200px;
+height: 50px;
+margin: 5px;
+line-height: 48px;
+font-size: 22px;
+text-align: center;
+color: black;
+background: rgb(109, 209, 255)
+}
+
+.workflow-sub-tab-vertical {
+width: 260px;
+height: 50px;
+margin: 5px;
+line-height: 48px;
+font-size: 22px;
+text-align: center;
+color: black;
+background: rgb(109, 209, 255)
+}
+
+.highlighted-area {
+height: 50px;
+margin: 5px;
+line-height: 48px;
+background: orange;
+opacity: 0.3
+}
+
+    .email {
+        display: block;
+        margin-left: 24px;
+        margin-right: 24px;
+        font-size: 26px;
+        color: rgb(109, 209, 255)
+    }
+
+    .column {
+        float: left;
+        padding: 10px;
+padding-top: 0px;
+margin-top: -10px;
+    }
+    .column-content {
+        font-size: 18px;
+background-color:#252525;
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .red {
+        color: #e06c75;
+    }
+    .green {
+        color: #98c379;
+    }
+.green-dark {
+color: #5d7555;
+}
+    .blue {
+        color: rgb(109, 209, 255);
+    }
+.blue2 {
+        color: #999;
+    }
+.grey {
+color: #555;
+}
+.orange {
+color: #d19966;
+}
+
+
+.tag-blue {
+display: inline-block;
+vertical-align: 30%;
+font-size: 0.5em;
+padding-bottom: 0.2em;
+padding-left: 0.4em;
+padding-right:0.4em;
+color: white;
+background: rgb(109, 209, 255);
+}
+
+
+.tag-orange {
+display: inline-block;
+vertical-align: 30%;
+font-size: 0.5em;
+padding-bottom: 0.2em;
+padding-left: 0.4em;
+padding-right:0.4em;
+color: white;
+background: #a37c59;
+}
+
+.tag-green {
+display: inline-block;
+vertical-align: 30%;
+font-size: 0.5em;
+padding-bottom: 0.2em;
+padding-left: 0.4em;
+padding-right:0.4em;
+color: white;
+background: #5d7555;
+}
+
+.tag-grey {
+display: inline-block;
+vertical-align: 30%;
+font-size: 0.5em;
+padding-bottom: 0.2em;
+padding-left: 0.4em;
+padding-right:0.4em;
+color: white;
+background: #555;
+}
+
+.flip_H{ transform: scale(-1, 1); }
+.flip_V{ transform: scale(1, -1); }
+
+
+
+
+
+
+/* TABLE */
+table {
+line-height: 0.8em;
+}
+
+table caption {
+margin-bottom: 0.5em;
+_font-weight: bold;
+}
+table td, table th {
+border: none !important;
+}
+
+table.vertical-table caption,
+table.vertical-table td:first-child {
+color: rgb(109, 209, 255);
+}
+
+table.loop-table caption,
+table.loop-table th {
+color: #98c379;
+}
+
+table.acta-cryst-journal caption {
+text-align: left !important;
+}
+table.acta-cryst-journal thead tr:first-child {
+border-top: 1px solid #fff;
+}
+table.acta-cryst-journal tbody tr:first-child {
+border-top: 1px solid #fff;
+}
+table.acta-cryst-journal tbody tr:last-child {
+border-bottom: 1px solid #fff;
+}
+table.acta-cryst-journal th,
+table.acta-cryst-journal td {
+text-align: left !important;
+}
+table.acta-cryst-journal th:first-child,
+table.acta-cryst-journal td:first-child {
+padding-left: 0 !important;
+}
+table.acta-cryst-journal th:last-child,
+table.acta-cryst-journal td:last-child {
+padding-right: 0 !important;
+}
+
+pre {
+min-width: 100%;
+padding-left: 1.25em;
+padding-top: 1.25em;
+padding-bottom: 1.25em;
+background-color: #252525;
+}
+
+/* OVERALL FONT */
+.reveal {
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* FONT SIZES */
+.small-font {
+    font-size: 0.8em;
+}
+
+.tiny-font {
+    font-size: 0.5em;
+}
+
+/* COLUMNS */
+.columns {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+/* COLORS */
+        .red {
+            color: #e06c75;
+        }
+        .green {
+            color: #98c379;
+        }
+.green-dark {
+    color: #5d7555;
+}
+        .blue {
+            color: rgb(109, 209, 255);
+        }
+.grey {
+    color: #555;
+}
+.orange {
+    color: #d19966;
+}

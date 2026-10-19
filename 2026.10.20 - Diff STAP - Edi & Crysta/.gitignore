@@ -1,0 +1,11 @@
+# generated: `python3 build.py` writes index.html and backup.html; shots/ holds screen grabs
+shots/
+*.pyc
+__pycache__/
+
+# solved per machine; the deck needs only python, so a shared lock buys nothing
+pixi.lock
+
+# misc
+tmp/
+.DS_Store
