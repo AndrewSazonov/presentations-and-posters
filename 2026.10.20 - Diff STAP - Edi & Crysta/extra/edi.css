@@ -202,11 +202,11 @@
 .reveal .online-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
                           gap: 26px; width: 1144px; max-width: 100%; }
 .reveal .online-option { text-align: left; }
-.reveal .online-option h4 { margin: 0; font-family: inherit; font-size: var(--fs-md);
+.reveal .online-option h4 { margin: 0; font-family: inherit; font-size: var(--fs-sm);
                             font-weight: 400; text-transform: none; letter-spacing: 0;
                             line-height: 1.35; white-space: nowrap; }
 .reveal .online-separator { margin: 0 0.35em; color: var(--c-dim); font-size: var(--fs-sm); }
-.reveal .online-version { font-size: var(--fs-sm); color: var(--c-dim); }
+.reveal .online-version { font-size: inherit; font-weight: inherit; line-height: inherit; color: var(--c-dim); }
 .reveal .online-link { display: block; font-size: var(--fs-sm); color: var(--c-blue);
                        margin: var(--gap-pair) 0 0; text-decoration: none; }
 .reveal .online-link .ico { height: 0.9em; width: auto; margin-right: 0.4em; vertical-align: -0.11em; }
@@ -225,3 +225,10 @@
 .reveal .dolist.boxed.teaching-list .step { margin-top: calc(var(--gap-item) - var(--gap-pair)); }
 .reveal .teaching-status.planned { color: #e5a15a; }
 .reveal .teaching-status.done { color: #98c379; }
+
+/* Thread counts belong to each crysta timing rather than to the benchmark as a whole. */
+.reveal .bar-threads { margin-left: 0.65em; color: var(--c-mute); white-space: nowrap; }
+.reveal .bar-threads .ico { height: 0.9em; width: auto; margin-right: 0.35em; vertical-align: -0.1em; }
+
+/* Match both heading sizes while keeping the links and lists aligned. */
+.reveal .online-option h4 { line-height: calc(var(--fs-md) * 1.35); }
