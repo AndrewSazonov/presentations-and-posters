@@ -1,0 +1,31 @@
+{
+  "diagram": {
+    "size": [
+      1800,
+      970
+    ],
+    "changedPixels": 28245,
+    "changedBounds": [
+      911,
+      784,
+      1153,
+      906
+    ],
+    "pixelsChangedOutsideBox": 0,
+    "newFill": "#CC4937"
+  },
+  "browser": {
+    "size": [
+      3216,
+      1822
+    ],
+    "patch": {
+      "left": 1440,
+      "top": 108,
+      "width": 400,
+      "height": 46
+    },
+    "changedChannels": 9786,
+    "pixelsChangedOutsideAddress": 0
+  }
+}
