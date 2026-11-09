@@ -1,0 +1,5 @@
+/* Segoe UI, served locally (fetched 2026-09-03 from fonts.cdnfonts.com/css/segoe-ui-4). */
+@font-face { font-family: 'Segoe UI'; font-style: normal; font-weight: 400; src: url('fonts/Segoe-UI.woff') format('woff'); }
+@font-face { font-family: 'Segoe UI'; font-style: italic; font-weight: 400; src: url('fonts/Segoe-UI-Italic.woff') format('woff'); }
+@font-face { font-family: 'Segoe UI'; font-style: normal; font-weight: 700; src: url('fonts/Segoe-UI-Bold.woff') format('woff'); }
+@font-face { font-family: 'Segoe UI'; font-style: italic; font-weight: 700; src: url('fonts/Segoe-UI-Bold-Italic.woff') format('woff'); }
