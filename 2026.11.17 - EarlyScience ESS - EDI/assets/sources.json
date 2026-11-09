@@ -1,0 +1,52 @@
+[
+  {
+    "file": "refinement-y2o3.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/y2o3/13-analysis-basic.png",
+    "bytes": 189620
+  },
+  {
+    "file": "structure-y2o3.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/y2o3/07-structure-loaded.png",
+    "bytes": 222273
+  },
+  {
+    "file": "scan-map.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/scan/scan-analysis-map.png",
+    "bytes": 236939
+  },
+  {
+    "file": "scan-evolution.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/scan/scan-evolution.png",
+    "bytes": 178202
+  },
+  {
+    "file": "scan-stacked.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/scan/scan-analysis-stacked.png",
+    "bytes": 394874
+  },
+  {
+    "file": "python-notebook.png",
+    "url": "https://enhantica.github.io/edi/assets/interfaces/python-notebook.png",
+    "bytes": 96225
+  },
+  {
+    "file": "command-line.png",
+    "url": "https://enhantica.github.io/edi/assets/interfaces/command-line.png",
+    "bytes": 35166
+  },
+  {
+    "file": "group-expanded-moments.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/magnetic/group-expanded-moments.png",
+    "bytes": 175003
+  },
+  {
+    "file": "group-moments.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/magnetic/group-moments.png",
+    "bytes": 170229
+  },
+  {
+    "file": "guide-structure-displacement.png",
+    "url": "https://enhantica.github.io/edi/assets/gui/y2o3/guide-structure-displacement.png",
+    "bytes": 237873
+  }
+]

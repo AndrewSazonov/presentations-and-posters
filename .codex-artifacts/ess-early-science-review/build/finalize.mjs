@@ -1,0 +1,6 @@
+import path from 'node:path';
+import {finalizePresentation} from '/Users/andrewsazonov/.codex/plugins/cache/openai-primary-runtime/presentations/26.1104.22356/skills/presentations/container_tools/artifact_tool_utils.mjs';
+const workspaceDir=path.resolve('.codex-artifacts/ess-early-science-review');
+const skill='/Users/andrewsazonov/.codex/plugins/cache/openai-primary-runtime/presentations/26.1104.22356/skills/presentations';
+const result=await finalizePresentation({workspaceDir,candidatePath:path.join(workspaceDir,'build/candidate.pptx'),finalPath:path.join(workspaceDir,'output/2026-early-science-easydiffraction-slides-sazonov-corrected.pptx'),pythonExecutable:'/Users/andrewsazonov/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','13682663,7696200','--validate-bullet-geometry','--validate-heading-fit'],explicitTotalSlideCount:2,verifyArtifactToolImport:true,receiptPath:path.join(workspaceDir,'build/validation.json')});
+console.log(JSON.stringify(result,null,2));
