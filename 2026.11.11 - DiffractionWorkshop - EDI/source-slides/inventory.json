@@ -1,0 +1,162 @@
+[
+  {
+    "title": "00_divider",
+    "path": "library/00-divider.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/00_divider.html"
+  },
+  {
+    "title": "EasyDiffraction and crysta",
+    "path": "library/easydiffraction-and-crysta.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/01_title.html"
+  },
+  {
+    "title": "Diffraction analysis: many tools",
+    "path": "library/diffraction-analysis-many-tools.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/10_why.html"
+  },
+  {
+    "title": "What users run into",
+    "path": "library/what-users-run-into.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/10_why.html"
+  },
+  {
+    "title": "Needs",
+    "path": "library/needs.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/10_why.html"
+  },
+  {
+    "title": "Built on existing libraries",
+    "path": "library/built-on-existing-libraries.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "What each library brings",
+    "path": "library/what-each-library-brings.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "What we rely on",
+    "path": "library/what-we-rely-on.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "Several years of improving UI/UX",
+    "path": "library/several-years-of-improving-ui-ux.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "Reviewed by UX experts",
+    "path": "library/reviewed-by-ux-experts.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "Three ways to run the same workflow",
+    "path": "library/three-ways-to-run-the-same-workflow.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "Same look and feel, different technique",
+    "path": "library/same-look-and-feel-different-technique.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "What became reusable",
+    "path": "library/what-became-reusable.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/20_easydiffraction.html"
+  },
+  {
+    "title": "Back to diffraction: what analysis needs",
+    "path": "library/back-to-diffraction-what-analysis-needs.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "AI in crystallography",
+    "path": "library/ai-in-crystallography.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "A pilot project",
+    "path": "library/a-pilot-project.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "Meet crysta",
+    "path": "library/meet-crysta.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "One of many test cases",
+    "path": "library/one-of-many-test-cases.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "Agreement of calculated patterns",
+    "path": "library/agreement-of-calculated-patterns.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "Agreement of refined parameters",
+    "path": "library/agreement-of-refined-parameters.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "Speed: a full TOF refinement",
+    "path": "library/speed-a-full-tof-refinement.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "How the code is checked",
+    "path": "library/how-the-code-is-checked.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/30_crysta.html"
+  },
+  {
+    "title": "Current functionality",
+    "path": "library/current-functionality.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/40_outlook.html"
+  },
+  {
+    "title": "EasyDiffraction without crysta vs crysta",
+    "path": "library/easydiffraction-without-crysta-vs-crysta.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/40_outlook.html"
+  },
+  {
+    "title": "EasyDiffraction in teaching",
+    "path": "library/easydiffraction-in-teaching.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/40_outlook.html"
+  },
+  {
+    "title": "Work in progress / Next steps",
+    "path": "library/work-in-progress-next-steps.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/40_outlook.html"
+  },
+  {
+    "title": "Test online without installation",
+    "path": "library/test-online-without-installation.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/40_outlook.html"
+  },
+  {
+    "title": "A few live demos",
+    "path": "library/a-few-live-demos.html",
+    "source": "2026.10.20 - Diff STAP - Edi & Crysta/slides/50_demo.html"
+  },
+  {
+    "title": "Where analysis sits",
+    "path": "library/nobugs-where-analysis-sits.html",
+    "source": "../2026.09.21 - NOBUGS - GUI-EasyScience/slides/10_problem.html"
+  },
+  {
+    "title": "What reuse brings",
+    "path": "library/nobugs-what-reuse-brings.html",
+    "source": "../2026.09.21 - NOBUGS - GUI-EasyScience/slides/40_reuse.html"
+  },
+  {
+    "title": "Seeing beats reading",
+    "path": "library/nobugs-seeing-beats-reading.html",
+    "source": "../2026.09.21 - NOBUGS - GUI-EasyScience/slides/30_principles.html"
+  },
+  {
+    "title": "One path through the data",
+    "path": "library/nobugs-one-path-through-the-data.html",
+    "source": "../2026.09.21 - NOBUGS - GUI-EasyScience/slides/30_principles.html"
+  }
+]

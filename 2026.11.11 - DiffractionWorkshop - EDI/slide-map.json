@@ -1,0 +1,230 @@
+[
+  {
+    "h": 0,
+    "v": 0,
+    "title": "Divider",
+    "steps": 1
+  },
+  {
+    "h": 1,
+    "v": 0,
+    "title": "EasyDiffraction and crysta",
+    "steps": 1
+  },
+  {
+    "h": 2,
+    "v": 3,
+    "title": "Divider",
+    "steps": 4
+  },
+  {
+    "h": 3,
+    "v": 3,
+    "title": "Diffraction analysis: many tools",
+    "steps": 4
+  },
+  {
+    "h": 4,
+    "v": 7,
+    "title": "What users ran into",
+    "steps": 8
+  },
+  {
+    "h": 5,
+    "v": 4,
+    "title": "Needs",
+    "steps": 5
+  },
+  {
+    "h": 6,
+    "v": 3,
+    "title": "Built on existing libraries",
+    "steps": 4
+  },
+  {
+    "h": 7,
+    "v": 4,
+    "title": "What each library brings",
+    "steps": 5
+  },
+  {
+    "h": 8,
+    "v": 7,
+    "title": "Earlier software stack",
+    "steps": 8
+  },
+  {
+    "h": 9,
+    "v": 6,
+    "title": "Several years of improving UI/UX",
+    "steps": 7
+  },
+  {
+    "h": 10,
+    "v": 4,
+    "title": "Reviewed by UX experts",
+    "steps": 5
+  },
+  {
+    "h": 11,
+    "v": 4,
+    "title": "Three ways to run the same workflow",
+    "steps": 5
+  },
+  {
+    "h": 12,
+    "v": 0,
+    "title": "Divider",
+    "steps": 1
+  },
+  {
+    "h": 13,
+    "v": 2,
+    "title": "A possible future: several engines",
+    "steps": 3
+  },
+  {
+    "h": 14,
+    "v": 2,
+    "title": "The current crysta-only approach",
+    "steps": 3
+  },
+  {
+    "h": 15,
+    "v": 4,
+    "title": "What the new approach changes",
+    "steps": 5
+  },
+  {
+    "h": 16,
+    "v": 7,
+    "title": "Current functionality: diffraction",
+    "steps": 8
+  },
+  {
+    "h": 17,
+    "v": 7,
+    "title": "Current functionality: analysis",
+    "steps": 8
+  },
+  {
+    "h": 18,
+    "v": 3,
+    "title": "A complete refinement workspace",
+    "steps": 4
+  },
+  {
+    "h": 19,
+    "v": 3,
+    "title": "From one pattern to a measurement series",
+    "steps": 4
+  },
+  {
+    "h": 20,
+    "v": 3,
+    "title": "Inspect the magnetic structure",
+    "steps": 4
+  },
+  {
+    "h": 21,
+    "v": 6,
+    "title": "One of many test cases",
+    "steps": 7
+  },
+  {
+    "h": 22,
+    "v": 4,
+    "title": "Agreement of calculated patterns",
+    "steps": 5
+  },
+  {
+    "h": 23,
+    "v": 5,
+    "title": "Agreement of refined parameters",
+    "steps": 6
+  },
+  {
+    "h": 24,
+    "v": 4,
+    "title": "Speed: a full TOF refinement",
+    "steps": 5
+  },
+  {
+    "h": 25,
+    "v": 0,
+    "title": "Divider",
+    "steps": 1
+  },
+  {
+    "h": 26,
+    "v": 2,
+    "title": "One project, six ways to work",
+    "steps": 3
+  },
+  {
+    "h": 27,
+    "v": 3,
+    "title": "Web and desktop application",
+    "steps": 4
+  },
+  {
+    "h": 28,
+    "v": 4,
+    "title": "Notebooks and Python scripts",
+    "steps": 5
+  },
+  {
+    "h": 29,
+    "v": 3,
+    "title": "Command line without writing Python",
+    "steps": 4
+  },
+  {
+    "h": 30,
+    "v": 3,
+    "title": "AI assistance inside the desktop app",
+    "steps": 4
+  },
+  {
+    "h": 31,
+    "v": 4,
+    "title": "AI-ready beyond the built-in assistant",
+    "steps": 5
+  },
+  {
+    "h": 32,
+    "v": 4,
+    "title": "Practical software features",
+    "steps": 5
+  },
+  {
+    "h": 33,
+    "v": 5,
+    "title": "Work in progress / Next steps",
+    "steps": 6
+  },
+  {
+    "h": 34,
+    "v": 3,
+    "title": "Choose a route for the hands-on sessions",
+    "steps": 4
+  },
+  {
+    "h": 35,
+    "v": 3,
+    "title": "Test online without installation",
+    "steps": 4
+  },
+  {
+    "h": 36,
+    "v": 4,
+    "title": "EasyDiffraction for your next analysis",
+    "steps": 5
+  },
+  {
+    "h": 37,
+    "v": 3,
+    "title": "Help shape EasyDiffraction",
+    "steps": 4
+  }
+]

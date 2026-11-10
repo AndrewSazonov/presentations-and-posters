@@ -1,0 +1,145 @@
+Browser tab: 2, Title: "AI assistant - EasyDiffraction", URL: "http://127.0.0.1:8873/python/tutorials/assistant/".
+1 AXWebArea AI assistant - EasyDiffraction, URL: 127.0.0.1:8873/python/tutorials/assistant/
+	2 container
+		3 link Description: Skip to content, Value: 127.0.0.1:8873/python/tutorials/assistant/#__skip
+		4 container Header
+			5 link Description: EasyDiffraction, Value: 127.0.0.1:8873/
+			6 container
+				7 radio button (settable, integer) Description: Switch to dark mode, Value: 0
+				8 container Switch to dark mode
+					9 image
+				10 radio button (settable, integer) Description: Switch to light mode, Value: 0
+			11 container Search
+				12 button Search ⌘K
+					13 text Search
+					14 text ⌘K
+		15 container Tabs
+			16 content list
+				17 link Description: Home, Value: 127.0.0.1:8873/
+				18 link Description: User guide, Value: 127.0.0.1:8873/user-guide/
+				19 link Description: Application, Value: 127.0.0.1:8873/application/
+				20 link Description: Python, Value: 127.0.0.1:8873/python/
+				21 link Description: Command line, Value: 127.0.0.1:8873/cli/
+				22 link Description: Physics, Value: 127.0.0.1:8873/physics/
+				23 link Description: About, Value: 127.0.0.1:8873/about/
+		24 container Navigation
+			25 content list
+				26 container Python Python 
+					27 content list
+						28 container
+							29 link Description: Start here, Value: 127.0.0.1:8873/python/
+							30 content list
+								31 link Description: Setup, Value: 127.0.0.1:8873/python/setup/
+								32 link Description: API quick reference, Value: 127.0.0.1:8873/python/reference/
+								33 link Description: Data and tutorials, Value: 127.0.0.1:8873/python/data/
+						34 container
+							35 link Description: Analysis workflow, Value: 127.0.0.1:8873/python/analysis-workflow/
+							36 content list
+								37 link Description: Project, Value: 127.0.0.1:8873/python/projects/
+								38 link Description: Structure, Value: 127.0.0.1:8873/python/structures/
+								39 link Description: Experiment, Value: 127.0.0.1:8873/python/experiments/
+								40 container
+									41 image
+									42 text Analysis
+								43 link Description: Report, Value: 127.0.0.1:8873/python/reports/
+						44 container
+							45 link Description: Tutorials, Value: 127.0.0.1:8873/python/tutorials/
+							46 content list
+								47 container
+									48 image
+									49 text Getting started
+									50 container Getting started
+										51 content list
+											52 link Description: LBCO pd-neut-cwl, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_lbco-hrpt/
+											53 link Description: AI assistant, Value: 127.0.0.1:8873/python/tutorials/assistant/
+								54 container
+									55 image
+									56 text Powder
+								57 container
+									58 image
+									59 text Single crystal
+								60 container
+									61 image
+									62 text Simulation
+								63 container
+									64 image
+									65 text Multiple datasets
+		66 container On this page
+			67 text On this page
+			68 content list
+				69 link Description: Get the two files, Value: 127.0.0.1:8873/python/tutorials/assistant/#get-the-two-files
+				70 link Description: Ask for the notebook, Value: 127.0.0.1:8873/python/tutorials/assistant/#ask-for-the-notebook
+		71 container Navigation
+			72 content list
+				73 link Description: Home, Value: 127.0.0.1:8873/
+				74 link Description: Python, Value: 127.0.0.1:8873/python/
+				75 link Description: Tutorials, Value: 127.0.0.1:8873/python/tutorials/
+				76 link Description: Getting started, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_lbco-hrpt/
+		77 container
+			78 heading Fit with your own AI assistant ¶, Value: 1, ID: fit-with-your-own-ai-assistant
+				79 text Fit with your own AI assistant
+				80 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/tutorials/assistant/#fit-with-your-own-ai-assistant
+			81 text ChatGPT or Claude, in their desktop apps or command-line tools, can write a Jupyter notebook that fits a structure with EasyDiffraction. This page gives a prompt for the La₀.₅Ba₀.₅CoO₃ example of the 
+			82 link Description: La₀.₅Ba₀.₅CoO₃ on HRPT, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_lbco-hrpt/
+			83 text  tutorial. The prompt links the documentation and the notebook tutorials, so the assistant can read how EasyDiffraction is used, and it names the fit stages, so the notebook fits in the same order as the tutorial.
+			84 heading Get the two files ¶, Value: 2, ID: get-the-two-files
+				85 text Get the two files
+				86 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/tutorials/assistant/#get-the-two-files
+			87 text Download the structure and the measured pattern from EasyDiffraction's collection into one folder:
+			88 content list
+				89 container
+					90 AXListMarker • 
+					91 link Description: tutorial-lbco.cif, Value: raw.githubusercontent.com/enhantica/edi-data/main/structures/tutorial-lbco.cif
+					92 text : the cubic perovskite, La and Ba sharing the corner site.
+				93 container
+					94 AXListMarker • 
+					95 link Description: tutorial-hrpt.xye, Value: raw.githubusercontent.com/enhantica/edi-data/main/data/tutorial-hrpt.xye
+					96 text : the HRPT pattern, 2θ in degrees, the counts and their standard uncertainties.
+			97 heading Ask for the notebook ¶, Value: 2, ID: ask-for-the-notebook
+				98 text Ask for the notebook
+				99 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/tutorials/assistant/#ask-for-the-notebook
+			100 text Start the assistant in that folder, or attach the two files to the chat, and give it this prompt:
+			101 button Copy to clipboard
+			102 text Fit the crystal structure of La0.5Ba0.5CoO3 to neutron powder diffraction data with
+EasyDiffraction (edi).
+
+Documentation: https://easydiffraction.org/ (a short index for assistants:
+https://easydiffraction.org/llms.txt).
+Worked examples: https://easydiffraction.org/python/tutorials/ (choose the one closest to this task).
+
+The two input files are in this folder:
+- tutorial-lbco.cif: the structure, space group P m -3 m, La and Ba sharing one site.
+- tutorial-hrpt.xye: the measured pattern, constant-wavelength neutrons on HRPT at PSI, wavelength
+  1.494 Å; columns 2θ (degrees), counts and their standard uncertainties.
+
+Create a Jupyter notebook, ready to run, that loads both files and fits the structure in stages.
+Each stage frees one more group of parameters and keeps the ones freed before it free:
+1. the scale, the 2θ zero and the cell length a;
+2. the background points;
+3. the peak widths U, V, W and Y;
+4. the isotropic displacements (B iso) of La, Ba, Co and O.
+After stage 4, show the correlations. La's and Ba's B iso should move together almost exactly.
+Constrain Ba's B iso to equal La's, and fit again.
+
+After every fit, show the fitted parameters. At the end, give the reduced χ², Rwp and each fitted
+value with its standard uncertainty.
+
+			103 text The notebook it returns should run from top to bottom in an environment with EasyDiffraction installed (see 
+			104 link Description: Setup, Value: 127.0.0.1:8873/python/setup/
+			105 text ). Compare its final values with the 
+			106 link Description: La₀.₅Ba₀.₅CoO₃ on HRPT, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_lbco-hrpt/
+			107 text  tutorial's: an assistant can pick other starting values or miss a step, and the tutorial shows what each stage should give. The same prompt, asking for a project for 
+			108 text edi fit
+			109 text , is on the 
+			110 link Description: Command line, Value: 127.0.0.1:8873/cli/tutorials/assistant/
+			111 text  tutorials. The application has an 
+			112 link Description: AI assistant, Value: 127.0.0.1:8873/user-guide/ai-assistant/
+			113 text  built in.
+		114 button Back to top
+			115 image
+			116 text Back to top
+		117 container Footer
+			118 link Description: Previous: LBCO pd-neut-cwl, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_lbco-hrpt/
+			119 link Description: Next: HS pd-neut-cwl, Value: 127.0.0.1:8873/python/tutorials/cases/pd-neut-cwl_hs-hrpt/
+
+The focused UI element is 1 AXWebArea AI assistant - EasyDiffraction, URL: 127.0.0.1:8873/python/tutorials/assistant/

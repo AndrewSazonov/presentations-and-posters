@@ -1,0 +1,190 @@
+Browser tab: 2, Title: "AI assistant - EasyDiffraction", URL: "http://127.0.0.1:8873/user-guide/ai-assistant/".
+1 AXWebArea AI assistant - EasyDiffraction, URL: 127.0.0.1:8873/user-guide/ai-assistant/
+	2 container
+		3 link Description: Skip to content, Value: 127.0.0.1:8873/user-guide/ai-assistant/#__skip
+		4 container Header
+			5 link Description: EasyDiffraction, Value: 127.0.0.1:8873/
+			6 container
+				7 radio button (settable, integer) Description: Switch to dark mode, Value: 0
+				8 container Switch to dark mode
+					9 image
+				10 radio button (settable, integer) Description: Switch to light mode, Value: 0
+			11 container Search
+				12 button Search ⌘K
+					13 text Search
+					14 text ⌘K
+		15 container Tabs
+			16 content list
+				17 link Description: Home, Value: 127.0.0.1:8873/
+				18 link Description: User guide, Value: 127.0.0.1:8873/user-guide/
+				19 link Description: Application, Value: 127.0.0.1:8873/application/
+				20 link Description: Python, Value: 127.0.0.1:8873/python/
+				21 link Description: Command line, Value: 127.0.0.1:8873/cli/
+				22 link Description: Physics, Value: 127.0.0.1:8873/physics/
+				23 link Description: About, Value: 127.0.0.1:8873/about/
+		24 container Navigation
+			25 content list
+				26 container  User guide 
+					27 content list
+						28 container
+							29 link Description: Foundations, Value: 127.0.0.1:8873/user-guide/
+							30 content list
+								31 link Description: Features, Value: 127.0.0.1:8873/user-guide/features/
+								32 link Description: Concept, Value: 127.0.0.1:8873/user-guide/concepts/
+								33 link Description: Data formats, Value: 127.0.0.1:8873/user-guide/data-formats/
+								34 link Description: Parameters, Value: 127.0.0.1:8873/user-guide/parameters/
+								35 link Description: Glossary, Value: 127.0.0.1:8873/user-guide/glossary/
+						36 container
+							37 link Description: Analysis workflow, Value: 127.0.0.1:8873/user-guide/analysis-workflow/
+							38 content list
+								39 link Description: Project, Value: 127.0.0.1:8873/user-guide/analysis-workflow/project/
+								40 link Description: Structure, Value: 127.0.0.1:8873/user-guide/analysis-workflow/structure/
+								41 link Description: Experiment, Value: 127.0.0.1:8873/user-guide/analysis-workflow/experiment/
+								42 link Description: Analysis, Value: 127.0.0.1:8873/user-guide/analysis-workflow/analysis/
+								43 link Description: Report, Value: 127.0.0.1:8873/user-guide/analysis-workflow/report/
+						44 link Description: AI assistant, Value: 127.0.0.1:8873/user-guide/ai-assistant/
+						45 link Description: Tutorials, Value: 127.0.0.1:8873/user-guide/tutorials/
+		46 container On this page
+			47 text On this page
+			48 content list
+				49 container
+					50 link Description: Built-in assistant (desktop app), Value: 127.0.0.1:8873/user-guide/ai-assistant/#built-in-assistant-desktop-app
+					51 container Built-in assistant (desktop app)
+						52 content list
+							53 link Description: Install and connect, Value: 127.0.0.1:8873/user-guide/ai-assistant/#install-and-connect
+							54 link Description: Work with your project, Value: 127.0.0.1:8873/user-guide/ai-assistant/#work-with-your-project
+							55 link Description: Show actions, Value: 127.0.0.1:8873/user-guide/ai-assistant/#show-actions
+				56 link Description: Your own assistant, Value: 127.0.0.1:8873/user-guide/ai-assistant/#your-own-assistant
+		57 container Navigation
+			58 content list
+				59 link Description: Home, Value: 127.0.0.1:8873/
+				60 link Description: User guide, Value: 127.0.0.1:8873/user-guide/
+				61 link Description: AI assistant, Value: 127.0.0.1:8873/user-guide/ai-assistant/
+		62 container
+			63 heading AI assistant ¶, Value: 1, ID: ai-assistant
+				64 text AI assistant
+				65 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#ai-assistant
+			66 text EasyDiffraction is ready for AI assistants. The desktop app has an assistant built in, which works in your open project. ChatGPT or Claude, in their desktop apps or command-line tools, can write a notebook or a project for you from your own files: a structure and a measured pattern become a fit set up in stages, which you then run, check and change.
+			67 table
+				68 row
+					69 cell
+						70 text Where
+					71 cell
+						72 text Built-in assistant
+					73 cell
+						74 text Your own assistant
+					75 cell
+						76 text Notes
+				77 row
+					78 cell
+						79 text Desktop app
+					80 cell
+						81 text ✓
+					82 cell
+						83 text ✓
+					84 cell
+						85 text The built-in assistant is an optional part of the desktop app and needs a ChatGPT account.
+				86 row
+					87 cell
+						88 text Web app
+					89 cell
+						90 text —
+					91 cell
+						92 text ✓
+					93 cell
+						94 text The browser has no built-in assistant; open the project your own assistant writes.
+				95 row
+					96 cell
+						97 text Python
+					98 cell
+						99 text —
+					100 cell
+						101 text ✓
+					102 cell
+						103 text Your own assistant writes a Jupyter notebook ready to run.
+				104 row
+					105 cell
+						106 text Command line
+					107 cell
+						108 text —
+					109 cell
+						110 text ✓
+					111 cell
+						112 text Your own assistant writes a project ready for 
+						113 text edi fit
+						114 text .
+			115 heading Built-in assistant (desktop app) ¶, Value: 2, ID: built-in-assistant-desktop-app
+				116 text Built-in assistant (desktop app)
+				117 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#built-in-assistant-desktop-app
+			118 text The desktop app's assistant can explain a fit, suggest which parameters to fit next, and carry out supported actions in your open project. The 
+			119 link Description: Fit with the AI assistant, Value: 127.0.0.1:8873/application/tutorials/assistant/
+			120 text  tutorial follows one run.
+			121 link Description: Enlarge screenshot: Answer, and the assistant fits the structure, Value: 127.0.0.1:8873/assets/gui/assistant/assistant-fitted.webp?v=4ee14f474b42
+			122 text The assistant after it fitted La₀.₅Ba₀.₅CoO₃ on HRPT (
+			123 link Description: the tutorial, Value: 127.0.0.1:8873/application/tutorials/assistant/
+			124 text ).
+			125 heading Install and connect ¶, Value: 3, ID: install-and-connect
+				126 text Install and connect
+				127 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#install-and-connect
+			128 content list
+				129 container
+					130 AXListMarker 1. 
+					131 text Select  AI assistant  in the 
+					132 link Description: desktop installer, Value: 127.0.0.1:8873/application/desktop/#download
+					133 text . To add it to an existing installation, open  Preferences → Updates → Open Maintenance Tool  and add  AI assistant , then restart the application.
+				134 container
+					135 AXListMarker 2. 
+					136 text Open a project workflow page and select the robot button in the toolbar.
+				137 container
+					138 AXListMarker 3. 
+					139 text Select  Connect ChatGPT  and complete the OpenAI sign-in if prompted. The assistant needs an internet connection and a ChatGPT account with access to a compatible Codex model.
+			140 text The assistant uses your ChatGPT plan’s Codex allowance. Model access and usage limits depend on the plan and workspace settings. OpenAI offers limited Codex access on some free accounts. Your account’s model access determines whether you need a paid subscription. 
+			141 link Description: OpenAI plans and usage limits, Value: learn.chatgpt.com/docs/pricing
+			142 text In the web app the robot button opens a note about the desktop app instead: the browser has no built-in assistant.
+			143 heading Work with your project ¶, Value: 3, ID: work-with-your-project
+				144 text Work with your project
+				145 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#work-with-your-project
+			146 text Ask a question about the open project or describe the result you want. For example, ask which parameters to fit first and why, or ask the assistant to fit the background and inspect the residual before fitting the peak profile. When EasyDiffraction asks for approval to share project information or attached files, review the selection before continuing. Use 
+			147 text Stop
+			148 text  to interrupt ongoing work. Inspect the resulting pattern and fitted parameters before relying on the result. The 
+			149 link Description: fit quality guide, Value: 127.0.0.1:8873/user-guide/analysis-workflow/analysis/#fit-quality
+			150 text  explains how to assess a fit.
+			151 heading Show actions ¶, Value: 3, ID: show-actions
+				152 text Show actions
+				153 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#show-actions
+			154 text Show actions
+			155 text , in the chat's composer, shows each action the assistant takes in the app as it works, on the control it uses. Off, the assistant works in the background and reports in the chat.
+			156 heading Your own assistant ¶, Value: 2, ID: your-own-assistant
+				157 text Your own assistant
+				158 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/user-guide/ai-assistant/#your-own-assistant
+			159 text ChatGPT or Claude, in their desktop apps or command-line tools, can write what each interface uses, given the documentation, the tutorials and your files:
+			160 content list
+				161 container
+					162 AXListMarker • 
+					163 text a Jupyter notebook ready to run: the 
+					164 link Description: Python AI assistant tutorial, Value: 127.0.0.1:8873/python/tutorials/assistant/
+					165 text ;
+				166 container
+					167 AXListMarker • 
+					168 text a project to fit with  edi fit : the 
+					169 link Description: Command line AI assistant tutorial, Value: 127.0.0.1:8873/cli/tutorials/assistant/
+					170 text ;
+				171 container
+					172 AXListMarker • 
+					173 text a project to open in the desktop or web app, as an alternative to the built-in assistant or in its place: the same Command line prompt.
+			174 text Open a project it returns in the app:
+			175 radio button (settable, integer) Description: Desktop app, Value: 1
+			176 radio button (settable, integer) Description: Web app, Value: 0
+			177 container
+				178 link Description: Desktop app, Value: 127.0.0.1:8873/user-guide/ai-assistant/#__tabbed_1_1
+				179 link Description: Web app, Value: 127.0.0.1:8873/user-guide/ai-assistant/#__tabbed_1_2
+			180 container
+				181 text On  Project , choose  Open project… , then  Folder  and select the project folder. You can also drop the folder or its  project.edi  file onto the window.
+		182 button Back to top
+			183 image
+			184 text Back to top
+		185 container Footer
+			186 link Description: Previous: Report, Value: 127.0.0.1:8873/user-guide/analysis-workflow/report/
+			187 link Description: Next: Tutorials, Value: 127.0.0.1:8873/user-guide/tutorials/
+
+The focused UI element is 1 AXWebArea AI assistant - EasyDiffraction, URL: 127.0.0.1:8873/user-guide/ai-assistant/

@@ -1,0 +1,76 @@
+Browser tab: 2, Title: "Setup - EasyDiffraction", URL: "http://127.0.0.1:8873/python/setup/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 64-66, 71-94
+~1 AXWebArea Setup - EasyDiffraction, URL: 127.0.0.1:8873/python/setup/
+~		3 link Description: Skip to content, Value: 127.0.0.1:8873/python/setup/#__skip
+~		62 container On this page
+~			63 text On this page
++			64 content list
++				65 link Description: Install, Value: 127.0.0.1:8873/python/setup/#install
++				66 link Description: In a notebook, Value: 127.0.0.1:8873/python/setup/#in-a-notebook
+~		67 container Navigation
+~			68 content list
+~				69 link Description: Home, Value: 127.0.0.1:8873/
+~				70 link Description: Python, Value: 127.0.0.1:8873/python/
++				71 link Description: Start here, Value: 127.0.0.1:8873/python/
++		72 container
++			73 heading Set up Python ¶, Value: 1, ID: set-up-python
++				74 text Set up Python
++				75 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/setup/#set-up-python
++			76 text Install the 
++			77 text easydiffraction
++			78 text  distribution and import it as 
++			79 text edi
++			80 text . The same installation works in scripts, notebooks, and with 
++			81 text python -m edi
++			82 text .
++			83 heading Install ¶, Value: 2, ID: install
++				84 text Install
++				85 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/setup/#install
++			86 text Use CPython 3.12 or newer on macOS with Apple Silicon, Windows x86-64 or Linux x86-64. The package comes from 
++			87 link Description: EasyDiffraction's package index, Value: download.easydiffraction.org/pypi/simple/
++			88 text ; its dependencies come from PyPI.
++			89 radio button (settable, integer) Description: Pixi, Value: 1
++			90 radio button (settable, integer) Description: Python + pip, Value: 0
++			91 container
++				92 link Description: Pixi, Value: 127.0.0.1:8873/python/setup/#__tabbed_1_1
++				93 link Description: Python + pip, Value: 127.0.0.1:8873/python/setup/#__tabbed_1_2
++			94 text Create a project and install Python:
++			95 container
++				96 button Copy to clipboard
++				97 text pixi init edi-python cd edi-python pixi add "python>=3.12"
++			98 container
++				99 text In  pixi.toml , add EasyDiffraction's package index:
++			100 container
++				101 button Copy to clipboard
++				102 text [pypi-options] extra-index-urls = [ "https://download.easydiffraction.org/pypi/simple/" ]
++			103 text Then add the package and check it:
++			104 container
++				105 button Copy to clipboard
++				106 text pixi add --pypi easydiffraction pixi run python -c "import easydiffraction as edi; print(edi.Project)" pixi run python -m edi --help
++			107 container
++				108 text To upgrade, run  pixi update easydiffraction .
++			109 text Building edi from source is described in the 
++			110 link Description: contributor documentation, Value: easydiffraction.org/dev/
++			111 text .
++			112 heading In a notebook ¶, Value: 2, ID: in-a-notebook
++				113 text In a notebook
++				114 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/setup/#in-a-notebook
++			115 text Install and launch JupyterLab from the environment where you installed edi.
++			116 radio button (settable, integer) Description: Pixi, Value: 1
++			117 radio button (settable, integer) Description: Python + pip, Value: 0
++			118 container
++				119 link Description: Pixi, Value: 127.0.0.1:8873/python/setup/#__tabbed_2_1
++				120 link Description: Python + pip, Value: 127.0.0.1:8873/python/setup/#__tabbed_2_2
++			121 container
++				122 button Copy to clipboard
++				123 text pixi add jupyterlab pixi run jupyter lab
++			124 text Select the kernel for that environment when you open a notebook.
++			125 link Description: Run an example, Value: 127.0.0.1:8873/python/tutorials/
++		126 button Back to top
++			127 image
++			128 text Back to top
++		129 container Footer
++			130 link Description: Previous: Start here, Value: 127.0.0.1:8873/python/
++			131 link Description: Next: API quick reference, Value: 127.0.0.1:8873/python/reference/
+The focused UI element is 1 AXWebArea Setup - EasyDiffraction, URL: 127.0.0.1:8873/python/setup/

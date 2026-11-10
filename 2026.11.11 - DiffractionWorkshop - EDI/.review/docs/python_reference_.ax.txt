@@ -1,0 +1,263 @@
+Browser tab: 2, Title: "API quick reference - EasyDiffraction", URL: "http://127.0.0.1:8873/python/reference/".
+1 AXWebArea API quick reference - EasyDiffraction, URL: 127.0.0.1:8873/python/reference/
+	2 container
+		3 link Description: Skip to content, Value: 127.0.0.1:8873/python/reference/#__skip
+		4 container Header
+			5 link Description: EasyDiffraction, Value: 127.0.0.1:8873/
+			6 container
+				7 radio button (settable, integer) Description: Switch to dark mode, Value: 0
+				8 container Switch to dark mode
+					9 image
+				10 radio button (settable, integer) Description: Switch to light mode, Value: 0
+			11 container Search
+				12 button Search ⌘K
+					13 text Search
+					14 text ⌘K
+		15 container Tabs
+			16 content list
+				17 link Description: Home, Value: 127.0.0.1:8873/
+				18 link Description: User guide, Value: 127.0.0.1:8873/user-guide/
+				19 link Description: Application, Value: 127.0.0.1:8873/application/
+				20 link Description: Python, Value: 127.0.0.1:8873/python/
+				21 link Description: Command line, Value: 127.0.0.1:8873/cli/
+				22 link Description: Physics, Value: 127.0.0.1:8873/physics/
+				23 link Description: About, Value: 127.0.0.1:8873/about/
+		24 container Navigation
+			25 content list
+				26 container Python Python 
+					27 content list
+						28 container
+							29 link Description: Start here, Value: 127.0.0.1:8873/python/
+							30 content list
+								31 link Description: Setup, Value: 127.0.0.1:8873/python/setup/
+								32 link Description: API quick reference, Value: 127.0.0.1:8873/python/reference/
+								33 link Description: Data and tutorials, Value: 127.0.0.1:8873/python/data/
+						34 container
+							35 link Description: Analysis workflow, Value: 127.0.0.1:8873/python/analysis-workflow/
+							36 content list
+								37 link Description: Project, Value: 127.0.0.1:8873/python/projects/
+								38 link Description: Structure, Value: 127.0.0.1:8873/python/structures/
+								39 link Description: Experiment, Value: 127.0.0.1:8873/python/experiments/
+								40 container
+									41 image
+									42 text Analysis
+								43 link Description: Report, Value: 127.0.0.1:8873/python/reports/
+						44 container
+							45 link Description: Tutorials, Value: 127.0.0.1:8873/python/tutorials/
+							46 content list
+								47 container
+									48 image
+									49 text Getting started
+								50 container
+									51 image
+									52 text Powder
+								53 container
+									54 image
+									55 text Single crystal
+								56 container
+									57 image
+									58 text Simulation
+								59 container
+									60 image
+									61 text Multiple datasets
+		62 container On this page
+			63 text On this page
+			64 content list
+				65 link Description: Project input and output, Value: 127.0.0.1:8873/python/reference/#project-input-and-output
+				66 link Description: Model inspection, Value: 127.0.0.1:8873/python/reference/#model-inspection
+				67 link Description: Analysis, Value: 127.0.0.1:8873/python/reference/#analysis
+				68 link Description: Reports, Value: 127.0.0.1:8873/python/reference/#reports
+		69 container Navigation
+			70 content list
+				71 link Description: Home, Value: 127.0.0.1:8873/
+				72 link Description: Python, Value: 127.0.0.1:8873/python/
+				73 link Description: Start here, Value: 127.0.0.1:8873/python/
+		74 container
+			75 heading Python quick reference ¶, Value: 1, ID: python-quick-reference
+				76 text Python quick reference
+				77 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/reference/#python-quick-reference
+			78 text This page covers the calls used in the Python guides. It is a 
+			79 text selected reference
+			80 text , not a complete generated API catalogue. The 
+			81 link Description: current declared surface, Value: github.com/enhantica/edi/blob/main/data/python-surface.json
+			82 text  lists the broader interface; signatures and behavior should be checked in the matching edi version.
+			83 heading Project input and output ¶, Value: 2, ID: project-input-and-output
+				84 text Project input and output
+				85 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/reference/#project-input-and-output
+			86 table
+				87 row
+					88 cell
+						89 text Call or property
+					90 cell
+						91 text Purpose
+				92 row
+					93 cell
+						94 text edi.Project.load(path)
+					95 cell
+						96 text Open a complete project folder, its 
+						97 text project.edi
+						98 text , or a zip.
+				99 row
+					100 cell
+						101 text project.location
+					102 cell
+						103 text Read the project's current location.
+				104 row
+					105 cell
+						106 text project.save()
+					107 cell
+						108 text Write the project to its current location.
+				109 row
+					110 cell
+						111 text project.save_as(folder)
+					112 cell
+						113 text Write a folder and continue working there.
+				114 row
+					115 cell
+						116 text project.export_zip(path)
+					117 cell
+						118 text Package the project's folder as last saved.
+			119 heading Model inspection ¶, Value: 2, ID: model-inspection
+				120 text Model inspection
+				121 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/reference/#model-inspection
+			122 table
+				123 row
+					124 cell
+						125 text Property
+					126 cell
+						127 text Purpose
+				128 row
+					129 cell
+						130 text project.structures
+					131 cell
+						132 text Inspect the project's structures.
+				133 row
+					134 cell
+						135 text project.experiments
+					136 cell
+						137 text Inspect its experiments.
+				138 row
+					139 cell
+						140 text project.free_parameters
+					141 cell
+						142 text Inspect parameters whose 
+						143 text free
+						144 text  flag is set.
+				145 row
+					146 cell
+						147 text parameter.value
+					148 cell
+						149 text Read or change a parameter's value.
+				150 row
+					151 cell
+						152 text parameter.free
+					153 cell
+						154 text Read or change whether it may vary. Freeing a value a fit cannot vary raises an error with the reason.
+			155 text Factories used here are 
+			156 text StructureFactory.from_cif_path(path)
+			157 text , 
+			158 text ExperimentFactory.from_cif_path(path)
+			159 text  and 
+			160 text ExperimentFactory.from_data_path(...)
+			161 text . These create model components, not automatically complete analysis projects. 
+			162 text project.structures.add_from_cif_path(path)
+			163 text  and 
+			164 text project.experiments.add_from_cif_path(path)
+			165 text  read a CIF or 
+			166 text .edi
+			167 text  file and add the result to the project; each reader also has a 
+			168 text _str
+			169 text  form that takes text.
+			170 heading Analysis ¶, Value: 2, ID: analysis
+				171 text Analysis
+				172 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/reference/#analysis
+			173 table
+				174 row
+					175 cell
+						176 text Call or property
+					177 cell
+						178 text Purpose
+				179 row
+					180 cell
+						181 text project.analysis.calculate()
+					182 cell
+						183 text Calculate from the current project; results stay on experiments.
+				184 row
+					185 cell
+						186 text project.analysis.fit()
+					187 cell
+						188 text Run the fit selected by the declared mode.
+				189 row
+					190 cell
+						191 text project.analysis.fitting_mode
+					192 cell
+						193 text Read or set 
+						194 text single
+						195 text , 
+						196 text joint
+						197 text , 
+						198 text sequential
+						199 text  or 
+						200 text independent
+						201 text .
+				202 row
+					203 cell
+						204 text project.analysis.descent
+					205 cell
+						206 text Read or select a registered descent strategy.
+			207 text Optional fit callbacks are 
+			208 text on_start
+			209 text , 
+			210 text on_iteration
+			211 text , 
+			212 text on_scan_start
+			213 text , 
+			214 text on_file_complete
+			215 text  and 
+			216 text should_cancel
+			217 text . Scan-specific callbacks require a scan-mode project.
+			218 heading Reports ¶, Value: 2, ID: reports
+				219 text Reports
+				220 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/python/reference/#reports
+			221 table
+				222 row
+					223 cell
+						224 text Call
+					225 cell
+						226 text Purpose
+				227 row
+					228 cell
+						229 text project.report.as_html(...)
+					230 cell
+						231 text Obtain HTML text.
+				232 row
+					233 cell
+						234 text project.report.save_html(path, ...)
+					235 cell
+						236 text Write an HTML report.
+				237 row
+					238 cell
+						239 text project.report.save(...)
+					240 cell
+						241 text Write the selected formats except PDF, which the application writes.
+				242 row
+					243 cell
+						244 text project.report.save_cif(path)
+					245 cell
+						246 text Write a CIF report.
+				247 row
+					248 cell
+						249 text project.report.check()
+					250 cell
+						251 text Read saved-report freshness states.
+			252 text See 
+			253 link Description: reports, Value: 127.0.0.1:8873/python/reports/
+			254 text  for call-specific options and the difference between saved settings and per-call overrides.
+		255 button Back to top
+			256 image
+			257 text Back to top
+		258 container Footer
+			259 link Description: Previous: Setup, Value: 127.0.0.1:8873/python/setup/
+			260 link Description: Next: Data and tutorials, Value: 127.0.0.1:8873/python/data/
+
+The focused UI element is 1 AXWebArea API quick reference - EasyDiffraction, URL: 127.0.0.1:8873/python/reference/

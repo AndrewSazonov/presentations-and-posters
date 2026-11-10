@@ -1,0 +1,163 @@
+Browser tab: 2, Title: "On your desktop - EasyDiffraction", URL: "http://127.0.0.1:8873/application/desktop/".
+1 AXWebArea On your desktop - EasyDiffraction, URL: 127.0.0.1:8873/application/desktop/
+	2 container
+		3 link Description: Skip to content, Value: 127.0.0.1:8873/application/desktop/#__skip
+		4 container Header
+			5 link Description: EasyDiffraction, Value: 127.0.0.1:8873/
+			6 container
+				7 radio button (settable, integer) Description: Switch to dark mode, Value: 0
+				8 container Switch to dark mode
+					9 image
+				10 radio button (settable, integer) Description: Switch to light mode, Value: 0
+			11 container Search
+				12 button Search ⌘K
+					13 text Search
+					14 text ⌘K
+		15 container Tabs
+			16 content list
+				17 link Description: Home, Value: 127.0.0.1:8873/
+				18 link Description: User guide, Value: 127.0.0.1:8873/user-guide/
+				19 link Description: Application, Value: 127.0.0.1:8873/application/
+				20 link Description: Python, Value: 127.0.0.1:8873/python/
+				21 link Description: Command line, Value: 127.0.0.1:8873/cli/
+				22 link Description: Physics, Value: 127.0.0.1:8873/physics/
+				23 link Description: About, Value: 127.0.0.1:8873/about/
+		24 container Navigation
+			25 content list
+				26 container  Application 
+					27 content list
+						28 container
+							29 link Description: Start here, Value: 127.0.0.1:8873/application/
+							30 content list
+								31 link Description: In your browser, Value: 127.0.0.1:8873/application/browser/
+								32 link Description: On your desktop, Value: 127.0.0.1:8873/application/desktop/
+								33 link Description: Application layout, Value: 127.0.0.1:8873/application/workspace/
+						34 container
+							35 link Description: Analysis workflow, Value: 127.0.0.1:8873/application/analysis-workflow/
+							36 content list
+								37 container
+									38 link Description: Project, Value: 127.0.0.1:8873/application/project/
+								39 container
+									40 link Description: Structure, Value: 127.0.0.1:8873/application/structure/
+								41 container
+									42 link Description: Experiment, Value: 127.0.0.1:8873/application/experiment/
+								43 container
+									44 link Description: Analysis, Value: 127.0.0.1:8873/application/analysis/
+								45 container
+									46 link Description: Report, Value: 127.0.0.1:8873/application/report/
+						47 container
+							48 link Description: Tutorials, Value: 127.0.0.1:8873/application/tutorials/
+							49 content list
+								50 container
+									51 image
+									52 text Getting started
+								53 container
+									54 image
+									55 text Powder
+								56 container
+									57 image
+									58 text Single crystal
+								59 container
+									60 image
+									61 text Multiple datasets
+		62 container On this page
+			63 text On this page
+			64 content list
+				65 link Description: Download, Value: 127.0.0.1:8873/application/desktop/#download
+				66 link Description: Install and update, Value: 127.0.0.1:8873/application/desktop/#install-and-update
+				67 link Description: Open local projects, Value: 127.0.0.1:8873/application/desktop/#open-local-projects
+				68 link Description: Save and share, Value: 127.0.0.1:8873/application/desktop/#save-and-share
+		69 container Navigation
+			70 content list
+				71 link Description: Home, Value: 127.0.0.1:8873/
+				72 link Description: Application, Value: 127.0.0.1:8873/application/
+				73 link Description: Start here, Value: 127.0.0.1:8873/application/
+		74 container
+			75 heading Desktop application ¶, Value: 1, ID: desktop-application
+				76 text Desktop application
+				77 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/application/desktop/#desktop-application
+			78 text Use native file dialogs and work directly with projects on your computer.
+			79 heading Download ¶, Value: 2, ID: download
+				80 text Download
+				81 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/application/desktop/#download
+			82 text Desktop installers will appear here when published.
+			83 container Download for macOS, macOS 15+ · Apple Silicon
+				84 text macOS
+				85 text macOS 15+ · Apple Silicon
+			86 container Download for Windows, Windows 11 · x86-64
+				87 text Windows
+				88 text Windows 11 · x86-64
+			89 container Download for Linux, Ubuntu 24.04+ · x86-64
+				90 text Linux
+				91 text Ubuntu 24.04+ · x86-64
+			92 text Select 
+			93 text AI assistant
+			94 text  during setup. See the 
+			95 link Description: AI assistant guide, Value: 127.0.0.1:8873/user-guide/ai-assistant/
+			96 text  for sign-in and plan requirements. You can add or remove the component later with 
+			97 text EasyDiffraction Maintenance Tool
+			98 text . Restart EasyDiffraction after changing the installed components.
+			99 heading Install and update ¶, Value: 2, ID: install-and-update
+				100 text Install and update
+				101 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/application/desktop/#install-and-update
+			102 text EasyDiffraction comes with all required application dependencies. Download and extract the whole ZIP for your platform. The online installer needs an internet connection. Preview installers are distributed without a trusted platform signature.
+			103 radio button (settable, integer) Description: macOS, Value: 1
+			104 radio button (settable, integer) Description: Windows, Value: 0
+			105 radio button (settable, integer) Description: Linux, Value: 0
+			106 container
+				107 link Description: macOS, Value: 127.0.0.1:8873/application/desktop/#__tabbed_1_1
+				108 link Description: Windows, Value: 127.0.0.1:8873/application/desktop/#__tabbed_1_2
+				109 link Description: Linux, Value: 127.0.0.1:8873/application/desktop/#__tabbed_1_3
+			110 content list
+				111 container
+					112 AXListMarker 1. 
+					113 text Open the extracted installer app.
+				114 container
+					115 AXListMarker 2. 
+					116 text If macOS blocks it, click  Done . In  System Settings → Privacy & Security , scroll to  Security , select  Open Anyway , and confirm. This applies to the installer you just opened. 
+					117 link Description: Apple’s instructions, Value: support.apple.com/en-gb/102445
+				118 container
+					119 AXListMarker 3. 
+					120 text Follow setup. The suggested folder is  /Applications/EasyDiffraction .
+			121 text EasyDiffraction checks for updates at startup and hourly while it is open. To check on demand, open 
+			122 text Preferences → Updates
+			123 text  and select 
+			124 text Check now
+			125 text . When a newer release is available, select the red 
+			126 text Update
+			127 text  button at the bottom left to review the release notes and start the update. 
+			128 text Notify about updates
+			129 text  also opens the notes automatically when a new version is found. The updater installs into your existing location. On the next launch, 
+			130 text What's new
+			131 text  shows the changes since your previous version.
+			132 heading Open local projects ¶, Value: 2, ID: open-local-projects
+				133 text Open local projects
+				134 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/application/desktop/#open-local-projects
+			135 text Choose 
+			136 text Open project…
+			137 text  and select a folder or zip archive. You can also drop a project folder, its 
+			138 text project.edi
+			139 text  file or a zip archive onto the application window. An archive opens as a temporary working copy. 
+			140 text Save
+			141 text  updates the archive when it is writable; otherwise the app asks where to save it.
+			142 heading Save and share ¶, Value: 2, ID: save-and-share
+				143 text Save and share
+				144 link Description: ¶, Help: Permanent link, Value: 127.0.0.1:8873/application/desktop/#save-and-share
+			145 text Save project as…
+			146 text  writes a folder or zip archive. Select 
+			147 text Save a copy
+			148 text  to write to another location while continuing in the original project. Use a folder to access individual model and result files, or a zip archive to move the complete project. Reports are saved in the project's 
+			149 text reports/
+			150 text  folder, inside the archive when the project is a zip. When the project cannot be written back, such as an example or a read-only archive, the app first asks where to save it. The 
+			151 link Description: application layout, Value: 127.0.0.1:8873/application/workspace/
+			152 text  and 
+			153 link Description: example fit, Value: 127.0.0.1:8873/application/tutorials/cases/pd-neut-cwl_y2o3-spodi/
+			154 text  apply to both desktop and web versions.
+		155 button Back to top
+			156 image
+			157 text Back to top
+		158 container Footer
+			159 link Description: Previous: In your browser, Value: 127.0.0.1:8873/application/browser/
+			160 link Description: Next: Application layout, Value: 127.0.0.1:8873/application/workspace/
+
+The focused UI element is 1 AXWebArea On your desktop - EasyDiffraction, URL: 127.0.0.1:8873/application/desktop/

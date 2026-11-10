@@ -1,0 +1,114 @@
+[
+  {
+    "file": "13b_library-capabilities.html",
+    "template": "STAP: what-each-library-brings.html"
+  },
+  {
+    "file": "16_ux-review.html",
+    "template": "STAP: reviewed-by-ux-experts.html"
+  },
+  {
+    "file": "17_three-interfaces.html",
+    "template": "STAP: three-ways-to-run-the-same-workflow.html"
+  },
+  {
+    "file": "19_future.html",
+    "template": "Meet crysta · original multi-engine drawing"
+  },
+  {
+    "file": "20_architecture.html",
+    "template": "What we rely on / Meet crysta · stackfig grouped"
+  },
+  {
+    "file": "21_advantages.html",
+    "template": "Needs · boxed rows"
+  },
+  {
+    "file": "22_physics.html",
+    "template": "Current functionality · exact dense boxed list"
+  },
+  {
+    "file": "23_powder.html",
+    "template": "Current functionality · exact dense boxed list"
+  },
+  {
+    "file": "24_application.html",
+    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+  },
+  {
+    "file": "25_scans.html",
+    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+  },
+  {
+    "file": "26_magnetism.html",
+    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+  },
+  {
+    "file": "26b_test-case.html",
+    "template": "STAP: one-of-many-test-cases.html"
+  },
+  {
+    "file": "27_verification.html",
+    "template": "STAP: agreement-of-calculated-patterns.html"
+  },
+  {
+    "file": "27b_parameters.html",
+    "template": "STAP: agreement-of-refined-parameters.html"
+  },
+  {
+    "file": "28_speed.html",
+    "template": "Speed: a full TOF refinement · exact bars and log axis"
+  },
+  {
+    "file": "30_six-interfaces.html",
+    "template": "What we rely on · existing stackfig grouped vocabulary"
+  },
+  {
+    "file": "31_graphical.html",
+    "template": "Needs · boxed rows"
+  },
+  {
+    "file": "32_python.html",
+    "template": "How the code is checked"
+  },
+  {
+    "file": "33_cli.html",
+    "template": "Needs · boxed rows"
+  },
+  {
+    "file": "34_ai-desktop.html",
+    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+  },
+  {
+    "file": "35_ai-external.html",
+    "template": "How the code is checked"
+  },
+  {
+    "file": "36_software.html",
+    "template": "What became reusable · reflibs"
+  },
+  {
+    "file": "37_status.html",
+    "template": "Work in progress / Next steps · boxed rows"
+  },
+  {
+    "file": "38_hands-on.html",
+    "template": "Needs · boxed rows"
+  },
+  {
+    "file": "39_online.html",
+    "template": "Test online without installation · original two-column template"
+  },
+  {
+    "file": "39_takeaway.html",
+    "template": "How the code is checked"
+  },
+  {
+    "file": "40_survey.html",
+    "template": "Diffraction analysis: many tools · samefact"
+  },
+  {
+    "file": "90_survey.html",
+    "template": "Agreement of refined parameters · ptable"
+  }
+]

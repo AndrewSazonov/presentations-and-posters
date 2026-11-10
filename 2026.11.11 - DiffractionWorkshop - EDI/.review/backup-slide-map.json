@@ -1,0 +1,194 @@
+[
+  {
+    "h": 0,
+    "v": 0,
+    "title": "Divider",
+    "steps": 1
+  },
+  {
+    "h": 1,
+    "v": 1,
+    "title": "Six ways to work: audience feedback",
+    "steps": 2
+  },
+  {
+    "h": 2,
+    "v": 2,
+    "title": "Diffraction analysis: many tools",
+    "steps": 3
+  },
+  {
+    "h": 3,
+    "v": 6,
+    "title": "What users run into",
+    "steps": 7
+  },
+  {
+    "h": 4,
+    "v": 3,
+    "title": "Needs",
+    "steps": 4
+  },
+  {
+    "h": 5,
+    "v": 2,
+    "title": "Built on existing libraries",
+    "steps": 3
+  },
+  {
+    "h": 6,
+    "v": 3,
+    "title": "What each library brings",
+    "steps": 4
+  },
+  {
+    "h": 7,
+    "v": 6,
+    "title": "What we rely on",
+    "steps": 7
+  },
+  {
+    "h": 8,
+    "v": 5,
+    "title": "Several years of improving UI/UX",
+    "steps": 6
+  },
+  {
+    "h": 9,
+    "v": 3,
+    "title": "Reviewed by UX experts",
+    "steps": 4
+  },
+  {
+    "h": 10,
+    "v": 3,
+    "title": "Three ways to run the same workflow",
+    "steps": 4
+  },
+  {
+    "h": 11,
+    "v": 3,
+    "title": "Same look and feel, different technique",
+    "steps": 4
+  },
+  {
+    "h": 12,
+    "v": 4,
+    "title": "What became reusable",
+    "steps": 5
+  },
+  {
+    "h": 13,
+    "v": 3,
+    "title": "Back to diffraction: what analysis needs",
+    "steps": 4
+  },
+  {
+    "h": 14,
+    "v": 5,
+    "title": "AI in crystallography",
+    "steps": 6
+  },
+  {
+    "h": 15,
+    "v": 1,
+    "title": "A pilot project",
+    "steps": 2
+  },
+  {
+    "h": 16,
+    "v": 1,
+    "title": "Meet crysta",
+    "steps": 2
+  },
+  {
+    "h": 17,
+    "v": 5,
+    "title": "One of many test cases",
+    "steps": 6
+  },
+  {
+    "h": 18,
+    "v": 3,
+    "title": "Agreement of calculated patterns",
+    "steps": 4
+  },
+  {
+    "h": 19,
+    "v": 4,
+    "title": "Agreement of refined parameters",
+    "steps": 5
+  },
+  {
+    "h": 20,
+    "v": 6,
+    "title": "Speed: a full TOF refinement",
+    "steps": 7
+  },
+  {
+    "h": 21,
+    "v": 4,
+    "title": "How the code is checked",
+    "steps": 5
+  },
+  {
+    "h": 22,
+    "v": 6,
+    "title": "Current functionality",
+    "steps": 7
+  },
+  {
+    "h": 23,
+    "v": 2,
+    "title": "EasyDiffraction without crysta vs crysta",
+    "steps": 3
+  },
+  {
+    "h": 24,
+    "v": 2,
+    "title": "EasyDiffraction in teaching",
+    "steps": 3
+  },
+  {
+    "h": 25,
+    "v": 4,
+    "title": "Work in progress / Next steps",
+    "steps": 5
+  },
+  {
+    "h": 26,
+    "v": 2,
+    "title": "Test online without installation",
+    "steps": 3
+  },
+  {
+    "h": 27,
+    "v": 0,
+    "title": "A few live demos",
+    "steps": 1
+  },
+  {
+    "h": 28,
+    "v": 3,
+    "title": "Where analysis sits",
+    "steps": 4
+  },
+  {
+    "h": 29,
+    "v": 3,
+    "title": "What reuse brings",
+    "steps": 4
+  },
+  {
+    "h": 30,
+    "v": 2,
+    "title": "Seeing beats reading",
+    "steps": 3
+  },
+  {
+    "h": 31,
+    "v": 5,
+    "title": "One path through the data",
+    "steps": 6
+  }
+]
