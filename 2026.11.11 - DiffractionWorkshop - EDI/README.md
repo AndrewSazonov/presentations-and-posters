@@ -1,79 +1,62 @@
 # EasyDiffraction and crysta — Advanced Powder Diffraction Workshop
 
-Day 1 draft for a 30-minute introduction. This broad selection includes the requested original STAP slides and can be trimmed after review.
-
-## Design and source
-
-The deck loads only the original STAP `style.css`, `talk.css` and `edi.css`, unchanged. There is no workshop layout stylesheet. Reused slides preserve their original structures and reveal sequences. Updated slides use those same components: boxed lists, the two-column project cards, case tags, screenshot slots, dark agreement figures, parameter rows, speed bars and stack diagrams.
-
-`template-map.json` records which source template each adapted slide uses. The former custom layouts are retained privately under `.review/before-template-correction/` for recovery only and are not loaded.
+Day 1 presentation, revised to the presenter’s 10 November review. There are 30 content slides, an opening outline and three section transitions, plus the unnumbered ESS holding screen. The speaking allocations total about 27 minutes, leaving about three minutes for transitions or questions.
 
 ## Open and edit
 
-- `index.html`: main presentation, speaker notes and source references.
-- `backup.html`: additional original slides plus an optional questionnaire.
-- `source-stap.html`: unchanged original STAP deck.
-- `slides/`: editable selected slides; `slides/library/` holds the copied originals.
-- `source-slides/`: original fragments and provenance inventory.
+Open `index.html` directly or through a local server. Arrow keys advance, **S** opens notes, **Esc** shows the overview, and **F** enters full screen.
 
-Open `index.html` directly or through a local server. Arrow keys advance; **S** opens speaker notes; **Esc** opens the overview; **F** opens full screen. Run `python3 build.py` after editing. `python3 build.py --watch` rebuilds on changes.
+`slides/` contains the editable slide sources. `build.py` assembles them into `index.html` and `backup.html`. `compose.py` regenerates adapted slides and then applies `review_updates.py`, which implements the latest review. Run `python3 compose.py` followed by `python3 build.py` when intentionally regenerating adapted slides. Run only `python3 build.py` after a manual slide edit.
 
-`compose.py` adapts the STAP templates and regenerates the selected new slide files. It preserves the cover and already selected legacy slide files. Run it only when intentionally regenerating those adapted files. Use the existing STAP components for later edits rather than adding a new layout system.
+## Design and animation
 
-## Current selection
+The presentation retains the STAP stylesheets unchanged. New slides reuse its lists, screenshot slots, columns, diagrams, icons and timing bars.
 
-There are 37 numbered slides, including three section dividers, plus the ESS holding screen. The individual content allocations sum to 29 min 50 s, before brief section transitions or audience responses. This is a broad review selection; allow a little trimming for a strict 30-minute slot.
+The modern-analysis slide is copied exactly from LENS slide 17, changing only the title. Meet crysta retains the original two-state STAP animation: the large engine box moves into the original multi-engine diagram. Its caption marks this as a possible future. The following slide removes the other engines, centres crysta, adds CLI, expands six routes above the three interface families, then replaces the scientific layers with interface screenshots.
 
-The requested source slides are in the main sequence: library capabilities, UX review, three ways to work, a possible multi-engine future, the test case, both agreement slides, the two extended functionality slides, updated work in progress and the online tutorials.
+The cover uses the original event / author / title reveal and a single-line subtitle. The original opening outline and section transitions are retained alongside the chapter labels. The 30 content slides keep the requested order. Omitted material is retained in `backup.html`.
 
-The possible multi-engine future is followed immediately by the current crysta-only diagram. The two-bank / 48-parameter agreement case is kept separate from the five-bank / 193-parameter timing benchmark.
+## Scientific scope and sources
 
-| Editable file | Topic | Time |
-| --- | --- | --- |
-| `01_title.html` | EasyDiffraction and crysta | 0:30 |
-| `10_many-tools.html` | Diffraction analysis: many tools | 0:40 |
-| `11_user-friction.html` | What users ran into | 1:05 |
-| `12_needs.html` | Needs | 0:45 |
-| `13_libraries.html` | Built on existing libraries | 1:05 |
-| `13b_library-capabilities.html` | What each library brings | 0:30 |
-| `14_dependencies.html` | Earlier software stack | 1:05 |
-| `15_ux.html` | Several years of improving UI/UX | 0:40 |
-| `16_ux-review.html` | Reviewed by UX experts | 0:25 |
-| `17_three-interfaces.html` | Three ways to run the same workflow | 0:30 |
-| `19_future.html` | A possible future: several engines | 0:35 |
-| `20_architecture.html` | The current crysta-only approach | 0:45 |
-| `21_advantages.html` | What the new approach changes | 1:00 |
-| `22_physics.html` | Current functionality: diffraction | 1:10 |
-| `23_powder.html` | Current functionality: analysis | 0:55 |
-| `24_application.html` | A complete refinement workspace | 1:15 |
-| `25_scans.html` | From one pattern to a measurement series | 1:10 |
-| `26_magnetism.html` | Inspect the magnetic structure | 0:55 |
-| `26b_test-case.html` | One of many test cases | 0:35 |
-| `27_verification.html` | Agreement of calculated patterns | 0:40 |
-| `27b_parameters.html` | Agreement of refined parameters | 0:35 |
-| `28_speed.html` | Speed: a full TOF refinement | 1:05 |
-| `30_six-interfaces.html` | One project, six ways to work | 1:40 |
-| `31_graphical.html` | Web and desktop application | 0:50 |
-| `32_python.html` | Notebooks and Python scripts | 1:10 |
-| `33_cli.html` | Command line without writing Python | 1:05 |
-| `34_ai-desktop.html` | AI assistance inside the desktop app | 1:10 |
-| `35_ai-external.html` | AI-ready beyond the built-in assistant | 1:10 |
-| `36_software.html` | Practical software features | 1:05 |
-| `37_status.html` | Work in progress / Next steps | 1:00 |
-| `38_hands-on.html` | Choose a route for the hands-on sessions | 1:00 |
-| `39_online.html` | Test online without installation | 0:35 |
-| `39_takeaway.html` | EasyDiffraction for your next analysis | 0:25 |
-| `40_survey.html` | Help shape EasyDiffraction | 0:45 |
-| `90_survey.html` | Six ways to work: audience feedback | 0:00 |
+Current features and links follow the published documentation at https://enhantica.github.io/edi/. The application index lists 25 tutorials, including its built-in-assistant walkthrough. The PDF and Bayesian output figures come from the earlier library documentation and are shown in the historical part of the talk. Both are existing capabilities to port to crysta, rather than new methods to develop.
 
-## Current functionality and tutorials
+The two-bank NCAF verification case remains separate from the five-bank benchmark. The latter shows approximately 3 s with crysta versus 20 s with FullProf, 193 parameters, identical initial values and the six-core VISA Linux machine specified in the abstract. Its five input banks contain 20,475 measured points. Bar lengths use a linear scale, with no top time axis.
 
-Current features were checked against the rebuilt local documentation at `http://127.0.0.1:8873/`. The scientific overview follows that catalogue; old feature coverage and roadmap slides in backup are historical source material.
+The taurine image is an actual edi GUI capture. Images and figures retain their source data. References and qualifications are recorded in speaker notes.
 
-The updated online-entry slide uses the same 23 tutorials for the application and Python/Colab. The catalogue contains examples from 11 named facilities and 15 named physical instruments after merging FRM II / MLZ and excluding blank laboratory labels and McStas software from facility/instrument counts. Simulations remain included in the tutorial count; BEER is explicitly labelled simulated. The speaker notes record the count basis.
+The last slide uses the presenter-selected Success Kid “We need your feedback” image. The survey QR code points to http://easydiffraction.org/about/survey/, which the presenter will publish later. The ten researched alternatives remain in the source-linked review gallery. The selected image source is recorded in the slide notes.
 
-The public documentation links target the forthcoming `https://enhantica.github.io/edi/` pages. The local preview supplied the current content. Recheck public links when the site is published.
+## Running order
 
-The built-in AI assistant is desktop-only. External assistants can prepare projects and notebooks. Standalone CLI currently fits saved projects; the Python package's CLI supports the broader command set without Python scripting.
-
-The final slide remains an explicitly labelled survey placeholder, as requested. Replace it with the actual About-page survey screenshot and confirmed link when available.
+| Content slide | Topic |
+| --- | --- |
+| 1 | EasyDiffraction and crysta |
+| 2 | One facility, two host countries |
+| 3 | Diffraction analysis: many tools |
+| 4 | What users ran into |
+| 5 | Needs |
+| 6 | Built on existing libraries |
+| 7 | What each library brings |
+| 8 | Earlier software stack |
+| 9 | Several years of improving UI/UX |
+| 10 | Reviewed by UX experts |
+| 11 | The library grew beyond standard refinement |
+| 12 | What modern diffraction analysis needs |
+| 13 | Meet crysta |
+| 14 | One project, six ways to work |
+| 15 | One of many test cases |
+| 16 | Agreement of calculated patterns |
+| 17 | A fit is not one calculation |
+| 18 | Speed: a full TOF refinement |
+| 19 | Current functionality: data and models |
+| 20 | Current functionality: fitting and results |
+| 21 | A complete refinement workspace |
+| 22 | From one pattern to a measurement series |
+| 23 | Inspect the magnetic structure |
+| 24 | Even single-crystal diffraction |
+| 25 | AI assistance inside the desktop app |
+| 26 | AI-ready beyond the built-in assistant |
+| 27 | Practical software features |
+| 28 | Work in progress / Next steps |
+| 29 | Plan for Thursday and Friday |
+| 30 | EasyDiffraction needs your feedback |

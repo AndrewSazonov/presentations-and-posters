@@ -2,9 +2,18 @@
   {
     "file": "01_title.html",
     "title": "EasyDiffraction and crysta",
-    "seconds": 30,
     "kind": "adapted",
-    "sources": "STAP cover"
+    "seconds": 30,
+    "sources": "STAP animated cover",
+    "template": "STAP animated cover"
+  },
+  {
+    "file": "02_facility.html",
+    "kind": "adapted",
+    "seconds": 25,
+    "sources": "NOBUGS ESS map + STAP shotbox",
+    "title": "One facility, two host countries",
+    "template": "NOBUGS ESS map + STAP shotbox"
   },
   {
     "file": "10_many-tools.html",
@@ -65,84 +74,44 @@
     "template": "STAP: reviewed-by-ux-experts.html"
   },
   {
-    "file": "17_three-interfaces.html",
-    "kind": "reused",
-    "seconds": 30,
-    "sources": "STAP three-ways-to-run-the-same-workflow.html",
-    "title": "Three ways to run the same workflow",
-    "template": "STAP: three-ways-to-run-the-same-workflow.html"
+    "file": "18_advanced-library.html",
+    "kind": "adapted",
+    "seconds": 65,
+    "sources": "STAP three-ways columns",
+    "title": "The library grew beyond standard refinement",
+    "template": "STAP three-ways columns"
+  },
+  {
+    "file": "18b_modern-analysis.html",
+    "title": "What modern diffraction analysis needs",
+    "kind": "adapted",
+    "seconds": 50,
+    "sources": "LENS 17/4, unchanged except title",
+    "template": "LENS 17/4, unchanged except title"
   },
   {
     "file": "19_future.html",
+    "title": "Meet crysta",
     "kind": "adapted",
-    "seconds": 35,
-    "sources": "Meet crysta · original multi-engine drawing",
-    "title": "A possible future: several engines",
-    "template": "Meet crysta · original multi-engine drawing"
+    "seconds": 65,
+    "sources": "STAP 19, original working animation and geometry",
+    "template": "STAP 19, original working animation and geometry"
   },
   {
     "file": "20_architecture.html",
-    "title": "The current crysta-only approach",
-    "seconds": 45,
+    "title": "One project, six ways to work",
+    "seconds": 140,
     "kind": "adapted",
     "sources": "http://127.0.0.1:8873/user-guide/; http://127.0.0.1:8873/about/",
-    "template": "What we rely on / Meet crysta · stackfig grouped"
-  },
-  {
-    "file": "21_advantages.html",
-    "title": "What the new approach changes",
-    "seconds": 60,
-    "kind": "adapted",
-    "sources": "STAP slides Built on existing libraries and What we rely on; http://127.0.0.1:8873/user-guide/",
-    "template": "Needs · boxed rows"
-  },
-  {
-    "file": "22_physics.html",
-    "title": "Current functionality: diffraction",
-    "seconds": 70,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/features/",
-    "template": "Current functionality · exact dense boxed list"
-  },
-  {
-    "file": "23_powder.html",
-    "title": "Current functionality: analysis",
-    "seconds": 55,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/features/; http://127.0.0.1:8873/physics/",
-    "template": "Current functionality · exact dense boxed list"
-  },
-  {
-    "file": "24_application.html",
-    "title": "A complete refinement workspace",
-    "seconds": 75,
-    "kind": "adapted",
-    "sources": "2026.11.17 poster assets; abstract-11-2.pdf",
-    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
-  },
-  {
-    "file": "25_scans.html",
-    "title": "From one pattern to a measurement series",
-    "seconds": 70,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/features/; http://127.0.0.1:8873/application/tutorials/cases/pd-neut-cwl_cosio-d20_scan-213f/",
-    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
-  },
-  {
-    "file": "26_magnetism.html",
-    "title": "Inspect the magnetic structure",
-    "seconds": 55,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/features/#magnetic-structure-model; http://127.0.0.1:8873/user-guide/features/#defining-structures-and-experiments",
-    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+    "template": "STAP Meet crysta and three-ways workflow"
   },
   {
     "file": "26b_test-case.html",
-    "kind": "reused",
+    "kind": "adapted",
     "seconds": 35,
     "sources": "STAP one-of-many-test-cases.html",
     "title": "One of many test cases",
-    "template": "STAP: one-of-many-test-cases.html"
+    "template": "STAP One of many test cases, five-bank values"
   },
   {
     "file": "27_verification.html",
@@ -153,12 +122,12 @@
     "template": "STAP: agreement-of-calculated-patterns.html"
   },
   {
-    "file": "27b_parameters.html",
-    "kind": "reused",
-    "seconds": 35,
-    "sources": "STAP agreement-of-refined-parameters.html",
-    "title": "Agreement of refined parameters",
-    "template": "STAP: agreement-of-refined-parameters.html"
+    "file": "27c_fit-loop.html",
+    "kind": "adapted",
+    "seconds": 45,
+    "sources": "DMSC 19, adapted to STAP type and diagram width",
+    "title": "A fit is not one calculation",
+    "template": "DMSC 19, adapted to STAP type and diagram width"
   },
   {
     "file": "28_speed.html",
@@ -166,47 +135,63 @@
     "seconds": 65,
     "kind": "adapted",
     "sources": "abstract-11-2.pdf; 2026-early-science-poster-easydiffraction-sazonov",
-    "template": "Speed: a full TOF refinement · exact bars and log axis"
+    "template": "STAP speed bars, linear widths"
   },
   {
-    "file": "30_six-interfaces.html",
-    "title": "One project, six ways to work",
-    "seconds": 100,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/; http://127.0.0.1:8873/application/; http://127.0.0.1:8873/python/; http://127.0.0.1:8873/cli/",
-    "template": "What we rely on · existing stackfig grouped vocabulary"
-  },
-  {
-    "file": "31_graphical.html",
-    "title": "Web and desktop application",
-    "seconds": 50,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/application/browser/; http://127.0.0.1:8873/application/desktop/",
-    "template": "Needs · boxed rows"
-  },
-  {
-    "file": "32_python.html",
-    "title": "Notebooks and Python scripts",
-    "seconds": 70,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/python/; http://127.0.0.1:8873/python/data/; http://127.0.0.1:8873/python/reports/; http://127.0.0.1:8873/python/setup/",
-    "template": "How the code is checked"
-  },
-  {
-    "file": "33_cli.html",
-    "title": "Command line without writing Python",
+    "file": "22_physics.html",
+    "title": "Current functionality: data and models",
     "seconds": 65,
     "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/cli/; http://127.0.0.1:8873/cli/reference/; http://127.0.0.1:8873/cli/python/",
-    "template": "Needs · boxed rows"
+    "sources": "http://127.0.0.1:8873/user-guide/features/",
+    "template": "STAP Current functionality · five concise rows"
+  },
+  {
+    "file": "23_powder.html",
+    "title": "Current functionality: fitting and results",
+    "seconds": 55,
+    "kind": "adapted",
+    "sources": "http://127.0.0.1:8873/user-guide/features/; http://127.0.0.1:8873/physics/",
+    "template": "STAP Current functionality · five concise rows"
+  },
+  {
+    "file": "24_application.html",
+    "title": "A complete refinement workspace",
+    "seconds": 50,
+    "kind": "adapted",
+    "sources": "2026.11.17 poster assets; abstract-11-2.pdf",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "25_scans.html",
+    "title": "From one pattern to a measurement series",
+    "seconds": 50,
+    "kind": "adapted",
+    "sources": "http://127.0.0.1:8873/user-guide/features/; http://127.0.0.1:8873/application/tutorials/cases/pd-neut-cwl_cosio-d20_scan-213f/",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "26_magnetism.html",
+    "title": "Inspect the magnetic structure",
+    "seconds": 50,
+    "kind": "adapted",
+    "sources": "http://127.0.0.1:8873/user-guide/features/#magnetic-structure-model; http://127.0.0.1:8873/user-guide/features/#defining-structures-and-experiments",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "26c_single-crystal.html",
+    "kind": "adapted",
+    "seconds": 50,
+    "sources": "A few live demos · shotbox; Agreement of calculated patterns · casechips",
+    "title": "Even single-crystal diffraction",
+    "template": "STAP shotbox and casechips · fixed app window"
   },
   {
     "file": "34_ai-desktop.html",
     "title": "AI assistance inside the desktop app",
-    "seconds": 70,
+    "seconds": 60,
     "kind": "adapted",
     "sources": "http://127.0.0.1:8873/user-guide/ai-assistant/; http://127.0.0.1:8873/application/tutorials/assistant/",
-    "template": "A few live demos · shotbox; Agreement of calculated patterns · casechips"
+    "template": "STAP screenshot template · matched width and UI scale"
   },
   {
     "file": "35_ai-external.html",
@@ -222,54 +207,30 @@
     "seconds": 65,
     "kind": "adapted",
     "sources": "http://127.0.0.1:8873/about/licence/; http://127.0.0.1:8873/application/desktop/; http://127.0.0.1:8873/user-guide/analysis-workflow/report/; https://easydiffraction.org/",
-    "template": "What became reusable · reflibs"
+    "template": "STAP What became reusable cards; same type hierarchy"
   },
   {
     "file": "37_status.html",
     "title": "Work in progress / Next steps",
-    "seconds": 60,
+    "seconds": 50,
     "kind": "adapted",
     "sources": "http://127.0.0.1:8873/user-guide/features/",
-    "template": "Work in progress / Next steps · boxed rows"
+    "template": "STAP Work in progress boxed rows"
   },
   {
     "file": "38_hands-on.html",
-    "title": "Choose a route for the hands-on sessions",
-    "seconds": 60,
+    "title": "Plan for Thursday and Friday",
+    "seconds": 70,
     "kind": "adapted",
     "sources": "User workshop description; http://127.0.0.1:8873/user-guide/tutorials/; http://127.0.0.1:8873/python/tutorials/; http://127.0.0.1:8873/cli/tutorials/",
-    "template": "Needs · boxed rows"
-  },
-  {
-    "file": "39_online.html",
-    "kind": "adapted",
-    "seconds": 35,
-    "sources": "Test online without installation · original two-column template",
-    "title": "Test online without installation",
-    "template": "Test online without installation · original two-column template"
-  },
-  {
-    "file": "39_takeaway.html",
-    "title": "EasyDiffraction for your next analysis",
-    "seconds": 25,
-    "kind": "adapted",
-    "sources": "http://127.0.0.1:8873/user-guide/",
     "template": "How the code is checked"
   },
   {
     "file": "40_survey.html",
-    "title": "Help shape EasyDiffraction",
+    "title": "EasyDiffraction needs your feedback",
     "seconds": 45,
     "kind": "adapted",
     "sources": "User request: placeholder for the forthcoming survey under http://127.0.0.1:8873/about/",
-    "template": "Diffraction analysis: many tools · samefact"
-  },
-  {
-    "file": "90_survey.html",
-    "title": "Six ways to work: audience feedback",
-    "seconds": 0,
-    "kind": "adapted",
-    "sources": "User interface list",
-    "template": "Agreement of refined parameters · ptable"
+    "template": "STAP three-ways columns"
   }
 ]

@@ -210,3 +210,6 @@ p.write_text(b)
 (R/'template-map.json').write_text(json.dumps(mapping,indent=2,ensure_ascii=False))
 (R/'outline.json').write_text(json.dumps([meta[f] for f in order if f in meta]+[meta['90_survey.html']],indent=2,ensure_ascii=False))
 print('Adapted',len(mapping),'slide files using existing STAP components. No workshop stylesheet is loaded.')
+
+# Latest presenter review, retaining the original component vocabulary.
+exec(compile((R/'review_updates.py').read_text(),str(R/'review_updates.py'),'exec'),globals())

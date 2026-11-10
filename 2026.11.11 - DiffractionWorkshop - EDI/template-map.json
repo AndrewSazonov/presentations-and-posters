@@ -110,5 +110,81 @@
   {
     "file": "90_survey.html",
     "template": "Agreement of refined parameters · ptable"
+  },
+  {
+    "file": "01_title.html",
+    "template": "STAP animated cover"
+  },
+  {
+    "file": "02_facility.html",
+    "template": "NOBUGS ESS map + STAP shotbox"
+  },
+  {
+    "file": "18_advanced-library.html",
+    "template": "STAP three-ways columns"
+  },
+  {
+    "file": "18b_modern-analysis.html",
+    "template": "LENS 17/4, unchanged except title"
+  },
+  {
+    "file": "19_future.html",
+    "template": "STAP 19, original working animation and geometry"
+  },
+  {
+    "file": "20_architecture.html",
+    "template": "STAP Meet crysta and three-ways workflow"
+  },
+  {
+    "file": "27c_fit-loop.html",
+    "template": "DMSC 19, adapted to STAP type and diagram width"
+  },
+  {
+    "file": "28_speed.html",
+    "template": "STAP speed bars, linear widths"
+  },
+  {
+    "file": "22_physics.html",
+    "template": "STAP Current functionality · five concise rows"
+  },
+  {
+    "file": "23_powder.html",
+    "template": "STAP Current functionality · five concise rows"
+  },
+  {
+    "file": "24_application.html",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "25_scans.html",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "26_magnetism.html",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "26c_single-crystal.html",
+    "template": "STAP shotbox and casechips · fixed app window"
+  },
+  {
+    "file": "34_ai-desktop.html",
+    "template": "STAP screenshot template · matched width and UI scale"
+  },
+  {
+    "file": "36_software.html",
+    "template": "STAP What became reusable cards; same type hierarchy"
+  },
+  {
+    "file": "37_status.html",
+    "template": "STAP Work in progress boxed rows"
+  },
+  {
+    "file": "38_hands-on.html",
+    "template": "How the code is checked"
+  },
+  {
+    "file": "40_survey.html",
+    "template": "STAP three-ways columns"
   }
 ]

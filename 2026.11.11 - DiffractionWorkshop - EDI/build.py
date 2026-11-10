@@ -14,13 +14,9 @@ import time
 HERE = Path(__file__).parent
 # Section titles live here, not inside the slides: each becomes its own title slide, emitted before the
 # first slide of that section. A slide file therefore carries only its own content.
-SECTION_TITLES = {
-    "10_many-tools.html": "Why this approach",
-    "19_future.html": "crysta + EasyDiffraction",
-    "30_six-interfaces.html": "Choose how to work",
-}
-ORDER = ['00_divider.html', '01_title.html', '10_many-tools.html', '11_user-friction.html', '12_needs.html', '13_libraries.html', '13b_library-capabilities.html', '14_dependencies.html', '15_ux.html', '16_ux-review.html', '17_three-interfaces.html', '19_future.html', '20_architecture.html', '21_advantages.html', '22_physics.html', '23_powder.html', '24_application.html', '25_scans.html', '26_magnetism.html', '26b_test-case.html', '27_verification.html', '27b_parameters.html', '28_speed.html', '30_six-interfaces.html', '31_graphical.html', '32_python.html', '33_cli.html', '34_ai-desktop.html', '35_ai-external.html', '36_software.html', '37_status.html', '38_hands-on.html', '39_online.html', '39_takeaway.html', '40_survey.html']
-BACKUP_ORDER = ['00_divider.html', '90_survey.html', 'library/diffraction-analysis-many-tools.html', 'library/what-users-run-into.html', 'library/needs.html', 'library/built-on-existing-libraries.html', 'library/what-each-library-brings.html', 'library/what-we-rely-on.html', 'library/several-years-of-improving-ui-ux.html', 'library/reviewed-by-ux-experts.html', 'library/three-ways-to-run-the-same-workflow.html', 'library/same-look-and-feel-different-technique.html', 'library/what-became-reusable.html', 'library/back-to-diffraction-what-analysis-needs.html', 'library/ai-in-crystallography.html', 'library/a-pilot-project.html', 'library/meet-crysta.html', 'library/one-of-many-test-cases.html', 'library/agreement-of-calculated-patterns.html', 'library/agreement-of-refined-parameters.html', 'library/speed-a-full-tof-refinement.html', 'library/how-the-code-is-checked.html', 'library/current-functionality.html', 'library/easydiffraction-without-crysta-vs-crysta.html', 'library/easydiffraction-in-teaching.html', 'library/work-in-progress-next-steps.html', 'library/test-online-without-installation.html', 'library/a-few-live-demos.html', 'library/nobugs-where-analysis-sits.html', 'library/nobugs-what-reuse-brings.html', 'library/nobugs-seeing-beats-reading.html', 'library/nobugs-one-path-through-the-data.html']
+SECTION_TITLES = {'02_facility.html': 'Why this approach', '19_future.html': 'crysta + EasyDiffraction', '24_application.html': 'Selected features', '36_software.html': 'Using EasyDiffraction'}
+ORDER = ['00_divider.html', '01_title.html', '02_facility.html', '10_many-tools.html', '11_user-friction.html', '12_needs.html', '13_libraries.html', '13b_library-capabilities.html', '14_dependencies.html', '15_ux.html', '16_ux-review.html', '18_advanced-library.html', '18b_modern-analysis.html', '19_future.html', '20_architecture.html', '26b_test-case.html', '27_verification.html', '27c_fit-loop.html', '28_speed.html', '22_physics.html', '23_powder.html', '24_application.html', '25_scans.html', '26_magnetism.html', '26c_single-crystal.html', '34_ai-desktop.html', '35_ai-external.html', '36_software.html', '37_status.html', '38_hands-on.html', '40_survey.html']
+BACKUP_ORDER = ['00_divider.html', '39_takeaway.html', '39_online.html', '33_cli.html', '32_python.html', '31_graphical.html', '30_six-interfaces.html', '27b_parameters.html', '21_advantages.html', '17_three-interfaces.html', '90_survey.html', 'library/diffraction-analysis-many-tools.html', 'library/what-users-run-into.html', 'library/needs.html', 'library/built-on-existing-libraries.html', 'library/what-each-library-brings.html', 'library/what-we-rely-on.html', 'library/several-years-of-improving-ui-ux.html', 'library/reviewed-by-ux-experts.html', 'library/three-ways-to-run-the-same-workflow.html', 'library/same-look-and-feel-different-technique.html', 'library/what-became-reusable.html', 'library/back-to-diffraction-what-analysis-needs.html', 'library/ai-in-crystallography.html', 'library/a-pilot-project.html', 'library/meet-crysta.html', 'library/one-of-many-test-cases.html', 'library/agreement-of-calculated-patterns.html', 'library/agreement-of-refined-parameters.html', 'library/speed-a-full-tof-refinement.html', 'library/how-the-code-is-checked.html', 'library/current-functionality.html', 'library/easydiffraction-without-crysta-vs-crysta.html', 'library/easydiffraction-in-teaching.html', 'library/work-in-progress-next-steps.html', 'library/test-online-without-installation.html', 'library/a-few-live-demos.html', 'library/nobugs-where-analysis-sits.html', 'library/nobugs-what-reuse-brings.html', 'library/nobugs-seeing-beats-reading.html', 'library/nobugs-one-path-through-the-data.html']
 
 HEAD = """<!doctype html>
 <html>
@@ -45,6 +41,7 @@ HEAD = """<!doctype html>
     <link rel="stylesheet" type="text/css" href="extra/style.css">
     <link rel="stylesheet" type="text/css" href="extra/talk.css">
     <link rel="stylesheet" type="text/css" href="extra/edi.css">
+    <style>.reveal .sbody a, .reveal .sbody a:hover, .reveal .sbody a:visited { color:var(--c-blue); }</style>
   </head>
 
   <body>
@@ -63,7 +60,9 @@ TAIL = """
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <style>html.review * { animation:none !important; transition:none !important; }</style>
     <script>
+      if(new URLSearchParams(location.search).has('review')) document.documentElement.classList.add('review');
       Reveal.initialize({
           width: 1200,
           height: 750,
@@ -91,7 +90,7 @@ TAIL = """
           transition: new URLSearchParams(location.search).has('review') ? 'none' : 'slide',
           autoAnimate: !new URLSearchParams(location.search).has('review'),           // a new slide arrives from the right; steps inside
                                          // one slide are auto-animated, so they stay fades
-          backgroundTransition: 'fade',
+          backgroundTransition: new URLSearchParams(location.search).has('review') ? 'none' : 'fade',
           autoPlayMedia: null,
           plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
           autoAnimateEasing: 'cubic-bezier(0.770, 0.000, 0.175, 1.000)',
@@ -209,6 +208,10 @@ TAIL = """
           }
       };
       Reveal.on('ready', alignControls);
+      Reveal.on('ready', function () {
+        const q = new URLSearchParams(location.search);
+        if (q.has('review') && q.has('slide')) Reveal.slide(Number(q.get('slide')), Number(q.get('step') || 0));
+      });
       // reveal's own 'resize' only fires when the SCALE changes -- and the fullscreen cap below
       // exists precisely to stop it changing, so entering fullscreen fires nothing at all. The
       // viewport still grew, though, and --vh-extra is computed from the viewport. Hence the DOM
@@ -242,7 +245,7 @@ TAIL = """
       })();
       // Layout self-check: open index.html?check to get one line per slide step whose content
       // overflows the 1200x750 slide box (vertical) or spills past its edges (horizontal).
-      if (location.search.includes('check')) {
+      if (new URLSearchParams(location.search).has('check')) {
         Reveal.on('ready', () => {
           // Walk with auto-animate AND the slide transition off: both tween a transform, and
           // stepping this fast leaves a half-finished one on the slide being measured. The title
@@ -292,6 +295,8 @@ SECTION_ICONS = {
     'EasyDiffraction': 'cubes',
     'crysta': 'microchip',
     'Status and plans': 'flag-checkered',
+    'Selected features': 'eye',
+    'Using EasyDiffraction': 'display',
     "Demo": "display",
 }
 
@@ -393,6 +398,8 @@ def open_on_title(stack: str) -> str:
     hidden elements too: the tab strip would arrive carrying the final step's highlight, and the
     first click would slide the blue pill from Summary back to Project before the slide settled.
     """
+    if "data-continue" in stack:
+        return stack
     steps = list(re.finditer(r"<section\b[^>]*>", stack))
     if len(steps) < 2:                       # the stack's own tag, then at least one step
         return stack
