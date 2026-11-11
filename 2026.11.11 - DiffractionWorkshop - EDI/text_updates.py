@@ -88,6 +88,15 @@ CONSISTENCY_UPDATES = {'18_advanced-library.html': [('HRPT / PSI · DREAM</p>', 
 for filename, replacements in CONSISTENCY_UPDATES.items():
     TEXT_UPDATES.setdefault(filename, []).extend(replacements)
 
+# Independent review: clarify the percentage and align the AI outputs.
+REVIEW_UPDATES = {'27_verification.html': [('Maximum difference: 3.9 of 7,527 counts (<span '
+                           'class="blue">0.05&nbsp;%</span>).',
+                           'Maximum difference: 3.9 counts (<span class="blue">0.05% of peak '
+                           'height</span>).')],
+ '35_ai-external.html': [('Ask for a notebook or project', 'Ask for a project, script or notebook')]}
+for filename, replacements in REVIEW_UPDATES.items():
+    TEXT_UPDATES.setdefault(filename, []).extend(replacements)
+
 for filename, replacements in TEXT_UPDATES.items():
     path = S / filename
     content = path.read_text()
