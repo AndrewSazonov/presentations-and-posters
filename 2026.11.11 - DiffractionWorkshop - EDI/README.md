@@ -57,6 +57,6 @@ The last slide uses the presenter-selected Success Kid â€œWe need your feedbackâ
 | 25 | AI assistance inside the desktop app |
 | 26 | AI-ready beyond the built-in assistant |
 | 27 | Practical software features |
-| 28 | Work in progress / Next steps |
+| 28 | Work in progress / next steps |
 | 29 | Plan for Thursday and Friday |
 | 30 | EasyDiffraction needs your feedback |

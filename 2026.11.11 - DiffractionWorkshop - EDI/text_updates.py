@@ -32,6 +32,41 @@ TEXT_UPDATES = {
     ],
 }
 
+# Pass 2: grammar, terminology and plain wording.
+GRAMMAR_UPDATES = {'11_user-friction.html': [('Not the best UX', 'Difficult interface'),
+                           ('High entrance barrier', 'Hard to get started'),
+                           ('input files with cryptic labels', 'input files with unclear labels'),
+                           ('XQuartz to install on macOS', 'XQuartz needed on macOS'),
+                           ('Not cross-platform', 'Limited platform support'),
+                           ('Gaps for the ESS instruments, and <span class="blue">a steep start</span> for '
+                            'new users.',
+                            'Gaps for ESS instruments and <span class="blue">a difficult start</span> for '
+                            'new users.')],
+ '13b_library-capabilities.html': [('mature, wide coverage', 'broad diffraction support'),
+                                   ('more polarised-neutron options', 'polarised-neutron analysis')],
+ '15_ux.html': [('cleaner, lighter', 'a clearer interface'),
+                ('the same shape,', 'a familiar layout,'),
+                ('still intuitive', 'the same workflow')],
+ '16_ux-review.html': [('Then they reviewed <span class="blue">our interface</span>.',
+                        'Review of <span class="blue">the EasyDiffraction interface</span>.')],
+ '22_physics.html': [('neutron single crystal', 'neutron single-crystal')],
+ '27c_fit-loop.html': [('10 &ndash; 200 parameters', '10&ndash;200 parameters')],
+ '34_ai-desktop.html': [('Ask, inspect the actions, and <span class="blue">check the resulting fit</span>.',
+                         'Ask, inspect the actions and <span class="blue">check the fit</span>.')],
+ '35_ai-external.html': [('documentation and fit stages', 'documentation and refinement stages'),
+                         ('Use it in Python, the web or desktop app, or the command line',
+                          'Use Python, the web or desktop app, or the command line')],
+ '36_software.html': [('Source and issue tracking on GitHub', 'Source code and issue tracking on GitHub'),
+                      ('Step backwards or forwards through edits', 'Undo or redo changes'),
+                      ('Choose the display you prefer', 'Choose the theme you prefer')],
+ '37_status.html': [('Work in progress / Next steps', 'Work in progress / next steps')],
+ '38_hands-on.html': [('No preparation or advance download of materials needed',
+                       'No preparation or downloads needed in advance'),
+                      ('A flexible set of examples, with help when you need it',
+                       'Choose examples and ask for help when needed')]}
+for filename, replacements in GRAMMAR_UPDATES.items():
+    TEXT_UPDATES.setdefault(filename, []).extend(replacements)
+
 for filename, replacements in TEXT_UPDATES.items():
     path = S / filename
     content = path.read_text()
