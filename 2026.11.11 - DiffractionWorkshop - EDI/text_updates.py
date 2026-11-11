@@ -67,6 +67,27 @@ GRAMMAR_UPDATES = {'11_user-friction.html': [('Not the best UX', 'Difficult inte
 for filename, replacements in GRAMMAR_UPDATES.items():
     TEXT_UPDATES.setdefault(filename, []).extend(replacements)
 
+# Pass 3: a fresh consistency and clarity review of the complete sequence.
+CONSISTENCY_UPDATES = {'18_advanced-library.html': [('HRPT / PSI · DREAM</p>', 'HRPT / PSI · DREAM sampler</p>')],
+ '18b_modern-analysis.html': [('huge parameter spaces', 'large parameter spaces'),
+                              ('experiments that run themselves', 'repeatable analysis'),
+                              ('no human in the loop', 'less manual intervention')],
+ '27_verification.html': [('WISH 2+9', 'WISH · banks 2+9'),
+                          ('3977 points', '3,977 points'),
+                          ('Largest difference 3.9 of 7527 counts: <span class="blue">0.05&nbsp;%</span>.',
+                           'Maximum difference: 3.9 of 7,527 counts (<span '
+                           'class="blue">0.05&nbsp;%</span>).'),
+                          ('7527-count peak', '7,527-count peak')],
+ '28_speed.html': [('same start</span>', 'Same start</span>')],
+ '24_application.html': [('Measured data, model and <span class="blue">fitted parameters together</span>.',
+                          'Data, model and <span class="blue">fitted parameters in one view</span>.')],
+ '26_magnetism.html': [('Inspect the <span class="blue">magnetic moments after refinement</span>.',
+                        'View the <span class="blue">refined magnetic moments</span>.')],
+ '37_status.html': [('Port existing capabilities', 'Port earlier capabilities'),
+                    ('PDF and Bayesian analysis · available before crysta', 'PDF and Bayesian analysis')]}
+for filename, replacements in CONSISTENCY_UPDATES.items():
+    TEXT_UPDATES.setdefault(filename, []).extend(replacements)
+
 for filename, replacements in TEXT_UPDATES.items():
     path = S / filename
     content = path.read_text()

@@ -6,7 +6,7 @@ Day 1 presentation, revised to the presenter’s 10 November review. There are 3
 
 Open `index.html` directly or through a local server. Arrow keys advance, **S** opens notes, **Esc** shows the overview, and **F** enters full screen.
 
-`slides/` contains the editable slide sources. `build.py` assembles them into `index.html` and `backup.html`. `compose.py` regenerates adapted slides and then applies `review_updates.py`, which implements the latest review. Run `python3 compose.py` followed by `python3 build.py` when intentionally regenerating adapted slides. Run only `python3 build.py` after a manual slide edit.
+`slides/` contains the editable slide sources. `build.py` assembles them into `index.html` and `backup.html`. `compose.py` regenerates adapted slides and then applies `review_updates.py`, which implements the latest review and applies the wording in `text_updates.py`. Run `python3 compose.py` followed by `python3 build.py` when intentionally regenerating adapted slides. Run only `python3 build.py` after a manual slide edit.
 
 ## Design and animation
 
