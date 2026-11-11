@@ -1,0 +1,26 @@
+/* Only this continuous diagram uses moving objects inside a fixed source-sized scene.
+   The outer scene is never auto-matched. Each independent object carries aa-move. */
+.reveal .architecture-sequence { flex:0 0 auto; }
+.reveal .architecture-sequence .arch-entity { box-sizing:border-box; margin:0; }
+.reveal .architecture-sequence .arch-family-label { display:flex;align-items:center;justify-content:center;gap:9px;color:#222;font-size:18.0723px;line-height:1.2;white-space:nowrap; }
+.reveal .architecture-sequence .arch-family-icon { display:inline-flex;align-items:center;justify-content:center;width:20px;flex:none; }
+.reveal .architecture-sequence .ico { height:18.0723px;width:auto;margin:0;vertical-align:middle; }
+.reveal .architecture-sequence .arch-family-name { display:grid; }
+.reveal .architecture-sequence .arch-family-name > span { grid-area:1 / 1; }
+.reveal .architecture-sequence .arch-route-label { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#222;line-height:1.1;white-space:nowrap; }
+.reveal .architecture-sequence .arch-route-icon { display:flex;height:18px;align-items:center;justify-content:center;margin-bottom:2px; }
+.reveal .architecture-sequence .arch-route-icon .ico { height:16.265px; }
+.reveal .architecture-sequence .arch-route-name { font-size:16.265px; }
+.reveal .architecture-sequence .arch-route-sub { font-size:13.554px; }
+.reveal .architecture-sequence .arch-project-label { position:absolute;left:10.843px;right:10.843px;top:6.8px;font-size:15.3614px;line-height:1.2;color:rgb(226,183,129); }
+.reveal .architecture-sequence .arch-project-inner { position:absolute;left:13.554px;right:13.554px;top:28.916px;height:43.3735px;background:rgb(226,183,129);border-radius:5.422px;display:grid;place-items:center;font-size:19.8795px;line-height:1.2;color:#222;white-space:nowrap; }
+.reveal .architecture-sequence .arch-project-inner > span { grid-area:1 / 1; }
+.reveal .architecture-sequence .crystabox .cbbig { display:none !important;animation:none !important; }
+.reveal .architecture-sequence .crystabox .cbslot { opacity:1 !important;animation:none !important; }
+
+.reveal .architecture-sequence .arch-family-variant { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:9px; }
+
+/* Compact choices sit above the three interface families. */
+.reveal .architecture-sequence .arch-route-label { flex-direction:row;gap:7px; }
+.reveal .architecture-sequence .arch-route-icon { margin:0;flex:none; }
+.reveal .architecture-sequence .arch-route-name { font-size:15.3614px; }

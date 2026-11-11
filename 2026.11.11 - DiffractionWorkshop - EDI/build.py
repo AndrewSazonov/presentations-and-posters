@@ -14,7 +14,7 @@ import time
 HERE = Path(__file__).parent
 # Section titles live here, not inside the slides: each becomes its own title slide, emitted before the
 # first slide of that section. A slide file therefore carries only its own content.
-SECTION_TITLES = {'02_facility.html': 'Why this approach', '19_future.html': 'crysta + EasyDiffraction', '24_application.html': 'Selected features', '36_software.html': 'Using EasyDiffraction'}
+SECTION_TITLES = {'02_facility.html': 'Earlier EasyDiffraction', '19_future.html': 'EasyDiffraction + crysta', '24_application.html': 'Selected features', '36_software.html': 'Using EasyDiffraction'}
 ORDER = ['00_divider.html', '01_title.html', '02_facility.html', '10_many-tools.html', '11_user-friction.html', '12_needs.html', '13_libraries.html', '13b_library-capabilities.html', '14_dependencies.html', '15_ux.html', '16_ux-review.html', '18_advanced-library.html', '18b_modern-analysis.html', '19_future.html', '20_architecture.html', '26b_test-case.html', '27_verification.html', '27c_fit-loop.html', '28_speed.html', '22_physics.html', '23_powder.html', '24_application.html', '25_scans.html', '26_magnetism.html', '26c_single-crystal.html', '34_ai-desktop.html', '35_ai-external.html', '36_software.html', '37_status.html', '38_hands-on.html', '40_survey.html']
 BACKUP_ORDER = ['00_divider.html', '39_takeaway.html', '39_online.html', '33_cli.html', '32_python.html', '31_graphical.html', '30_six-interfaces.html', '27b_parameters.html', '21_advantages.html', '17_three-interfaces.html', '90_survey.html', 'library/diffraction-analysis-many-tools.html', 'library/what-users-run-into.html', 'library/needs.html', 'library/built-on-existing-libraries.html', 'library/what-each-library-brings.html', 'library/what-we-rely-on.html', 'library/several-years-of-improving-ui-ux.html', 'library/reviewed-by-ux-experts.html', 'library/three-ways-to-run-the-same-workflow.html', 'library/same-look-and-feel-different-technique.html', 'library/what-became-reusable.html', 'library/back-to-diffraction-what-analysis-needs.html', 'library/ai-in-crystallography.html', 'library/a-pilot-project.html', 'library/meet-crysta.html', 'library/one-of-many-test-cases.html', 'library/agreement-of-calculated-patterns.html', 'library/agreement-of-refined-parameters.html', 'library/speed-a-full-tof-refinement.html', 'library/how-the-code-is-checked.html', 'library/current-functionality.html', 'library/easydiffraction-without-crysta-vs-crysta.html', 'library/easydiffraction-in-teaching.html', 'library/work-in-progress-next-steps.html', 'library/test-online-without-installation.html', 'library/a-few-live-demos.html', 'library/nobugs-where-analysis-sits.html', 'library/nobugs-what-reuse-brings.html', 'library/nobugs-seeing-beats-reading.html', 'library/nobugs-one-path-through-the-data.html']
 
@@ -41,6 +41,7 @@ HEAD = """<!doctype html>
     <link rel="stylesheet" type="text/css" href="extra/style.css">
     <link rel="stylesheet" type="text/css" href="extra/talk.css">
     <link rel="stylesheet" type="text/css" href="extra/edi.css">
+    <link rel="stylesheet" type="text/css" href="extra/architecture.css">
     <style>.reveal .sbody a, .reveal .sbody a:hover, .reveal .sbody a:visited { color:var(--c-blue); }</style>
   </head>
 
@@ -289,8 +290,8 @@ TAIL = """
 # One sprite symbol per section, expanded by expand_icons() along with the icons on the slides.
 SECTION_ICONS = {
     'Why new software': 'lightbulb',
-    'Why this approach': 'lightbulb',
-    'crysta + EasyDiffraction': 'microchip',
+    'Earlier EasyDiffraction': 'lightbulb',
+    'EasyDiffraction + crysta': 'microchip',
     'Choose how to work': 'display',
     'EasyDiffraction': 'cubes',
     'crysta': 'microchip',
@@ -440,6 +441,14 @@ def _hide_pairable(node) -> str:
     steps, so the wrapper's opacity jumps 0 to 1 and the whole block appears at once instead of
     fading. Its pairable children each fade, which is what every other step of the deck does.
     """
+    if "data-enter-as-unit" in node.attrs:
+        # The opening diagram rises as one object. Its internal objects only start
+        # matching on later clicks, so their individual fade timings cannot split it.
+        hidden = _hidden(node)
+        root_id = node.attrs.get("data-id", "")
+        return re.sub(r'data-id="([^"]+)"',
+                      lambda m: m.group(0) if m.group(1) == root_id
+                      else 'data-id="intro-' + m.group(1) + '"', hidden)
     if "data-id" in node.attrs or node.tag in PAIRABLE_TAGS:
         return _hidden(node)
     if not any(k.tag != "#text" for k in node.kids):

@@ -53,7 +53,7 @@ The last slide uses the presenter-selected Success Kid â€œWe need your feedbackâ
 | 21 | A complete refinement workspace |
 | 22 | From one pattern to a measurement series |
 | 23 | Inspect the magnetic structure |
-| 24 | Even single-crystal diffraction |
+| 24 | Also single-crystal diffraction |
 | 25 | AI assistance inside the desktop app |
 | 26 | AI-ready beyond the built-in assistant |
 | 27 | Practical software features |

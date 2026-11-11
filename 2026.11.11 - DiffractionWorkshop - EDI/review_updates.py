@@ -4,7 +4,7 @@ Executed by compose.py, using its writing helpers and template metadata.
 import copy as _copy
 import xml.etree.ElementTree as E
 ROOT=R.parent
-PRIVATE=R/'.review/2026-11-10'
+SOURCE_MATERIAL=R/'data/source-material'
 
 def leaves(text):
  result=[];depth=0
@@ -41,14 +41,14 @@ write('02_facility.html','One facility, two host countries',[mapbox],'ESS in <sp
 
 # 11. Actual output from the old library documentation, with historical scope explicit.
 # The posterior SVG is copied from the published plot DOM, not generated data.
-j=json.loads((PRIVATE/'bayesian-plot-dom.json').read_text())
+j=json.loads((SOURCE_MATERIAL/'bayesian-plot-dom.json').read_text())
 E.register_namespace('','http://www.w3.org/2000/svg')
 a=E.fromstring(j[0])
 for part in j[1:]:
  for child in E.fromstring(part):a.append(child)
 a.set('viewBox','0 0 717 728.312')
 (R/'images/current/legacy-bayesian-posterior.svg').write_text(E.tostring(a,encoding='unicode'))
-pdfdata=json.loads((PRIVATE/'pdf-plot-dom.json').read_text()); pdfsvg=E.fromstring(pdfdata[0])
+pdfdata=json.loads((SOURCE_MATERIAL/'pdf-plot-dom.json').read_text()); pdfsvg=E.fromstring(pdfdata[0])
 for part in pdfdata[1:]:
  for child in E.fromstring(part):pdfsvg.append(child)
 pdfsvg.set('viewBox','0 0 '+pdfsvg.get('width')+' '+pdfsvg.get('height'))
@@ -113,75 +113,8 @@ future_source=source
 future_source=future_source.replace('A new calculation and minimisation engine, <span class="blue">built in-house</span>.','A possible future: <span class="blue">alongside existing libraries</span>.')
 set_source('19_future.html','Meet crysta',future_source,'STAP 19, original working animation and geometry',65)
 
-# A continuous first frame matches the end of Meet crysta. The first click removes
-# the other engines and moves crysta under the horizontal centre of the Python API.
-reduced=_copy.deepcopy(fullsvg)
-for i in [0,1,2]:list(reduced)[i].set('class','hid')
-mid=list(reduced)[3]
-for e in list(mid):
- if e.tag in ['line','polygon']:e.set('class','hid')
-mid.append(E.fromstring(line(415,330,415,254)))
-mid.append(E.fromstring('<polygon points="408,255 422,255 415,242" style="fill:'+brown+'"/>'))
-centredbox=box.replace('data-id="crystabox"','data-id="crystabox" style="left:43.253%;"')
-reducedsvg=svgstr(reduced)
-
-def family(x,y,w,h,name,key,ident):
- sizes={'Application':92,'Python library':112,'Command line':109}
- return f'<g data-id="family-{ident}">'+rect(x,y,w,h,blue)+interface_label(x+w/2,y+h/2+8,name,key,sizes[name])+'</g>'
-
-def three_svg():
- # Same shared Python API layer as the source diagram.
- mid=svgstr(list(reduced)[3])
- return '<svg class="stackfig" data-id="stack4" viewBox="0 -32 830 448">'+mid+'<g data-id="interface-layer">'+family(20,12,250,60,'Application','display','app')+family(290,12,250,60,'Python library','python','python')+family(560,12,250,60,'Command line','terminal','cli')+'</g>'+''.join(line(cx,150,cx,72) for cx in [145,415,685])+'</svg>'
-three=three_svg()
-# Park CLI outside the figure so it visibly slides in on the next click.
-reducedsvg=reducedsvg.replace('</svg>',family(1000,12,250,60,'Command line','terminal','cli').replace('data-id="family-cli"','data-id="family-cli" class="hid"')+'</svg>')
-# The final tree uses the same source colours and icons. Route boxes grow upwards.
-tree=re.search(r'<svg.*?</svg>',(S/'30_six-interfaces.html').read_text(),re.S)[0]
-tree=tree.replace('data-id="six-routes"','data-id="stack4"')
-# Match the parent-family groups between the three-family and six-route stages.
-root=E.fromstring(tree)
-# Explicit IDs let Reveal animate each route box from its collapsed position.
-for i,e in enumerate(list(root)):
- if 'data-id' not in e.attrib and e.tag in ['rect','text','line']:e.set('data-id','route-part-'+str(i))
-# Identify each parent rect at y=118 and wrap it with its label + icon group.
-kids=list(root)
-for x,ident in [(20,'app'),(290,'python'),(560,'cli')]:
- for i,k in enumerate(kids):
-  if k.tag=='rect' and k.get('x')==str(x) and k.get('y')=='118':
-   g=E.Element('g',{'data-id':'family-'+ident})
-   ix=list(root).index(k)
-   for child in kids[i:i+3]:
-    root.remove(child);g.append(child)
-   root.insert(ix,g)
-# Remove native crysta box in favour of the original animated HTML box.
-kids=list(root);cut=next(i for i,e in enumerate(kids) if e.tag=='line' and e.get('y1')=='312')
-for e in kids[cut:]:root.remove(e)
-root.append(E.fromstring(line(415,312,415,348)))
-tree=svgstr(root)
-widebox=box.replace('data-id="crystabox"','data-id="crystabox" style="left:30.120%;top:84.821%;width:39.759%;height:14.286%;"')
-# Collapse each pair into its parent before the six boxes appear.
-collapsed=_copy.deepcopy(root)
-for e in list(collapsed):
- if e.tag=='rect' and e.get('y')=='0':
-  e.set('y','118');e.set('height','52');e.set('class','hid')
- # The children and branches are initially invisible, with family boxes retained.
- if e.tag in ['text','g','line'] and e.get('data-id','').startswith('family-') is False:
-  if e.tag=='text' and float(e.get('y','999'))<100:e.set('class','hid')
-  if e.tag=='g' and 'transform' in e.attrib:e.set('class','hid')
-  if e.tag=='line' and float(e.get('y1','999'))<118:e.set('class','hid')
-# Route image layer appears only after the scientific layers have faded.
-images=''.join(f'<image data-id="route-image-{i}" href="images/{src}" x="{x}" y="218" width="250" height="180" preserveAspectRatio="xMidYMid meet"/>' for i,(x,src) in enumerate([(20,'ed-analysis-2026.png'),(290,'jupyter-2026.png'),(560,'ed-cli.png')]))
-blueonly=_copy.deepcopy(root)
-for e in list(blueonly):
- if e.tag=='rect' and e.get('y') in ['220','258']:e.set('class','hid')
- if e.tag=='text' and float(e.get('y','0'))>200:e.set('class','hid')
- if e.tag=='line' and e.get('y1') in ['170','312']:e.set('class','hid')
-finalsvg=svgstr(blueonly).replace('</svg>',images+'</svg>')
-hiddenbox=widebox.replace('crystabox slot aa-move','crystabox slot aa-move hid')
-write('20_architecture.html','One project, six ways to work',[
- fig(originalsvg),fig(reducedsvg,centredbox),fig(three,centredbox),fig(svgstr(collapsed),widebox),fig(tree,widebox),fig(finalsvg,hiddenbox)],'The same project, <span class="blue">whichever way you open it</span>.','STAP Meet crysta and three-ways workflow',extra_note='Current edi uses crysta. Animation: remove older engines, centre crysta, add CLI, reveal six routes above the three families, fade scientific layers and show interface screenshots. Standalone CLI is presently fit-only; the Python-package CLI has a broader command set. Sources https://enhantica.github.io/edi/user-guide/ and the supplied STAP diagrams.',seconds=140)
-p=S/'20_architecture.html';s=p.read_text().replace('<section>','<section data-reserve="off" data-continue>',1).replace(' data-auto-animate-restart','');p.write_text(s)
+# Keep all scene objects stable through the complete animation.
+exec(compile((R/'architecture_sequence.py').read_text(),str(R/'architecture_sequence.py'),'exec'),globals())
 
 # The test-case slide now describes the five-bank fit used for the timing benchmark.
 p=S/'26b_test-case.html'; case=p.read_text()
@@ -196,7 +129,7 @@ meta['26b_test-case.html']['kind']='adapted'
 meta['26b_test-case.html']['template']='STAP One of many test cases, five-bank values'
 
 # 17. The requested calculate / compare / adjust loop, without derivatives.
-old=(PRIVATE/'2026.09.07-source.html').read_text()
+old=(SOURCE_MATERIAL/'2026.09.07-source.html').read_text()
 svgs=re.findall(r'<svg viewBox="0 0 830 290">.*?</svg>',old,re.S)
 svgs=list(dict.fromkeys(svgs))[:5]
 # The build already adds a title-only opening. Skip the source empty diagram.
@@ -255,7 +188,7 @@ native_picture('25_scans.html','From one pattern to a measurement series','scan-
  ('flask','Co₂SiO₄'),('wave-square','D20 / ILL'),('layer-group','213 datasets'),('chart-line','Map view')], 'Fit a series and follow <span class="blue">how the structure changes</span>.')
 native_picture('26_magnetism.html','Inspect the magnetic structure','magnetic-fit-native.jpg',[
  ('flask','Co₂SiO₄'),('wave-square','D20 / ILL'),('temperature-low','2.3 K'),('magnet','Commensurate')], 'Connect the fit with <span class="blue">a structural picture</span>.')
-native_picture('26c_single-crystal.html','Even single-crystal diffraction','taurine-fit-native.jpg',[
+native_picture('26c_single-crystal.html','Also single-crystal diffraction','taurine-fit-native.jpg',[
  ('flask','Taurine'),('wave-square','SENJU / J-PARC'),('layer-group','6 datasets'),('atom','Anisotropic ADPs')], 'The same workflow for <span class="blue">single-crystal refinement</span>.')
 
 # The documented AI session is retained as scientific evidence. Match the same
@@ -267,7 +200,7 @@ write('34_ai-desktop.html','AI assistance inside the desktop app',[cc,cc+slot], 
 # 27. Compact source-style cards, with all ten requested non-physics features.
 features=[('code','Open source','Source and issue tracking on GitHub'),('display','Cross-platform','Web, macOS, Windows and Linux'),('cubes','Packaged application','Dependencies included'),('folder-open','Portable projects','Move the same project between interfaces'),('book-open','25 built-in tutorials','Guides in the app and online'),('arrows-rotate','Undo and redo','Step backwards or forwards through edits'),('chart-line','Live chart updates','See the effect of parameter changes'),('arrows-spin','Built-in updater','Check for desktop application updates'),('circle-half-stroke','Light and dark themes','Choose the display you prefer'),('comment-dots','Feedback and bug reports','Send them from the application')]
 def featuregrid(n):
- return '<div class="reflibs" data-id="libs" style="grid-template-columns:repeat(2,1fr);gap:10px 18px">'+''.join(f'<div class="reflib" data-id="lib{i}" style="padding:12px 16px"><span class="rn" style="font-size:24px"><i class="fa-{k} lead"></i>{name}</span><span class="rd" style="font-size:20px;margin-top:4px">{desc}</span></div>' for i,(k,name,desc) in enumerate(features[:n],1))+'</div>'
+ return '<div class="reflibs" data-id="libs" style="width:960px;max-width:100%;grid-template-columns:repeat(2,1fr);gap:18px">'+''.join(f'<div class="reflib" data-id="lib{i}" style="padding:12px 16px"><span class="rn" style="font-size:24px"><i class="fa-{k} lead"></i>{name}</span><span class="rd" style="font-size:20px;margin-top:4px">{desc}</span></div>' for i,(k,name,desc) in enumerate(features[:n],1))+'</div>'
 write('36_software.html','Practical software features',[featuregrid(n) for n in [2,4,6,8,10]],'Designed to make <span class="blue">everyday analysis easier</span>.','STAP What became reusable cards; same type hierarchy',extra_note='Current public documentation https://enhantica.github.io/edi/ and application tutorial index. 25 application tutorials includes the built-in-assistant walkthrough. Desktop distribution is not yet code-signed; built-in updater applies to desktop application. Portable projects are shared scientific project files, not identical interface controls.',seconds=65)
 
 # 28. Status symbols are copied unchanged from the current public feature catalogue.
@@ -288,12 +221,18 @@ lst('38_hands-on.html','Plan for Thursday and Friday',[
  ('display','<span class="blue">Guided tutorials for every interface</span><span class="sub">Built into the application and available online · choose your route</span>'),
  ('user-check','<span class="blue">Work at your own pace</span><span class="sub">A flexible set of examples, with help when you need it</span>')],'Getting started should be <span class="blue">easy</span> <img src="images/current/smile-wink.svg" alt="wink" style="display:inline-block;width:0.95em;height:0.95em;vertical-align:-0.1em;margin:0 0 0 0.08em;border:0;box-shadow:none">','STAP Needs boxed rows',seconds=70)
 
+# Compact the two closing list slides without changing their typography.
+for compact_file in ['37_status.html','38_hands-on.html']:
+ p=S/compact_file
+ text=p.read_text().replace('data-id="dolist"','data-id="dolist" style="width:840px;max-width:100%"')
+ p.write_text(text)
+
 # 30. Presenter-selected Success Kid feedback meme, kept as an offline asset.
-left='<div class="why-col" data-id="survey-art" style="flex:0 0 350px;width:350px;height:350px"><div class="imgwrap" style="width:350px;height:350px;background:transparent;border:0;border-radius:12px;overflow:hidden"><img src="images/current/success-kid-feedback.jpg" alt="Success Kid: We need your feedback" style="display:block;width:350px;height:350px;object-fit:contain;border-radius:12px;margin:0"></div></div>'
-right='<div class="why-col" data-id="survey-invitation" style="flex:1 1 0;height:350px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start"><p class="sentence" style="font-size:26px;line-height:1.45;margin:0">Which interface suits you?<br>What have you tried?<br>What would make it easier?</p><a href="http://easydiffraction.org/about/survey/" aria-label="Open the EasyDiffraction survey" style="display:block;width:200px;height:200px;flex:0 0 200px;background:white;border-radius:12px;overflow:hidden"><img src="images/current/survey-qr.svg" alt="QR code for http://easydiffraction.org/about/survey/" style="width:200px;height:200px;display:block;margin:0;border:0;border-radius:12px;box-shadow:none"></a></div>'
+left='<div class="why-col" data-id="survey-art" style="flex:0 0 400px;width:400px;height:400px"><div class="imgwrap" style="width:400px;height:400px;background:transparent;border:0;border-radius:12px;overflow:hidden"><img src="images/current/success-kid-feedback.jpg" alt="Success Kid: We need your feedback" style="display:block;width:400px;height:400px;object-fit:contain;border-radius:12px;margin:0"></div></div>'
+right='<div class="why-col" data-id="survey-invitation" style="flex:1 1 0;height:400px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start"><div style="font-size:26px;line-height:1.4"><p style="font-size:inherit;line-height:inherit;margin:0 0 16px"><a href="http://easydiffraction.org/about/survey/">easydiffraction.org/about/survey</a></p><p style="font-size:inherit;line-height:inherit;margin:0">Which interface suits you?<br>What have you tried?<br>What would make it easier?</p></div><a href="http://easydiffraction.org/about/survey/" aria-label="Open the EasyDiffraction survey" style="display:block;width:210px;height:210px;flex:0 0 210px;background:white;border-radius:12px;overflow:hidden"><img src="images/current/survey-qr.svg" alt="QR code for http://easydiffraction.org/about/survey/" style="width:210px;height:210px;display:block;margin:0;border:0;border-radius:12px;box-shadow:none"></a></div>'
 
 
-write('40_survey.html','EasyDiffraction needs your feedback',['<div class="columns" data-id="survey" style="width:830px">'+left+'</div>','<div class="columns" data-id="survey" style="width:830px">'+left+right+'</div>'],'Please take a moment to fill in the survey: <a href="http://easydiffraction.org/about/survey/">easydiffraction.org/about/survey</a>','STAP three-ways columns',extra_note='Presenter-selected option 6: Success Kid, We need your feedback. Source https://makeameme.org/meme/we-need-your-e3a7e24ae5 . Image https://media.makeameme.org/created/we-need-your-e3a7e24ae5.jpg . Downloaded unchanged for offline presentation use. QR code encodes http://easydiffraction.org/about/survey/ exactly as supplied. The presenter will publish the survey later.',seconds=45)
+write('40_survey.html','EasyDiffraction needs your feedback',['<div class="columns" data-id="survey" style="width:880px">'+left+'</div>','<div class="columns" data-id="survey" style="width:880px">'+left+right+'</div>'],'Please take a moment to fill in the survey.','STAP three-ways columns',extra_note='Presenter-selected option 6: Success Kid, We need your feedback. Source https://makeameme.org/meme/we-need-your-e3a7e24ae5 . Image https://media.makeameme.org/created/we-need-your-e3a7e24ae5.jpg . Downloaded unchanged for offline presentation use. QR code encodes http://easydiffraction.org/about/survey/ exactly as supplied. The presenter will publish the survey later.',seconds=45)
 
 # Keep the final slide's current artwork provenance accurate after regeneration.
 p=S/'40_survey.html';text=p.read_text();text=re.sub(r'<aside class="notes">.*?</aside>','<aside class="notes">Presenter-selected option 6: Success Kid, We need your feedback. Source: https://makeameme.org/meme/we-need-your-e3a7e24ae5 . Original image downloaded unchanged for offline use. QR code: http://easydiffraction.org/about/survey/ . Survey will be published by the presenter later.</aside>',text,flags=re.S);p.write_text(text)
@@ -301,10 +240,9 @@ p=S/'40_survey.html';text=p.read_text();text=re.sub(r'<aside class="notes">.*?</
 # The presenter's exact 30-slide sequence. Keep omitted slides in backup.
 order=['00_divider.html','01_title.html','02_facility.html','10_many-tools.html','11_user-friction.html','12_needs.html','13_libraries.html','13b_library-capabilities.html','14_dependencies.html','15_ux.html','16_ux-review.html','18_advanced-library.html','18b_modern-analysis.html','19_future.html','20_architecture.html','26b_test-case.html','27_verification.html','27c_fit-loop.html','28_speed.html','22_physics.html','23_powder.html','24_application.html','25_scans.html','26_magnetism.html','26c_single-crystal.html','34_ai-desktop.html','35_ai-external.html','36_software.html','37_status.html','38_hands-on.html','40_survey.html']
 p=R/'build.py';b=p.read_text();b=re.sub(r'^ORDER = .*$',lambda m:'ORDER = '+repr(order),b,flags=re.M)
-section_titles={'02_facility.html':'Why this approach','19_future.html':'crysta + EasyDiffraction','24_application.html':'Selected features','36_software.html':'Using EasyDiffraction'}
+section_titles={'02_facility.html':'Earlier EasyDiffraction','19_future.html':'EasyDiffraction + crysta','24_application.html':'Selected features','36_software.html':'Using EasyDiffraction'}
 b=re.sub(r'^SECTION_TITLES = .*?(?=^ORDER =)',lambda m:'SECTION_TITLES = '+repr(section_titles)+'\n',b,count=1,flags=re.S|re.M)
-# Continuous architecture enters directly from Meet crysta; no inserted title-only frame.
-# open_on_title() already has its explicit continuation guard.
+# Architecture uses the same title opening and horizontal transition as other stacks.
 b=b.replace("    'Status and plans': 'flag-checkered',","    'Status and plans': 'flag-checkered',\n    'Selected features': 'eye',\n    'Using EasyDiffraction': 'display',") if "'Selected features': 'eye'" not in b else b
 # Preserve removed material for later review, not in the main running order.
 backup=eval(re.search(r'^BACKUP_ORDER = (.*)$',b,re.M).group(1))

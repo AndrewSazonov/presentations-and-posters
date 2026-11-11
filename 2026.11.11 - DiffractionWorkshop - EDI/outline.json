@@ -103,7 +103,7 @@
     "seconds": 140,
     "kind": "adapted",
     "sources": "http://127.0.0.1:8873/user-guide/; http://127.0.0.1:8873/about/",
-    "template": "STAP Meet crysta and three-ways workflow"
+    "template": "STAP original stack · stable objects, source interface order"
   },
   {
     "file": "26b_test-case.html",
@@ -182,7 +182,7 @@
     "kind": "adapted",
     "seconds": 50,
     "sources": "A few live demos · shotbox; Agreement of calculated patterns · casechips",
-    "title": "Even single-crystal diffraction",
+    "title": "Also single-crystal diffraction",
     "template": "STAP shotbox and casechips · fixed app window"
   },
   {
