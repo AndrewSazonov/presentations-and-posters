@@ -252,6 +252,8 @@ b=re.sub(r'^BACKUP_ORDER = .*$',lambda m:'BACKUP_ORDER = '+repr(backup),b,flags=
 # Maintain notes and public URLs on retained slides.
 for file in order[1:]:
  p=S/file;s=p.read_text().replace('http://127.0.0.1:8873',PUBLIC);p.write_text(s)
+# Apply text-only review after all source slides have been composed.
+exec(compile((R/'text_updates.py').read_text(),str(R/'text_updates.py'),'exec'),globals())
 # Source metadata / timing map is based on the actual order, not old slide indices.
 (R/'outline.json').write_text(json.dumps([meta[f] for f in order if f in meta],indent=2,ensure_ascii=False))
 (R/'template-map.json').write_text(json.dumps(mapping,indent=2,ensure_ascii=False))

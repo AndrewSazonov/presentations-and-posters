@@ -24,7 +24,7 @@ The two-bank NCAF verification case remains separate from the five-bank benchmar
 
 The taurine image is an actual edi GUI capture. Images and figures retain their source data. References and qualifications are recorded in speaker notes.
 
-The last slide uses the presenter-selected Success Kid “We need your feedback” image. The survey QR code points to http://easydiffraction.org/about/survey/, which the presenter will publish later. The ten researched alternatives remain in the source-linked review gallery. The selected image source is recorded in the slide notes.
+The last slide uses the presenter-selected Success Kid “We need your feedback” image. The survey QR code points to http://easydiffraction.org/about/survey/, which the presenter will publish later. The selected image source is recorded in the slide notes.
 
 ## Running order
 
@@ -33,8 +33,8 @@ The last slide uses the presenter-selected Success Kid “We need your feedback�
 | 1 | EasyDiffraction and crysta |
 | 2 | One facility, two host countries |
 | 3 | Diffraction analysis: many tools |
-| 4 | What users ran into |
-| 5 | Needs |
+| 4 | Limits of existing tools |
+| 5 | What EasyDiffraction should offer |
 | 6 | Built on existing libraries |
 | 7 | What each library brings |
 | 8 | Earlier software stack |
